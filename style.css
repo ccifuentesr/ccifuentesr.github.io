@@ -1,0 +1,424 @@
+/* Main Navigation */
+.navbar {
+  background-color: transparent;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+  margin-bottom: 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navbar li {
+  display: inline;
+  margin: 0 80px;
+}
+
+.navbar a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: lightgray;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+/* Adjusting header */
+.header {
+  min-height: 40px;
+}
+
+/* Footer Styles */
+.footer {
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* General styles for the navigation links */
+.navbar ul.regular li a {
+  color: lightgray;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Style for the active link */
+.navbar ul.regular li a.active {
+  color: white;
+}
+
+/* Dimmed style for non-active links */
+.navbar ul.regular li a.dim {
+  color: grey;
+}
+
+/* Hero Content Customization */
+.hero-content {
+  padding: 8em;
+  transition: margin-top 0.3s ease;
+}
+
+.hero-content.moved-down {
+  margin-top: 150px;
+}
+
+.hero-divider {
+  width: 15%;
+  height: 3px;
+  background-color: white;
+  margin: 1em auto;
+}
+
+.hero-divider-dark {
+  width: 15%;
+  height: 3px;
+  background-color: gray;
+  margin: 1em auto;
+}
+
+/* Science */
+.science .hero-content {
+  padding: 8em;
+}
+
+.science .hero-divider {
+  width: 15%;
+  height: 2px;
+  background-color: white;
+  margin: 1em auto;
+}
+
+.container {
+  margin-top: 0px;
+  margin-bottom: 100px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 800px;
+  height: 800px;
+  margin: 0 40px;
+  font-size: 40px;
+}
+
+object {
+  border: none;
+  background: transparent;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 24px;
+}
+
+.menu-toggle .bar {
+  background-color: transparent;
+  height: 3px;
+  width: 25px;
+  margin: 3px 0;
+}
+
+/* Navbar Toggler Customization */
+.navbar-toggler {
+  border: none;
+  padding-top: 40px;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+  }
+
+  .regular {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: transparent;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding: 0;
+  }
+
+  #nav-menu li {
+      margin: 10px 0;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+
+  .menu-toggle.active + #nav-menu {
+      display: flex;
+  }
+}
+
+/* Navbar link styles */
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-link-dark {
+  color: lightgray;
+  transition: color 0.3s ease;
+}
+
+.nav-link-dark.active {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Global Styles */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Backgrounds */
+.dark {
+  background-color: #121212;
+}
+
+.darker {
+  background-color: #050505;
+}
+
+.home {
+  background: url('images/alex-perez-600572-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.science {
+  background: url('images/usgs-hoS3dzgpHzw-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.music {
+  background: url('images/nathan-dumlao-ciO5L8pin8A-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.seen {
+  background: url('images/louvre.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+audio {
+  background-color: black;
+}
+
+/* Row */
+.row {
+  overflow: hidden;
+}
+
+/* Images */
+img {
+  max-width: 80%;
+  height: auto;
+}
+
+.evenly {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+/* Fonts */
+.quiet {
+  font-family: 'quiet-sans', serif;
+}
+
+.garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.garamond2 {
+  font-family: 'EB Garamond', serif;
+}
+
+.josefin {
+  font-family: 'Josefin Sans';
+  font-size: larger;
+  color: gray;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.cabin {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.bold {
+  font-family: 'Brandon-bold', sans-serif;
+}
+
+.regular {
+  font-family: 'Brandon-regular', sans-serif;
+}
+
+.light {
+  font-family: 'Brandon-light', sans-serif;
+}
+
+/* Font Faces */
+@font-face {
+  font-family: 'Brandon-bold';
+  src: url('fonts/HvDTrial_Brandon_Grotesque_bold-BF64a625c9151d5.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Brandon-regular';
+  src: url('fonts/HvDTrial_Brandon_Grotesque_regular-BF64a625c9311e1.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Brandon-light';
+  src: url('fonts/HvDTrial_Brandon_Grotesque_light-BF64a625c93e709.otf') format('opentype');
+}
+
+/* Specific Elements */
+.github-icon {
+  font-size: 36px;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.github-icon:hover {
+  opacity: 0.6;
+}
+
+.ads-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.ads-button img {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+  filter: grayscale(100%) invert(100%);
+  transition: opacity 0.3s ease;
+}
+
+.ads-button:hover img {
+  opacity: 0.6;
+}
+
+.ads-button:hover {
+  opacity: 0.8;
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+.transparent-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  text-transform: uppercase;
+  width: 150px;
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.transparent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Cambio de color de fondo al pasar el ratón */
+}
