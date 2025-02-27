@@ -107,6 +107,21 @@
 }
 
 /* Science */
+
+.rounded-box {
+  border: 0px; /* Thicker black border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px;
+  margin: 10px;
+  width: calc(50% - 40px);
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
 .science .hero-content {
   padding: 8em;
 }
@@ -257,7 +272,7 @@ html, body {
 }
 
 .science {
-  background: url('images/usgs-hoS3dzgpHzw-unsplash.jpg');
+  background: url('images/pawel-czerwinski-fRzUPSFnp04-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -313,8 +328,13 @@ img {
 
 .josefin {
   font-family: 'Josefin Sans';
-  font-size: larger;
-  color: gray;
+  font-size: normal;
+}
+
+.tech {
+  font-family: "Share Tech Mono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .lato-regular {
