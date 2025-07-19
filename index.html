@@ -1,94 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>C. Cifuentes' A Place For My Head</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanet, M dwarf, CARMENES, KOBE"/>
-    <meta name="description" content="Personal page of C. Cifuentes.">
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Smooth scrolling for Safari and iOS -->
-    <script src="https://raw.githack.com/CristianDavideConte/universalSmoothScroll/master/js/universalsmoothscroll-min.js"></script>
-    <script src="https://raw.githack.com/CristianDavideConte/universalSmoothScroll/master/js/universalsmoothscroll-ease-functions-min.js"></script>
-    <script type="text/javascript">
-        function init() {
-            uss.setPageScroller(window);
-            uss.hrefSetup();
-            uss.hrefSetup(null, null, () => {return !uss.isScrolling();});
-            uss.setStepLengthCalculator(EASE_IN_OUT_QUART(1000));
-            window.addEventListener("wheel", () => uss.stopScrolling());
-        }
-    </script>
-    <!-- Fade-in transitions -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js" defer></script>
-    <script src="scripts.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Cifuentes' Place</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-dark home">
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent regular">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="science.html">SCIENCE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="music.html">MUSIC</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="seen.html">SEEN</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body>
+    <canvas class="star-background" id="starCanvas"></canvas>
+    
+    <header>
+        <!-- <img src="/api/placeholder/400/400" alt="Olga Balsalobre Ruza" class="profile-img"> -->
+        <h1>Science</h1>
+        <p class="subtitle">← home</p>
     </header>
+    
+    <nav>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#latest" class="nav-link">Latest</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <script>
+        // Highlight active nav link
+        function setActiveNav() {
+            const links = document.querySelectorAll('.nav-link');
+            const scrollPos = window.scrollY + 90; // Offset for header
 
-    <div class="text-center">
-        <div class="hero-content">
-            <h2 class="light text-white">C. Cifuentes</h2>   
-            <hr class="hero-divider">          
-            <h1 class="display-1 text-white-50 bold">HOME</h1>
+            let activeFound = false;
+            links.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+                if (section) {
+                    const top = section.offsetTop;
+                    const bottom = top + section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < bottom && !activeFound) {
+                        link.classList.add('active');
+                        activeFound = true;
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
+            });
+        }
+        window.addEventListener('scroll', setActiveNav);
+        window.addEventListener('load', setActiveNav);
+    </script>
+    <style>
+        .nav-link.active {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+    </style>
+    
+    <section id="about">
+        <h2>About</h2>
+        <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. 
+I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination
+from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and
+pipeline optimisation, with solid experience in Python programming.</p>
+<br
+<p><b>Current position:</b> Postdoctoral researcher at the Centro de Astrobiología <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">(CAB)</a> 
+    based at the European Space Astronomy Centre <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">(ESAC)</a>, Madrid. </p>
+    </section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="section-grid">
+        
+        <div class="research-item">
+            <h3 style="color: var(--accent-color);">Triple Trouble: Exoplanets in hierarchical triple systems</h3>
+            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">Triple star systems are more common than often assumed, yet planets in them remain understudied. Their orbital architectures offer valuable clues about planet and star formation in complex gravitational settings. Stable planets in these systems reflect the delicate balance required for long-term dynamical survival.</p>
+            <div>
+                <span class="tag">Exoplanets</span>
+                <span class="tag">Binaries</span>
+                <span class="tag">Radial velocities</span>
+                <span class="tag">Dynamics</span>
+                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">Ongoing</span>
+            </div>
         </div>
+
+        <div class="research-item">
+            <h3 style="color: var(--accent-color);">One is the Loneliest Number: Triple stellar systems are commonplace</h3>
+            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;"><em>Gaia</em> astrometry reveals subtle anomalies in stars that appear single, hinting at unresolved companions. This project follows up such cases to identify spectroscopic binaries, essential to avoid false planet detections, refine stellar parameters, and complete the census of close stellar multiplicity.</p>
+            <div>
+                <span class="tag">Binaries</span>
+                <span class="tag">Spectroscopy</span>
+                <span class="tag">Gaia</span>
+                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">Ongoing</span>
+
+            </div>
+        </div>
+        
+        <div class="research-item">
+            <h3 style="color: var(--accent-color);">K-dwarfs Orbited By habitable Exoplanets (KOBE)</h3>
+            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">The KOBE experiment is a legacy radial-velocity survey using CARMENES at Calar Alto. 
+                By targeting the overlooked K dwarfs, KOBE bridges the gap between G- and M‑dwarf studies. 
+                The project has already confirmed a planet near the habitable zone of a K dwarf (<b>PI:</b> Jorge Lillo Box).</p>
+            <div>
+                <span class="tag">Exoplanets</span>
+                <span class="tag">Spectroscopy</span>
+                <span class="tag">CARMENES</span>
+                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">Ongoing</span>
+
+            </div>
+        </div>
+
+                <!-- <div class="research-item">
+            <h3 style="color: var(--accent-color);">Speak to Me</h3>
+            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">Combining TESS photometry and advanced machine learning we analyse stellar oscillations in multiple star systems. By identifying subtle variations caused by gravitational interactions, we aim to reveal hidden exoplanets and deepen our understanding of planet formation in complex stellar environments.</p>
+            <div style="height: 1.5em;"></div>
+            <div>
+                <span class="tag">Binaries</span>
+                <span class="tag">Exoplanets</span>
+                <span class="tag">Machine learning</span>
+                <span class="tag">TESS</span>
+            </div>
+        </div> -->
+        
+    </div>
+</section>
+<section id="publications">
+  <h2>Selected publications</h2>
+  <div class="section-grid">
+    <div class="publication-item">
+      <p class="publication-date">2019</p>
+      <p class="publication-title">
+        <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...694A..15B/abstract" target="_blank">
+          KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf
+        </a>
+      </p>
+      <span class="tag">KOBE</span>
+      <span class="tag">K dwarfs</span>
+      <span class="tag">Habitability</span>
+      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
+        KOBE finds its first planets — and they’re just right.
+      </p>
+      <p>The first discovery of the KOBE project: two super-Earth- or sub-Neptune-mass planets orbiting a quiet K7 star. </p>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer text-center text-white regular">
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="text-white" style="text-decoration: none;">CC BY-SA 4.0</a> | 2024 C. Cifuentes</p>
+    <div class="publication-item">
+      <p class="publication-date">2025</p>
+      <p class="publication-title">
+        <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.228C/abstract" target="_blank">
+          CARMENES input catalogue of M dwarfs IX: Multiplicity from close spectroscopic binaries to ultra‑wide systems
+        </a>
+      </p>
+      <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
+      <span class="tag">M dwarfs</span>
+      <span class="tag">Binaries</span>
+      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
+        The multiplicity of M dwarfs is probably underestimated.
+      </p>
+      <p>Comprehensive multiplicity study ranging from close spectroscopic binaries to ultra-wide companions.</p>
+    </div>
+
+    <div class="publication-item">
+      <p class="publication-date">2020</p>
+      <p class="publication-title">
+        <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.115C/abstract" target="_blank">
+          CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
+        </a>
+      </p>
+      <span class="tag">M dwarfs</span>
+      <span class="tag">Photometry</span>
+      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
+        A trusted reference for the astrophysical parameters of M dwarfs.
+      </p>
+      <p>Study of luminosities, colours, and spectral energy distributions for M dwarfs in the CARMENES input catalogue.</p>
+    </div>
+
+    <div class="publication-item">
+      <p class="publication-date">2019</p>
+      <p class="publication-title">
+        <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...625A..68S/abstract" target="_blank">
+          The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
+        </a>
+      </p>
+      <span class="tag">M dwarfs</span>
+      <span class="tag">Stellar parameters</span>
+      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
+        Precise masses and radii of M dwarfs.
+      </p>
+      <p>Precise radii and masses for 293 nearby M dwarfs, achieving 2-5% precision and consistency across techniques.</p>
+    </div>
+
+    <div class="publication-item">
+      <p class="publication-date">2019</p>
+      <p class="publication-title">
+        <a href="https://ui.adsabs.harvard.edu/abs/2019ApJ...887..261M/abstract" target="_blank">
+          Exomoons in the habitable zones of M dwarfs
+        </a>
+      </p>
+      <span class="tag">Exomoons</span>
+      <span class="tag">Habitability</span>
+      <span class="tag">M dwarfs</span>
+      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
+        Prospects for habitability beyond exoplanets around M dwarfs.
+      </p>
+      <p>Analysis of potential habitable exomoons orbiting M dwarfs and their detectability.</p>
+    </div>
+
+  </div>
+</section>
+
+   <section id="latest">
+        <h2>Latest & Upcoming</h2>
+
+        <div class="section-grid">
+            <div class="publication-item">
+                <p class="publication-date">July 2025</p>
+                <p class="publication-title">
+                    <a href="https://indico.global/event/8940/" target="_blank">
+                        Detection and Dynamics of Exoplanets (DDE): Interplay between theory and observations 
+                    </a>
+                </p>
+                <p style="margin-bottom: 1em;">University of Coimbra, Portugal</p>
+            </div>  
+            <div class="publication-item">
+                <p class="publication-date">November 2025</p>
+                <p class="publication-title">
+                    <a href="https://kobe.caha.es" target="_blank">
+                        KOBE Hackathon #4
+                    </a>
+                </p>
+                <p style="margin-bottom: 1em;">Observatorio de Calar Alto, Almería, Spain</p>
+        </div>
+            <div class="publication-item">
+                <p class="publication-date">December 2025</p>
+                <p class="publication-title">
+                    <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank">
+                        Exploring Tattoine and beyond: Circumbinary planets with ESAC missions
+                    </a>
+                </p>
+                <p style="margin-bottom: 1em;">European Space Astronomy Centre, Madrid, Spain</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p class="contact-item"><span class="contact-label"></span> 
+            <a href="mailto:&#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;">
+  &#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;
+</a> <!-- anti-spam encoding -->
+            </p>
+            <p class="contact-item"><span class="contact-label"></span> Centro de Astrobiología (CAB)</p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1em; margin-top: 1.5em;">
+            <span class="tag" style="background-color: var(--accent-color); color: rgb(255, 255, 255);">
+                <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                    ADS
+                </a>
+            </span>
+            <span class="tag" style="background-color: var(--accent-color); color: rgb(255, 255, 255);">
+                <a href="https://github.com/ccifuentesr" target="_blank" style="text-decoration: none; color: inherit;">
+                    GitHub
+                </a>
+            </span>
+            <span class="tag" style="background-color: var(--accent-color); color: rgb(255, 255, 255);">
+                <a href="https://www.dropbox.com/scl/fi/is6bskt3sus70d92gkdsx/cifuentes_cv.pdf?rlkey=q622rwsf7xl1j49b9wwvbaloe&dl=0" target="_blank" style="text-decoration: none; color: inherit;">
+                    CV
+                </a>
+            </span>
+        </div>
+
+    </section>
+    
+    <footer>
+        <p>
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; transition: color 0.2s;">
+            CC BY-SA 4.0
+            </a><br>
+            &copy; 2025 | C. Cifuentes
+        </p>
+        <p>Last updated: July 2025</p>
     </footer>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1n4rE8eXbTrG1H9DaA4ORsUPtXr9eqdJH5LJH5jIv4bZpCLhR06f9N0oI6e7jgs2d" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        document.querySelectorAll('.js-scroll-trigger').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelector('.navbar-collapse').classList.remove('show');
-            });
-        });
-
-        // JavaScript to toggle hero content position
-        document.querySelector('.navbar-toggler').addEventListener('click', () => {
-            document.querySelector('.hero-content').classList.toggle('moved-down');
-        });
-    </script>
+    
 </body>
 </html>
