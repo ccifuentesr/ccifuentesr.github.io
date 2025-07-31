@@ -241,9 +241,10 @@
 }
 
   .delay-1 { animation-delay: 0.3s; }
-  .delay-2 { animation-delay: 1.7s; }
-  .delay-3 { animation-delay: 2.3s; }
-  .delay-4 { animation-delay: 2.9s; }
+  .delay-2 { animation-delay: 1.5s; }
+  .delay-3 { animation-delay: 2.0s; }
+  .delay-4 { animation-delay: 2.5s; }
+  .delay-5 { animation-delay: 3.0s; }
 
   .nav-links a {
   margin-right: 1.5em;
@@ -257,6 +258,11 @@
   color: white;
 }
 
+        .nav-link.active {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
 .noto-sans-mono {
   font-family: "Noto Sans Mono", monospace;
   font-optical-sizing: auto;
@@ -265,3 +271,34 @@
   font-variation-settings:
     "wdth" 100;
 }
+
+.karla {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .blur-hover {
+            filter: blur(10px) brightness(0.3);
+            transition: filter 0.6s ease;
+        }
+
+        .blur-hover:hover {
+            filter: blur(0px) brightness(1);
+        }
+
+        .blur-hover-medium {
+            filter: blur(5px) brightness(0.3);
+            transition: filter 0.6s ease;
+        }
+
+        .blur-hover-medium:hover {
+            filter: blur(0px) brightness(1);
+        }
