@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a href="index.html" style="position: absolute; top: 1.5em; left: 1.5em; z-index: 10;"></a>
     <canvas class="star-background" id="starCanvas"></canvas>
     
     <header>
@@ -20,15 +21,14 @@
 </p>
 
     </header>
-    
-    
-    <nav>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#publications" class="nav-link">Publications</a>
-        <a href="#latest" class="nav-link">Latest</a>
-        <a href="#contact" class="nav-link">Contact</a>
+    <nav id="mainNav" style="font-size: 0.95em; padding: 0.2em 0; background-color: #f8fafcc5;">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#publications" class="nav-link">Publications</a>
+      <a href="#latest" class="nav-link">Latest</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
+
     <script>
         // Highlight active nav link
         function setActiveNav() {
@@ -53,12 +53,6 @@
         window.addEventListener('scroll', setActiveNav);
         window.addEventListener('load', setActiveNav);
     </script>
-    <style>
-        .nav-link.active {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-    </style>
     
     <section id="about">
         <h2>About</h2>
