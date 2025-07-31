@@ -251,7 +251,7 @@
   color: #555;
   text-decoration: none;
   transition: color 0.3s ease;
-    font-family: "Noto Sans Mono", monospace;
+  font-family: "Raleway", sans-serif;
 }
 
 .nav-links a:hover {
@@ -276,6 +276,20 @@
   font-family: "Karla", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
+  font-style: normal;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.raleway> {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
   font-style: normal;
 }
 
