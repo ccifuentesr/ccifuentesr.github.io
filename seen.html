@@ -1,94 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>C. Cifuentes' A Place For My Head</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanet, M dwarf, CARMENES, KOBE"/>
-    <meta name="description" content="Personal page of C. Cifuentes.">
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Smooth scrolling for Safari and iOS -->
-    <script src="https://raw.githack.com/CristianDavideConte/universalSmoothScroll/master/js/universalsmoothscroll-min.js"></script>
-    <script src="https://raw.githack.com/CristianDavideConte/universalSmoothScroll/master/js/universalsmoothscroll-ease-functions-min.js"></script>
-    <script type="text/javascript">
-        function init() {
-            uss.setPageScroller(window);
-            uss.hrefSetup();
-            uss.hrefSetup(null, null, () => {return !uss.isScrolling();});
-            uss.setStepLengthCalculator(EASE_IN_OUT_QUART(1000));
-            window.addEventListener("wheel", () => uss.stopScrolling());
-        }
-    </script>
-    <!-- Fade-in transitions -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js" defer></script>
-    <script src="scripts.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Cifuentes' Place</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-dark seen">
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent regular">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="science.html">SCIENCE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="music.html">MUSIC</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="seen.html">SEEN</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body style="background-color: #white;">
+    <canvas class="star-background" id="starCanvas"></canvas>
+    
+    <header>
+      <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Seen</h1>
+  <p class="subtitle">
+  <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a>
+</p>
+
     </header>
+    
+    
+    <nav id="mainNav2" style="font-size: 1.1em; padding: 0.2em 0; background-color: #f8fafcc5;">
+  <a href="#places" class="nav-link">Places</a>
+  <a href="#bw" class="nav-link">B/W</a>
+  <a href="#film" class="nav-link">35mm</a>
+  <a href="#astro" class="nav-link">Astro</a>
+</nav>
 
-    <div class="text-center">
-        <div class="hero-content">
-            <!-- <h4 class="light text-white">C. Cifuentes</h4>            
-            <hr class="hero-divider">  -->
-            <h1 class="display-1 bold text-white-50">SEEN</h1>
-        </div>
-    </div>
+    <script>
+        // Highlight active nav link
+        function setActiveNav() {
+            const links = document.querySelectorAll('.nav-link');
+            const scrollPos = window.scrollY + 90; // Offset for header
 
-    <!-- Footer -->
-    <footer class="footer text-center text-white regular">
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="text-white" style="text-decoration: none;">CC BY-SA 4.0</a> | 2024 C. Cifuentes</p>
-    </footer>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-1n4rE8eXbTrG1H9DaA4ORsUPtXr9eqdJH5LJH5jIv4bZpCLhR06f9N0oI6e7jgs2d" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        document.querySelectorAll('.js-scroll-trigger').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelector('.navbar-collapse').classList.remove('show');
+            let activeFound = false;
+            links.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+                if (section) {
+                    const top = section.offsetTop;
+                    const bottom = top + section.offsetHeight;
+                    if (scrollPos >= top && scrollPos < bottom && !activeFound) {
+                        link.classList.add('active');
+                        activeFound = true;
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
             });
-        });
-
-        // JavaScript to toggle hero content position
-        document.querySelector('.navbar-toggler').addEventListener('click', () => {
-            document.querySelector('.hero-content').classList.toggle('moved-down');
-        });
+        }
+        window.addEventListener('scroll', setActiveNav);
+        window.addEventListener('load', setActiveNav);
     </script>
+    <style>
+        .nav-link.active {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+    </style>
+    
+<section id="places">
+  <h1 style="text-align: center;">Places</h1>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/sanabria1.jpeg" alt="Sanabria 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A light in the dark</p>
+  <p class="location">Sanabria, 2017</p>
+</div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/sanabria2.jpeg" alt="Sanabria 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A place for my head</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/sanabria4.jpeg" alt="Sanabria 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Last hope</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/florencia1.jpeg" alt="Florencia 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Ponte Beccio</p>
+  <p class="location">Firenze, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/florencia3.jpeg" alt="Florencia 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Proportions</p>
+  <p class="location">Firenze, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/florencia4.jpeg" alt="Florencia 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">David</p>
+  <p class="location">Firenze, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/florencia5.jpeg" alt="Florencia 5" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Venus</p>
+  <p class="location">Firenze, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/galicia1.jpg" alt="Galicia 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A Costa</p>
+  <p class="location">Galicia, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/galicia2.jpg" alt="Galicia 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Duerme</p>
+  <p class="location">Galicia, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/madrid1.jpeg" alt="Madrid 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Volver</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/madrid2.jpeg" alt="Madrid 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Witness the end</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/madrid3.jpg" alt="Madrid 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">An Open Door</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/paris1.jpeg" alt="París 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Art</p>
+  <p class="location">Paris, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/paris2.jpeg" alt="París 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Iron</p>
+  <p class="location">Paris, 2019</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma1.jpeg" alt="Roma 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">La Luce</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma2.jpeg" alt="Roma 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Trevi</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma3.jpeg" alt="Roma 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Eterno ritorno</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma4.jpeg" alt="Roma 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">And now we are free</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma6.jpeg" alt="Roma 6" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">One day</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roque1.jpg" alt="Roque 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Orion</p>
+  <p class="location">La Palma, 2020</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/salzburgo1.jpg" alt="Salzburgo 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Once Upon A Time</p>
+  <p class="location">Salzburg, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/tenerife1.jpg" alt="Tenerife 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Wake</p>
+  <p class="location">La Laguna, 2017</p>
+  </div>
+  </div>
+
+
+    <img src="photos/uk1.jpeg" alt="UK 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Waltzer</p>
+    <p class="location">Brighton, 2017</p>
+  </div>
+    </div>
+</section>
+
+<section id="bw" >
+  <h1 style="text-align: center;" >B/W</h1>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/asturias1.jpg" alt="Asturias B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">TheLife That Follows</p>
+  <p class="location">Asturias, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/roma5.jpeg" alt="Roma 5 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Cupido</p>
+  <p class="location">Roma, 2017</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 7.5em;">
+    <img src="photos/vaticano2.jpeg" alt="Vaticano 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Holy</p>
+  <p class="location">Vaticano, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/sanabria3.jpeg" alt="Sanabria 3 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Home Sweet Home</p>
+  <p class="location">Sanabria, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk2.jpg" alt="UK 2 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">The World</p>
+  <p class="location">London, 2015</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk3.jpg" alt="UK 3 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Fish, PLay, Love</p>
+  <p class="location">Brighton, 2015</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk4.jpg" alt="UK 4 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Origins</p>
+  <p class="location">Brighton, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk5.jpg" alt="UK 5 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Seven Sisters</p>
+  <p class="location">Brighton, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk6.jpg" alt="UK 6 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A Heaven</p>
+  <p class="location">London, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/uk7.jpg" alt="UK 7 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">St. Paul's</p>
+  <p class="location">London, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/vaticano1.jpeg" alt="Vaticano 1 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Let's talk</p>
+  <p class="location">Vatiacno, 2018</p>
+  </div>
+  </div>
+</section>
+
+<section id="film">
+  <h1 style="text-align: center;" >35mm</h1>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/35mm_1.jpg" alt="35mm 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Castle</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/35mm_2.jpg" alt="35mm 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Water</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/35mm_3.jpg" alt="35mm 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Lake</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/35mm_4.jpg" alt="35mm 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Door</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+</section>
+
+<section id="astro">
+  <h1 style="text-align: center;">Astro</h1>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_jupiter.jpg" alt="Júpiter" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Jupiter & Friends</p>
+  <p class="location">2016</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_luna2.jpeg" alt="Luna 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Moon</p>
+  <p class="location">2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_luna1.jpeg" alt="Luna 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Moon: eclipse</p>
+  <p class="location">2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_luna3.jpeg" alt="Luna 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Moon: closer</p>
+  <p class="location">2017</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_sol2.jpeg" alt="Sol 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sun: raw</p>
+  <p class="location">2012</p>
+  </div>
+  </div>
+  
+  <div style="margin-bottom: 7.5em;">
+    <img src="photos/astro_sol1.jpg" alt="Sol 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sun: colored</p>
+  <p class="location">2012</p>
+  </div>
+  </div>
+
+
+</section>
+
+
+    
+    <div style="height: 20em;"></div>
+
+    <footer>
+        <p>
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
+      CC0 1.0 Universal
+
+    </a>
+            2025 | C. Cifuentes
+        </p>
+        <p>Last updated: July 2025</p>
+    </footer>
+    
 </body>
 </html>
