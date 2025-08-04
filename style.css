@@ -229,6 +229,11 @@
             }
         }
 
+                .nav-link.active {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.5s ease forwards;
@@ -251,7 +256,7 @@
   color: #555;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-family: "Raleway", sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .nav-links a:hover {
@@ -364,7 +369,7 @@
       font-weight: bold;
     }
 
-      @media (max-width: 600px) {
+      @media (max-width: 800px) {
         #mainNav .nav-link {
           display: none;
         }
@@ -387,6 +392,14 @@
           border-radius: 0.5em;
           padding: 0.2em 0.8em;
         }
+                #mainNav2 .nav-link.active {
+          display: inline-block;
+          font-weight: bold;
+          background: var(--text-color, #ffffff);
+          color: #232323 !important;
+          border-radius: 0.5em;
+          padding: 0.2em 0.8em;
+        }
       }
 
       .photo-caption {
@@ -403,4 +416,34 @@ text-align: center;
   font-size: 0.9em;
 text-align: center;
 
+}
+audio {
+  /* width: 100%;
+  max-width: 300px;
+  filter: grayscale(100%) contrast(110%);
+  background-color: transparent;
+  border: none;
+  margin: 0.5em 0; */
+
+}
+
+.tracklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.tracklist li {
+  padding: 0.4em 0.6em;
+  color: rgba(92, 92, 92, 0.75);
+  font-family: 'Karla', sans-serif;
+  font-size: 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tracklist li:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
