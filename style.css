@@ -1,5 +1,6 @@
      /* Simple and minimalist style */
         :root {
+            --dark-color: #050505;
             --primary-color: #0f172a;
             --accent-color: #6366f1;
             --text-color: #334155;
@@ -271,10 +272,8 @@
 .noto-sans-mono {
   font-family: "Noto Sans Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 200;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }
 
 .karla {
@@ -446,4 +445,210 @@ audio {
 .tracklist li:hover {
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Music Section Styles --- */
+.music-section {
+  margin: 3rem 0;
+}
+
+
+
+.section-title {
+  font-size:2em;
+  background-color: var(--dark-color);
+  color: #fff;
+  text-align: center;
+  margin-top: 1em;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+
+
+.subsection-title {
+  font-size:1.2em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  position: relative;
+
+}
+
+/* .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+} */
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.song-card {
+  /* background: linear-gradient(135deg, rgba(30, 30, 40, 0.8), rgba(50, 50, 60, 0.6)); */
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.song-card:hover {
+  /* transform: translateY(-5px); */
+  /* border-color: rgba(255, 255, 255, 0.156); */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.song-card:hover::before {
+  opacity: 1;
+}
+
+.song-title {
+  font-size: 0.9em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.song-title-fade {
+  font-size: 0.9em;
+  color: #2e2e2e;
+  margin-bottom: 0.5rem;
+  font-weight: 200;
+}
+
+.song-description {
+  color: #bbb;
+  margin-bottom: 1.2rem;
+  font-size: 0.9em;
+
+}
+
+.audio-player {
+  width: 100%;
+  background: rgba(20, 20, 30, 0);
+  border-radius: 10px;
+  padding: 1rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.play-btn {
+  background: #ffffff00;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+  /* box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2); */
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.time-display {
+  color: #ccc;
+  font-size: 0.9em;
+  min-width: 100px;
+}
+
+.progress-container {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--dark-color), #ffffff);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.music-nav {
+  font-size: 1.1em;
+  padding: 0.8em 0;
+  background: rgba(0, 0, 0, 0);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.music-nav .nav-link {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.music-nav .nav-link:hover,
+.music-nav .nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive for music section */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5em;
+  }
+
+  .songs-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .music-nav .nav-link {
+    margin: 0 1rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
