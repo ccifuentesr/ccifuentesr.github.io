@@ -6,6 +6,7 @@
             --text-color: #334155;
             --light-text: #94a3b8;
             --background: #f8fafc;
+            --maxwidth: 1450px;
         }
         
         * {
@@ -19,9 +20,9 @@
             background-color: var(--background);
             color: var(--text-color);
             line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            max-width: var(--maxwidth);
+              margin: em auto;
+  padding: 0 2em;   
         }
         
         header {
@@ -29,6 +30,20 @@
             text-align: center;
         }
         
+        .seen {
+  margin: 0em auto;
+  padding: 0;   
+  background-color: white;
+}
+
+
+        .dark {
+            background-color: var(--dark-color);
+        }
+
+        .dark * {
+    color: white !important;
+}
         .tag {
   display: inline-block;
   background-color: rgba(127, 90, 240, 0.2);
@@ -39,6 +54,72 @@
   margin-right: 2em;
   margin-bottom: 2em;
 }
+
+.gallery {
+  max-width: var(--maxwidth, 1400px);
+  margin: 0 auto;
+  padding: 0 var(--page-padding, 1rem);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap, 1rem);
+  box-sizing: border-box;
+}
+
+.gallery .photo {
+  /* Contenedor principal - sin restricciones de altura para permitir el caption */
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery .photo .image-container {
+  /* Contenedor específico para la imagen con altura fija */
+  height: 300px; /* Ajusta esta altura según tus necesidades */
+  border-radius: var(--radius, 0.5rem);
+  overflow: hidden; /* Oculta las partes que sobresalen */
+  background-color: #f0f0f0; /* Color de fondo opcional */
+}
+
+.gallery .photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius, 0.5rem);
+  display: block;
+  object-fit: cover; /* Mantiene proporción y rellena el contenedor */
+  object-position: center; /* Centra la imagen en el contenedor */
+}
+
+
+/* Alternativa con aspect-ratio para mayor control */
+.gallery-aspect .photo {
+  aspect-ratio: 4/3; /* Puedes cambiar esta proporción */
+  border-radius: var(--radius, 0.5rem);
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.gallery-aspect .photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius, 0.5rem);
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+  }
+  
+  .gallery .photo {
+    height: 250px; /* Altura menor en móvil */
+  }
+}
+
+
+
 
         .profile-img {
             width: 150px;
@@ -344,19 +425,48 @@
       font-weight: bold;
     }
 
+/* Fondo negro full width */
+#astro {
+  background-color: black;
+  color: white;
+  padding: 3rem 0;
+  width: 100vw;        /* ancho completo viewport */
+  position: relative;  /* para evitar scroll horizontal raro */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
 
-    #mainNav2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5em;
-      position: sticky;
-      top: 0;
-      background: var(--background-color, #ffffffba);
-      z-index: 100;
-      min-height: 2em;
-      padding: 0.2em 0;
-    }
+/* Contenedor interno centrado y con max ancho */
+#astro .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+
+#mainNav2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  position: sticky;
+  top: 0;
+  background: var(--background-color, #ffffffba);
+  z-index: 100;
+  min-height: 2em;
+  padding: 0.2em 0;
+
+  width: 100vw;          /* full viewport width */
+  left: 50%;
+  margin-left: -15.8vw;    /* desplaza para cubrir full ancho */
+  box-sizing: border-box;
+}
+
+
     #mainNav2 .nav-link {
       font-size: 0.95em;
       padding: 0.2em 0.7em;
@@ -400,12 +510,41 @@
           padding: 0.2em 0.8em;
         }
       }
+  .photo-caption {
+    margin-top: 0rem;
+    font-size: 0.9rem;
+  }
 
-      .photo-caption {
-  text-align: center;
+  /* Clase para hacer que una foto ocupe las dos columnas */
+.gallery .photo.full-width {
+  grid-column: span 2; /* Ocupa las dos columnas */
 }
+
+.gallery .photo.full-width .image-container {
+  height: 400px; /* Altura mayor para fotos a ancho completo */
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+  }
+  
+  .gallery .photo {
+    height: 250px; /* Altura menor en móvil */
+  }
+  
+  .gallery .photo.full-width {
+    grid-column: span 1; /* En móvil todas ocupan 1 columna */
+  }
+  
+  .gallery .photo.full-width .image-container {
+    height: 250px; /* Misma altura que las demás en móvil */
+  }
+}
+
 .photo-caption .title {
-  margin-top: 1.5em;
+  margin-top: 0.9em;
   color: black;
   font-size: 1.1em;
 text-align: center;
