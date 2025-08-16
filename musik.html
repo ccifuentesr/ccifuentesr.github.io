@@ -11,7 +11,7 @@
 </head>
 
 </head>
-<body style="background-color: var(--dark-color);">
+<body style="background-color: var(--dark-color);" class="musik">
 <header>
 <p style="color: rgb(86, 86, 86); font-size: 1.2em;">Carlos Cifuentes </p>
 <h1 style="font-size: 4.5em; margin-bottom: 0.2em; color: aliceblue; text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);">Musik</h1>
@@ -20,197 +20,51 @@
 </p>
 </header>
 
-<nav class="music-nav">
-<a href="#landscapes" class="nav-link">Landscapes</a>
-<a href="#kosmona" class="nav-link">Kosmona</a>
-<!-- <a href="#metal" class="nav-link">Metal</a> -->
-</nav>
 
-
-<section id="landscapes" class="music-section">
-<h2 class="section-title">LANDSCAPES</h2>
-<h3 class="subsection-title">Originals</h3>
-
-<div class="songs-grid">
-    <div class="song-card">
-        <div class="song-title">Shadows</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
+<div id="global-player" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(0, 0, 0, 0.85); padding: 1em; z-index: 1000;">
+    <div class="audio-player">
+        <div class="player-controls">
+            <button class="play-btn" onclick="togglePlayGlobal()">▶</button>
+            <div class="time-display">
+                <span id="global-current-time">0:00</span> / <span id="global-duration">0:00</span>
             </div>
-            <audio preload="metadata">
-                <source src="media/music/piano_original_shadows.mp3" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-    </div>
-
-    <h3 class="subsection-title">Versions</h3>
-
-<div class="songs-grid"></div>
-    <div class="song-card">
-        <div class="song-title">Saman</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
+            <div class="progress-container" onclick="setProgressGlobal(event)">
+                <div class="progress-bar" id="global-progress-bar"></div>
             </div>
-            <audio preload="metadata">
-                <source src="media/music/piano_olafur_saman.mp3" type="audio/mp3">
-            </audio>
         </div>
+        <audio id="global-audio" preload="metadata"></audio>
     </div>
-
-    <div class="song-card">
-        <div class="song-title">Sweet Little Lie</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="media/music/piano_frahm_sweet.mp3" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-
-<div style="margin-top: 4em;">
 </div>
-</section>
-<section id="kosmona" class="music-section">
-<h3 class="section-title noto-sans-mono">KOSMONA</h3>
-<h3 class="subsection-title noto-sans-mono">Orbital Solutions</h3>
-<p class="song-description noto-sans-mono" style="color: rgb(165, 30, 30); text-align: center;">Status: Incomplete</p>
 
-<div class="songs-grid">
-    
-    <div class="song-card">
-        <div class="song-title-fade noto-sans-mono" >01 Semi-major axis</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="#" type="audio/mp3">
-            </audio>
-        </div>
+<main class="music-main">
+  <div class="music-row">
+    <div class="music-box">
+      <h2>Landscapes</h2>
+      <p class="subtitle">Original piano works</p>
+      <ul>
+        <li onclick="loadTrack('media/music/piano_original_shadows.mp3', this)">Shadows</li>
+        <li onclick="loadTrack('media/music/piano_olafur_saman.mp3', this)">Saman</li>
+        <li onclick="loadTrack('media/music/piano_frahm_sweet.mp3', this)">Sweet Little Lie</li>
+      </ul>
     </div>
 
-    <div class="song-card">
-        <div class="song-title noto-sans-mono" >02 Eccentricity</div>
-        <!-- <div class="song-description">An ambient composition that captures the majesty of the northern lights with ethereal textures and floating melodies.</div> -->
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="media/music/orbital_02_eccentricity.mp3" type="audio/mp3">
-            </audio>
-        </div>
+    <div class="music-box">
+      <h2>Kosmona</h2>
+      <p class="subtitle">Electronic adventures</p>
+      <ul>
+        <!-- <li onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">Semi-major axis</li> -->
+        <li onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">Eccentricity</li>
+        <!-- <li onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">Inclination</li> -->
+        <!-- <li onclick="loadTrack('media/music/orbital_05_argument.mp3', this)">Long. of the ascending node</li> -->
+        <li onclick="loadTrack('media/music/orbital_05_argument.mp3', this)">Argument of periapsis</li>
+        <li onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)">True anomaly</li>
+         
+      </ul>
     </div>
+  </div>
+</main>
 
-    <div class="song-card">
-        <div class="song-title-fade noto-sans-mono" >03 Inclination</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="#" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-
-    <div class="song-card">
-        <div class="song-title-fade noto-sans-mono" >04 Long. of the ascending node</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="#" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-
-    <div class="song-card">
-        <div class="song-title noto-sans-mono" >05 Argument of periapsis</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="media/music/orbital_05_argument.mp3" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-
-    <div class="song-card">
-        <div class="song-title noto-sans-mono" >06 True anomaly</div>
-        <div class="audio-player">
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlay(this)">▶</button>
-                <div class="time-display">
-                    <span class="current-time">0:00</span> / <span class="duration"></span>
-                </div>
-                <div class="progress-container" onclick="setProgress(event, this)">
-                    <div class="progress-bar"></div>
-                </div>
-            </div>
-            <audio preload="metadata">
-                <source src="media/music/orbital_06_trueanomaly.mp3" type="audio/mp3">
-            </audio>
-        </div>
-    </div>
-
-</section>
-
+<div style="height: 40em;"></div>
 
 <footer>
 <p>
@@ -350,6 +204,82 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
     });
 });
+
+
+let currentTrack = null;
+
+function loadTrack(src) {
+    const audio = document.getElementById('global-audio');
+    const playBtn = document.querySelector('#global-player .play-btn');
+    audio.src = src;
+    audio.play();
+    playBtn.textContent = '⏸';
+}
+
+// Play/Pause
+function togglePlayGlobal() {
+    const audio = document.getElementById('global-audio');
+    const playBtn = document.querySelector('#global-player .play-btn');
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '⏸';
+    } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+    }
+}
+
+// Update progress bar
+document.getElementById('global-audio').addEventListener('timeupdate', () => {
+    const audio = document.getElementById('global-audio');
+    const progressBar = document.getElementById('global-progress-bar');
+    const currentTimeEl = document.getElementById('global-current-time');
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = progress + '%';
+    const minutes = Math.floor(audio.currentTime / 60);
+    const seconds = Math.floor(audio.currentTime % 60);
+    currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+});
+
+// Set duration
+document.getElementById('global-audio').addEventListener('loadedmetadata', () => {
+    const audio = document.getElementById('global-audio');
+    const durationEl = document.getElementById('global-duration');
+    const minutes = Math.floor(audio.duration / 60);
+    const seconds = Math.floor(audio.duration % 60);
+    durationEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+});
+
+// Click to set progress
+function setProgressGlobal(e) {
+    const audio = document.getElementById('global-audio');
+    const container = e.currentTarget;
+    const rect = container.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = percent * audio.duration;
+}
+
+// Load into your global player if present, otherwise just mark active
+function loadTrack(src, el) {
+  // 1) Update global audio if it exists
+  const audio = document.getElementById('global-audio') || document.querySelector('audio');
+  if (audio) {
+    // Avoid unnecessary reloads
+    const absoluteSrc = new URL(src, location.href).href;
+    if (audio.src !== absoluteSrc) audio.src = src;
+    audio.play().catch(() => {/* no-op */});
+
+    // Optional: update a global play button if you have one
+    const playBtn = document.querySelector('#global-player .play-btn');
+    if (playBtn) playBtn.textContent = '⏸';
+  }
+
+  // 2) Toggle active class
+  document.querySelectorAll('.music-box li').forEach(li => li.classList.remove('active'));
+  el.classList.add('active');
+}
+
+
 </script>
 </body>
 </html>

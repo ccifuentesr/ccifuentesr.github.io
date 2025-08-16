@@ -21,8 +21,8 @@
             color: var(--text-color);
             line-height: 1.6;
             max-width: var(--maxwidth);
-              margin: em auto;
-  padding: 0 2em;   
+              margin: auto;
+          padding: 0 2.5em;   
         }
         
         header {
@@ -258,6 +258,16 @@
             border-top: 1px solid #e2e8f0;
             margin-top: 4rem;
         }
+
+        .musik footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: rgb(71, 71, 71);
+    font-size: 0.875rem;
+    border-top: 1px solid #333333; /* gris oscuro casi negro */
+    margin-top: 2em;
+    margin-bottom:6rem; /* más margen inferior */
+}
         
         .social-links {
             display: flex;
@@ -485,7 +495,7 @@
         #mainNav .nav-link.active {
           display: inline-block;
           font-weight: bold;
-          background: var(--accent-color, #444);
+          background: var(--accent-color, #ffffff);
           color: #fff !important;
           border-radius: 0.5em;
           padding: 0.2em 0.8em;
@@ -504,7 +514,7 @@
                 #mainNav2 .nav-link.active {
           display: inline-block;
           font-weight: bold;
-          background: var(--text-color, #ffffff);
+          background: var(--background, #ffffff);
           color: #232323 !important;
           border-radius: 0.5em;
           padding: 0.2em 0.8em;
@@ -655,9 +665,26 @@ audio {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer; margin: 0.3em 0; 
+
 }
 
 
+
+/* Contenido principal */
+main {
+    padding: 2em;
+    flex: 1;
+}
+
+/* Ajustes de sección */
+.music-section {
+    margin-bottom: 80vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 .song-card:hover {
   /* transform: translateY(-5px); */
@@ -665,30 +692,34 @@ audio {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.song-card:hover::before {
-  opacity: 1;
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.rem;
+  padding: 0.rem 1rem;
+  align-items: center;
+}
+
+.song-card {
+  background: #1a1a1a;      /* caja oscura */
+  border-radius: 12px;      /* esquinas suaves */
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.song-card:hover {
+  background: #2a2a2a;
+  /* transform: translateY(-2px); */
 }
 
 .song-title {
-  font-size: 0.9em;
-  color: #fff;
-  margin-bottom: 0.5rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f5f5f5;
 }
 
-.song-title-fade {
-  font-size: 0.9em;
-  color: #2e2e2e;
-  margin-bottom: 0.5rem;
-  font-weight: 200;
-}
-
-.song-description {
-  color: #bbb;
-  margin-bottom: 1.2rem;
-  font-size: 0.9em;
-
-}
 
 .audio-player {
   width: 100%;
@@ -748,32 +779,94 @@ audio {
   transition: width 0.1s ease;
 }
 
-.music-nav {
-  font-size: 1.1em;
-  padding: 0.8em 0;
-  background: rgba(0, 0, 0, 0);
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.music-main {
+  padding: 2rem;
+  background-color: #000; /* fondo negro */
+  color: white; /* texto blanco */
 }
 
-.music-nav .nav-link {
+.music-row {
+  display: flex;
+  gap: 2rem;
+}
+
+
+/* Apilar cajas en móviles */
+@media (max-width: 768px) {
+  .music-row {
+    flex-direction: column;
+    gap: 1.5rem; /* un poco menos de espacio entre cajas */
+  }
+}
+
+.music-box {
+  flex: 1;
+  background: #111; 
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.music-box h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.music-box .subtitle {
+  color: #aaa; /* gris para subtítulo */
+  margin-bottom: 1rem;
+}
+
+.music-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #414141;
+}
+
+.music-box li {
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.music-box li:hover {
   color: #ccc;
-  text-decoration: none;
-  margin: 0 2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
 }
 
-.music-nav .nav-link:hover,
-.music-nav .nav-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+.music-box h2 {
+  color: white;
 }
+
+/* Keep everything white, dim non-active items via opacity */
+.music-main, .music-main * { color: #626262; }
+
+.music-box ul { list-style: none; margin: 0; padding: 0; }
+.music-box li {
+  cursor: pointer;
+  padding: 0.5rem 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.75;                  /* non-active appears dimmed but still white */
+  transition: opacity 0.15s ease; /* subtle feedback */
+}
+.music-box li:hover { opacity: 0.9; }
+
+/* Active track: full white + icon */
+.music-box li.active {
+  opacity: 1;
+  font-weight: 600;
+  color: white;
+}
+.music-box li::before {
+  content: "";                    /* reserved space for icon alignment */
+  width: 1rem;
+  display: inline-block;
+}
+.music-box li.active::before {
+  content: "▶";
+}
+
 
 /* Responsive for music section */
 @media (max-width: 768px) {
