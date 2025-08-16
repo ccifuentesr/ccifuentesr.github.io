@@ -146,8 +146,7 @@
         }
         
         .subtitle {
-            font-size: 1.25rem;
-            color: var(--light-text);
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
         
@@ -796,6 +795,7 @@ html {
   .music-row {
     flex-direction: column;
     gap: 1.5rem; /* un poco menos de espacio entre cajas */
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -804,6 +804,7 @@ html {
   background: #111; 
   border-radius: 1rem;
   padding: 1.5rem;
+      margin-bottom: 1.8rem;
 }
 
 .music-box h2 {
@@ -812,8 +813,9 @@ html {
 }
 
 .music-box .subtitle {
-  color: #aaa; /* gris para subtítulo */
+  color: #376cbd; /* gris para subtítulo */
   margin-bottom: 1rem;
+  border-bottom: 1px solid rgb(57, 57, 57);
 }
 
 .music-box ul {
@@ -824,7 +826,7 @@ html {
 }
 
 .music-box li {
-  margin: 0.5rem 0;
+
   cursor: pointer;
   transition: color 0.2s;
 }
