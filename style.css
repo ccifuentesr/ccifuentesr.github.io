@@ -123,8 +123,8 @@
   margin: 0 auto;
   padding: 0 var(--page-padding, 1rem);
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
-  gap: var(--gap, 1rem);
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+  gap: var(--gap, 0.5rem);
   box-sizing: border-box;
 }
 
@@ -145,8 +145,22 @@
   object-position: center;
 }
 
+.photo-trim {
+  width: 100%;
+  height: 274px;          /* alto final que quieres mostrar */
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-trim img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* rellena y recorta */
+  object-position: center; /* centra el recorte */
+}
+
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .gallery-insta {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
   }
@@ -498,11 +512,11 @@
   gap: 0.5em;
   position: sticky;
   top: 0;
-  background: var(--background-color, #ffffffba);
+  background: var(--background-color, #ffffff);
   z-index: 100;
   min-height: 2em;
   padding: 0.2em 0;
-
+ background-color: rgba(255, 255, 255, 0.667) !important;
   width: 100vw;          /* full viewport width */
   left: 50%;
   margin-left: -15.8vw;    /* desplaza para cubrir full ancho */
@@ -513,11 +527,10 @@
     #mainNav2 .nav-link {
       font-size: 0.95em;
       padding: 0.2em 0.7em;
+      color: rgba(128, 128, 128, 0.553);
     }
     #mainNav2 .nav-link.active {
-      background: var(--text-color, #444);
-      color: #fff;
-      border-radius: 1em;
+      color: #000000;
       font-weight: bold;
     }
 
@@ -533,26 +546,29 @@
           border-radius: 0.5em;
           padding: 0.2em 0.8em;
         }
-              #mainNav2 .nav-link {
-          display: none;
-        }
-        #mainNav2 .nav-link.active {
-          display: inline-block;
-          font-weight: bold;
-          background: var(--text-color, #444);
-          color: #fff !important;
-          border-radius: 0.5em;
-          padding: 0.2em 0.8em;
-        }
-                #mainNav2 .nav-link.active {
-          display: inline-block;
-          font-weight: bold;
-          background: var(--background, #ffffff);
-          color: #232323 !important;
-          border-radius: 0.5em;
-          padding: 0.2em 0.8em;
-        }
       }
+
+@media (max-width: 800px) {
+  #mainNav2 {
+    flex-direction: row;    /* siempre en fila */
+    justify-content: flex-start;
+    gap: 0.1em;             /* menos separación */
+    padding: 0.1em 0;       /* menos padding vertical */
+    overflow-x: auto;       /* scroll si no caben */
+    white-space: nowrap;    /* evita que se apilen */
+ background-color: rgba(255, 255, 255, 0.667) !important;
+
+  }
+
+  #mainNav2 .nav-link {
+    font-size: 0.85em;      /* más pequeño */
+    padding: 0.1em 0.3em;   /* menos padding horizontal */
+    flex: 0 0 auto;         /* evita que se encojan */
+  }
+}
+
+
+
   .photo-caption {
     margin-top: 0rem;
     font-size: 0.9rem;
@@ -567,24 +583,31 @@
   height: 400px; /* Altura mayor para fotos a ancho completo */
 }
 
-/* Para dispositivos móviles */
 @media (max-width: 768px) {
   .gallery {
     grid-template-columns: 1fr; /* Una columna en móvil */
+    margin: 0;                   /* quita márgenes del contenedor */
+    padding: 0;                  /* quita padding */
+    width: 100vw;                /* ancho total de la ventana */
   }
   
   .gallery .photo {
-    height: 250px; /* Altura menor en móvil */
+    height: 250px;
+    margin: 0;                   /* quita márgenes entre fotos */
+    padding: 0;
   }
   
   .gallery .photo.full-width {
-    grid-column: span 1; /* En móvil todas ocupan 1 columna */
+    grid-column: span 1;
+    width: 100vw;                /* ocupa todo el ancho de la ventana */
   }
   
   .gallery .photo.full-width .image-container {
-    height: 250px; /* Misma altura que las demás en móvil */
+    height: 250px;
+    width: 100vw;                /* todo el ancho sin bordes */
   }
 }
+
 
 .photo-caption .title {
   margin-top: 0.9em;
@@ -813,9 +836,12 @@ html {
 }
 
 .music-main {
-  background-color: #000; /* fondo negro */
-  color: white; /* texto blanco */
+  background-color: #000;
+  color: white;
+  margin: 0;
+  padding: 0rem; /* espacio mínimo con el borde */
 }
+
 
 .music-row {
   display: flex;
