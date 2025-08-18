@@ -6,6 +6,7 @@
             --text-color: #334155;
             --light-text: #94a3b8;
             --background: #f8fafc;
+            --highlight-color: rgb(16, 189, 134);
             --maxwidth: 1450px;
         }
         
@@ -34,6 +35,18 @@
   margin: 0em auto;
   padding: 0;   
   background-color: white;
+}
+
+.caption-box {
+  background: #000;        /* fondo negro */
+  color: #fff;             /* texto blanco */
+  display: flex;           /* centrar con flexbox */
+  align-items: center;     /* centrado vertical */
+  justify-content: center; /* centrado horizontal */
+  min-height: 274px;       /* altura simulando foto (ajusta según tus imágenes) */
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0;
 }
 
 
@@ -543,7 +556,7 @@
     padding: 0.1em 0;       /* menos padding vertical */
     overflow-x: auto;       /* scroll si no caben */
     white-space: nowrap;    /* evita que se apilen */
- background-color: rgba(255, 255, 255, 0.667) !important;
+ background-color: var(--background) !important;
 
   }
 
