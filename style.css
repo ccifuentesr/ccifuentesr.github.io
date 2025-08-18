@@ -534,19 +534,25 @@
       font-weight: bold;
     }
 
-      @media (max-width: 800px) {
-        #mainNav .nav-link {
-          display: none;
-        }
-        #mainNav .nav-link.active {
-          display: inline-block;
-          font-weight: bold;
-          background: var(--accent-color, #ffffff);
-          color: #fff !important;
-          border-radius: 0.5em;
-          padding: 0.2em 0.8em;
-        }
-      }
+
+@media (max-width: 800px) {
+  #mainNav {
+    flex-direction: row;    /* siempre en fila */
+    justify-content: flex-start;
+    gap: 0.1em;             /* menos separación */
+    padding: 0.1em 0;       /* menos padding vertical */
+    overflow-x: auto;       /* scroll si no caben */
+    white-space: nowrap;    /* evita que se apilen */
+ background-color: rgba(255, 255, 255, 0.667) !important;
+
+  }
+
+  #mainNav .nav-link {
+    font-size: 0.85em;      /* más pequeño */
+    padding: 0.1em 0.3em;   /* menos padding horizontal */
+    flex: 0 0 auto;         /* evita que se encojan */
+  }
+}
 
 @media (max-width: 800px) {
   #mainNav2 {
@@ -875,7 +881,9 @@ html {
 .music-box .subtitle {
   color: #9b9b9b; /* gris para subtítulo */
   margin-bottom: 1rem;
+  margin-top: 1rem;
   border-bottom: 1px solid rgb(57, 57, 57);
+  border-top: 1px solid rgb(57, 57, 57);
 }
 
 .music-box ul {
