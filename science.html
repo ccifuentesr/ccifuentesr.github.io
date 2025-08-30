@@ -307,7 +307,7 @@ pipeline optimisation, with solid experience in Python programming.</p>
   <p style="color: rgb(174, 174, 174); font-style: italic; font-size: 0.9em; text-align: center; margin-top: 10px; margin-bottom: 30px;">
 You may ask my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">thesis</a> things like: 
 "What are M dwarfs and why are they significant in this study?",
-"What is the mass of a M2 V star?",
+"What is the mass of a M0V star?",
 "Does the CARMENES input catalogue include information about stellar activity?",
 or "Summarise the key findings on the multiplicity of M dwarfs".
 </p>
@@ -371,75 +371,83 @@ or "Summarise the key findings on the multiplicity of M dwarfs".
         <p>Last updated: August 2025</p>
     </footer>
    
-    
     <script>
+function convertMarkdownToHtml(text) {
+    return text
+        // Bold: **text** or *text*
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        // Line breaks
+        .replace(/\n/g, '<br>');
+}
+
 function showProgress() {
-  const bar = document.getElementById("progressBar");
-  let width = 0;
-  return setInterval(() => {
-    if (width < 90) {   // no llega a 100% hasta recibir la respuesta
-      width += 1;
-      bar.style.width = width + "%";
-    }
-  }, 50);
+    const bar = document.getElementById("progressBar");
+    let width = 0;
+    return setInterval(() => {
+        if (width < 90) { // no llega a 100% hasta recibir la respuesta
+            width += 1;
+            bar.style.width = width + "%";
+        }
+    }, 50);
 }
 
 async function askThesis() {
-  const question = document.getElementById("question").value.trim();
-  if (!question) return;
+    const question = document.getElementById("question").value.trim();
+    if (!question) return;
 
-  const answerEl = document.getElementById("answer");
-  const btn = document.getElementById("askBtn");
+    const answerEl = document.getElementById("answer");
+    const btn = document.getElementById("askBtn");
 
-  btn.disabled = true;
-  btn.style.opacity = 0.6;
+    btn.disabled = true;
+    btn.style.opacity = 0.6;
 
-  answerEl.style.opacity = 0;
-  answerEl.innerText = "Loading...";
+    answerEl.style.opacity = 0;
+    answerEl.innerText = "Loading...";
 
-  const container = document.getElementById("progressContainer");
-  container.style.display = "block";
-  const interval = showProgress();
+    const container = document.getElementById("progressContainer");
+    container.style.display = "block";
+    const interval = showProgress();
 
-  try {
-    const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question })
-    });
+    try {
+        const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question })
+        });
 
-    const data = await res.json();
+        const data = await res.json();
 
-    clearInterval(interval);
-    const bar = document.getElementById("progressBar");
-    bar.style.width = "100%";
+        clearInterval(interval);
+        const bar = document.getElementById("progressBar");
+        bar.style.width = "100%";
 
-    // Fade out barra de progreso suavemente
-    container.style.transition = "opacity 0.3s ease";
-    container.style.opacity = 0;
-    setTimeout(() => {
-      container.style.display = "none";
-      container.style.opacity = 1;
-      bar.style.width = "0%";
-    }, 300);
+        // Fade out barra de progreso suavemente
+        container.style.transition = "opacity 0.3s ease";
+        container.style.opacity = 0;
+        setTimeout(() => {
+            container.style.display = "none";
+            container.style.opacity = 1;
+            bar.style.width = "0%";
+        }, 300);
 
-    // Mostrar respuesta con fade-in
-    answerEl.innerText = data.answer || "No answer.";
-    answerEl.style.transition = "opacity 0.5s ease";
-    answerEl.style.opacity = 1;
+        // Convert markdown and show as HTML
+        const htmlAnswer = convertMarkdownToHtml(data.answer || "No answer.");
+        answerEl.innerHTML = htmlAnswer; // Use innerHTML instead of innerText
+        answerEl.style.transition = "opacity 0.5s ease";
+        answerEl.style.opacity = 1;
 
-  } catch (err) {
-    clearInterval(interval);
-    container.style.display = "none";
-    answerEl.innerText = "Uh-oh, I'm lost for words...";
-    answerEl.style.opacity = 1;
-  } finally {
-    btn.disabled = false;
-    btn.style.opacity = 1;
-  }
+    } catch (err) {
+        clearInterval(interval);
+        container.style.display = "none";
+        answerEl.innerText = "Uh-oh, I'm lost for words...";
+        answerEl.style.opacity = 1;
+    } finally {
+        btn.disabled = false;
+        btn.style.opacity = 1;
+    }
 }
 </script>
-
 
     
 </body>
