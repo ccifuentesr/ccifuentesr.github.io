@@ -1,4 +1,6 @@
 flask
-openai
 python-dotenv
 gunicorn
+openai
+langchain
+faiss-cpu
