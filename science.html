@@ -432,7 +432,9 @@ setTimeout(() => {
 
 // Mostrar la respuesta
 const answerText = data.answer || data.error || "No answer";
-const formatted = answerText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+const formatted = answerText
+  .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  .replace(/\n/g, "<br>"); // saltos de línea
 answerEl.innerHTML = formatted;
 answerEl.style.transition = "opacity 0.5s ease";
 answerEl.style.opacity = 1;
