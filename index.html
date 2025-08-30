@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE"/>
+    <meta name="description" content="Personal page of C. Cifuentes.">
+    <title>Carlos Cifuentes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet"></head>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- Use fonts: noto-sans-mono, karla, montserrat, raleway -->
+
+<body style="background-color: black;">
+    <canvas class="star-background" id="starCanvas"></canvas>
+    <div style="height: 10em;"></div>
+    
+    <header>
+<div style="text-align: center; margin-bottom: 5em;">
+  <p class="fade-in delay-1" style="color: white; font-family: 'Karla'; font-size:1.5em;">C. Cifuentes</p>
+  <p class="fade-in delay-5" style="color: rgb(94, 94, 94); font-family: 'Karla'; font-size:1.4em; margin-bottom: 1.5em;">home</p>
+
+  <div class="nav-links" style="font-size: 1.0em; color: rgb(208, 208, 208);">
+    <a class="fade-in delay-2" href="science.html" style="margin: 0 1.2em; font-size: 1.3em;">SCIENCE</a>
+    <a class="fade-in delay-3" href="musik.html" style="margin: 0 1.2em; font-size: 1.3em;">MUSIK</a>
+    <a class="fade-in delay-4" href="seen.html" style="margin: 0 1.2em; font-size: 1.3em;">SEEN</a>
+  </div>
+</div>
+
+
+    <div class="fade-in" style="margin-top: 1em; margin-bottom: 1em; text-align: center;">
+        <img class="nav-logo fade-in delay-2 blur-hover" src="media/logos/logo-1.png" style="width: 9%; height: auto; display: block; margin: 0 auto 0.5em auto;" />
+        <img class="nav-logo fade-in delay-3 blur-hover" src="media/logos/logo-1.png" style="width: 5%; height: auto; display: block; margin: 0 auto 0.5em auto;" />
+        <img class="nav-logo fade-in delay-4 blur-hover" src="media/logos/logo-1.png" style="width: 2.8%; height: auto; display: block; margin: 0 auto;" />
+    </div>
+
+
+    </header>
+   
+    <div style="height: 80em;"></div>
+
+    <div>
+        <p class="karla" style="color: rgb(62, 62, 62); text-align: center; font-size: 1em; margin-top: 2em; margin-bottom: 3em;">
+
+            2017-2025 | C.Cifuentes
+        </p>
+
+    </div>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.nav-links a');
+  const logos = document.querySelectorAll('.nav-logo');
+
+  links.forEach((link, i) => {
+    const enter = () => logos[i]?.classList.add('is-hovered');
+    const leave = () => logos[i]?.classList.remove('is-hovered');
+    link.addEventListener('mouseenter', enter);
+    link.addEventListener('mouseleave', leave);
+    link.addEventListener('focus', enter);
+    link.addEventListener('blur', leave);
+  });
+});
+</script>
+
+
+
+
+</body>
+</html>

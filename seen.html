@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Cifuentes' Place</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="seen">
+  <canvas class="star-background" id="starCanvas"></canvas>
+
+  <header>
+    <p style="color: lightgrey; font-size: 1.2em;">Carlos Cifuentes</p>
+    <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Seen</h1>
+    <p class="subtitle">
+      <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a> 
+      <a href="science.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">science</a>
+      <a href="musik.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">musik</a>
+    </p>
+  </header>
+
+  <div>
+    <p style="text-align: center; color: rgb(93, 93, 93); font-size: 1em; margin-bottom: 3em;">
+The following images span a period of time of 11 years.<br> Loading may take a while.
+    </p>
+</div>
+
+  <nav id="mainNav2" style="font-size: 1.1em; padding: 0.2em 0; background-color: #f8fafcc5;">
+    <a href="#light" class="nav-link">Light</a>
+    <a href="#scenes" class="nav-link">Scenes</a>
+    <a href="#colors" class="nav-link">Colors</a>
+    <a href="#film" class="nav-link">Film</a>
+    <a href="#astro" class="nav-link">Astro</a>
+    <a href="#haus" class="nav-link">Haus</a>
+    <a href="#places" class="nav-link">Places</a>
+  </nav>
+
+  <script>
+    // Highlight active nav link
+    function setActiveNav() {
+      const links = document.querySelectorAll('.nav-link');
+      const scrollPos = window.scrollY + 90; // Offset for header
+
+      let activeFound = false;
+      links.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section) {
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom && !activeFound) {
+            link.classList.add('active');
+            activeFound = true;
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
+  </script>
+
+
+
+
+<section id="light" >
+  <h1 style="text-align: center; margin-bottom: 1em;" >Light</h1>
+
+    <p style="text-align: center; color: rgb(37, 37, 37); font-size: 0.9em; margin-bottom: 3em;">
+        Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.
+    </p>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria4.jpeg" alt="Sanabria" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">One last word</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria1.jpeg" alt="Sanabria" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A light in the dark</p>
+  <p class="location">Sanabria, 2017</p>
+</div>
+  </div>
+
+      <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria6.jpeg" alt="Sanabria" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Bridges in the sky</p>
+  <p class="location">Sanabria, 2017</p>
+</div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/galicia1.jpg" alt="Galicia 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">We are here because we are here</p>
+  <p class="location">Galicia, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/galicia2.jpg" alt="Galicia 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A moment in a million years</p>
+  <p class="location">Galicia, 2017</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/tenerife1.jpg" alt="Tenerife 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">On an island</p>
+  <p class="location">La Laguna, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/madrid1.jpeg" alt="Madrid 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Volverte a ver</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/madrid2.jpeg" alt="Madrid 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Witness</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/madrid3.jpg" alt="Madrid 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">An open door</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma1.jpeg" alt="Roma 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Ancora luce</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma6.jpeg" alt="Roma 6" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Nessun dorma</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/florencia3.jpeg" alt="Florencia 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Harmony</p>
+  <p class="location">Firenze, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma4.jpeg" alt="Roma 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Once upon a time</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/roque1.jpg" alt="Roque 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Mapping the stars for a while</p>
+  <p class="location">La Palma, 2020</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/salzburgo1.jpg" alt="Salzburgo 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A window to the past</p>
+  <p class="location">Salzburg, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/vaticano1.jpeg" alt="Vaticano 1 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Let's talk</p>
+  <p class="location">Vaticano, 2018</p>
+  </div>
+  </div>
+
+        <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria2.jpeg" alt="Sanabria 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A place for my head</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+</section>
+
+<section id="scenes">
+  <h1 style="text-align: center;">Scenes</h1>
+
+
+
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma2.jpeg" alt="Roma 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A fountain</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/paris1.jpeg" alt="París 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Smile for me</p>
+  <p class="location">Paris, 2018</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/florencia5.jpeg" alt="Florencia 5" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Orbiting Venus</p>
+  <p class="location">Paris, 2018</p>
+  </div>
+  </div>
+  
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/paris2.jpeg" alt="París 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sérénité</p>
+  <p class="location">Paris, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/florencia2.jpeg" alt="Florencia 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sun sets</p>
+  <p class="location">Firenze, 2018</p>
+  </div>
+  </div>
+
+      <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma3.jpeg" alt="Roma 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Where the day ends</p>
+  <p class="location">Roma, 2018</p>
+  </div>
+  </div>
+
+      <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk1.jpeg" alt="UK 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Waltzer</p>
+    <p class="location">Brighton, 2017</p>
+  </div>
+    </div>
+
+
+    </section>
+
+<section id="colors" >
+  <h1 style="text-align: center; margin-bottom: 1em;" >Colors</h1>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/asturias1.jpg" alt="Asturias B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">The life that follows</p>
+  <p class="location">Asturias, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/roma5.jpeg" alt="Roma 5 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Cupido</p>
+  <p class="location">Roma, 2017</p>
+  </div>
+  </div>
+
+
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/florencia4.jpeg" alt="Florencia 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">We are here</p>
+  <p class="location">Firenze, 2018</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/vaticano2.jpeg" alt="Vaticano 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Silentium</p>
+  <p class="location">Vaticano, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria3.jpeg" alt="Sanabria 3 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Dulce hogar</p>
+  <p class="location">Sanabria, 2016</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/sanabria5.jpeg" alt="Trains" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Trains</p>
+  <p class="location">London, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/salzburgo2.jpg" alt="Salzburgo 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">The past</p>
+  <p class="location">Salzburg, 2018</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk3.jpg" alt="UK 3 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Fish, Play, Love</p>
+  <p class="location">Brighton, 2015</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk4.jpg" alt="UK 4 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A return to the origins</p>
+  <p class="location">Brighton, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk5.jpg" alt="UK 5 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Seven Sisters</p>
+  <p class="location">Brighton, 2016</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk6.jpg" alt="UK 6 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Lux</p>
+  <p class="location">London, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk7.jpg" alt="UK 7 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">The Word</p>
+  <p class="location">London, 2017</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/uk2.jpg" alt="UK 2 B/W" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">The English Way</p>
+  <p class="location">London, 2015</p>
+  </div>
+  </div>
+
+     <div style="margin-bottom: 6em;">
+    <img src="media/photos/vialactea.jpeg" alt="Via Lactea" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Find me a Way</p>
+  <p class="location">Anywhere, 2018</p>
+  </div>
+  </div>
+
+</section>
+
+<section id="film">
+  <h1 style="text-align: center; margin-bottom: 1em;" >Film</h1>
+    <p style="text-align: center; color: rgb(37, 37, 37); font-size: 0.9em; margin-bottom: 1.5em;">
+        Captured with a Pentax MX on Kodak 400 35mm film.
+    </p>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/35mm_1.jpg" alt="35mm 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">A link to the past</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/35mm_2.jpg" alt="35mm 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Tanto tiempo juntos</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/35mm_3.jpg" alt="35mm 3" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Big my secret</p>
+  <p class="location">Sanabria, 2017</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/35mm_4.jpg" alt="35mm 4" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">On the run</p>
+  <p class="location">Madrid, 2017</p>
+  </div>
+  </div>
+</section>
+
+<section class="dark" id="astro">
+    <div class="container">
+  <h1 style="text-align: center; margin-bottom: 1em;">Astro</h1>
+    <p style="text-align: center; color: rgb(224, 224, 224); font-size: 0.9em; margin-bottom: 1.5em;">
+        Setup: Skywatcher 200/1000 and Canon EOS 450D in prime focus.
+    </p>
+</div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/astro_sol1.jpg" alt="Sol 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sun (Baader filter, coloured)</p>
+  <p class="location" style="color: rgb(82, 82, 82);">2012</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/astro_jupiter.jpg" alt="Júpiter" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Jupiter and Galilean moons</p>
+  <p class="location">2016</p>
+  </div>
+  </div>
+
+    <div style="margin-bottom: 6em;">
+    <img src="media/photos/astro_sol2.jpeg" alt="Sol 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Sun (Baader filter, raw)</p>
+  <p class="location">2012</p>
+  </div>
+  </div>
+
+  <div style="margin-bottom: 6em;">
+    <img src="media/photos/astro_luna1.jpeg" alt="Luna 1" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Moon, partial eclipse</p>
+  <p class="location">2017</p>
+  </div>
+  </div>
+
+
+        <div style="margin-bottom: 6em;">
+    <img src="media/photos/astro_luna2.jpeg" alt="Luna 2" style="width: 100%; border-radius: 0.5em; display: block;">
+ <div class="photo-caption">
+  <p class="title">Moon</p>
+  <p class="location">2017</p>
+  </div>
+  </div>
+  </div>
+</section>
+
+<section id="haus">
+  <h1 style="text-align: center;">Haus</h1>
+  <h2 style="text-align: center;" class="montserrat">Deutsches Licht<br>2021</h2>
+  <p style="text-align: center; margin-bottom: 1em; font-size: 1.2em; color: #727272;">
+    Heidelberg · Frankfurt · Nürnberg · Mannheim · Karlsruhe · Berlin · Strasbourg
+  </p>
+  <p style="text-align: center; margin-bottom: 4em; font-size: 1em; color: #454545;">
+    Shot with an iPhone 12 mini, unedited.
+  </p>
+
+  <div class="gallery">
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1669.jpeg" alt="Altstadt">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1674.jpeg" alt="Bismarkplatz">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1683.jpeg" alt="Bergheimer Str.">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1778.jpeg" alt="Hauptstraße">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1788.jpeg" alt="Zähringerstraße">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2082.jpeg" alt="Königstuhl">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_1826.jpeg" alt="Gutleutviertel">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1809.jpeg" alt="Westhafen Tower">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1895.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2058.jpeg" alt="Nürnberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_1970.jpeg" alt="Mamutblumen">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_2072.jpeg" alt="Heiligenberg Thingstätte">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2129.jpeg" alt="Königstuhl">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2161.jpeg" alt="Landensternwarte">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2173.jpeg" alt="Königstuhl">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2339.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2354.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2647.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_2523.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2443.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2504.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2407.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2516.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2564.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2578.jpeg" alt="Berlin">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_2590.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_2715.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2597.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2736.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_2764.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_3341.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2812.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2994.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_2999.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_3016.jpeg" alt="Heidelberg">
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_3103.jpeg" alt="Strasbourg">
+      <figcaption class="photo-caption"></figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_3128.jpeg" alt="Strasbourg">
+      <figcaption class="photo-caption"></figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="media/photos/heidelberg_3155.jpeg" alt="Strasbourg">
+      <figcaption class="photo-caption"></figcaption>
+    </figure>
+    <figure class="photo full-width">
+      <img src="media/photos/heidelberg_3388.jpeg" alt="Heidelberg">
+    </figure>
+  </div>
+</section>
+
+<section id="places">
+  <h1 style="text-align: center;">Places</h1>
+
+  <div class="gallery-insta">
+    <figure class="photo caption-box">
+  <p style="color: #454545;">Shot with iPhone 4s, 7, and 12 mini<br>between 2014 and 2018.</p>
+</figure>
+
+    <figure class="photo">
+      <img src="media/photos/instagram_01.JPG" alt="bw">
+    </figure>
+<figure class="photo">
+  <img src="media/photos/instagram_10.JPG" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_13.jpg" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_17.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_29.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_31.jpg" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_32.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_35.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_37.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_39.jpg" alt="bw">
+</figure>
+
+
+<figure class="photo">
+  <img src="media/photos/instagram_41.jpg" alt="bw">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_43.jpg" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_44.jpg" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_45.jpg" alt="bw">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_47.jpg" alt="bw">
+</figure>
+
+
+<figure class="photo">
+  <img src="media/photos/instagram_30.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_33.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_34.jpg" alt="">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_36.jpg" alt="">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_40.jpg" alt="">
+</figure>
+
+        <figure class="photo">
+      <img src="media/photos/instagram_02.JPG" alt="">
+    </figure>
+
+    <figure class="photo">
+      <img src="media/photos/instagram_03.JPG" alt="">
+    </figure>
+
+
+<figure class="photo">
+  <img src="media/photos/instagram_09.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_11.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_12.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_14.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_15.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_16.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_18.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_20.jpg" alt="">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_21.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_22.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_23.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_24.jpg" alt="">
+</figure>
+
+<figure class="photo">
+  <img src="media/photos/instagram_25.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_26.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_27.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_28.jpg" alt="">
+</figure>
+
+
+<figure class="photo">
+  <img src="media/photos/instagram_38.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_42.jpg" alt="">
+</figure>
+<figure class="photo">
+  <img src="media/photos/instagram_46.jpg" alt="">
+</figure>
+
+  </div>
+    <div class="gallery" style="margin-top: 5em;">
+
+<figure class="photo-trim caption-box">
+  <p>Captured with Nikon D5500 and Sigma 10–20mm f/3.5</p>
+</figure>
+
+    <figure class="photo-trim" >
+  <img src="media/photos/instagram_48.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_49.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_50.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_51.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_52.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_53.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_54.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_55.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_56.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_57.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_58.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_59.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_60.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_61.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_62.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_63.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_64.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_65.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_66.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_67.jpg" alt="">
+</figure>
+<figure class="photo-trim">
+  <img src="media/photos/instagram_68.JPG" alt="">
+</figure>
+  </div>
+</section>
+
+<div style="height: 10em;"></div>
+
+<footer>
+  <p>
+    &copy; 2017-2025 C. Cifuentes. All rights reserved.
+  </p>
+</footer>
+    
+</body>
+</html>
