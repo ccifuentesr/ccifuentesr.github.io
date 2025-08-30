@@ -7,22 +7,26 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
-
 load_dotenv()  # loads .env
 
 api_key = os.getenv("OPENAI_API_KEY")
 
-
 app = Flask(__name__)
 
-# --- Directorios ---
+# --- CORS Configuration ---
+# Allow requests from your GitHub Pages domain
+CORS(app, 
+     origins=["https://ccifuentesr.github.io", "http://localhost:*"],
+     supports_credentials=True,
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type"])
+
+# --- Directories ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FAISS_DIR = os.path.join(BASE_DIR, "faiss_index")
 FRONTEND_DIR = os.path.join(BASE_DIR, "..")
 
-# --- Carga FAISS ---
+# --- Load FAISS ---
 db = FAISS.load_local(
     FAISS_DIR,
     OpenAIEmbeddings(),
@@ -46,7 +50,6 @@ Question:
 """
 )
 
-
 qa = RetrievalQA.from_chain_type(
     llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
     retriever=retriever,
@@ -63,8 +66,12 @@ def home():
 def static_files(filename):
     return send_from_directory(FRONTEND_DIR, filename)
 
-@app.route("/ask", methods=["POST"])
+@app.route("/ask", methods=["POST", "OPTIONS"])
 def ask():
+    # Handle preflight OPTIONS request
+    if request.method == "OPTIONS":
+        return jsonify({"status": "ok"}), 200
+    
     try:
         data = request.json
         question = data.get("question", "").strip()
