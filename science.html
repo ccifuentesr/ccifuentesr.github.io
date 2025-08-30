@@ -338,10 +338,9 @@ or "Summarise the key findings on the multiplicity of M dwarfs".
 
   <p id="answer" style="margin-top:20px; margin-bottom: 20px; opacity:0; transition: opacity 0.5s;"></p>
 
-
-
 </section>
-    <section id="contact">
+
+<section id="contact">
         <h2>Contact</h2>
         <div class="contact-info">
             <p class="contact-item" style="font-size: 1.2em;"><span class="contact-label"></span> 
@@ -418,24 +417,26 @@ async function askThesis() {
     document.getElementById("answer").innerText = data.error || "No answer";
   }
   
-        clearInterval(interval);
-        const bar = document.getElementById("progressBar");
-        bar.style.width = "100%";
+clearInterval(interval);
+const bar = document.getElementById("progressBar");
+bar.style.width = "100%";
 
-        // Fade out barra de progreso suavemente
-        container.style.transition = "opacity 0.3s ease";
-        container.style.opacity = 0;
-        setTimeout(() => {
-            container.style.display = "none";
-            container.style.opacity = 1;
-            bar.style.width = "0%";
-        }, 300);
+// Fade out barra de progreso suavemente
+container.style.transition = "opacity 0.3s ease";
+container.style.opacity = 0;
+setTimeout(() => {
+    container.style.display = "none";
+    container.style.opacity = 1;
+    bar.style.width = "0%";
+}, 300);
 
-        // Convert markdown and show as HTML
-        const htmlAnswer = convertMarkdownToHtml(data.answer || "No answer.");
-        answerEl.innerHTML = htmlAnswer; // Use innerHTML instead of innerText
-        answerEl.style.transition = "opacity 0.5s ease";
-        answerEl.style.opacity = 1;
+// Mostrar la respuesta
+const answerText = data.answer || data.error || "No answer";
+const formatted = answerText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+answerEl.innerHTML = formatted;
+answerEl.style.transition = "opacity 0.5s ease";
+answerEl.style.opacity = 1;
+
 
     } catch (err) {
         clearInterval(interval);
