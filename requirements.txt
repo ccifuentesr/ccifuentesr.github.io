@@ -2,5 +2,5 @@ flask
 python-dotenv
 gunicorn
 openai
-langchain
+langchain>=0.1.0,<1.0.0
 faiss-cpu
