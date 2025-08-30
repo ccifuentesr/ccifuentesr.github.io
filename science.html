@@ -383,7 +383,8 @@ async function askThesis() {
   btn.style.opacity = 0.6;
 
   answerEl.style.opacity = 0;
-  answerEl.innerText = "Loading...";
+  answerEl.classList.add("show");
+  answerEl.innerHTML = "Loading...";
 
   const container = document.getElementById("progressContainer");
   container.style.display = "block";
@@ -411,14 +412,20 @@ async function askThesis() {
       bar.style.width = "0%";
     }, 300);
 
-    // Mostrar respuesta con fade-in
-    answerEl.innerText = data.answer || "No answer.";
+    // Formatear respuesta (negritas y saltos de línea)
+    const rawAnswer = data.answer || "No answer.";
+    const formatted = rawAnswer
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n/g, "<br>");
+
+    answerEl.innerHTML = formatted;
     answerEl.style.transition = "opacity 0.5s ease";
     answerEl.style.opacity = 1;
 
   } catch (err) {
     clearInterval(interval);
     container.style.display = "none";
+    answerEl.classList.add("show");
     answerEl.innerText = "Uh-oh, I'm lost for words...";
     answerEl.style.opacity = 1;
   } finally {
@@ -426,6 +433,7 @@ async function askThesis() {
     btn.style.opacity = 1;
   }
 }
+
 </script>
 
 
