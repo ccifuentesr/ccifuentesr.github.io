@@ -338,9 +338,10 @@ or "Summarise the key findings on the multiplicity of M dwarfs".
 
   <p id="answer" style="margin-top:20px; margin-bottom: 20px; opacity:0; transition: opacity 0.5s;"></p>
 
-</section>
 
-<section id="contact">
+
+</section>
+    <section id="contact">
         <h2>Contact</h2>
         <div class="contact-info">
             <p class="contact-item" style="font-size: 1.2em;"><span class="contact-label"></span> 
@@ -370,87 +371,75 @@ or "Summarise the key findings on the multiplicity of M dwarfs".
         <p>Last updated: August 2025</p>
     </footer>
    
+    
     <script>
-
 function showProgress() {
-    const bar = document.getElementById("progressBar");
-    let width = 0;
-    return setInterval(() => {
-        if (width < 90) { // no llega a 100% hasta recibir la respuesta
-            width += 1;
-            bar.style.width = width + "%";
-        }
-    }, 50);
+  const bar = document.getElementById("progressBar");
+  let width = 0;
+  return setInterval(() => {
+    if (width < 90) {   // no llega a 100% hasta recibir la respuesta
+      width += 1;
+      bar.style.width = width + "%";
+    }
+  }, 50);
 }
 
 async function askThesis() {
-    const question = document.getElementById("question").value.trim();
-    if (!question) return;
+  const question = document.getElementById("question").value.trim();
+  if (!question) return;
 
-    const answerEl = document.getElementById("answer");
-    const btn = document.getElementById("askBtn");
+  const answerEl = document.getElementById("answer");
+  const btn = document.getElementById("askBtn");
 
-    btn.disabled = true;
-    btn.style.opacity = 0.6;
+  btn.disabled = true;
+  btn.style.opacity = 0.6;
 
-    answerEl.style.opacity = 0;
-    answerEl.innerText = "Loading...";
+  answerEl.style.opacity = 0;
+  answerEl.innerText = "Loading...";
 
-    const container = document.getElementById("progressContainer");
-    container.style.display = "block";
-    const interval = showProgress();
+  const container = document.getElementById("progressContainer");
+  container.style.display = "block";
+  const interval = showProgress();
 
-    try {
-        const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ question })
-        });
+  try {
+    const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question })
+    });
 
-        const data = await res.json();
+    const data = await res.json();
 
-          if (data.answer) {
-    // Convert Markdown **bold** to HTML <strong>
-    const formatted = data.answer.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-    document.getElementById("answer").innerHTML = formatted;
-  } else {
-    document.getElementById("answer").innerText = data.error || "No answer";
-  }
-  
-clearInterval(interval);
-const bar = document.getElementById("progressBar");
-bar.style.width = "100%";
+    clearInterval(interval);
+    const bar = document.getElementById("progressBar");
+    bar.style.width = "100%";
 
-// Fade out barra de progreso suavemente
-container.style.transition = "opacity 0.3s ease";
-container.style.opacity = 0;
-setTimeout(() => {
+    // Fade out barra de progreso suavemente
+    container.style.transition = "opacity 0.3s ease";
+    container.style.opacity = 0;
+    setTimeout(() => {
+      container.style.display = "none";
+      container.style.opacity = 1;
+      bar.style.width = "0%";
+    }, 300);
+
+    // Mostrar respuesta con fade-in
+    answerEl.innerText = data.answer || "No answer.";
+    answerEl.style.transition = "opacity 0.5s ease";
+    answerEl.style.opacity = 1;
+
+  } catch (err) {
+    clearInterval(interval);
     container.style.display = "none";
-    container.style.opacity = 1;
-    bar.style.width = "0%";
-}, 300);
-
-// Mostrar la respuesta
-const answerText = data.answer || data.error || "No answer";
-const formatted = answerText
-  .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-  .replace(/\n/g, "<br>"); // saltos de línea
-answerEl.innerHTML = formatted;
-answerEl.style.transition = "opacity 0.5s ease";
-answerEl.style.opacity = 1;
-
-
-    } catch (err) {
-        clearInterval(interval);
-        container.style.display = "none";
-        answerEl.innerText = "Uh-oh, I'm lost for words...";
-        answerEl.style.opacity = 1;
-    } finally {
-        btn.disabled = false;
-        btn.style.opacity = 1;
-    }
+    answerEl.innerText = "Uh-oh, I'm lost for words...";
+    answerEl.style.opacity = 1;
+  } finally {
+    btn.disabled = false;
+    btn.style.opacity = 1;
+  }
 }
 </script>
+
 
     
 </body>
