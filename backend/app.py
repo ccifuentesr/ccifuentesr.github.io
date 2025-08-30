@@ -7,13 +7,15 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-# Load environment variables
-load_dotenv()
-
 app = Flask(__name__)
-CORS(app, origins=["https://ccifuentesr.github.io", "https://ccifuentesr-github-io.onrender.com"])
+CORS(app, origins=["https://ccifuentesr.github.io"])
+
+load_dotenv()  # loads .env
 
 api_key = os.getenv("OPENAI_API_KEY")
+
+
+app = Flask(__name__)
 
 # --- Directorios ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -26,7 +28,7 @@ db = FAISS.load_local(
     OpenAIEmbeddings(),
     allow_dangerous_deserialization=True
 )
-retriever = db.as_retriever(search_kwargs={"k": 5})
+retriever = db.as_retriever(search_kwargs={"k": 5})  # Return more documents
 
 # --- QA chain ---
 custom_prompt = PromptTemplate(
@@ -41,19 +43,12 @@ Context:
 Question:
 {question}
 
-Instructions:
-- If the answer is explicitly found in the context, provide it clearly and concisely.
-- If the context contains tables or figures with relevant data, extract and summarise that information accurately.
-- If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
-- If the context does not contain any relevant information, respond: "The context does not provide this information." You may then provide a scientifically grounded answer based on your training.
-- Cite specific sections, tables, or figures from the context when necessary.
-- Maintain a formal and scientific tone.
 """
 )
 
 
 qa = RetrievalQA.from_chain_type(
-    llm=ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
+    llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
     retriever=retriever,
     return_source_documents=False,
     chain_type_kwargs={"prompt": custom_prompt}
@@ -95,5 +90,4 @@ def ask():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(debug=True)
