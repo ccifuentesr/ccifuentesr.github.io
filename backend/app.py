@@ -38,6 +38,12 @@ Context:
 {context}
 Question:
 {question}
+
+Instructions:
+- If the answer is explicitly found in the context, provide it clearly and concisely.
+- If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
+- If the context does not contain any relevant information, respond: "The context does not provide this information." and attempt to answer based on your training data.
+
 """
 )
 
