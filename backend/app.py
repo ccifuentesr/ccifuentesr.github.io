@@ -1,13 +1,12 @@
 import os
 from flask import Flask, request, jsonify, send_from_directory
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.vectorstores import FAISS
+from langchain.chat_models import ChatOpenAI
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
-from langchain.prompts import PromptTemplate
-import os
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+
 
 load_dotenv()  # loads .env
 
@@ -44,8 +43,6 @@ Question:
 
 """
 )
-
-
 
 
 qa = RetrievalQA.from_chain_type(
