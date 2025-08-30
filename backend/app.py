@@ -7,15 +7,13 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, origins=["https://ccifuentesr.github.io"])
+# Load environment variables
+load_dotenv()
 
-load_dotenv()  # loads .env
+app = Flask(__name__)
+CORS(app, origins=["https://ccifuentesr.github.io", "https://ccifuentesr-github-io.onrender.com"])
 
 api_key = os.getenv("OPENAI_API_KEY")
-
-
-app = Flask(__name__)
 
 # --- Directorios ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +26,7 @@ db = FAISS.load_local(
     OpenAIEmbeddings(),
     allow_dangerous_deserialization=True
 )
-retriever = db.as_retriever(search_kwargs={"k": 5})  # Return more documents
+retriever = db.as_retriever(search_kwargs={"k": 5})
 
 # --- QA chain ---
 custom_prompt = PromptTemplate(
@@ -36,19 +34,15 @@ custom_prompt = PromptTemplate(
     template="""
 You are an assistant specialised in astrophysics.
 Use the following context to answer the question.
-
 Context:
 {context}
-
 Question:
 {question}
-
 """
 )
 
-
 qa = RetrievalQA.from_chain_type(
-    llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
+    llm=ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
     retriever=retriever,
     return_source_documents=False,
     chain_type_kwargs={"prompt": custom_prompt}
@@ -90,4 +84,5 @@ def ask():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
