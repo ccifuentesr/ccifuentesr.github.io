@@ -5,6 +5,10 @@ from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app, origins=["https://ccifuentesr.github.io"])
 
 load_dotenv()  # loads .env
 

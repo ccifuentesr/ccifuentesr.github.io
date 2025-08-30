@@ -402,7 +402,7 @@ async function askThesis() {
   const interval = showProgress();
 
   try {
-    const res = await fetch("/ask", {
+    const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question })
