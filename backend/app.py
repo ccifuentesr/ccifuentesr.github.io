@@ -8,10 +8,7 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=[
-    "https://ccifuentesr.github.io",
-    "https://ccifuentesr-github-io.onrender.com"])
-
+CORS(app, supports_credentials=True)
 
 load_dotenv()  # loads .env
 
