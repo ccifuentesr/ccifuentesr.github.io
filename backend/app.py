@@ -47,6 +47,13 @@ Context:
 Question:
 {question}
 
+Instructions:
+- If the answer is explicitly found in the context, provide it clearly and concisely.
+- If the context contains tables or figures with relevant data, extract and summarise that information accurately.
+- If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
+- If the context does not contain any relevant information, respond: "The context does not provide this information." You may then provide a scientifically grounded answer based on your training.
+- Cite specific sections, tables, or figures from the context when necessary.
+- Maintain a formal and scientific tone.
 """
 )
 

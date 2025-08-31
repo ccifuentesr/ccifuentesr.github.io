@@ -415,8 +415,22 @@ async function askThesis() {
     // Formatear respuesta (negritas y saltos de línea)
     const rawAnswer = data.answer || "No answer.";
     const formatted = rawAnswer
+      // Títulos (#, ##, ### → h1, h2, h3)
+      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+      // Negrita **texto**
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      // Cursiva *texto*
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      // Enlaces [texto](url)
+      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+      // Listas con guiones
+      .replace(/^\s*[-+*]\s+(.*)/gim, "<li>$1</li>")
+      .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
+      // Saltos de línea -> <br>
       .replace(/\n/g, "<br>");
+
 
     answerEl.innerHTML = formatted;
     answerEl.style.transition = "opacity 0.5s ease";
