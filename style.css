@@ -408,9 +408,9 @@
 
   .delay-1 { animation-delay: 0.3s; }
   .delay-2 { animation-delay: 1.0s; }
-  .delay-3 { animation-delay: 1.2s; }
-  .delay-4 { animation-delay: 1.4s; }
-  .delay-5 { animation-delay: 2.0s; }
+  .delay-3 { animation-delay: 1.3s; }
+  .delay-4 { animation-delay: 1.6s; }
+  .delay-5 { animation-delay: 2.3s; }
 
   .nav-links a {
   margin-right: 1.5em;
