@@ -300,34 +300,34 @@ pipeline optimisation, with solid experience in Python programming.</p>
 
     </section>
 
-    
-       <section id="ask">
-        <h2>Ask my thesis</h2>
-        <p class="subtitle">
-            Ask my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer">thesis</a> things like:
-            "What are M dwarfs and why are they significant in this study?",
-            "Does the CARMENES input catalogue include information about stellar activity?",
-            or "Summarise the key findings on the multiplicity of M dwarfs". 
-            Questions like "What is the effective temperature of a M3V star?" (or similar queries about numerical data in tables) may not return reliable answers. For precise values, please consult the tables directly.        </p>
-        
-        <textarea 
-            id="question" 
-            rows="3" 
-            placeholder="Ask me anything... / Pregúntame lo que quieras..."
-        ></textarea>
-        
-        <div class="button-container">
-            <button id="askBtn" onclick="askThesis()">
-                Go
-            </button>
-        </div>
-        
-        <div id="progressContainer">
-            <div id="progressBar"></div>
-        </div>
-        
-        <div id="answer"></div>
-    </section>
+    <section id="ask">
+
+  <div>
+    <h2 >Talk with my thesis</h2>
+  </div>
+
+  <div style="margin-top:20px; display:flex; justify-content:center; gap:10px; margin: 70px;">
+    <input 
+      id="question" 
+      type="text" 
+      placeholder="Ask me anything..." 
+      style="flex:1; border-radius:12px; border:1px solid #444; padding:10px; background:#111; color:white;">
+    <button id="askBtn" onclick="askThesis()" 
+      style="border:1px solid #444; border-radius:12px; background:#111; color:white; padding:10px 20px;">
+      Ask
+    </button>
+  </div>
+
+  <p style="margin-top:20px;">Try asking:</p>
+  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+    <button class="suggestion" onclick="setQuestion('What are ultracool dwarfs?')">What are ultracool dwarfs?</button>
+    <button class="suggestion" onclick="setQuestion('The Virtual Observatory')">The Virtual Observatory</button>
+    <button class="suggestion" onclick="setQuestion('Key characteristics of J-PLUS')">Key characteristics of J-PLUS</button>
+  </div>
+
+  <div id="answer" style="margin-top:30px; text-align:left; background:#111; padding:20px; border-radius:12px;"></div>
+</section>
+
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-info">
@@ -358,7 +358,6 @@ pipeline optimisation, with solid experience in Python programming.</p>
         <p>Last updated: August 2025</p>
     </footer>
    
-    
     <script>
 function showProgress() {
   const bar = document.getElementById("progressBar");
@@ -369,6 +368,10 @@ function showProgress() {
       bar.style.width = width + "%";
     }
   }, 50);
+}
+
+function setQuestion(text) {
+  document.getElementById("question").value = text;
 }
 
 async function askThesis() {
@@ -383,7 +386,7 @@ async function askThesis() {
 
   answerEl.style.opacity = 0;
   answerEl.classList.add("show");
-  answerEl.innerHTML = "Loading...";
+  answerEl.innerHTML = "Thinking...";
 
   const container = document.getElementById("progressContainer");
   container.style.display = "block";
@@ -411,9 +414,9 @@ async function askThesis() {
       bar.style.width = "0%";
     }, 300);
 
-    // Formatear respuesta (negritas y saltos de línea)
+    // Formatear respuesta (markdown -> HTML)
     const rawAnswer = data.answer || "No answer.";
-    const formatted = rawAnswer
+    let formatted = rawAnswer
       // Títulos (#, ##, ### → h1, h2, h3)
       .replace(/^### (.*$)/gim, "<h3>$1</h3>")
       .replace(/^## (.*$)/gim, "<h2>$1</h2>")
@@ -430,6 +433,14 @@ async function askThesis() {
       // Saltos de línea -> <br>
       .replace(/\n/g, "<br>");
 
+    // Añadir fuentes/chunks si vienen
+    if (data.chunks && data.chunks.length > 0) {
+      formatted += "<br><br><strong>Sources</strong><ul>";
+      data.chunks.forEach(c => {
+        formatted += `<li>${c}</li>`;
+      });
+      formatted += "</ul>";
+    }
 
     answerEl.innerHTML = formatted;
     answerEl.style.transition = "opacity 0.5s ease";
@@ -446,7 +457,6 @@ async function askThesis() {
     btn.style.opacity = 1;
   }
 }
-
 </script>
 
 

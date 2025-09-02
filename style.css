@@ -1103,3 +1103,12 @@ html {
             color: var(--accent-color);
         }
         
+.suggestion {
+  background: #6eb7ff;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.8em;
+}
