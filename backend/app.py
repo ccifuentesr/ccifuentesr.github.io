@@ -7,19 +7,18 @@ from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-load_dotenv()  # loads .env
-
+load_dotenv() # loads .env
 api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
 # --- CORS Configuration ---
 # Allow requests from your GitHub Pages domain
-CORS(app, 
-     origins=["https://ccifuentesr.github.io", "http://localhost:*"],
-     supports_credentials=True,
-     methods=["GET", "POST", "OPTIONS"],
-     allow_headers=["Content-Type"])
+CORS(app,
+origins=["https://ccifuentesr.github.io", "http://localhost:*"],
+supports_credentials=True,
+methods=["GET", "POST", "OPTIONS"],
+allow_headers=["Content-Type"])
 
 # --- Directories ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -28,16 +27,16 @@ FRONTEND_DIR = os.path.join(BASE_DIR, "..")
 
 # --- Load FAISS ---
 db = FAISS.load_local(
-    FAISS_DIR,
-    OpenAIEmbeddings(),
-    allow_dangerous_deserialization=True
+FAISS_DIR,
+OpenAIEmbeddings(),
+allow_dangerous_deserialization=True
 )
-retriever = db.as_retriever(search_kwargs={"k": 5})  # Return more documents
+retriever = db.as_retriever(search_kwargs={"k": 5}) # Return more documents
 
 # --- QA chain ---
 custom_prompt = PromptTemplate(
-    input_variables=["context", "question"],
-    template="""
+input_variables=["context", "question"],
+template="""
 You are an assistant specialised in astrophysics.
 Use the following context to answer the question.
 
@@ -51,17 +50,19 @@ Instructions:
 - If the answer is explicitly found in the context, provide it clearly and concisely.
 - If the context contains tables or figures with relevant data, extract and summarise that information accurately.
 - If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
-- If the context does not contain any relevant information, respond: "The context does not provide this information." You may then provide a scientifically grounded answer based on your training.
+- If the context does not contain any relevant information, state that the information is not available in the context, then provide a scientifically grounded answer based on your training.
+- Use HTML formatting for mathematical expressions (e.g., R<sub>⊙</sub> for solar radius).
 - Cite specific sections, tables, or figures from the context when necessary.
 - Maintain a formal and scientific tone.
+- Do not include meta-commentary about your response process.
 """
 )
 
 qa = RetrievalQA.from_chain_type(
-    llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
-    retriever=retriever,
-    return_source_documents=False,
-    chain_type_kwargs={"prompt": custom_prompt}
+llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
+retriever=retriever,
+return_source_documents=False,
+chain_type_kwargs={"prompt": custom_prompt}
 )
 
 # --- Endpoints ---
@@ -98,7 +99,7 @@ def ask():
         print(f"[DEBUG] Answer generated successfully")
         
         return jsonify({"answer": answer})
-        
+    
     except Exception as e:
         print(f"[ERROR] In ask endpoint: {e}")
         return jsonify({"error": str(e)}), 500
