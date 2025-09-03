@@ -47,14 +47,13 @@ Question:
 {question}
 
 Instructions:
-- If the answer is explicitly found in the context, provide it clearly and concisely.
-- If the context contains tables or figures with relevant data, extract and summarise that information accurately.
-- If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
-- If the context does not contain any relevant information, state that the information is not available in the context, then provide a scientifically grounded answer based on your training.
-- Use HTML formatting for mathematical expressions (e.g., R<sub>⊙</sub> for solar radius). 
-- In all cases, avoid LaTeX formatting, e.g. formatting like "(see Section \ref{section:mdwarfs})" or "\citep{Cif20}" are not permited.
-- Maintain a formal and scientific tone.
-- Do not include meta-commentary about your response process.
+- You must refer to the context as a thesis.
+- Use only information from the thesis.
+- If the answer is in the thesis, give it clearly and concisely.
+- If the thesis lacks the information, state this and then provide a grounded answer.
+- Use HTML for maths (e.g. R<sub>⊙</sub>).
+- Do not use LaTeX.
+- Keep a formal, scientific tone.
 """
 )
 
