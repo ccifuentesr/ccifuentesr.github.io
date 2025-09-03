@@ -51,8 +51,8 @@ Instructions:
 - If the context contains tables or figures with relevant data, extract and summarise that information accurately.
 - If the context only partially covers the question, use related information strictly from the context to give the best possible scientific response.
 - If the context does not contain any relevant information, state that the information is not available in the context, then provide a scientifically grounded answer based on your training.
-- Use HTML formatting for mathematical expressions (e.g., R<sub>⊙</sub> for solar radius).
-- Cite specific sections, tables, or figures from the context when necessary.
+- Use HTML formatting for mathematical expressions (e.g., R<sub>⊙</sub> for solar radius). 
+- In all cases, avoid LaTeX formatting, e.g. formatting like "(see Section \ref{section:mdwarfs})" or "\citep{Cif20}" are not permited.
 - Maintain a formal and scientific tone.
 - Do not include meta-commentary about your response process.
 """
