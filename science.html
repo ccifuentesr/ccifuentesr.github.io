@@ -300,33 +300,33 @@ pipeline optimisation, with solid experience in Python programming.</p>
 
     </section>
 
-    <section id="ask">
+  <section id="ask">
+        <div>
+            <h2>Talk with my thesis</h2>
+        </div>
+                <p style="margin-top:20px; text-align: center;">Try asking:</p>
+        <div class="suggestions-container">
+            <button class="suggestion" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
+            <button class="suggestion" onclick="setQuestion('What is the radius of a K7 dwarf?')">What is the radius of a K7 dwarf?</button>
+            <button class="suggestion" onclick="setQuestion('Which are the key results on multiplicity of M dwarfs?')">Which are the key results on multiplicity of M dwarfs?</button>
+        </div>
 
-  <div>
-    <h2 >Talk with my thesis</h2>
-  </div>
+        <div style="margin-top:20px; display:flex; flex-direction: column; align-items: center;">
+            <input
+                id="question"
+                type="text"
+                placeholder="Ask me anything..."
+            >
+            <button id="askBtn" onclick="askThesis()">
+                Ask
+            </button>
+        </div>
+        <div id="progressContainer">
+            <div id="progressBar"></div>
+        </div>
+        <div id="answer"></div>
+    </section>
 
-  <div style="margin-top:20px; display:flex; justify-content:center; gap:10px; margin: 70px;">
-    <input 
-      id="question" 
-      type="text" 
-      placeholder="Ask me anything..." 
-      style="flex:1; border-radius:12px; border:1px solid #444; padding:10px; background:#111; color:white;">
-    <button id="askBtn" onclick="askThesis()" 
-      style="border:1px solid #444; border-radius:12px; background:#111; color:white; padding:10px 20px;">
-      Ask
-    </button>
-  </div>
-
-  <p style="margin-top:20px;">Try asking:</p>
-  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
-    <button class="suggestion" onclick="setQuestion('What are ultracool dwarfs?')">What are ultracool dwarfs?</button>
-    <button class="suggestion" onclick="setQuestion('The Virtual Observatory')">The Virtual Observatory</button>
-    <button class="suggestion" onclick="setQuestion('Key characteristics of J-PLUS')">Key characteristics of J-PLUS</button>
-  </div>
-
-  <div id="answer" style="margin-top:30px; text-align:left; background:#111; padding:20px; border-radius:12px;"></div>
-</section>
 
     <section id="contact">
         <h2>Contact</h2>
@@ -357,108 +357,112 @@ pipeline optimisation, with solid experience in Python programming.</p>
         </p>
         <p>Last updated: August 2025</p>
     </footer>
-   
     <script>
-function showProgress() {
-  const bar = document.getElementById("progressBar");
-  let width = 0;
-  return setInterval(() => {
-    if (width < 90) {   // no llega a 100% hasta recibir la respuesta
-      width += 1;
-      bar.style.width = width + "%";
-    }
-  }, 50);
-}
+        function showProgress() {
+            const bar = document.getElementById("progressBar");
+            let width = 0;
+            return setInterval(() => {
+                if (width < 90) { // no llega a 100% hasta recibir la respuesta
+                    width += 1;
+                    bar.style.width = width + "%";
+                }
+            }, 50);
+        }
 
-function setQuestion(text) {
-  document.getElementById("question").value = text;
-}
+        function setQuestion(text) {
+            document.getElementById("question").value = text;
+        }
 
-async function askThesis() {
-  const question = document.getElementById("question").value.trim();
-  if (!question) return;
+        async function askThesis() {
+            const question = document.getElementById("question").value.trim();
+            if (!question) return;
 
-  const answerEl = document.getElementById("answer");
-  const btn = document.getElementById("askBtn");
+            const answerEl = document.getElementById("answer");
+            const btn = document.getElementById("askBtn");
 
-  btn.disabled = true;
-  btn.style.opacity = 0.6;
+            btn.disabled = true;
+            btn.style.opacity = 0.6;
+            answerEl.style.opacity = 0;
+            answerEl.classList.add("show");
+            answerEl.innerHTML = "Thinking...";
 
-  answerEl.style.opacity = 0;
-  answerEl.classList.add("show");
-  answerEl.innerHTML = "Thinking...";
+            const container = document.getElementById("progressContainer");
+            container.style.display = "block";
+            const interval = showProgress();
 
-  const container = document.getElementById("progressContainer");
-  container.style.display = "block";
-  const interval = showProgress();
+            try {
+                const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question })
+                });
 
-  try {
-    const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question })
-    });
+                const data = await res.json();
+                clearInterval(interval);
 
-    const data = await res.json();
+                const bar = document.getElementById("progressBar");
+                bar.style.width = "100%";
 
-    clearInterval(interval);
-    const bar = document.getElementById("progressBar");
-    bar.style.width = "100%";
+                // Fade out barra de progreso suavemente
+                container.style.transition = "opacity 0.3s ease";
+                container.style.opacity = 0;
+                setTimeout(() => {
+                    container.style.display = "none";
+                    container.style.opacity = 1;
+                    bar.style.width = "0%";
+                }, 300);
 
-    // Fade out barra de progreso suavemente
-    container.style.transition = "opacity 0.3s ease";
-    container.style.opacity = 0;
-    setTimeout(() => {
-      container.style.display = "none";
-      container.style.opacity = 1;
-      bar.style.width = "0%";
-    }, 300);
+                // Formatear respuesta (markdown -> HTML)
+                const rawAnswer = data.answer || "No answer.";
+                let formatted = rawAnswer
+                    // Títulos (#, ##, ### → h1, h2, h3)
+                    .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+                    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+                    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+                    // Negrita **texto**
+                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                    // Cursiva *texto*
+                    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+                    // Enlaces [texto](url)
+                    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+                    // Listas con guiones
+                    .replace(/^\s*[-+*]\s+(.*)/gim, "<li>$1</li>")
+                    .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
+                    // Saltos de línea -> <br>
+                    .replace(/\n/g, "<br>");
 
-    // Formatear respuesta (markdown -> HTML)
-    const rawAnswer = data.answer || "No answer.";
-    let formatted = rawAnswer
-      // Títulos (#, ##, ### → h1, h2, h3)
-      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
-      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-      // Negrita **texto**
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      // Cursiva *texto*
-      .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      // Enlaces [texto](url)
-      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
-      // Listas con guiones
-      .replace(/^\s*[-+*]\s+(.*)/gim, "<li>$1</li>")
-      .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
-      // Saltos de línea -> <br>
-      .replace(/\n/g, "<br>");
+                // Añadir fuentes/chunks si vienen
+                if (data.chunks && data.chunks.length > 0) {
+                    formatted += "<br><br><strong>Sources</strong><ul>";
+                    data.chunks.forEach(c => {
+                        formatted += `<li>${c}</li>`;
+                    });
+                    formatted += "</ul>";
+                }
 
-    // Añadir fuentes/chunks si vienen
-    if (data.chunks && data.chunks.length > 0) {
-      formatted += "<br><br><strong>Sources</strong><ul>";
-      data.chunks.forEach(c => {
-        formatted += `<li>${c}</li>`;
-      });
-      formatted += "</ul>";
-    }
+                answerEl.innerHTML = formatted;
+                answerEl.style.transition = "opacity 0.5s ease";
+                answerEl.style.opacity = 1;
 
-    answerEl.innerHTML = formatted;
-    answerEl.style.transition = "opacity 0.5s ease";
-    answerEl.style.opacity = 1;
+            } catch (err) {
+                clearInterval(interval);
+                container.style.display = "none";
+                answerEl.classList.add("show");
+                answerEl.innerText = "Uh-oh, I'm lost for words...";
+                answerEl.style.opacity = 1;
+            } finally {
+                btn.disabled = false;
+                btn.style.opacity = 1;
+            }
+        }
 
-  } catch (err) {
-    clearInterval(interval);
-    container.style.display = "none";
-    answerEl.classList.add("show");
-    answerEl.innerText = "Uh-oh, I'm lost for words...";
-    answerEl.style.opacity = 1;
-  } finally {
-    btn.disabled = false;
-    btn.style.opacity = 1;
-  }
-}
-</script>
-
+        // Allow Enter key to submit
+        document.getElementById("question").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                askThesis();
+            }
+        });
+    </script>
 
     
 </body>
