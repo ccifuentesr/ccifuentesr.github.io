@@ -58,7 +58,7 @@ Instructions:
 )
 
 qa = RetrievalQA.from_chain_type(
-llm = ChatOpenAI(model="gpt-4o-mini", max_tokens=500, openai_api_key=api_key),
+llm = ChatOpenAI(model="gpt-5-mini", max_tokens=800, openai_api_key=api_key),
 retriever=retriever,
 return_source_documents=False,
 chain_type_kwargs={"prompt": custom_prompt}
