@@ -951,11 +951,18 @@ html {
 }
 
 .content .music-box {
-  background: #111;
+  background: #1a1a1a;
   border-radius: 1rem;
   padding: 1rem;
 }
 
+.music-box {
+  background: #212121;
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 
         .content-box ul {
