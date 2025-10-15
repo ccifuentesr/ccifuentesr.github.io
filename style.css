@@ -2,7 +2,7 @@
         :root {
             --dark-color: #050505;
             --primary-color: #0f172a;
-            --accent-color: #6366f1;
+            --accent-color: #0084ff;
             --text-color: #334155;
             --light-text: #94a3b8;
             --background: #f8fafc;
@@ -60,7 +60,7 @@
 }
         .tag {
   display: inline-block;
-  background-color: rgba(127, 90, 240, 0.2);
+  background-color: #dcecff(127, 90, 240, 0.2);
   color: var(--accent-color);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;

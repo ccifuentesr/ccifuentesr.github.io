@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE"/>
+    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE">
     <meta name="description" content="Personal page of C. Cifuentes.">
     <title>Carlos Cifuentes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a href="index.html" style="position: absolute; top: 1.5em; left: 1.5em; z-index: 10;"></a>
+    <a href="index.html" style="position: absolute; top: 1.5em; left: 1.5em; z-index: 10;"></a>
     <canvas class="star-background" id="starCanvas"></canvas>
     
     <header>
-        <p style="color: lightgrey; font-size: 1.2em;">Carlos Cifuentes </p>
-      <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Science</h1>
-
-  <p class="subtitle">
-  <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a>
-      <a href="musik.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">musik</a>
-      <a href="seen.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">seen</a>
-</p>
-
+        <p style="color: lightgrey; font-size: 1.2em;">Carlos Cifuentes</p>
+        <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Science</h1>
+        
+        <p class="subtitle">
+            <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a>
+            <a href="musik.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">musik</a>
+            <a href="seen.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">seen</a>
+        </p>
     </header>
     <nav id="mainNav" style="font-size: 1.1em; padding: 0.2em 0; background-color: #f8fafcc5;">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#publications" class="nav-link">Publications</a>
-      <!-- <a href="#code" class="nav-link">Code</a> -->
-      <a href="#now" class="nav-link">Now</a>
-            <a href="#ask" class="nav-link">Ask</a>
-      <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#now" class="nav-link">Now</a>
+        <a href="#ask" class="nav-link">Ask</a>
+        <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
     <script>
-        // Highlight active nav linkq
+        // Highlight active nav link
         function setActiveNav() {
             const links = document.querySelectorAll('.nav-link');
             const scrollPos = window.scrollY + 90; // Offset for header
@@ -55,189 +53,152 @@
                 }
             });
         }
+
         window.addEventListener('scroll', setActiveNav);
         window.addEventListener('load', setActiveNav);
     </script>
     
     <section id="about">
         <h2>About</h2>
-        <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. 
-I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination
-from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and
-pipeline optimisation, with solid experience in Python programming.</p>
-<br
-<p><b>Current position:</b> Postdoctoral researcher at the Centro de Astrobiología <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">(CAB)</a> 
-    based at the European Space Astronomy Centre <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">(ESAC)</a>, Madrid. </p>
+        <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and pipeline optimisation, with solid experience in Python programming.</p>
+        
+        <p><b>Current position:</b> Postdoctoral researcher at the Centro de Astrobiología <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">(CAB)</a> based at the European Space Astronomy Centre <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">(ESAC)</a>, Madrid.</p>
     </section>
 
-            <div style="display: flex; justify-content: center; gap: 2.5em; ">
+        <div style="display: flex; justify-content: center; gap: 2.5em;">
             <span class="tag" style="background-color: var(--accent-color); color: rgb(255, 255, 255); width: 5.5em; text-align: center;">
                 <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">ADS</a>
             </span>
             <span class="tag" style="background-color: var(--accent-color); color: rgb(255, 255, 255); width: 5.5em; text-align: center;">
                 <a href="https://github.com/ccifuentesr" target="_blank" style="text-decoration: none; color: inherit;">GitHub</a>
             </span>
-            <span class="tag" style="width: 5.5em; text-align: center;" >
-                <a href="https://www.dropbox.com/scl/fi/is6bskt3sus70d92gkdsx/cifuentes_cv.pdf?rlkey=q622rwsf7xl1j49b9wwvbaloe&dl=0" target="_blank" style="text-decoration: none; color: inherit; ">CV</a>
+            <span class="tag" style="width: 5.5em; text-align: center;">
+                <a href="https://www.dropbox.com/scl/fi/is6bskt3sus70d92gkdsx/cifuentes_cv.pdf?rlkey=q622rwsf7xl1j49b9wwvbaloe&dl=0" target="_blank" style="text-decoration: none; color: inherit;">CV</a>
             </span>
         </div>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="section-grid">
-        
-        <div class="research-item">
-            <h3 style="color: var(--accent-color);">Triple Trouble: Exoplanets in hierarchical triple systems</h3>
-            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">Triple star systems are more common than often assumed, yet planets in them remain understudied. Their orbital architectures offer valuable clues about planet and star formation in complex gravitational settings. Stable planets in these systems reflect the delicate balance required for long-term dynamical survival.</p>
-            <div>
-                <span class="tag">Exoplanets</span>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="section-grid">
+            <div class="research-item">
+                <h3 style="color: var(--accent-color);">Triple Trouble: Exoplanets in hierarchical triple systems</h3>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">Triple star systems are more common than often assumed, yet planets in them remain understudied. Their orbital architectures offer valuable clues about planet and star formation in complex gravitational settings. Stable planets in these systems reflect the delicate balance required for long-term dynamical survival.</p>
+                <div>
+                    <span class="tag">Exoplanets</span>
+                    <span class="tag">Binaries</span>
+                    <span class="tag">Radial velocities</span>
+                    <span class="tag">Dynamics</span>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <h3 style="color: var(--accent-color);">One is the Loneliest Number: Triple stellar systems are commonplace</h3>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;"><em>Gaia</em> astrometry reveals subtle anomalies in stars that appear single, hinting at unresolved companions. This project follows up such cases to identify spectroscopic binaries, essential to avoid false planet detections, refine stellar parameters, and complete the census of close stellar multiplicity.</p>
+                <div>
+                    <span class="tag">Binaries</span>
+                    <span class="tag">Spectroscopy</span>
+                    <span class="tag">Gaia</span>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <h3 style="color: var(--accent-color);">K-dwarfs Orbited By habitable Exoplanets (KOBE)</h3>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">The KOBE experiment is a legacy radial-velocity survey using CARMENES at Calar Alto. By targeting the overlooked K dwarfs, KOBE bridges the gap between G- and M‑dwarf studies. The project has already confirmed a planet near the habitable zone of a K dwarf (<b>PI:</b> <span style="color: var(--accent-color);">Jorge Lillo Box</span>).</p>
+                <div>
+                    <span class="tag">Exoplanets</span>
+                    <span class="tag">Spectroscopy</span>
+                    <span class="tag">CARMENES</span>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <h3 style="color: var(--accent-color);">Calar Alto search for exoearths in M dwarfs (CARMENES)</h3>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">CARMENES is a dual-channel high-resolution spectrograph operating at the 3.5m Calar Alto telescope, dedicated to the detection of terrestrial-mass exoplanets around M dwarfs. The survey has led to the discovery and characterisation of dozens of exoplanets, and is a cornerstone of low-mass star research in Europe (<b>PIs:</b> <span style="color: var(--accent-color);">P. J. Amado, A. Quirrenbach</span>).</p>
+                <div>
+                    <span class="tag">Exoplanets</span>
+                    <span class="tag">Spectroscopy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="publications">
+        <h2>Selected publications</h2>
+
+        <div class="section-grid">
+            <div class="publication-item">
+                <p class="publication-date">Balsalobre-Ruza et al. (2025)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...694A..15B/abstract" target="_blank">
+                        KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf
+                    </a>
+                </p>
+                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
+                <span class="tag">KOBE</span>
+                <span class="tag">K dwarfs</span>
+                <span class="tag">Habitability</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">KOBE finds its first planet!</p>
+                <p>The first discovery of the KOBE project: two super-Earth- or sub-Neptune-mass planets orbiting a quiet K7 star.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">Cifuentes et al. (2025)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.228C/abstract" target="_blank">
+                        CARMENES input catalogue of M dwarfs IX: Multiplicity from close spectroscopic binaries to ultra‑wide systems
+                    </a>
+                </p>
+                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
+                <span class="tag">M dwarfs</span>
                 <span class="tag">Binaries</span>
-                <span class="tag">Radial velocities</span>
-                <span class="tag">Dynamics</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">The multiplicity of M dwarfs is probably underestimated.</p>
+                <p>Comprehensive multiplicity study ranging from close spectroscopic binaries to ultra-wide companions.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">Cifuentes et al. (2020)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.115C/abstract" target="_blank">
+                        CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
+                    </a>
+                </p>
+                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
+                <span class="tag">M dwarfs</span>
+                <span class="tag">Stellar parameters</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">A trusted reference for the astrophysical parameters of M dwarfs.</p>
+                <p>Study of luminosities, colours, and spectral energy distributions for M dwarfs in the CARMENES input catalogue.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">Schweitzer et al. (2019)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...625A..68S/abstract" target="_blank">
+                        The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
+                    </a>
+                </p>
+                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
+                <span class="tag">M dwarfs</span>
+                <span class="tag">Stellar parameters</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Know your star: Precise masses and radii of M dwarfs.</p>
+                <p>Precise radii and masses for 293 nearby M dwarfs, achieving 2-5% precision and consistency across techniques.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">Martínez-Rodríguez et al. (2019)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2019ApJ...887..261M/abstract" target="_blank">
+                        Exomoons in the habitable zones of M dwarfs
+                    </a>
+                </p>
+                <span class="tag">Exomoons</span>
+                <span class="tag">Habitability</span>
+                <span class="tag">M dwarfs</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Prospects for habitability beyond exoplanets around M dwarfs.</p>
+                <p>Analysis of potential habitable exomoons orbiting M dwarfs and their detectability.</p>
             </div>
         </div>
 
-        <div class="research-item">
-            <h3 style="color: var(--accent-color);">One is the Loneliest Number: Triple stellar systems are commonplace</h3>
-            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;"><em>Gaia</em> astrometry reveals subtle anomalies in stars that appear single, hinting at unresolved companions. This project follows up such cases to identify spectroscopic binaries, essential to avoid false planet detections, refine stellar parameters, and complete the census of close stellar multiplicity.</p>
-            <div>
-                <span class="tag">Binaries</span>
-                <span class="tag">Spectroscopy</span>
-                <span class="tag">Gaia</span>
-
-            </div>
-        </div>
-        
-        <div class="research-item">
-            <h3 style="color: var(--accent-color);">K-dwarfs Orbited By habitable Exoplanets (KOBE)</h3>
-            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">The KOBE experiment is a legacy radial-velocity survey using CARMENES at Calar Alto. 
-                By targeting the overlooked K dwarfs, KOBE bridges the gap between G- and M‑dwarf studies. 
-                The project has already confirmed a planet near the habitable zone of a K dwarf (<b>PI:</b> <span style="color: var(--accent-color);">Jorge Lillo Box</span>).</p>
-            <div>
-                <span class="tag">Exoplanets</span>
-                <span class="tag">Spectroscopy</span>
-                <span class="tag">CARMENES</span>
-
-            </div>
-        </div>
-
-                <div class="research-item">
-              <h3 style="color: var(--accent-color);">Calar Alto search for exoearths in M dwarfs (CARMENES)</h3>
-              <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">
-                CARMENES is a dual-channel high-resolution spectrograph operating at the 3.5m Calar Alto telescope, dedicated to the detection of terrestrial-mass exoplanets around M dwarfs. 
-                The survey has led to the discovery and characterisation of dozens of exoplanets, and is a cornerstone of low-mass star research in Europe (<b>PIs: </b><span style="color: var(--accent-color);">P. J. Amado, A. Quirrenbach</span>).
-              </p>
-            <div>
-                <span class="tag">Exoplanets</span>
-                <span class="tag">Spectroscopy</span>
-            </div>
-        </div>
-        
-                <!-- <div class="research-item">
-            <h3 style="color: var(--accent-color);">Speak to Me</h3>
-            <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">Combining TESS photometry and advanced machine learning we analyse stellar oscillations in multiple star systems. By identifying subtle variations caused by gravitational interactions, we aim to reveal hidden exoplanets and deepen our understanding of planet formation in complex stellar environments.</p>
-            <div style="height: 1.5em;"></div>
-            <div>
-                <span class="tag">Binaries</span>
-                <span class="tag">Exoplanets</span>
-                <span class="tag">Machine learning</span>
-                <span class="tag">TESS</span>
-            </div>
-        </div> -->
-        
-    </div>
-</section>
-<section id="publications">
-  <h2>Selected publications</h2>
-
-  <div class="section-grid">
-    <div class="publication-item">
-      <p class="publication-date">Balsalobre-Ruza et al. (2025)</p>
-      <p class="publication-title">
-        <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...694A..15B/abstract" target="_blank">
-          KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf
-        </a>
-      </p>
-      <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
-      <span class="tag">KOBE</span>
-      <span class="tag">K dwarfs</span>
-      <span class="tag">Habitability</span>
-      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
-        KOBE finds its first planet!
-      </p>
-      <p>The first discovery of the KOBE project: two super-Earth- or sub-Neptune-mass planets orbiting a quiet K7 star. </p>
-    </div>
-
-    <div class="publication-item">
-      <p class="publication-date">Cifuentes et al. (2025)</p>
-      <p class="publication-title">
-        <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.228C/abstract" target="_blank">
-          CARMENES input catalogue of M dwarfs IX: Multiplicity from close spectroscopic binaries to ultra‑wide systems
-        </a>
-      </p>
-      <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
-      <span class="tag">M dwarfs</span>
-      <span class="tag">Binaries</span>
-      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
-        The multiplicity of M dwarfs is probably underestimated.
-      </p>
-      <p>Comprehensive multiplicity study ranging from close spectroscopic binaries to ultra-wide companions.</p>
-    </div>
-
-    <div class="publication-item">
-      <p class="publication-date">Cifuentes et al. (2020)</p>
-      <p class="publication-title">
-        <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.115C/abstract" target="_blank">
-          CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
-        </a>
-      </p>
-      <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
-      <span class="tag">M dwarfs</span>
-      <span class="tag">Stellar parameters</span>
-      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
-        A trusted reference for the astrophysical parameters of M dwarfs.
-      </p>
-      <p>Study of luminosities, colours, and spectral energy distributions for M dwarfs in the CARMENES input catalogue.</p>
-    </div>
-
-    <div class="publication-item">
-      <p class="publication-date">Schweitzer et al. (2019)</p>
-      <p class="publication-title">
-        <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...625A..68S/abstract" target="_blank">
-          The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
-        </a>
-      </p>
-      <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
-      <span class="tag">M dwarfs</span>
-      <span class="tag">Stellar parameters</span>
-
-      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
-        Know your star: Precise masses and radii of M dwarfs.
-      </p>
-      <p>Precise radii and masses for 293 nearby M dwarfs, achieving 2-5% precision and consistency across techniques.</p>
-    </div>
-
-    <div class="publication-item">
-      <p class="publication-date">Martínez-Rodríguez et al. (2019)</p>
-      <p class="publication-title">
-        <a href="https://ui.adsabs.harvard.edu/abs/2019ApJ...887..261M/abstract" target="_blank">
-          Exomoons in the habitable zones of M dwarfs
-        </a>
-      </p>
-      <span class="tag">Exomoons</span>
-      <span class="tag">Habitability</span>
-      <span class="tag">M dwarfs</span>
-      <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">
-        Prospects for habitability beyond exoplanets around M dwarfs.
-      </p>
-      <p>Analysis of potential habitable exomoons orbiting M dwarfs and their detectability.</p>
-    </div>
-
-  </div>
-</section>
-
-<p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>.
-</p>
+        <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>.</p>
+    </section>
 
 
 <!-- <section id="code">
@@ -288,98 +249,101 @@ pipeline optimisation, with solid experience in Python programming.</p>
 
 
 
-<section id="now">
-      <h2>Now</h2>
-<p>Past, present and future scientific events of 2025.
-</p>
-      <div class="section-grid-2">
+    <section id="now">
+        <h2>Now</h2>
+        <p style="padding-bottom: 1em;">Past, present and future scientific events of 2025.</p>
 
-                    <div class="publication-item">
-            <p style="color: salmon; font-size: 0.875rem; margin-bottom: 0.5rem;">December 2025</p>
-            <p class="publication-title">
-                 <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank">
-                 Exploring Tattoine and beyond: Circumbinary planets with ESAC missions
-                 </a>
-            </p>
-            <p style="margin-bottom: 1em; color: #008000; background: #e6f4ea; border-radius: 0.4em; padding: 0.3em 0.8em; display: inline-block;">
-                 Local Organising Committee
-            </p>
-            <p style="margin-bottom: 1em;">
-                 European Space Astronomy Centre<br><span style="color: grey;">Spain</span>
-            </p>
-      </div>
-    
-      
-        <div class="publication-item">
-                 <p style="color: salmon; font-size: 0.875rem; margin-bottom: 0.5rem;">November 2025</p>
-                 <p class="publication-title">
-                      <a href="https://kobe.caha.es" target="_blank">
-                            KOBE Hackathon #4
-                      </a>
-                 </p>
-                 <p style="margin-bottom: 1em;">Virtually anywhere (Online)</p>
-      </div> 
+        <div style="display: flex; flex-direction: column; gap: 0.8em; max-width: 800px;">
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid salmon;">
+                <p style="color: salmon; font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">December 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank" style="text-decoration: none; color: inherit;">
+                            Workshop on Planets Around M-Dwarfs
+                        </a>
+                    </p>
+                    <p style="margin: 0 0 0.3em 0; color: #0084ff; background: #dcecff; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                        Invited talk: "M dwarfs in multiple star systems"
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">Lund University, Sweden</p>
+                </div>
+            </div>
 
-                  <div class="publication-item">
-                 <p style="color: salmon; font-size: 0.875rem; margin-bottom: 0.5rem;">October 2025</p>
-                 <p class="publication-title">
-                      <a href="https://www.cosmos.esa.int/web/exoplanetsworkinggroup/maesm-2025" target="_blank">
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid salmon;">
+                <p style="color: salmon; font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">December 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank" style="text-decoration: none; color: inherit;">
+                            Exploring Tattoine and beyond: Circumbinary planets with ESAC missions
+                        </a>
+                    </p>
+                    <p style="margin: 0 0 0.3em 0; color: #ff9900; background: #fff2ce; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                        Local Organising Committee
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">European Space Astronomy Centre, Spain</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid salmon;">
+                <p style="color: salmon; font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">November 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://kobe.caha.es" target="_blank" style="text-decoration: none; color: inherit;">KOBE Hackathon Week #4</a>
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">Virtually anywhere (Online)</p>
+                </div>
+            </div> 
+
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; background: rgba(0, 189, 145, 0.1); border-left: 2px solid rgb(0, 189, 145);">
+                <p style="color: rgb(0, 189, 145); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">Now</p>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+                <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">October 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://www.cosmos.esa.int/web/exoplanetsworkinggroup/maesm-2025" target="_blank" style="text-decoration: none; color: inherit;">
                             ESA'S Madrid-Area Exoplanet Science Meeting (MAESM)
-                      </a>
-                      
-                 </p>
-                 <p style="margin-bottom: 1em; color: #008000; background: #e6f4ea; border-radius: 0.4em; padding: 0.3em 0.8em; display: inline-block;">
-                 Talk: "Exoplanets in triple star systems"
-            </p>
-                 <p style="margin-bottom: 1em;">European Space Astronomy Centre<br><span style="color: grey;">Spain</span></p>
-      </div> 
+                        </a>
+                    </p>
+                    <p style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                        Talk: "Exoplanets in triple star systems"
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">European Space Astronomy Centre, Spain</p>
+                </div>
+            </div> 
 
-<div class="publication-item">
- <p style="color: rgb(0, 189, 145); font-size: 0.875rem; margin-bottom: 0.5rem;">Now</p>
- <p class="publication-title">
-      <a href="#" target="_blank">
-            Currently focused on:
-      </a>
- </p>
- <ul style="margin-bottom: 1em; padding-left: 1.2em;">
-      <li>Writing observing proposals</li>
-      <li>Analysing archival data</li>
-      <li>Searching for postdocs</li>
- </ul>
-</div> 
-
-
-
-            <div class="publication-item">
-                 <p style="color: rgb(104, 104, 104); font-size: 0.875rem; margin-bottom: 0.5rem;">July 2025</p>
-                 <p class="publication-title">
-                      <a href="https://indico.global/event/8940/" target="_blank">
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+                <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">July 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://indico.global/event/8940/" target="_blank" style="text-decoration: none; color: inherit;">
                             Detection and Dynamics of Exoplanets (DDE): Interplay between theory and observations 
-                      </a>
-                 </p>
-                                      <p style="margin-bottom: 1em; color: #292929; background: #f1f1f1; border-radius: 0.4em; padding: 0.3em 0.8em; display: inline-block;">
-                 Talk: "Exoplanets in triple star systems"
-            </p>
-                 <p style="margin-bottom: 1em;">University of Coimbra <br><span style="color: grey;">Portugal</span></p>
+                        </a>
+                    </p>
+                    <p style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                        Talk: "Exoplanets in triple star systems"
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">University of Coimbra, Portugal</p>
+                </div>
             </div>  
 
-                            <div class="publication-item">
-                 <p style="color: rgb(104, 104, 104); font-size: 0.875rem; margin-bottom: 0.5rem;">May 2025</p>
-                 <p class="publication-title">
-                      <a href="https://kobe.caha.es" target="_blank">
-                            KOBE Hackathon Week #3
-                      </a>
-                 </p>
-                 <p style="margin-bottom: 1em;">Genève Observatory<br><span style="color: grey;">Switzerland</span></p>
+            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+                <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">May 2025</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0 0 0.3em 0; font-weight: 500;">
+                        <a href="https://kobe.caha.es" target="_blank" style="text-decoration: none; color: inherit;">KOBE Hackathon Week #3</a>
+                    </p>
+                    <p style="margin: 0; color: grey; font-size: 0.9em;">Genève Observatory, Switzerland</p>
+                </div>
             </div>  
-
- </section>
-
-  <section id="ask">
-        <div>
-            <h2>Talk with my thesis</h2>
         </div>
-                <p style="margin-top:20px; text-align: center;">Try asking:</p>
+    </section>
+
+    <section id="ask">
+        <h2>Talk with my thesis</h2>
+        <p style="margin-top:20px; text-align: center;">Try asking:</p>
+        
         <div class="suggestions-container">
             <button class="suggestion" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
             <button class="suggestion" onclick="setQuestion('What is the radius of a K7 dwarf?')">What is the radius of a K7 dwarf?</button>
@@ -387,15 +351,10 @@ pipeline optimisation, with solid experience in Python programming.</p>
         </div>
 
         <div style="margin-top:20px; display:flex; flex-direction: column; align-items: center;">
-            <input
-                id="question"
-                type="text"
-                placeholder="Ask me anything..."
-            >
-            <button id="askBtn" onclick="askThesis()">
-                Ask
-            </button>
+            <input id="question" type="text" placeholder="Ask me anything...">
+            <button id="askBtn" onclick="askThesis()">Ask</button>
         </div>
+        
         <div id="progressContainer">
             <div id="progressBar"></div>
         </div>
@@ -406,65 +365,68 @@ pipeline optimisation, with solid experience in Python programming.</p>
     <section id="contact">
         <h2>Contact</h2>
         <div class="contact-info">
-            <p class="contact-item" style="font-size: 1.2em;"><span class="contact-label"></span> 
-            <a href="mailto:&#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;">
-  &#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;
-</a><br> <!-- anti-spam encoding -->
-<a href="https://zcal.co/ccifuentes" style="font-size: 0.9em; color: grey;" target="_blank">
-    Schedule a meeting</a>
-</p>
-            <p style="font-size: 0.9em;"> Centro de Astrobiología (CSIC-INTA)<br>
-                Camino Bajo del Castillo s/n <br>
+            <p class="contact-item" style="font-size: 1.2em;">
+                <a href="mailto:&#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;">
+                    &#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;
+                </a><br>
+                <a href="https://zcal.co/ccifuentes" style="font-size: 0.9em; color: grey;" target="_blank">
+                    Schedule a meeting
+                </a>
+            </p>
+            <p style="font-size: 0.9em;">
+                Centro de Astrobiología (CSIC-INTA)<br>
+                Camino Bajo del Castillo s/n<br>
                 Campus European Space Astronomy Centre<br>
-                28692 Villanueva de la Cañada, Madrid, Spain</p>
+                28692 Villanueva de la Cañada, Madrid, Spain
+            </p>
         </div>
-
     </section>
-  
-
     <div style="height: 20em;"></div>
 
     <footer>
         <p>
-                <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
-      CC0 1.0 Universal
-
-    </a>
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
+                CC0 1.0 Universal
+            </a>
             2017-2025 | C. Cifuentes
         </p>
         <p>Last updated: August 2025</p>
     </footer>
     <script>
+        // Progress bar animation
         function showProgress() {
             const bar = document.getElementById("progressBar");
             let width = 0;
             return setInterval(() => {
-                if (width < 90) { // no llega a 100% hasta recibir la respuesta
+                if (width < 90) {
                     width += 1;
                     bar.style.width = width + "%";
                 }
             }, 50);
         }
 
+        // Set predefined question
         function setQuestion(text) {
             document.getElementById("question").value = text;
         }
 
+        // Main thesis interaction function
         async function askThesis() {
             const question = document.getElementById("question").value.trim();
             if (!question) return;
 
             const answerEl = document.getElementById("answer");
             const btn = document.getElementById("askBtn");
+            const container = document.getElementById("progressContainer");
 
+            // Initialize UI
             btn.disabled = true;
             btn.style.opacity = 0.6;
             answerEl.style.opacity = 0;
             answerEl.classList.add("show");
             answerEl.innerHTML = "Thinking...";
-
-            const container = document.getElementById("progressContainer");
             container.style.display = "block";
+
             const interval = showProgress();
 
             try {
@@ -480,7 +442,7 @@ pipeline optimisation, with solid experience in Python programming.</p>
                 const bar = document.getElementById("progressBar");
                 bar.style.width = "100%";
 
-                // Fade out barra de progreso suavemente
+                // Fade out progress bar
                 container.style.transition = "opacity 0.3s ease";
                 container.style.opacity = 0;
                 setTimeout(() => {
@@ -489,26 +451,20 @@ pipeline optimisation, with solid experience in Python programming.</p>
                     bar.style.width = "0%";
                 }, 300);
 
-                // Formatear respuesta (markdown -> HTML)
+                // Format response (markdown to HTML)
                 const rawAnswer = data.answer || "No answer.";
                 let formatted = rawAnswer
-                    // Títulos (#, ##, ### → h1, h2, h3)
                     .replace(/^### (.*$)/gim, "<h3>$1</h3>")
                     .replace(/^## (.*$)/gim, "<h2>$1</h2>")
                     .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-                    // Negrita **texto**
                     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                    // Cursiva *texto*
                     .replace(/\*(.*?)\*/g, "<em>$1</em>")
-                    // Enlaces [texto](url)
                     .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
-                    // Listas con guiones
                     .replace(/^\s*[-+*]\s+(.*)/gim, "<li>$1</li>")
                     .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
-                    // Saltos de línea -> <br>
                     .replace(/\n/g, "<br>");
 
-                // Añadir fuentes/chunks si vienen
+                // Add sources if available
                 if (data.chunks && data.chunks.length > 0) {
                     formatted += "<br><br><strong>Sources</strong><ul>";
                     data.chunks.forEach(c => {
@@ -533,7 +489,7 @@ pipeline optimisation, with solid experience in Python programming.</p>
             }
         }
 
-        // Allow Enter key to submit
+        // Enter key support
         document.getElementById("question").addEventListener("keypress", function(e) {
             if (e.key === "Enter") {
                 askThesis();
