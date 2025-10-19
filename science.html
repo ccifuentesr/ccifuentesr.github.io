@@ -17,18 +17,18 @@
         <p style="color: lightgrey; font-size: 1.2em;">Carlos Cifuentes</p>
         <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Science</h1>
         
-        <p class="subtitle">
+        <nav class="subtitle">
             <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a>
             <a href="musik.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">musik</a>
             <a href="seen.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">seen</a>
-        </p>
+        </nav>
     </header>
-    <nav id="mainNav" style="font-size: 1.1em; padding: 0.2em 0; background-color: #f8fafcc5;">
+    <nav id="mainNav" style="font-size: 1.1em; padding: 0.2em 0;">
         <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#publications" class="nav-link">Publications</a>
         <a href="#now" class="nav-link">Now</a>
-        <a href="#ask" class="nav-link">Ask</a>
+        <a href="#talk" class="nav-link">Talk</a>
         <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
@@ -61,7 +61,7 @@
     <section id="about">
         <h2>About</h2>
         <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and pipeline optimisation, with solid experience in Python programming.</p>
-        
+        <br>
         <p><b>Current position:</b> Postdoctoral researcher at the Centro de Astrobiología <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">(CAB)</a> based at the European Space Astronomy Centre <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">(ESAC)</a>, Madrid.</p>
     </section>
 
@@ -103,7 +103,8 @@
             
             <div class="research-item">
                 <h3 style="color: var(--accent-color);">K-dwarfs Orbited By habitable Exoplanets (KOBE)</h3>
-                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">The KOBE experiment is a legacy radial-velocity survey using CARMENES at Calar Alto. By targeting the overlooked K dwarfs, KOBE bridges the gap between G- and M‑dwarf studies. The project has already confirmed a planet near the habitable zone of a K dwarf (<b>PI:</b> <span style="color: var(--accent-color);">Jorge Lillo Box</span>).</p>
+                <span style="color: grey;"><b>PI:</b> J. Lillo Box</span>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">The KOBE experiment is a legacy radial-velocity survey using CARMENES at Calar Alto. By targeting the overlooked K dwarfs, KOBE bridges the gap between G- and M‑dwarf studies. The project has already confirmed a planet near the habitable zone of a K dwarf.</p>
                 <div>
                     <span class="tag">Exoplanets</span>
                     <span class="tag">Spectroscopy</span>
@@ -113,7 +114,8 @@
 
             <div class="research-item">
                 <h3 style="color: var(--accent-color);">Calar Alto search for exoearths in M dwarfs (CARMENES)</h3>
-                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">CARMENES is a dual-channel high-resolution spectrograph operating at the 3.5m Calar Alto telescope, dedicated to the detection of terrestrial-mass exoplanets around M dwarfs. The survey has led to the discovery and characterisation of dozens of exoplanets, and is a cornerstone of low-mass star research in Europe (<b>PIs:</b> <span style="color: var(--accent-color);">P. J. Amado, A. Quirrenbach</span>).</p>
+                <span style="color: grey;"><b>PIs:</b> P.J. Amado, A. Quirrenbach</span>
+                <p style="text-align: justify; margin-top: 0.5em; margin-bottom: 1em;">CARMENES is a dual-channel high-resolution spectrograph operating at the 3.5m Calar Alto telescope, dedicated to the detection of terrestrial-mass exoplanets around M dwarfs. The survey has led to the discovery and characterisation of dozens of exoplanets, and is a cornerstone of low-mass star research in Europe.</p>
                 <div>
                     <span class="tag">Exoplanets</span>
                     <span class="tag">Spectroscopy</span>
@@ -124,7 +126,10 @@
     <section id="publications">
         <h2>Selected publications</h2>
 
-        <div class="section-grid">
+          <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>. 
+        You can also read my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgb(225, 41, 13);">thesis</a> there.</p>
+
+        <div class="section-grid" style="padding-bottom: 2em;">
             <div class="publication-item">
                 <p class="publication-date">Balsalobre-Ruza et al. (2025)</p>
                 <p class="publication-title">
@@ -132,7 +137,7 @@
                         KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
+                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">New!</span>
                 <span class="tag">KOBE</span>
                 <span class="tag">K dwarfs</span>
                 <span class="tag">Habitability</span>
@@ -147,7 +152,7 @@
                         CARMENES input catalogue of M dwarfs IX: Multiplicity from close spectroscopic binaries to ultra‑wide systems
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(255, 166, 0, 0.3); color: rgb(255, 140, 0);">New!</span>
+                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">New!</span>
                 <span class="tag">M dwarfs</span>
                 <span class="tag">Binaries</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">The multiplicity of M dwarfs is probably underestimated.</p>
@@ -161,7 +166,7 @@
                         CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
+                <span class="tag" style="background-color: rgba(138, 43, 226, 0.15); color: rgb(138, 43, 226);">Top cited</span>
                 <span class="tag">M dwarfs</span>
                 <span class="tag">Stellar parameters</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">A trusted reference for the astrophysical parameters of M dwarfs.</p>
@@ -175,7 +180,7 @@
                         The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(47, 223, 112, 0.235); color: rgb(19, 177, 35);">Top cited</span>
+                <span class="tag" style="background-color: rgba(138, 43, 226, 0.15); color: rgb(138, 43, 226);">Top cited</span>
                 <span class="tag">M dwarfs</span>
                 <span class="tag">Stellar parameters</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Know your star: Precise masses and radii of M dwarfs.</p>
@@ -193,11 +198,72 @@
                 <span class="tag">Habitability</span>
                 <span class="tag">M dwarfs</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Prospects for habitability beyond exoplanets around M dwarfs.</p>
-                <p>Analysis of potential habitable exomoons orbiting M dwarfs and their detectability.</p>
+                <p>Among 33 exoplanets in habitable zones around M dwarfs, four are capable of hosting stable Moon- to Titan-mass exomoons for timescales exceeding the age of the Universe.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">González-Payo et al. (2024)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.302G/abstract" target="_blank">
+                        Multiplicity of stars with planets in the solar neighbourhood
+                    </a>
+                </p>
+                <span class="tag">Exoplanets</span>
+                <span class="tag">Binaries</span>
+                <span class="tag">Multiplicity</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Stellar companions craft exoplanet architectures.</p>
+                <p>Comprehensive study of 212 exoplanet host stars in multiple systems, revealing how stellar multiplicity influences planet formation, orbital properties, and habitability.</p>
+            </div>
+
+            <div class="publication-item">
+                <p class="publication-date">Cortés-Contreras et al. (2024)</p>
+                <p class="publication-title">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...692A.206C/abstract" target="_blank">
+                        CARMENES input catalogue of M dwarfs: VIII. Kinematics in the solar neighbourhood
+                    </a>
+                </p>
+                <span class="tag">M dwarfs</span>
+                <span class="tag">Kinematics</span>
+                <span class="tag">Young stars</span>
+                <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">The solar neighborhood's hidden youth.</p>
+                <p>Exhaustive kinematic analysis of 2187 M dwarfs, identifying 191 young star candidates and improving our understanding of stellar ages in the solar neighborhood.</p>
             </div>
         </div>
 
-        <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>.</p>
+
+        <!-- Unified Catalogue Search -->
+        <div style="margin-bottom: 2em; padding: 1.5em; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 8px; background: rgba(255, 255, 255, 0.02);">
+            <h3 style="margin: 0 0 1em 0; font-size: 1.1em; color: orange; font-weight: 500;">Search the associated catalogues</h3>
+            <div style="display: flex; gap: 0.5em; align-items: center; flex-wrap: wrap;">
+                <select id="catalog-select" style="padding: 0.6em 0.8em; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em; outline: none; min-width: 180px; background: white; transition: border-color 0.2s;">
+                    <option value="">Select catalogue...</option>
+                    <option value="cifuentes25">Multiplicity (Cifuentes+ 2025)</option>
+                    <option value="cortes-contreras24">Kinematics and age (Cortes-Contreras+ 2024)</option>
+                    <option value="gonzalez-payo24">Multiplicity of stars with planets (González-Payo+ 2024)</option>
+                    <option value="cifuentes20">Stellar parameters (Cifuentes+ 2020)</option>
+                    <option value="schweitzer19">Masses and radii (Schweitzer+ 2019)</option>
+                    <option value="martinez-rodriguez19">Exomoons detectability (Martínez-Rodríguez+ 2019)</option>
+                </select>
+                <input 
+                    type="text" 
+                    id="unified-search" 
+                    placeholder="Object name..."
+                    style="flex: 1; min-width: 200px; padding: 0.6em 0.8em; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em; outline: none; transition: border-color 0.2s;"
+                    onfocus="this.style.borderColor='rgb(255, 140, 0)'"
+                    onblur="this.style.borderColor='#ddd'"
+                >
+                <button 
+                    onclick="unifiedSearch()"
+                    style="padding: 0.6em 1.2em; background: transparent; color: rgb(255, 140, 0); border: 1px solid rgb(255, 140, 0); border-radius: 4px; font-size: 0.9em; font-weight: 500; cursor: pointer; transition: all 0.2s;"
+                    onmouseover="this.style.background='rgb(255, 140, 0)'; this.style.color='white'"
+                    onmouseout="this.style.background='transparent'; this.style.color='rgb(255, 140, 0)'"
+                >
+                    Search
+                </button>
+            </div>
+            <div id="unified-result" style="margin-top: 1em; display: none; padding: 0.5em; border-radius: 4px; font-size: 0.9em;"></div>
+        </div>
+
     </section>
 
 
@@ -296,6 +362,11 @@
 
             <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; background: rgba(0, 189, 145, 0.1); border-left: 2px solid rgb(0, 189, 145);">
                 <p style="color: rgb(0, 189, 145); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">Now</p>
+                <div style="flex: 1;">
+                    <p style="margin: 0; color: rgb(0, 120, 92); font-size: 1em; font-family: 'Courier New', monospace;">
+                        <span id="bjd-clock">Loading...</span> (BJD)
+                    </p>
+                </div>
             </div>
 
             <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
@@ -340,19 +411,19 @@
         </div>
     </section>
 
-    <section id="ask">
-        <h2>Talk with my thesis</h2>
+    <section id="talk">
+        <h2>Talk to my thesis</h2>
         <p style="margin-top:20px; text-align: center;">Try asking:</p>
         
         <div class="suggestions-container">
             <button class="suggestion" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
-            <button class="suggestion" onclick="setQuestion('What is the radius of a K7 dwarf?')">What is the radius of a K7 dwarf?</button>
-            <button class="suggestion" onclick="setQuestion('Which are the key results on multiplicity of M dwarfs?')">Which are the key results on multiplicity of M dwarfs?</button>
+            <button class="suggestion" onclick="setQuestion('How common are M dwarfs?')">How common are M dwarfs?</button>
+            <button class="suggestion" onclick="setQuestion('List the key results on multiplicity of M dwarfs.')">List the key results on multiplicity of M dwarfs.</button>
         </div>
 
         <div style="margin-top:20px; display:flex; flex-direction: column; align-items: center;">
             <input id="question" type="text" placeholder="Ask me anything...">
-            <button id="askBtn" onclick="askThesis()">Ask</button>
+            <button id="askBtn" onclick="askThesis()">Talk</button>
         </div>
         
         <div id="progressContainer">
@@ -390,7 +461,7 @@
             </a>
             2017-2025 | C. Cifuentes
         </p>
-        <p>Last updated: August 2025</p>
+        <p>Last updated: October 2025</p>
     </footer>
     <script>
         // Progress bar animation
@@ -493,6 +564,240 @@
         document.getElementById("question").addEventListener("keypress", function(e) {
             if (e.key === "Enter") {
                 askThesis();
+            }
+        });
+
+        // Barycentric Julian Date (BJD) Clock
+        function updateBJD() {
+        const now = new Date();
+        const jd = (now.getTime() / 86400000) + 2440587.5;
+        
+        const bjdElement = document.getElementById('bjd-clock');
+        if (bjdElement) {
+            bjdElement.textContent = jd.toFixed(5);
+        }
+        }
+
+        // Update BJD every 100ms for smoother chronometer-like behavior
+        updateBJD(); // Initial call
+        setInterval(updateBJD, 100);
+
+        // Catalogue search function: query backend /vizier proxy for a compact summary,
+        // show it inline and provide a link to open full VizieR results as fallback.
+        async function searchCatalog(catalog) {
+            let inputId, vizierSource, resultDiv;
+            
+            if (catalog === 'cifuentes25') {
+                inputId = 'search-cix';
+                vizierSource = 'J/A+A/693/A228';
+                resultDiv = 'result-cix';
+            } else if (catalog === 'cifuentes20') {
+                inputId = 'search-cv';
+                vizierSource = 'J/A+A/642/A115';
+                resultDiv = 'result-cv';
+            } else if (catalog === 'schweitzer19') {
+                inputId = 'search-schweitzer';
+                vizierSource = 'J/A+A/625/A68';
+                resultDiv = 'result-schweitzer';
+            } else if (catalog === 'gonzalez-payo24') {
+                inputId = 'search-gonzalez-payo';
+                vizierSource = 'J/A+A/689/A302';
+                resultDiv = 'result-gonzalez-payo';
+            } else if (catalog === 'cortes-contreras24') {
+                inputId = 'search-cifuentes2024';
+                vizierSource = 'J/A+A/692/A206';
+                resultDiv = 'result-cifuentes2024';
+            }
+
+            const searchTerm = document.getElementById(inputId).value.trim();
+            const resultElement = document.getElementById(resultDiv);
+
+            if (!searchTerm) {
+                alert('Please enter an object name to search.');
+                return;
+            }
+
+            // Show loading state
+            if (resultElement) {
+                resultElement.style.display = 'block';
+                resultElement.innerHTML = '<p style="color:#666; font-style:italic;">Searching...</p>';
+            }
+
+            try {
+                // Try to fetch VizieR TSV directly from the client and see if there are results
+                const tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
+                const resp = await fetch(tsvUrl);
+
+                // If CORS or network prevents the fetch, resp.ok may be false or an error thrown
+                if (!resp.ok) {
+                    // Can't check from client: show VizieR in iframe
+                    if (resultElement) {
+                        resultElement.style.display = 'block';
+                        resultElement.innerHTML = `<iframe src="https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
+                    }
+                    return;
+                }
+
+                const text = await resp.text();
+                // Parse TSV: lines starting with '#' are comments, skip separators, first non-# non-separator is headers, second units, third data
+                const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#') && !/^[-=\s\t]+$/.test(l));
+                if (lines.length < 3) {
+                    // Not enough lines
+                    if (resultElement) {
+                        resultElement.innerHTML = `<p style="color:#d32f2f;">Not found in the catalogue.</p>`;
+                        resultElement.style.display = 'block';
+                    }
+                    return;
+                }
+
+                // Parse headers, units and data
+                const rawHeaders = lines[0].split('\t');
+                const headers = rawHeaders.map(h => h.split(' [')[0]); // Remove units in brackets if present
+                const units = lines[1].split('\t').map(u => u.trim());
+                const data = lines[2].split('\t');
+
+                // Create HTML list
+                let html = '<div style="font-size: 0.9em;">';
+                headers.forEach((header, index) => {
+                    const value = data[index] ? data[index].trim() : '';
+                    if (value) {
+                        let display = `<strong>${header}:</strong> ${value}`;
+                        const unit = units[index] || '';
+                        if (unit) {
+                            display += ` (${unit})`;
+                        }
+                        html += `<div style="margin-bottom: 0.5em;">${display}</div>`;
+                    }
+                });
+                html += '</div>';
+
+                // Show the list
+                if (resultElement) {
+                    resultElement.innerHTML = html;
+                    resultElement.style.display = 'block';
+                }
+
+            } catch (err) {
+                // Likely CORS or network error: show VizieR in iframe as fallback
+                console.error('Client TSV fetch failed, showing VizieR in iframe:', err);
+                if (resultElement) {
+                    resultElement.style.display = 'block';
+                    resultElement.innerHTML = `<iframe src="https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
+                }
+            }
+        }
+
+        // Unified catalogue search function
+        async function unifiedSearch() {
+            const catalog = document.getElementById('catalog-select').value;
+            const searchTerm = document.getElementById('unified-search').value.trim();
+            const resultElement = document.getElementById('unified-result');
+
+            if (!catalog) {
+                resultElement.style.display = 'block';
+                resultElement.style.background = 'rgba(255, 193, 7, 0.1)';
+                resultElement.style.border = '1px solid rgba(255, 193, 7, 0.3)';
+                resultElement.innerHTML = '<p style="color:#f57c00; margin:0;">Please select a catalogue first.</p>';
+                return;
+            }
+
+            if (!searchTerm) {
+                resultElement.style.display = 'block';
+                resultElement.style.background = 'rgba(255, 193, 7, 0.1)';
+                resultElement.style.border = '1px solid rgba(255, 193, 7, 0.3)';
+                resultElement.innerHTML = '<p style="color:#f57c00; margin:0;">Please enter an object name to search.</p>';
+                return;
+            }
+
+            // Determine VizieR source based on selected catalogue
+            let vizierSource;
+            if (catalog === 'cifuentes25') {
+                vizierSource = 'J/A+A/693/A228';
+            } else if (catalog === 'cifuentes20') {
+                vizierSource = 'J/A+A/642/A115';
+            } else if (catalog === 'schweitzer19') {
+                vizierSource = 'J/A+A/625/A68';
+            } else if (catalog === 'martinez-rodriguez19') {
+                vizierSource = 'J/ApJ/887/261';
+            } else if (catalog === 'gonzalez-payo24') {
+                vizierSource = 'J/A+A/689/A302';
+            } else if (catalog === 'cortes-contreras24') {
+                vizierSource = 'J/A+A/692/A206';
+            }
+
+            // Show loading state
+            resultElement.style.display = 'block';
+            resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+            resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
+            resultElement.innerHTML = '<p style="color:#666; font-style:italic; margin:0;">Searching...</p>';
+
+            try {
+                // Try to fetch VizieR TSV directly from the client and see if there are results
+                const tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
+                const resp = await fetch(tsvUrl);
+
+                if (!resp.ok) {
+                    // Can't check from client: show VizieR in iframe
+                    resultElement.style.display = 'block';
+                    resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                    resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
+                    const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
+                    resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
+                    return;
+                }
+
+                const text = await resp.text();
+                // Parse TSV: lines starting with '#' are comments, skip separators, first non-# non-separator is headers, second units, third data
+                const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#') && !/^[-=\s\t]+$/.test(l));
+                if (lines.length < 3) {
+                    // Not enough lines
+                    resultElement.style.background = 'rgba(244, 67, 54, 0.1)';
+                    resultElement.style.border = '1px solid rgba(244, 67, 54, 0.3)';
+                    resultElement.innerHTML = '<p style="color:#d32f2f; margin:0;">Not found in the catalogue.</p>';
+                    return;
+                }
+
+                // Parse headers and data
+                const rawHeaders = lines[0].split('\t');
+                const headers = rawHeaders.map(h => h.split(' [')[0]); // Remove units in brackets if present
+                const units = lines[1].split('\t').map(u => u.trim());
+                const data = lines[2].split('\t');
+
+                // Create HTML list
+                let html = '<div style="font-size: 0.9em;">';
+                headers.forEach((header, index) => {
+                    const value = data[index] ? data[index].trim() : '';
+                    if (value) {
+                        let display = `<strong>${header}:</strong> ${value}`;
+                        const unit = units[index] || '';
+                        if (unit) {
+                            display += ` (${unit})`;
+                        }
+                        html += `<div style="margin-bottom: 0.5em;">${display}</div>`;
+                    }
+                });
+                html += '</div>';
+
+                // Show the list
+                resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
+                resultElement.innerHTML = html;
+
+            } catch (err) {
+                // Likely CORS or network error: show VizieR in iframe as fallback
+                console.error('Client TSV fetch failed, showing VizieR in iframe:', err);
+                resultElement.style.display = 'block';
+                resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
+                const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
+                resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
+            }
+        }
+
+        // Add Enter key support for unified search
+        document.getElementById('unified-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                unifiedSearch();
             }
         });
     </script>
