@@ -242,7 +242,7 @@
         <div style="margin-bottom: 2em; padding: 1.5em; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 8px; background: rgba(255, 255, 255, 0.02);">
             <h3 style="margin: 0 0 1em 0; font-size: 1.1em; color: orange; font-weight: 500;">Search the associated catalogues</h3>
             <div style="display: flex; gap: 0.5em; align-items: center; flex-wrap: wrap;">
-                <select id="catalog-select" style="padding: 0.6em 0.8em; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em; outline: none; min-width: 180px; background: white; transition: border-color 0.2s;">
+                <select id="catalog-select" style="padding: 0.6em 0.8em; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em; outline: none; min-width: 180px; background: white; transition: border-color 0.2s;" onchange="updateSearchPlaceholder()">
                     <option value="">Select catalogue...</option>
                     <option value="cifuentes25">Multiplicity (Cifuentes+ 2025)</option>
                     <option value="cortes-contreras24">Kinematics and age (Cortes-Contreras+ 2024)</option>
@@ -652,7 +652,8 @@
                 if (lines.length < 3) {
                     // Not enough lines
                     if (resultElement) {
-                        resultElement.innerHTML = `<p style="color:#d32f2f;">Not found in the catalogue.</p>`;
+                        const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
+                        resultElement.innerHTML = `<p style="color:#d32f2f;">Not found in the <a href="${catalogueUrl}" target="_blank" style="color: #d32f2f; font-weight: 600; text-decoration: underline;">catalogue</a>.</p>`;
                         resultElement.style.display = 'block';
                     }
                     return;
@@ -692,6 +693,21 @@
                     resultElement.style.display = 'block';
                     resultElement.innerHTML = `<iframe src="https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
                 }
+            }
+        }
+
+        // Function to update search placeholder based on selected catalogue
+        function updateSearchPlaceholder() {
+            const catalog = document.getElementById('catalog-select').value;
+            const searchInput = document.getElementById('unified-search');
+            
+            // Catalogues that support Karmn identifiers
+            const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
+            
+            if (karmnCatalogues.includes(catalog)) {
+                searchInput.placeholder = 'Object name or Karmn identifier (e.g., J00026+383)...';
+            } else {
+                searchInput.placeholder = 'Object name...';
             }
         }
 
@@ -740,8 +756,21 @@
             resultElement.innerHTML = '<p style="color:#666; font-style:italic; margin:0;">Searching...</p>';
 
             try {
-                // Try to fetch VizieR TSV directly from the client and see if there are results
-                const tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
+                // Catalogues that support Karmn identifiers
+                const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
+                
+                // Build the search URL - if it looks like a Karmn identifier and catalogue supports it, search by that field
+                let tsvUrl;
+                const isKarmnId = searchTerm.match(/^J\d{5}[+-]\d{3}$/i); // Pattern like J00026+383
+                
+                if (isKarmnId && karmnCatalogues.includes(catalog)) {
+                    // Search by Karmn field
+                    tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&Karmn=${encodeURIComponent(searchTerm)}&-out.max=50&-out.all`;
+                } else {
+                    // Standard coordinate/name search
+                    tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
+                }
+                
                 const resp = await fetch(tsvUrl);
 
                 if (!resp.ok) {
@@ -755,38 +784,121 @@
                 }
 
                 const text = await resp.text();
-                // Parse TSV: lines starting with '#' are comments, skip separators, first non-# non-separator is headers, second units, third data
-                const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#') && !/^[-=\s\t]+$/.test(l));
-                if (lines.length < 3) {
-                    // Not enough lines
+                
+                // Debug: log the raw TSV to understand structure
+                console.log('Raw TSV response:', text.substring(0, 500));
+                
+                // Parse all tables from TSV
+                // VizieR separates tables with specific comment patterns
+                const allLines = text.split('\n');
+                const tables = [];
+                let currentTable = null;
+                let currentTableName = '';
+                let lineIndex = 0;
+                
+                while (lineIndex < allLines.length) {
+                    const line = allLines[lineIndex].trim();
+                    lineIndex++;
+                    
+                    // Skip empty lines
+                    if (!line) continue;
+                    
+                    // Check for table name in comments (e.g., "#Table1:" or "# Table 2:" or "#Table1_")
+                    if (line.startsWith('#')) {
+                        // More flexible table detection
+                        const tableMatch = line.match(/#\s*Table[_\s]*(\d+|[A-Za-z0-9_]+)/i);
+                        if (tableMatch) {
+                            // Found a new table header
+                            currentTableName = tableMatch[1];
+                            console.log(`Detected table marker: ${line}, extracted name: ${currentTableName}`);
+                            
+                            // If we have a current table, save it before starting new one
+                            if (currentTable && currentTable.data.length > 0) {
+                                tables.push(currentTable);
+                                console.log(`Saved table with ${currentTable.data.length} rows`);
+                            }
+                            currentTable = null;
+                        }
+                        continue;
+                    }
+                    
+                    // Skip separator lines
+                    if (/^[-=\s\t]+$/.test(line)) continue;
+                    
+                    // This is a data line (headers, units, or data)
+                    if (!currentTable) {
+                        // Start new table - this line is headers
+                        currentTable = {
+                            name: currentTableName ? `Table ${currentTableName}` : `Table ${tables.length + 1}`,
+                            headers: line.split('\t').map(h => h.split(' [')[0].trim()),
+                            units: null,
+                            data: []
+                        };
+                        console.log(`Started new table: ${currentTable.name} with ${currentTable.headers.length} columns`);
+                        currentTableName = '';
+                    } else if (!currentTable.units) {
+                        // Second non-comment line is units
+                        currentTable.units = line.split('\t').map(u => u.trim());
+                    } else {
+                        // Data lines
+                        currentTable.data.push(line.split('\t'));
+                    }
+                }
+                
+                // Add last table if exists
+                if (currentTable && currentTable.data.length > 0) {
+                    tables.push(currentTable);
+                }
+                
+                // Debug: log how many tables we found
+                console.log(`Found ${tables.length} table(s) in the TSV response`);
+                tables.forEach((t, i) => console.log(`Table ${i + 1}: ${t.name}, ${t.data.length} rows`));
+                
+                if (tables.length === 0) {
                     resultElement.style.background = 'rgba(244, 67, 54, 0.1)';
                     resultElement.style.border = '1px solid rgba(244, 67, 54, 0.3)';
-                    resultElement.innerHTML = '<p style="color:#d32f2f; margin:0;">Not found in the catalogue.</p>';
+                    const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
+                    resultElement.innerHTML = `<p style="color:#d32f2f; margin:0;">Object not found in this <a href="${catalogueUrl}" target="_blank" style="color: #d32f2f; font-weight: 600; text-decoration: underline;">catalogue</a>.</p>`;
                     return;
                 }
 
-                // Parse headers and data
-                const rawHeaders = lines[0].split('\t');
-                const headers = rawHeaders.map(h => h.split(' [')[0]); // Remove units in brackets if present
-                const units = lines[1].split('\t').map(u => u.trim());
-                const data = lines[2].split('\t');
+                // Build ReadMe URL and catalogue URL
+                const readmeUrl = `https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/${vizierSource}?format=html&tex=true`;
+                const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
 
-                // Create HTML list
-                let html = '<div style="font-size: 0.9em;">';
-                headers.forEach((header, index) => {
-                    const value = data[index] ? data[index].trim() : '';
-                    if (value) {
-                        let display = `<strong>${header}:</strong> ${value}`;
-                        const unit = units[index] || '';
-                        if (unit) {
-                            display += ` (${unit})`;
-                        }
-                        html += `<div style="margin-bottom: 0.5em;">${display}</div>`;
+                // Create HTML with all tables
+                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: rgba(255, 140, 0, 0.05); border-left: 3px solid rgb(255, 140, 0); font-size: 0.9em;">
+                    For detailed information about this <a href="${catalogueUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: underline;">catalogue</a>, see the <a href="${readmeUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: none;">ReadMe file</a>.
+                </div>`;
+                
+                // Display each table
+                tables.forEach((table, tableIndex) => {
+                    if (tableIndex > 0) {
+                        html += '<div style="margin-top: 1.5em; border-top: 2px solid rgba(0,0,0,0.1); padding-top: 1em;"></div>';
                     }
+                    
+                    html += `<div style="font-size: 0.9em;">`;
+                    if (tables.length > 1) {
+                        html += `<h4 style="margin: 0 0 0.8em 0; color: rgb(255, 140, 0); font-size: 1em;">${table.name}</h4>`;
+                    }
+                    
+                    // Display first row of data for this table
+                    const dataRow = table.data[0];
+                    table.headers.forEach((header, index) => {
+                        const value = dataRow[index] ? dataRow[index].trim() : '';
+                        if (value) {
+                            let display = `<strong>${header}:</strong> ${value}`;
+                            const unit = table.units && table.units[index] ? table.units[index] : '';
+                            if (unit) {
+                                display += ` (${unit})`;
+                            }
+                            html += `<div style="margin-bottom: 0.5em;">${display}</div>`;
+                        }
+                    });
+                    html += '</div>';
                 });
-                html += '</div>';
 
-                // Show the list
+                // Show the results
                 resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
                 resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
                 resultElement.innerHTML = html;
