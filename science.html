@@ -23,6 +23,13 @@
             <a href="seen.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">seen</a>
         </nav>
     </header>
+    <label class="dark-mode-toggle" style="position: absolute; top: 1.5em; right: 1.5em;">
+        <input type="checkbox" id="darkModeToggle" style="display: none;">
+        <span class="slider">
+            <span class="icon sun">○</span>
+            <span class="icon moon">●</span>
+        </span>
+    </label>
     <nav id="mainNav" style="font-size: 1.1em; padding: 0.2em 0;">
         <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
@@ -133,7 +140,7 @@
             <div class="publication-item">
                 <p class="publication-date">Balsalobre-Ruza et al. (2025)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...694A..15B/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...694A..15B/abstract" target="_blank" style="font-size: larger;">
                         KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf
                     </a>
                 </p>
@@ -148,7 +155,7 @@
             <div class="publication-item">
                 <p class="publication-date">Cifuentes et al. (2025)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.228C/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.228C/abstract" target="_blank" style="font-size: larger;">
                         CARMENES input catalogue of M dwarfs IX: Multiplicity from close spectroscopic binaries to ultra‑wide systems
                     </a>
                 </p>
@@ -162,7 +169,7 @@
             <div class="publication-item">
                 <p class="publication-date">Cifuentes et al. (2020)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.115C/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.115C/abstract" target="_blank" style="font-size: larger;">
                         CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
                     </a>
                 </p>
@@ -176,7 +183,7 @@
             <div class="publication-item">
                 <p class="publication-date">Schweitzer et al. (2019)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...625A..68S/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2019A%26A...625A..68S/abstract" target="_blank" style="font-size: larger;">
                         The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
                     </a>
                 </p>
@@ -190,7 +197,7 @@
             <div class="publication-item">
                 <p class="publication-date">Martínez-Rodríguez et al. (2019)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2019ApJ...887..261M/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2019ApJ...887..261M/abstract" target="_blank" style="font-size: larger;">
                         Exomoons in the habitable zones of M dwarfs
                     </a>
                 </p>
@@ -204,7 +211,7 @@
             <div class="publication-item">
                 <p class="publication-date">González-Payo et al. (2024)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.302G/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...689A.302G/abstract" target="_blank" style="font-size: larger;">
                         Multiplicity of stars with planets in the solar neighbourhood
                     </a>
                 </p>
@@ -218,7 +225,7 @@
             <div class="publication-item">
                 <p class="publication-date">Cortés-Contreras et al. (2024)</p>
                 <p class="publication-title">
-                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...692A.206C/abstract" target="_blank">
+                    <a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...692A.206C/abstract" target="_blank" style="font-size: larger;">
                         CARMENES input catalogue of M dwarfs: VIII. Kinematics in the solar neighbourhood
                     </a>
                 </p>
@@ -364,12 +371,12 @@
                 <p style="color: rgb(0, 189, 145); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">Now</p>
                 <div style="flex: 1;">
                     <p style="margin: 0; color: rgb(0, 120, 92); font-size: 1em; font-family: 'Courier New', monospace;">
-                        <span id="bjd-clock">Loading...</span> (BJD)
+                        <span id="bjd-clock">Loading...</span>
                     </p>
                 </div>
             </div>
 
-            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+            <div class="past-event" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
                 <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">October 2025</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
@@ -377,14 +384,14 @@
                             ESA'S Madrid-Area Exoplanet Science Meeting (MAESM)
                         </a>
                     </p>
-                    <p style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Talk: "Exoplanets in triple star systems"
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">European Space Astronomy Centre, Spain</p>
                 </div>
             </div> 
 
-            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+            <div class="past-event" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
                 <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">July 2025</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
@@ -392,7 +399,7 @@
                             Detection and Dynamics of Exoplanets (DDE): Interplay between theory and observations 
                         </a>
                     </p>
-                    <p style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Talk: "Exoplanets in triple star systems"
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">University of Coimbra, Portugal</p>
@@ -413,7 +420,8 @@
 
     <section id="talk">
         <h2>Talk to my thesis</h2>
-        <p style="margin-top:20px; text-align: center;">Try asking:</p>
+        <p style="margin-top:20px; text-align: center; font-style: italic; color: #888; font-size: 0.9em;">(Note: First query may take a few seconds to initialize)</p>
+        <p style="margin-top:10px; text-align: center;">Try asking:</p>
         
         <div class="suggestions-container">
             <button class="suggestion" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
@@ -440,7 +448,7 @@
                 <a href="mailto:&#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;">
                     &#99;&#99;&#105;&#102;&#117;&#101;&#110;&#116;&#101;&#115;&#64;&#99;&#97;&#98;&#46;&#105;&#110;&#116;&#97;&#45;&#99;&#115;&#105;&#99;&#46;&#101;&#115;
                 </a><br>
-                <a href="https://zcal.co/ccifuentes" style="font-size: 0.9em; color: grey;" target="_blank">
+                <a href="https://zcal.co/ccifuentes" style="font-size: 0.8em; color: grey;" target="_blank">
                     Schedule a meeting
                 </a>
             </p>
@@ -798,6 +806,28 @@
         document.getElementById('unified-search').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 unifiedSearch();
+            }
+        });
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
+        // Toggle dark mode on checkbox change
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
             }
         });
     </script>
