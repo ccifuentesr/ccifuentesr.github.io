@@ -35,6 +35,29 @@ body {
     padding: 0 2.5em;   
 }
 
+body.seen {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+}
+
+body.seen.astro {
+    background-color: #000000 !important;
+}
+
+body.seen section {
+    padding: 0 1rem;
+}
+
+body.seen img {
+    max-width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+body.seen .sections-grid {
+    padding: 0 1rem;
+}
+
 a {
     text-decoration: none;
     color: var(--accent-color);
@@ -161,6 +184,85 @@ footer {
     border-top: 1px solid #333333;
     margin-top: 2em;
     margin-bottom: 6rem;
+}
+
+/* ============================================
+   SECTIONS GRID - SEEN PAGE
+   ============================================ */
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0 5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section-header {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(0.4);
+    transition: filter 0.3s ease;
+}
+
+.section-card:hover .section-header {
+    filter: brightness(0.7);
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.section-card:hover .section-header::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.section-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.section-content {
+    display: none;
+    padding: 2rem;
+    background: var(--background);
+    color: var(--text-color);
+}
+
+.section-content h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: 200; /* Thin title */
+}
+
+.section-card.expanded .section-content {
+    display: block;
+}
+
+.section-card.expanded {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================================
@@ -293,8 +395,7 @@ nav a {
 .seen {
     margin: 0em auto;
     padding: 0;   
-        /* make transparent so page background shows through */
-        background-color: rgba(255,255,255,0) !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 
 .dark {
@@ -875,6 +976,14 @@ body.dark-mode .question-send:disabled {
     color: grey;
     font-size: 0.9em;
     text-align: center;
+}
+
+body.astro .photo-caption .title {
+    color: white;
+}
+
+body.astro .photo-caption .location {
+    color: #cccccc;
 }
 
 /* ============================================
@@ -1499,8 +1608,28 @@ body.dark-mode .question-send:disabled {
 
 /* Móvil pequeño */
 @media (max-width: 800px) {
+    body {
+        padding: 0 1em;
+    }
+
+    .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0.5rem 4rem;
+    }
+
     .gallery-insta {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery, .gallery-insta {
+        padding: 0 0.5rem;
+    }
+
+    section img {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: calc(100% - 1rem);
     }
     
     #mainNav {
@@ -1625,6 +1754,34 @@ body.dark-mode .past-event * {
 body.dark-mode .event-tag {
     background: #666 !important; /* grey background */
     color: #000 !important; /* black text */
+}
+
+body.dark-mode .section-header::before {
+    background: rgba(0, 0, 0, 0.5); /* Slightly more dimmed in dark mode */
+}
+
+body.dark-mode .section-card:hover .section-header::before {
+    background: rgba(0, 0, 0, 0.3); /* Less dimmed on hover in dark mode */
+}
+
+.section-card h2 {
+    color: #ffffff;
+    font-weight: 400;
+    text-shadow: none;
+    position: relative;
+    z-index: 10;
+    font-size: 2.25rem;
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-style: italic;
+}
+
+body.dark-mode .section-content {
+    background: #26282b;
+    color: #e7e7e7;
+}
+
+body.dark-mode .section-content h1 {
+    color: #f3f4f6;
 }
 
 body.dark-mode .chat-container {
