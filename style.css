@@ -35,6 +35,11 @@ body {
     padding: 0 2.5em;   
 }
 
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
 main {
     padding: 2em;
     flex: 1;
@@ -106,20 +111,6 @@ h2 {
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-}
-
-/* ============================================
-   ENLACES
-   ============================================ */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-a:hover {
-    color: var(--accent-color);
 }
 
 /* ============================================
@@ -302,7 +293,8 @@ nav a {
 .seen {
     margin: 0em auto;
     padding: 0;   
-    background-color: white;
+        /* make transparent so page background shows through */
+        background-color: rgba(255,255,255,0) !important;
 }
 
 .dark {
@@ -340,19 +332,16 @@ nav a {
 
 /* Formulario y botones */
 #question {
-    width: 100%;
-    border-radius: 22px;
-    border: 1.5px solid #9d7dff;
-    background: rgba(157, 125, 255, 0.1);
-    resize: none;
-    padding: 15px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 1.2em;
-    min-height: 60px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    background: rgba(0, 132, 255, 0.1);
     color: var(--accent-color);
+    border: 1px solid rgba(0, 132, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
 }
 
 #question:focus {
@@ -370,7 +359,18 @@ nav a {
 }
 
 #askBtn {
-    border-radius: 12px;
+    background: linear-gradient(90deg, #8a2be2, #4169e1);
+    color: white;
+    border: 1px solid rgba(0, 132, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+
+    /* border-radius: 12px;
     border: 1px solid #666;
     background: linear-gradient(90deg, #8a2be2, #4169e1);
     color: white;
@@ -379,7 +379,7 @@ nav a {
     font-size: 1.1em;
     cursor: pointer;
     transition: all 0.3s;
-    margin-top: 15px;
+    margin-top: 15px; */
 }
 
 #askBtn:hover:not(:disabled) {
@@ -391,68 +391,279 @@ nav a {
     cursor: not-allowed;
 }
 
-/* Progress bar */
-#progressContainer {
-    width: 50%;
-    background: #eee;
-    height: 4px;
-    margin: 20px auto;
+/* ============================================
+   CHAT INTERFACE - TALK TO THESIS
+   ============================================ */
+.chat-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--accent-color), #0066cc);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.chat-header p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.chat-header small {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+.message {
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.message.bot .message-content {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message.user .message-content {
+    background: var(--accent-color);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.suggestions-container {
+    padding: 0.5rem 1rem;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.suggestion-chip {
+    background: rgba(0, 132, 255, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(0, 132, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+}
+
+.suggestion-chip:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.3);
+}
+
+/* ============================================
+   QUESTION CHIP - SUGGESTION STYLE
+   ============================================ */
+.question-container {
+    padding: 0.5rem 1rem;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.question-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 132, 255, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(0, 132, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+}
+
+.question-chip:hover {
+    background: rgba(0, 132, 255, 0.15);
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.2);
+}
+
+.question-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+    color: var(--accent-color);
+    padding: 0;
+}
+
+.question-input::placeholder {
+    color: rgba(0, 132, 255, 0.6);
+}
+
+.question-send {
+    background: rgba(0, 132, 255, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(0, 132, 255, 0.2);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.question-send:hover:not(:disabled) {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.3);
+}
+
+.question-send:disabled {
+    background: #ccc;
+    border-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Dark mode styles for question chip */
+body.dark-mode .question-container {
+    background: #2a2a2a;
+    border-top-color: #404040;
+}
+
+body.dark-mode .question-chip {
+    background: rgba(0, 132, 255, 0.15);
+    border-color: rgba(0, 132, 255, 0.3);
+    color: #7dd3ff;
+}
+
+body.dark-mode .question-chip:hover {
+    background: rgba(0, 132, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.25);
+}
+
+body.dark-mode .question-input {
+    color: #7dd3ff;
+}
+
+body.dark-mode .question-input::placeholder {
+    color: rgba(125, 211, 255, 0.6);
+}
+
+body.dark-mode .question-send {
+    background: rgba(0, 132, 255, 0.15);
+    border-color: rgba(0, 132, 255, 0.3);
+    color: #7dd3ff;
+}
+
+body.dark-mode .question-send:hover:not(:disabled) {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.35);
+}
+
+body.dark-mode .question-send:disabled {
+    background: #555;
+    border-color: #555;
+    color: #999;
+}
+
+body.dark-mode .question-box-input {
+    color: #7dd3ff;
+}
+
+body.dark-mode .question-box-input::placeholder {
+    color: rgba(125, 211, 255, 0.6);
+}
+
+body.dark-mode .question-send {
+    background: rgba(0, 132, 255, 0.15);
+    border-color: rgba(0, 132, 255, 0.3);
+    color: #7dd3ff;
+}
+
+body.dark-mode .question-send:hover:not(:disabled) {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 132, 255, 0.35);
+}
+
+body.dark-mode .question-send:disabled {
+    background: #555;
+    border-color: #555;
+    color: #999;
+}
+
+.chat-input-container {
+    padding: 0.5rem 1rem;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+/* OLD STYLES - NOT USED ANYMORE */
+.chat-progress {
+    width: 100%;
+    background: #e0e0e0;
+    height: 3px;
     display: none;
-    border-radius: 5px;
+    border-radius: 0;
     overflow: hidden;
 }
 
-#progressBar {
+.chat-progress #progressBar {
     width: 0%;
     height: 100%;
     background: var(--accent-color);
     transition: width 0.1s linear;
-}
-
-/* Answer display */
-#answer {
-    margin-top: 25px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #ffffff3a;
-    border: 1px solid #989898;
-    border-radius: 12px;
-    line-height: 1.6;
-    color: rgb(53, 53, 53);
-    opacity: 0;
-    transition: opacity 0.5s;
-    display: none;
-}
-
-#answer.show {
-    display: block;
-}
-
-.error {
-    color: #d32f2f;
-    background: #ffebee;
-}
-
-/* Suggestions */
-.suggestion {
-    background: #ffffff;
-    border: 1px solid #bababa;
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: 1.1em;
-    color: rgb(125, 125, 125);
-    font-family: Karla, sans-serif !important;
-}
-
-.suggestions-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
 }
 
 /* Contact info */
@@ -521,6 +732,15 @@ nav a {
     margin-bottom: 0.5rem;
 }
 
+.publication-title a {
+    color: #000; /* Black text in light mode */
+    text-decoration: none;
+}
+
+.publication-title a:hover {
+    color: var(--accent-color); /* Blue on hover */
+}
+
 .publication-journal {
     font-style: italic;
     margin-bottom: 0.5rem;
@@ -579,6 +799,13 @@ nav a {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap, 0.5rem);
     box-sizing: border-box;
+        /* ensure container between boxes is transparent */
+        background-color: rgba(255,255,255,0) !important;
+
+    /* Neutralize inline background on common section wrappers so the page background is visible */
+    section, .section-wrapper, .section-grid, .container {
+        background: rgba(255,255,255,0) !important;
+    }
 }
 
 .gallery-insta .photo {
@@ -1215,17 +1442,42 @@ nav a {
         margin-top: 10px;
     }
     
-    .suggestion {
-        font-size: 0.8em;
+    .suggestions-container {
         padding: 0.8rem;
-        margin: 0.3rem;
-        width: 90%;
-        text-align: center;
+        gap: 0.4rem;
     }
     
-    .suggestions-container {
-        flex-direction: column;
-        align-items: center;
+    .chat-container {
+        margin: 1rem;
+        max-width: none;
+    }
+    
+    .chat-header {
+        padding: 1rem;
+    }
+    
+    .chat-messages {
+        max-height: 300px;
+        padding: 0.8rem;
+    }
+    
+    .message-content {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+    
+    .chat-input-container {
+        padding: 0.8rem;
+    }
+    
+    .chat-send-suggestion {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .suggestion-chip {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
     
     /* Música responsive */
@@ -1276,90 +1528,160 @@ nav a {
         white-space: nowrap;
         background-color: rgba(255, 255, 255, 0.667) !important;
     }
+    
+    .chat-send-suggestion {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .suggestion-chip {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 /* ============================================
-   MODO OSCURO
+   MODO OSCURO (suavizado)
    ============================================ */
 body.dark-mode {
-    background: #000 !important;
-    color: #fff !important;
+    /* Softer, less aggressive background */
+    background: #26282b !important; /* dark gray, not pure black */
+    color: #e7e7e7 !important;
 }
 
 body.dark-mode a {
-    color: #0984ff !important;
+    color: #6ea8ff !important; /* softer blue */
 }
 
 body.dark-mode nav {
-    background: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
+    /* slightly translucent, less high-contrast */
+    background: rgba(38, 40, 43, 0.72) !important;
+    backdrop-filter: blur(8px) !important;
 }
 
 body.dark-mode nav a {
-    color: #fff !important;
+    color: #e7e7e7 !important;
 }
 
 body.dark-mode nav a.active {
-    color: #fff !important;
+    color: #ffffff !important;
 }
 
 body.dark-mode .publication-item, 
 body.dark-mode .research-item {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    /* subtler cards */
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.07) !important;
 }
 
 body.dark-mode .section-grid {
-    background: rgba(255, 255, 255, 0.02) !important;
+    background: transparent !important;
 }
 
 body.dark-mode input, 
 body.dark-mode select {
-    background: #222 !important;
-    color: #fff !important;
-    border-color: #555 !important;
+    background: #2f3032 !important; /* slightly lighter input bg */
+    color: #e7e7e7 !important;
+    border-color: #3b3d3f !important;
 }
 
 body.dark-mode h1, 
 body.dark-mode h2 {
-    color: #fff !important;
+    color: #f3f4f6 !important;
 }
 
 body.dark-mode .publication-title a {
-    color: #fff !important;
+    color: #f3f4f6 !important;
     text-decoration: none;
 }
 
 body.dark-mode .publication-title a:hover {
-    color: #0984ff !important;
+    color: #6ea8ff !important;
 }
 
 body.dark-mode .tag[style*="background-color: var(--accent-color)"] a {
     color: #fff !important;
 }
 
+/* Make highlight tags less intense */
 body.dark-mode .tag[style*="background-color: rgba(47, 223, 112"] {
-    background-color: rgba(47, 223, 112, 0.4) !important;
-    color: rgb(100, 255, 150) !important;
+    background-color: rgba(47, 223, 112, 0.28) !important;
+    color: rgb(140, 255, 180) !important;
 }
 
 body.dark-mode .tag[style*="background-color: rgba(138, 43, 226"] {
-    background-color: rgba(138, 43, 226, 0.35) !important;
-    color: rgb(180, 120, 255) !important;
+    background-color: rgba(138, 43, 226, 0.22) !important;
+    color: rgb(200, 160, 255) !important;
 }
 
 body.dark-mode .past-event {
-    background: rgba(0, 0, 0, 0.4) !important;
+    background: transparent !important;
 }
 
 body.dark-mode .past-event * {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 
-body.dark-mode .past-event .event-tag {
-    color: rgba(255, 255, 255, 0.5) !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+body.dark-mode .event-tag {
+    background: #666 !important; /* grey background */
+    color: #000 !important; /* black text */
 }
+
+body.dark-mode .chat-container {
+    background: rgba(38, 40, 43, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .chat-header {
+    background: linear-gradient(135deg, var(--accent-color), #004499);
+}
+
+body.dark-mode .chat-messages {
+    background: #2a2a2a;
+}
+
+body.dark-mode .message.bot .message-content {
+    background: #3a3a3a;
+    color: #e7e7e7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .message.user .message-content {
+    background: var(--accent-color);
+    color: white;
+}
+
+body.dark-mode .suggestions-container {
+    background: #2a2a2a;
+    border-top-color: #404040;
+}
+
+body.dark-mode .suggestion-chip {
+    background: rgba(0, 132, 255, 0.15);
+    border-color: rgba(0, 132, 255, 0.3);
+    color: #7dd3ff;
+}
+
+body.dark-mode .suggestion-chip:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+body.dark-mode .chat-input-container {
+    background: #2a2a2a;
+    border-top-color: #404040;
+}
+
+/* OLD DARK MODE STYLES - NOT USED */
+
+body.dark-mode .chat-progress {
+    background: #404040;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 
 /* ============================================
    DARK MODE TOGGLE SLIDER

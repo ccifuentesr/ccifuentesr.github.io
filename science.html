@@ -8,6 +8,30 @@
     <meta name="description" content="Personal page of C. Cifuentes.">
     <title>Carlos Cifuentes</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Navigation link base styles */
+        .nav-link {
+            font-weight: 300;
+            transition: all 0.2s ease;
+        }
+        
+        /* Active navigation link styles */
+        .nav-link.active {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #000 !important;
+            padding: 0.3em 0.8em;
+            border-radius: 0.3em;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        
+        /* Dark mode active navigation link styles */
+        .dark-mode .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #fff !important;
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
     <a href="index.html" style="position: absolute; top: 1.5em; left: 1.5em; z-index: 10;"></a>
@@ -130,11 +154,11 @@
             </div>
         </div>
     </section>
+    
     <section id="publications">
         <h2>Selected publications</h2>
 
-          <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>. 
-        You can also read my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgb(225, 41, 13);">thesis</a> there.</p>
+          <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>.
 
         <div class="section-grid" style="padding-bottom: 2em;">
             <div class="publication-item">
@@ -239,7 +263,7 @@
 
 
         <!-- Unified Catalogue Search -->
-        <div style="margin-bottom: 2em; padding: 1.5em; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 8px; background: rgba(255, 255, 255, 0.02);">
+        <div style="margin-bottom: 2em; padding: 1.5em; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 8px; background: rgba(255, 255, 255, 0);">
             <h3 style="margin: 0 0 1em 0; font-size: 1.1em; color: orange; font-weight: 500;">Search the associated catalogues</h3>
             <div style="display: flex; gap: 0.5em; align-items: center; flex-wrap: wrap;">
                 <select id="catalog-select" style="padding: 0.6em 0.8em; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9em; outline: none; min-width: 180px; background: white; transition: border-color 0.2s;" onchange="updateSearchPlaceholder()">
@@ -273,6 +297,7 @@
 
     </section>
 
+    <div style="background: rgba(255, 255, 255, 0); padding: 2em 0;"></div>
 
 <!-- <section id="code">
     <h2>Code</h2>
@@ -319,16 +344,13 @@
     </div>
 </section> -->
 
-
-
-
     <section id="now">
         <h2>Now</h2>
         <p style="padding-bottom: 1em;">Past, present and future scientific events of 2025.</p>
 
         <div style="display: flex; flex-direction: column; gap: 0.8em; max-width: 800px;">
             <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid salmon;">
-                <p style="color: salmon; font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">December 2025</p>
+                <p style="color: salmon; font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">February 2026</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
                         <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank" style="text-decoration: none; color: inherit;">
@@ -384,7 +406,7 @@
                             ESA'S Madrid-Area Exoplanet Science Meeting (MAESM)
                         </a>
                     </p>
-                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #555; background: #ddd; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Talk: "Exoplanets in triple star systems"
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">European Space Astronomy Centre, Spain</p>
@@ -399,7 +421,7 @@
                             Detection and Dynamics of Exoplanets (DDE): Interplay between theory and observations 
                         </a>
                     </p>
-                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #292929; background: #f1f1f1; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p class="event-tag" style="margin: 0 0 0.3em 0; color: #555; background: #ddd; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Talk: "Exoplanets in triple star systems"
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">University of Coimbra, Portugal</p>
@@ -420,26 +442,39 @@
 
     <section id="talk">
         <h2>Talk to my thesis</h2>
-        <p style="margin-top:20px; text-align: center; font-style: italic; color: #888; font-size: 0.9em;">(Note: First query may take a few seconds to initialize)</p>
-        <p style="margin-top:10px; text-align: center;">Try asking:</p>
         
-        <div class="suggestions-container">
-            <button class="suggestion" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
-            <button class="suggestion" onclick="setQuestion('How common are M dwarfs?')">How common are M dwarfs?</button>
-            <button class="suggestion" onclick="setQuestion('List the key results on multiplicity of M dwarfs.')">List the key results on multiplicity of M dwarfs.</button>
+        <div class="chat-container">
+            <div class="chat-header">
+                <p>Chat with my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: salmon;">PhD thesis</a></p>
+                <!-- <small style="color: #888;">First query may take a few seconds to initialize</small> -->
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">
+                        <p>Hello, try asking me something in natural language.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="suggestions-container">
+                <button class="suggestion-chip" onclick="setQuestion('What are M dwarfs?')">What are M dwarfs?</button>
+                <button class="suggestion-chip" onclick="setQuestion('How common are M dwarfs?')">How common are M dwarfs?</button>
+                <button class="suggestion-chip" onclick="setQuestion('List the key results on multiplicity of M dwarfs.')">Key results on multiplicity</button>
+            </div>
+            
+            <div class="chat-input-container">
+                <div>
+                    <input id="question" type="text" placeholder="Ask me anything..." class="suggestion-chip">
+                    <button id="askBtn" onclick="askThesis()" class="suggestion-chip">Send</button>
+                </div>
+            </div>
+            
+            <div id="progressContainer" class="chat-progress">
+                <div id="progressBar"></div>
+            </div>
         </div>
-
-        <div style="margin-top:20px; display:flex; flex-direction: column; align-items: center;">
-            <input id="question" type="text" placeholder="Ask me anything...">
-            <button id="askBtn" onclick="askThesis()">Talk</button>
-        </div>
-        
-        <div id="progressContainer">
-            <div id="progressBar"></div>
-        </div>
-        <div id="answer"></div>
     </section>
-
 
     <section id="contact">
         <h2>Contact</h2>
@@ -462,7 +497,7 @@
     </section>
     <div style="height: 20em;"></div>
 
-    <footer>
+    <footer style="border-top: 1px solid rgba(0, 0, 0, 0.15);">
         <p>
             <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">
                 CC0 1.0 Universal
@@ -487,6 +522,18 @@
         // Set predefined question
         function setQuestion(text) {
             document.getElementById("question").value = text;
+            // Auto-submit for better UX
+            askThesis();
+        }
+
+        // Add message to chat
+        function addMessage(content, type) {
+            const messagesEl = document.getElementById("chatMessages");
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ' + type;
+            messageDiv.innerHTML = '<div class="message-content"><p>' + content + '</p></div>';
+            messagesEl.appendChild(messageDiv);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
         }
 
         // Main thesis interaction function
@@ -494,16 +541,18 @@
             const question = document.getElementById("question").value.trim();
             if (!question) return;
 
-            const answerEl = document.getElementById("answer");
+            // Add user message
+            addMessage(question, 'user');
+
             const btn = document.getElementById("askBtn");
             const container = document.getElementById("progressContainer");
+
+            // Clear input
+            document.getElementById("question").value = '';
 
             // Initialize UI
             btn.disabled = true;
             btn.style.opacity = 0.6;
-            answerEl.style.opacity = 0;
-            answerEl.classList.add("show");
-            answerEl.innerHTML = "Thinking...";
             container.style.display = "block";
 
             const interval = showProgress();
@@ -552,16 +601,12 @@
                     formatted += "</ul>";
                 }
 
-                answerEl.innerHTML = formatted;
-                answerEl.style.transition = "opacity 0.5s ease";
-                answerEl.style.opacity = 1;
+                addMessage(formatted, 'bot');
 
             } catch (err) {
                 clearInterval(interval);
                 container.style.display = "none";
-                answerEl.classList.add("show");
-                answerEl.innerText = "Uh-oh, I'm lost for words...";
-                answerEl.style.opacity = 1;
+                addMessage("Uh-oh, I'm lost for words...", 'bot');
             } finally {
                 btn.disabled = false;
                 btn.style.opacity = 1;
@@ -751,7 +796,7 @@
 
             // Show loading state
             resultElement.style.display = 'block';
-            resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+            resultElement.style.background = 'rgba(255, 255, 255, 0)';
             resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
             resultElement.innerHTML = '<p style="color:#666; font-style:italic; margin:0;">Searching...</p>';
 
@@ -776,7 +821,7 @@
                 if (!resp.ok) {
                     // Can't check from client: show VizieR in iframe
                     resultElement.style.display = 'block';
-                    resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                    resultElement.style.background = 'rgba(255, 255, 255, 0)';
                     resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
                     const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
                     resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
@@ -867,7 +912,7 @@
                 const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
 
                 // Create HTML with all tables
-                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: rgba(255, 140, 0, 0.05); border-left: 3px solid rgb(255, 140, 0); font-size: 0.9em;">
+                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: rgba(255, 255, 255, 0); border-left: 3px solid rgb(255, 140, 0); font-size: 0.9em;">
                     For detailed information about this <a href="${catalogueUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: underline;">catalogue</a>, see the <a href="${readmeUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: none;">ReadMe file</a>.
                 </div>`;
                 
@@ -899,7 +944,7 @@
                 });
 
                 // Show the results
-                resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                resultElement.style.background = 'rgba(255, 255, 255, 0)';
                 resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
                 resultElement.innerHTML = html;
 
@@ -907,7 +952,7 @@
                 // Likely CORS or network error: show VizieR in iframe as fallback
                 console.error('Client TSV fetch failed, showing VizieR in iframe:', err);
                 resultElement.style.display = 'block';
-                resultElement.style.background = 'rgba(0, 0, 0, 0.02)';
+                resultElement.style.background = 'rgba(255, 255, 255, 0)';
                 resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
                 const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
                 resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
