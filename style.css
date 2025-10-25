@@ -24,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -32,7 +33,8 @@ body {
     line-height: 1.6;
     max-width: var(--maxwidth);
     margin: auto;
-    padding: 0 2.5em;   
+    padding: 0 2.5em;
+    height: 100%;
 }
 
 body.seen {
@@ -269,7 +271,7 @@ footer {
    NAVEGACIÓN
    ============================================ */
 nav {
-    margin: 2rem 0;
+    margin: 1rem 0;
     text-align: center;
     position: sticky;
     top: 0;
@@ -326,12 +328,12 @@ nav a {
     backdrop-filter: blur(10px);
     z-index: 100;
     min-height: 2em;
-    padding: 0.2em 0;
+    padding: 0.1em 0;
 }
 
 #mainNav .nav-link {
     font-size: 0.95em;
-    padding: 0.2em 0.7em;
+    padding: 0.1em 0.7em;
 }
 
 #mainNav .nav-link.active {
@@ -352,7 +354,7 @@ nav a {
     background: var(--background);
     z-index: 100;
     min-height: 2em;
-    padding: 0.2em 0;
+    padding: 0.1em 0;
     width: 100vw;
     left: 50%;
     margin-left: -15.8vw;
@@ -361,7 +363,7 @@ nav a {
 
 #mainNav2 .nav-link {
     font-size: 0.95em;
-    padding: 0.2em 0.7em;
+    padding: 0.1em 0.7em;
     color: rgba(128, 128, 128, 0.553);
 }
 
@@ -1728,11 +1730,121 @@ body.dark-mode nav a.active {
     color: #ffffff !important;
 }
 
-body.dark-mode .publication-item, 
-body.dark-mode .research-item {
-    /* subtler cards */
-    background: rgba(255, 255, 255, 0.03) !important;
-    border-color: rgba(255, 255, 255, 0.07) !important;
+body.science-new .research-item,
+body.science-new .publication-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #ededed;
+}
+
+body.science-new .research-item:hover,
+body.science-new .publication-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.science-new .publication-title a {
+    color: #ededed;
+    text-decoration: none;
+}
+
+body.science-new .publication-title a:hover {
+    color: #a0a0a0;
+}
+
+body.science-new .publication-date {
+    color: #a0a0a0;
+}
+
+body.science-new .tag {
+    background-color: rgba(138, 43, 226, 0.1) !important;
+    color: #a78bfa !important;
+    border: 1px solid rgba(138, 43, 226, 0.2) !important;
+}
+
+/* Override inline styles for specific tags */
+body.science-new .tag[style*="background-color: var(--accent-color)"] {
+    background-color: rgba(138, 43, 226, 0.1) !important;
+    color: #a78bfa !important;
+}
+
+body.science-new .tag[style*="background-color: rgba(47, 223, 112"] {
+    background-color: rgba(47, 223, 112, 0.15) !important;
+    color: rgb(140, 255, 180) !important;
+}
+
+body.science-new .tag[style*="background-color: rgba(138, 43, 226"] {
+    background-color: rgba(138, 43, 226, 0.15) !important;
+    color: rgb(200, 160, 255) !important;
+}
+
+body.science-new .tag[style*="background-color: rgba(250, 128, 114"] {
+    background-color: rgba(250, 128, 114, 0.15) !important;
+    color: rgb(250, 128, 114) !important;
+}
+
+/* Override inline color styles */
+body.science-new h3[style*="color: var(--accent-color)"] {
+    color: #a78bfa !important;
+}
+
+body.science-new p[style*="color: var(--accent-color)"] {
+    color: #a78bfa !important;
+}
+
+body.science-new span[style*="color: grey"] {
+    color: #a0a0a0 !important;
+}
+
+body.science-new a[style*="color: var(--accent-color)"] {
+    color: #a78bfa !important;
+}
+
+/* Chat interface styles for science-new */
+body.science-new .chat-container {
+    background: rgba(38, 40, 43, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.science-new .chat-header {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.8), rgba(75, 0, 130, 0.8));
+}
+
+body.science-new .chat-messages {
+    background: #2a2a2a;
+}
+
+body.science-new .message.bot .message-content {
+    background: #3a3a3a;
+    color: #e7e7e7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.science-new .message.user .message-content {
+    background: rgba(0, 132, 255, 0.8);
+    color: white;
+}
+
+body.science-new .suggestions-container {
+    background: #2a2a2a;
+    border-top-color: #404040;
+}
+
+body.science-new .suggestion-chip {
+    background: rgba(138, 43, 226, 0.15);
+    border-color: rgba(138, 43, 226, 0.3);
+    color: #a78bfa;
+}
+
+body.science-new .suggestion-chip:hover {
+    background: rgba(138, 43, 226, 0.8);
+    color: white;
+}
+
+body.science-new .chat-input-container {
+    background: #2a2a2a;
+    border-top-color: #404040;
 }
 
 body.dark-mode .section-grid {
@@ -1780,7 +1892,28 @@ body.dark-mode .past-event {
 }
 
 body.dark-mode .past-event * {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+body.dark-mode .past-event-recent * {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Past events styling for science theme */
+body.science-new .past-event {
+    opacity: 0.6;
+}
+
+body.science-new .past-event * {
+    opacity: 0.6;
+}
+
+body.science-new .past-event-recent {
+    opacity: 0.8;
+}
+
+body.science-new .past-event-recent * {
+    opacity: 0.8;
 }
 
 body.dark-mode .event-tag {
@@ -1940,9 +2073,10 @@ body.dark-mode .chat-progress {
    ============================================ */
 
 /* Base Styles */
-body.musik-new {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+body.musik-new,
+body.science-new {
+    background-color: #0a0a0a;
+    color: #ededed;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -1952,6 +2086,7 @@ body.musik-new {
 .musik-container {
     display: flex;
     min-height: 100vh;
+    background-color: #0a0a0a;
 }
 
 /* Sidebar Navigation */
@@ -1961,23 +2096,24 @@ body.musik-new {
     top: 0;
     width: 220px;
     height: 100vh;
-    background-color: #0f0f0f;
-    padding: 2rem 1.5rem;
+    background-color: #1a1a1a;
+    padding: 0 1.5rem 2rem 1.5rem;
     overflow-y: auto;
-    border-right: 1px solid #2a2a2a;
+    border-right: 1px solid #333333;
     z-index: 100;
 }
 
 .sidebar-nav h1 {
     font-size: 1.8rem;
     margin: 0 0 2rem 0;
-    color: #ffffff;
+    color: #ededed;
     font-weight: 600;
 }
 
 .sidebar-nav .subtitle {
     font-size: 0.9rem;
-    color: #888;
+    color: #7e7e7e;
+    margin-top: 2rem;
     margin-bottom: 0.5rem;
     display: block;
     text-align: left;
@@ -1991,22 +2127,38 @@ body.musik-new {
 }
 
 .sidebar-nav li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: left;
 }
 
 .sidebar-nav a {
-    color: #999;
+    color: #a0a0a0;
     text-decoration: none;
     font-size: 0.95rem;
-    transition: color 0.2s;
+    font-weight: 400;
+    transition: all 0.2s;
     display: block;
     text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
 }
 
-.sidebar-nav a:hover,
+.sidebar-nav a:hover {
+    color: #ededed;
+    background: linear-gradient(135deg, rgba(45, 34, 52, 0.3) 0%, rgba(31, 35, 48, 0.3) 100%);
+}
+
+.sidebar-nav a:active {
+    transform: scale(0.98);
+    background-color: hsla(0, 0%, 100%, .08);
+}
+
 .sidebar-nav a.active {
-    color: #fff;
+    color: #ededed;
+    background: linear-gradient(135deg, rgb(45, 34, 52) 0%, rgb(31, 35, 48) 100%);
+    border: .5px solid hsla(0, 0%, 100%, .04);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .05);
+    font-weight: 400;
 }
 
 .sidebar-footer {
@@ -2014,11 +2166,14 @@ body.musik-new {
     padding-top: 2rem;
     border-top: 1px solid #2a2a2a;
     text-align: left;
+    line-height: 1.4;
 }
 
 .sidebar-footer a {
     font-size: 0.85rem;
     color: #666;
+    display: inline-block;
+    margin-bottom: 0.2rem;
 }
 
 /* Mobile Menu Toggle */
@@ -2034,7 +2189,7 @@ body.musik-new {
     color: #fff;
     cursor: pointer;
     z-index: 200;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
 }
 
 .mobile-menu-toggle:hover {
@@ -2044,30 +2199,35 @@ body.musik-new {
 /* Main Content */
 .main-content {
     margin-left: 220px;
-    flex: 1;
     padding: 3rem 4rem 8rem 4rem;
-    max-width: 900px;
+    background-color: #0a0a0a;
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
 .musik-section {
     margin-bottom: 6rem;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .musik-section h2 {
     font-size: 2rem;
-    color: #fff;
+    color: #ededed;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .musik-section p {
-    color: #999;
+    color: #a0a0a0;
     line-height: 1.8;
     margin-bottom: 2rem;
 }
 
 .musik-section h3 {
-    color: #aaa;
+    color: #a0a0a0;
     font-size: 1.2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -2293,8 +2453,9 @@ body.musik-new {
         top: 0;
         transition: left 0.3s ease;
         border-right: none;
-        padding: 1.5rem;
+        padding: 0 1.5rem 1.5rem 1.5rem;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        background-color: #1a1a1a;
     }
     
     .sidebar-nav.open {
@@ -2307,11 +2468,13 @@ body.musik-new {
     
     .sidebar-nav .subtitle {
         margin-bottom: 2rem;
+        margin-top: 1.5rem;
     }
     
     .main-content {
         margin-left: 0;
         padding: 5rem 1.5rem 8rem 1.5rem;
+        background-color: #0a0a0a;
     }
     
     .musik-container {

@@ -6,68 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE">
     <meta name="description" content="Personal page of C. Cifuentes.">
-    <title>Carlos Cifuentes</title>
+    <title>Carlos Cifuentes - Science</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Navigation link base styles */
-        .nav-link {
-            font-weight: 300;
-            transition: all 0.2s ease;
-        }
-        
-        /* Active navigation link styles */
-        .nav-link.active {
-            background-color: rgba(0, 0, 0, 0.1);
-            color: #000 !important;
-            padding: 0.3em 0.8em;
-            border-radius: 0.3em;
-            font-weight: 700;
-            transition: all 0.2s ease;
-        }
-        
-        /* Dark mode active navigation link styles */
-        .dark-mode .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #fff !important;
-            font-weight: 700;
-        }
-    </style>
 </head>
-<body>
-    <a href="index.html" style="position: absolute; top: 1.5em; left: 1.5em; z-index: 10;"></a>
-    <canvas class="star-background" id="starCanvas"></canvas>
-    
-    <header>
-        <p style="color: lightgrey; font-size: 1.2em;">Carlos Cifuentes</p>
-        <h1 style="font-size: 4.5em; margin-bottom: 0.2em;">Science</h1>
+<body class="science-new">
+    <div class="musik-container">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         
-        <nav class="subtitle">
-            <a href="index.html" style="text-decoration: none; color: #ccc;">← home</a>
-            <a href="musik.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">musik</a>
-            <a href="seen.html" style="text-decoration: none; color: #b8b8b8; font-weight: 200;">seen</a>
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-nav" id="sidebarNav">
+            <p class="subtitle">Carlos Cifuentes</p>
+            <h1>Science</h1>
+            
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#now" class="nav-link">Now</a></li>
+                <li><a href="#talk" class="nav-link">Talk</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="index.html">← home</a><br>
+                <a href="musik.html">musik</a><br>
+                <a href="seen.html">seen</a><br><br>
+                <!-- <div style="text-align: center; margin-top: 1rem;">
+                    <label class="dark-mode-toggle">
+                        <input type="checkbox" id="darkModeToggle" style="display: none;">
+                        <span class="slider">
+                            <span class="icon sun">○</span>
+                            <span class="icon moon">●</span>
+                        </span>
+                    </label>
+                </div> -->
+            </div>
         </nav>
-    </header>
-    <label class="dark-mode-toggle" style="position: absolute; top: 1.5em; right: 1.5em;">
-        <input type="checkbox" id="darkModeToggle" style="display: none;">
-        <span class="slider">
-            <span class="icon sun">○</span>
-            <span class="icon moon">●</span>
-        </span>
-    </label>
-    <nav id="mainNav" style="font-size: 1.1em; padding: 0.2em 0;">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#publications" class="nav-link">Publications</a>
-        <a href="#now" class="nav-link">Now</a>
-        <a href="#talk" class="nav-link">Talk</a>
-        <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
 
     <script>
         // Highlight active nav link
         function setActiveNav() {
-            const links = document.querySelectorAll('.nav-link');
-            const scrollPos = window.scrollY + 90; // Offset for header
+            const links = document.querySelectorAll('.sidebar-nav .nav-link');
+            const scrollPos = window.scrollY + 90;
 
             let activeFound = false;
             links.forEach(link => {
@@ -87,9 +71,14 @@
 
         window.addEventListener('scroll', setActiveNav);
         window.addEventListener('load', setActiveNav);
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.querySelector('.sidebar-nav').classList.toggle('open');
+        }
     </script>
     
-    <section id="about">
+    <section id="about" class="musik-section">
         <h2>About</h2>
         <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and pipeline optimisation, with solid experience in Python programming.</p>
         <br>
@@ -108,7 +97,7 @@
             </span>
         </div>
 
-    <section id="projects">
+    <section id="projects" class="musik-section">
         <h2>Projects</h2>
         <div class="section-grid">
             <div class="research-item">
@@ -155,7 +144,7 @@
         </div>
     </section>
     
-    <section id="publications">
+    <section id="publications" class="musik-section">
         <h2>Selected publications</h2>
 
           <p>For a complete list of my publications, visit my profile on <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Cifuentes%2C%20C.%22%20collection%3Aastronomy&sort=date%20desc%2C%20bibcode%20desc&p_=0" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: var(--accent-color);">ADS</a>.
@@ -197,7 +186,7 @@
                         CARMENES input catalogue of M dwarfs V: Luminosities, colours, and spectral energy distributions
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(138, 43, 226, 0.15); color: rgb(138, 43, 226);">Top cited</span>
+                <span class="tag" style="background-color: rgba(250, 128, 114, 0.15); color: rgb(250, 128, 114);">Top cited</span>
                 <span class="tag">M dwarfs</span>
                 <span class="tag">Stellar parameters</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">A trusted reference for the astrophysical parameters of M dwarfs.</p>
@@ -211,7 +200,7 @@
                         The CARMENES search for exoplanets around M dwarfs: Different roads to radii and masses of the target stars
                     </a>
                 </p>
-                <span class="tag" style="background-color: rgba(138, 43, 226, 0.15); color: rgb(138, 43, 226);">Top cited</span>
+                <span class="tag" style="background-color: rgba(250, 128, 114, 0.15); color: rgb(250, 128, 114);">Top cited</span>
                 <span class="tag">M dwarfs</span>
                 <span class="tag">Stellar parameters</span>
                 <p style="font-style: italic; color: var(--accent-color); margin-top: 0.5em;">Know your star: Precise masses and radii of M dwarfs.</p>
@@ -344,7 +333,7 @@
     </div>
 </section> -->
 
-    <section id="now">
+    <section id="now" class="musik-section">
         <h2>Now</h2>
         <p style="padding-bottom: 1em;">Past, present and future scientific events of 2025.</p>
 
@@ -357,7 +346,7 @@
                             Workshop on Planets Around M-Dwarfs
                         </a>
                     </p>
-                    <p style="margin: 0 0 0.3em 0; color: #0084ff; background: #dcecff; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p style="margin: 0 0 0.3em 0; color: #0084ff; background: #81baff48; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Invited talk: "M dwarfs in multiple star systems"
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">Lund University, Sweden</p>
@@ -372,7 +361,7 @@
                             Exploring Tattoine and beyond: Circumbinary planets with ESAC missions
                         </a>
                     </p>
-                    <p style="margin: 0 0 0.3em 0; color: #ff9900; background: #fff2ce; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
+                    <p style="margin: 0 0 0.3em 0; color: #ff9900; background: #ffda7443; border-radius: 0.3em; padding: 0.2em 0.6em; display: inline-block; font-size: 0.8em;">
                         Local Organising Committee
                     </p>
                     <p style="margin: 0; color: grey; font-size: 0.9em;">European Space Astronomy Centre, Spain</p>
@@ -398,7 +387,7 @@
                 </div>
             </div>
 
-            <div class="past-event" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+            <div class="past-event-recent" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
                 <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">October 2025</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
@@ -413,7 +402,7 @@
                 </div>
             </div> 
 
-            <div class="past-event" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+            <div class="past-event-recent" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
                 <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">July 2025</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
@@ -428,7 +417,7 @@
                 </div>
             </div>  
 
-            <div style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
+            <div class="past-event-recent" style="display: flex; align-items: flex-start; gap: 1em; padding: 0.8em; border-left: 2px solid rgb(180, 180, 180);">
                 <p style="color: rgb(180, 180, 180); font-size: 1.1rem; min-width: 120px; margin: 0; font-weight: 600;">May 2025</p>
                 <div style="flex: 1;">
                     <p style="margin: 0 0 0.3em 0; font-weight: 500;">
@@ -440,12 +429,12 @@
         </div>
     </section>
 
-    <section id="talk">
+    <section id="talk" class="musik-section">
         <h2>Talk to my thesis</h2>
         
         <div class="chat-container">
             <div class="chat-header">
-                <p>Chat with my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: salmon;">PhD thesis</a></p>
+                <p>Chat with my <a href="https://arxiv.org/pdf/2305.08893" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgb(255, 255, 255);">PhD thesis</a></p>
                 <!-- <small style="color: #888;">First query may take a few seconds to initialize</small> -->
             </div>
             
@@ -476,7 +465,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="musik-section">
         <h2>Contact</h2>
         <div class="contact-info">
             <p class="contact-item" style="font-size: 1.2em;">
@@ -966,7 +955,39 @@
             }
         });
 
-        // Dark mode toggle functionality
+        // ==========================================
+        // MOBILE MENU TOGGLE
+        // ==========================================
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebarNav');
+            sidebar.classList.toggle('open');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebarNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !toggle.contains(e.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    const sidebar = document.getElementById('sidebarNav');
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+        
+        // Dark mode toggle functionality - COMMENTED OUT
+        /*
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
 
@@ -987,8 +1008,10 @@
                 localStorage.setItem('theme', 'light');
             }
         });
+        */
     </script>
 
-    
+        </main>
+    </div>
 </body>
 </html>
