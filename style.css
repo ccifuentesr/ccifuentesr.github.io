@@ -443,6 +443,8 @@ nav a {
     transition: all 0.2s ease;
     font-family: 'Karla', sans-serif;
     font-weight: 500;
+    flex: 0 0 80%;
+    width: 80%;
 }
 
 #question:focus {
@@ -470,6 +472,8 @@ nav a {
     transition: all 0.2s ease;
     font-family: 'Karla', sans-serif;
     font-weight: 500;
+    flex: 0 0 20%;
+    width: 20%;
 
     /* border-radius: 12px;
     border: 1px solid #666;
@@ -748,6 +752,13 @@ body.dark-mode .question-send:disabled {
     border-top: 1px solid #e0e0e0;
     display: flex;
     justify-content: center;
+}
+
+.chat-input-container > div {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 900px;
 }
 
 /* OLD STYLES - NOT USED ANYMORE */
@@ -1538,10 +1549,16 @@ body.astro .photo-caption .location {
         padding: 10px;
     }
     
+    .chat-input-container > div {
+        flex-direction: column;
+    }
+    
     #question {
         font-size: 1em;
         padding: 12px;
         min-height: 50px;
+        width: 100%;
+        flex: none;
     }
     
     #askBtn {
@@ -1549,6 +1566,7 @@ body.astro .photo-caption .location {
         font-size: 1em;
         width: 100%;
         margin-top: 10px;
+        flex: none;
     }
     
     .suggestions-container {
@@ -1639,7 +1657,14 @@ body.astro .photo-caption .location {
         padding: 0.1em 0;
         overflow-x: auto;
         white-space: nowrap;
+    }
+
+    body:not(.dark-mode) #mainNav {
         background-color: rgba(248, 250, 252, 0.9) !important;
+    }
+
+    body.dark-mode #mainNav {
+        background-color: rgba(38, 40, 43, 0.9) !important;
     }
     
     #mainNav .nav-link {
@@ -1655,7 +1680,14 @@ body.astro .photo-caption .location {
         padding: 0.1em 0;
         overflow-x: auto;
         white-space: nowrap;
+    }
+
+    body:not(.dark-mode) #mainNav2 {
         background-color: rgba(255, 255, 255, 0.667) !important;
+    }
+
+    body.dark-mode #mainNav2 {
+        background-color: rgba(38, 40, 43, 0.9) !important;
     }
     
     .chat-send-suggestion {
@@ -1901,4 +1933,414 @@ body.dark-mode .chat-progress {
 
 .dark-mode-toggle .icon.moon {
     right: 5px;
+}
+
+/* ============================================
+   MUSIK PAGE - SJ.LAND INSPIRED LAYOUT
+   ============================================ */
+
+/* Base Styles */
+body.musik-new {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.musik-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #0f0f0f;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    border-right: 1px solid #2a2a2a;
+    z-index: 100;
+}
+
+.sidebar-nav h1 {
+    font-size: 1.8rem;
+    margin: 0 0 2rem 0;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar-nav .subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.sidebar-nav li {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.sidebar-nav a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: block;
+    text-align: left;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    color: #fff;
+}
+
+.sidebar-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2a2a2a;
+    text-align: left;
+}
+
+.sidebar-footer a {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 200;
+    font-size: 0.9rem;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: #2a2a2a;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    flex: 1;
+    padding: 3rem 4rem 8rem 4rem;
+    max-width: 900px;
+}
+
+.musik-section {
+    margin-bottom: 6rem;
+}
+
+.musik-section h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.musik-section p {
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.musik-section h3 {
+    color: #aaa;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Track Lists */
+.track-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.track-list li {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #222;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-list li:hover {
+    background-color: #2a2a2a;
+}
+
+.track-list li.playing {
+    background-color: #2d2d3d;
+    border-left: 3px solid #7b5fff;
+}
+
+.track-name {
+    color: #e0e0e0;
+    flex: 1;
+}
+
+.track-year {
+    color: #666;
+    font-size: 0.85rem;
+    margin-left: 1rem;
+}
+
+/* Spotify Embed */
+.spotify-embed {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Equipment List */
+.equipment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.equipment-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #2a2a2a;
+    color: #999;
+}
+
+.equipment-list li:last-child {
+    border-bottom: none;
+}
+
+.equipment-list span {
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.status-in-use {
+    background-color: rgba(0, 206, 110, 0.15);
+    color: rgb(0, 206, 110);
+}
+
+.status-retired {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: rgb(255, 107, 107);
+}
+
+/* Note Boxes */
+.note-box {
+    background-color: #222;
+    border-left: 3px solid #7b5fff;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+.note-box p {
+    margin: 0.5rem 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Lyrics Icon */
+.lyrics-icon {
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s, transform 0.2s;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.lyrics-icon:hover {
+    color: #7b5fff;
+    transform: scale(1.1);
+}
+
+/* Lyrics Modal */
+.lyrics-modal {
+    display: flex;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.lyrics-content {
+    background-color: #1a1a1a;
+    padding: 0;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease;
+    border: 1px solid #2a2a2a;
+}
+
+.lyrics-header {
+    background-color: #222;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.lyrics-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.close-lyrics {
+    color: #999;
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.close-lyrics:hover {
+    color: #fff;
+}
+
+.lyrics-text {
+    padding: 1.5rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+    font-size: 1rem;
+    white-space: pre-line;
+    overflow-y: auto;
+    max-height: calc(80vh - 100px);
+}
+
+/* Audio Player Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .sidebar-nav {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        left: -250px;
+        top: 0;
+        transition: left 0.3s ease;
+        border-right: none;
+        padding: 1.5rem;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .sidebar-nav.open {
+        left: 0;
+    }
+    
+    .sidebar-nav h1 {
+        font-size: 1.5rem;
+    }
+    
+    .sidebar-nav .subtitle {
+        margin-bottom: 2rem;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 5rem 1.5rem 8rem 1.5rem;
+    }
+    
+    .musik-container {
+        flex-direction: column;
+    }
+    
+    .sidebar-nav ul {
+        display: block;
+    }
+    
+    .sidebar-nav li {
+        margin-bottom: 1rem;
+    }
+    
+    .lyrics-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .lyrics-header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .lyrics-header h3 {
+        font-size: 1rem;
+    }
+    
+    .lyrics-text {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
 }
