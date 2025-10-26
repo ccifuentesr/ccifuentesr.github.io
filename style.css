@@ -1096,13 +1096,13 @@ body.astro .photo-caption .location {
     width: 100%;
     background: rgba(20, 20, 30, 0);
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.25rem;
 }
 
 .player-controls {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.25rem;
 }
 
 .play-btn {
@@ -1739,7 +1739,7 @@ body.dark-mode nav a.active {
 body.science-new .research-item,
 body.science-new .publication-item {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: none;
     color: #ededed;
 }
 
@@ -2123,10 +2123,7 @@ body.science-new {
     color: #a78bfa;
     font-weight: 600;
     padding-bottom: 1em;
-    text-shadow: 
-        0 0 10px rgba(167, 139, 250, 0.5),
-        0 0 20px rgba(167, 139, 250, 0.3),
-        0 0 30px rgba(167, 139, 250, 0.1);
+    text-shadow: none;
 }
 
 .sidebar-nav .subtitle {
@@ -2485,11 +2482,11 @@ body.science-new {
         width: 100%;
         height: auto;
         min-height: auto;
-        background-color: #1a1a1a;
+        background-color: #0a0a0a;
         border-right: none;
         border-bottom: 1px solid #333333;
-        padding: 0.5rem 0.5rem 0.3rem 0.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        padding: 0.1rem 0.2rem 0.3rem 0.5rem;
+        box-shadow: none;
         z-index: 100;
         overflow-x: auto;
         overflow-y: visible;
@@ -2503,6 +2500,7 @@ body.science-new {
     .sidebar-nav h1 {
         font-size: 2.5rem;
         margin: 0;
+        margin-top: 0;
         padding-bottom: -0.1em;
         text-align: center;
         line-height: 0.8;
