@@ -18,6 +18,11 @@
         <nav class="sidebar-nav" id="sidebarNav">
             <p class="subtitle">Carlos Cifuentes</p>
             <h1>Science</h1>
+            <p class="subtitle mobile-home-link" style="text-align: center; white-space: nowrap;">
+                <a href="index.html" style="color: #7e7e7e; text-decoration: none; margin: 0 0.5em;">← home</a>
+                <a href="musik.html" style="color: #7e7e7e; text-decoration: none; margin: 0 0.5em;">musik</a>
+                <a href="seen.html" style="color: #7e7e7e; text-decoration: none; margin: 0 0.5em;">seen</a>
+            </p>
             
             <ul>
                 <li><a href="#about" class="nav-link">About me</a></li>
@@ -85,9 +90,9 @@
     <section id="about" class="musik-section">
         <h2>About me</h2>
         <p style="color: #555;">keywords: cool stars · binaries · exoplanets · radial velocity</p>
-        <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination from high-resolution spectroscopy. I develop and apply tools for large-scale data analysis and pipeline optimisation, with solid experience in Python programming.</p>
-        <br>
-        <p><b>Current position:</b> Postdoctoral researcher at the Centro de Astrobiología <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">(CAB)</a> based at the European Space Astronomy Centre <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">(ESAC)</a>, Madrid.</p>
+        <p>I am a postdoctoral researcher at the <a href="https://cab.inta-csic.es" target="_blank" rel="noopener noreferrer">Centro de Astrobiología (CAB)</a> based at the <a href="https://www.esa.int/About_Us/ESAC" target="_blank" rel="noopener noreferrer">European Space Astronomy Centre (ESAC)</a> in Madrid.</p>
+        <p>I investigate stellar multiplicity and planetary architectures, with a current emphasis on hierarchical triple systems. 
+        <p>I contribute to the <a href="https://kobe.caha.es" target="_blank" rel="noopener noreferrer">KOBE</a> and <a href="https://carmenes.caha.es" target="_blank" rel="noopener noreferrer">CARMENES</a> projects and lead observing proposals focused on stellar multiplicity, exoplanet detection, and stellar parameter determination from high-resolution spectroscopy. 
     </section>
 
         <div style="display: flex; justify-content: center; gap: 2.5em;">
@@ -559,7 +564,7 @@
             </p>
         </div>
     </section>
-    <div style="height: 20em;"></div>
+    <div style="height: 30em;"></div>
 
     <footer style="border-top: 1px solid rgba(0, 0, 0, 0.15);">
         <p>
@@ -595,7 +600,7 @@
             const messagesEl = document.getElementById("chatMessages");
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message ' + type;
-            messageDiv.innerHTML = '<div class="message-content"><p>' + content + '</p></div>';
+            messageDiv.innerHTML = '<div class="message-content">' + content + '</div>';
             messagesEl.appendChild(messageDiv);
             messagesEl.scrollTop = messagesEl.scrollHeight;
         }
