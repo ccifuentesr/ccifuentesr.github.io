@@ -171,6 +171,17 @@ section {
     margin: 4rem 0;
 }
 
+/* Reduce vertical spacing between sections and headings inside page main content
+   (affects pages like index, science, musik that use <main class="main-content">)
+   This keeps sidebar spacing untouched. */
+.main-content section {
+    margin: 2rem 0;
+}
+
+.main-content h2 {
+    margin: 1rem 0 0.6rem;
+}
+
 footer {
     text-align: center;
     padding: 3rem 0;
@@ -2119,6 +2130,7 @@ body.science-new {
 
 .sidebar-nav h1 {
     font-size: 1.8rem;
+    /* add a small top margin so the page title (e.g. "Musik" or "Science") is slightly separated from the subtitle */
     margin: 0 0 2rem 0;
     color: #a78bfa;
     font-weight: 600;
@@ -2129,8 +2141,8 @@ body.science-new {
 .sidebar-nav .subtitle {
     font-size: 0.9rem;
     color: #7e7e7e;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.4rem;
     display: block;
     text-align: left;
 }
@@ -2142,7 +2154,8 @@ body.science-new {
 .sidebar-nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    /* small separation between the header/title and the list of links */
+    margin: 0 0 0 0;
     text-align: left;
 }
 
@@ -2498,9 +2511,8 @@ body.science-new {
     }
     
     .sidebar-nav h1 {
-        font-size: 2.5rem;
-        margin: 0;
-        margin-top: 0;
+    font-size: 2.5rem;
+    margin: 1.2rem 0 0 0;
         padding-bottom: -0.1em;
         text-align: center;
         line-height: 0.8;
@@ -2519,7 +2531,7 @@ body.science-new {
         gap: 0.5em;
         margin: 0;
         padding: 0;
-        margin-bottom: -0.3rem;
+    margin-bottom: 0;
     }
     
     .mobile-home-link a {
@@ -2539,7 +2551,8 @@ body.science-new {
         gap: 0rem;
         padding: 0;
         margin: 0;
-        margin-top: -0.4rem;
+    /* reduce separation from mobile-home-link */
+    margin-top: -0.8rem;
     }
     
     .sidebar-nav li {

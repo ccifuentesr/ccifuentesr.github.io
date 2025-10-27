@@ -16,7 +16,6 @@
         
         <!-- Sidebar Navigation -->
         <nav class="sidebar-nav" id="sidebarNav">
-            <p class="subtitle">Carlos Cifuentes</p>
             <h1>Musik</h1>
             <p class="subtitle mobile-home-link" style="text-align: center; white-space: nowrap;">
                 <a href="index.html" style="color: #7e7e7e; text-decoration: none; margin: 0 0.5em;">← home</a>
@@ -84,9 +83,7 @@
                 <p><strong>AGRICOLA</strong> is a metal project that gives voice to different animals (mammals and birds).</p>
                 
                 <div class="note-box">
-                    <p>• Drums are designed by Arnaud Krakowka.</p>
-                    <p>• Bass lines are absent from all tracks.</p>
-                    <p>• Animals that have kindly contributed: dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, lemur, and Broncosaurus Rex.</p>
+                    <p>This music is built upon drum tracks designed by Arnaud Krakowka, features no bass lines, and gives voice to animals such as dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, lemur, and Broncosaurus Rex.</p>
                 </div>
                 
                 <ul class="track-list">
@@ -138,8 +135,9 @@
             <!-- Piano (merged Originals, Ideas, Re-imagined) -->
             <section id="piano" class="musik-section">
                 <h2>Piano</h2>
-                <p>Collection of improvised originals, early ideas and personal renditions for piano — a mix of on-the-fly improvisations, Guitar Pro sketches, and pieces of others.</p>
-
+                <div class="note-box">
+                <p>Collection of improvised originals, early ideas and personal renditions for piano. A mix of on-the-fly improvisations, Guitar Pro sketches, and pieces of others.</p>
+                </div>
                 <h3 style="color: #aaa; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">Improvised originals</h3>
                 <ul class="track-list">
                     <li onclick="loadTrack('media/music/piano_original_things.mp3', this)"><span class="track-name">The Things That Be</span><span class="track-year">original</span></li>
@@ -207,8 +205,9 @@
             <!-- Lest we forget Section -->
             <section id="lest" class="musik-section">
                 <h2>Lest we forget</h2>
-                <p>Video recordings from various performances.</p>
-                
+                <div class="note-box">
+                    <p>Video recordings from various performances.</p>
+                </div>
                 <ul class="track-list">
                     <li onclick="window.open('https://www.youtube.com/watch?v=D_yy9ZDid-0', '_blank')">
                         <span class="track-name">Saman / Ólafur Arnalds ↗</span>
@@ -500,6 +499,7 @@ Puma concolor`
                         <span class="close-lyrics" onclick="closeLyrics()">&times;</span>
                     </div>
                     <div class="lyrics-text">
+                        <span style="font-style:italic; color:#aaa;">Lyrics:</span><br>
                         ${song.lyrics.replace(/\n/g, '<br>')}
                     </div>
                 </div>
