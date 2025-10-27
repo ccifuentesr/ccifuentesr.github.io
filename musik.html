@@ -283,7 +283,7 @@
                     <li>Electronic drum kit: <span>Millenium MPS-850 + stand</span> <span class="status-badge status-in-use">in use</span></li>
                     <li>Pedalboard: <span>POD XT Live</span> <span class="status-badge status-retired">retired</span></li>
                     <li>Headphones: <span>Superlux HD 681</span> <span class="status-badge status-retired">retired</span></li>
-                    <li>Computers: <span>MacBook Pro</span> 13 in (2011-2020) <span class="status-badge status-retired">retired</span> and 16 in (2020-today) <span class="status-badge status-in-use">in use</span></li>
+                    <li>Computers: <span>MacBook Pro</span> 13 in (2011-2020)<span class="status-badge status-retired">retired</span> and 16 in (2020-today)<span class="status-badge status-in-use">in use</span></li>
                     <li>Software: <span>Piano Noire</span>, <span>Garage Band</span>, <span>Guitar Pro</span></li>
                 </ul>
             </section>
@@ -291,7 +291,7 @@
     </div>
 
     <!-- Global Audio Player -->
-    <div id="global-player" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(15, 15, 15, 0.95); padding: 1em; z-index: 1000; border-top: 1px solid #2a2a2a;">
+    <div id="global-player" style="position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 15, 15, 0.35); padding: 1em; z-index: 1000; border-top: 1px solid #2a2a2a; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
         <div class="audio-player">
             <div class="player-controls">
                 <button class="play-btn" onclick="togglePlayGlobal()" style="background: none; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; padding: 0.5rem;">▶</button>
@@ -306,6 +306,7 @@
         </div>
     </div>
 
+    <div style="height: 90px;"></div>
     <footer style="margin-top: 4rem; padding: 2rem 0; text-align: center; color: #666; font-size: 0.85rem;">
         <p>&copy; 2017-2025 C. Cifuentes. All rights reserved.</p>
     </footer>
