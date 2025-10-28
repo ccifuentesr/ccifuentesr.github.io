@@ -23,6 +23,7 @@
                 <a href="seen.html" style="color: #7e7e7e; text-decoration: none; margin: 0 0.5em;">seen</a>
             </p>
             <ul>
+                <li><a href="#carlic" class="nav-link">Carlic</a></li>
                 <li><a href="#kosmona" class="nav-link">Kosmona</a></li>
                 <li><a href="#agricola" class="nav-link">Agricola</a></li>
                 <li><a href="#piano" class="nav-link">Piano</a></li>
@@ -83,7 +84,8 @@
                 <p><strong>AGRICOLA</strong> is a metal project that gives voice to different animals (mammals and birds).</p>
                 
                 <div class="note-box">
-                    <p>This music is built upon drum tracks designed by Arnaud Krakowka, features no bass lines, and gives voice to animals such as dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, lemur, and Broncosaurus Rex.</p>
+                    <p>This music is built upon drum tracks designed by Arnaud Krakowka, features no bass lines, and gives voice to animals such as dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, and Broncosaurus Rex.
+                    Click on the paw  <span style="font-size:1.1em;">🐾</span> to find the lyrics and some recording details.</p>
                 </div>
                 
                 <ul class="track-list">
@@ -206,7 +208,10 @@
             <section id="lest" class="musik-section">
                 <h2>Lest we forget</h2>
                 <div class="note-box">
-                    <p>Video recordings from various performances.</p>
+                    <p>Video recordings, lest we forget.</p>
+                </div>
+                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D_yy9ZDid-0?si=7trW52qtqCCAs5n6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <ul class="track-list">
                     <li onclick="window.open('https://www.youtube.com/watch?v=D_yy9ZDid-0', '_blank')">
@@ -493,6 +498,52 @@ Puma concolor`
             // Create modal
             const modal = document.createElement('div');
             modal.className = 'lyrics-modal';
+            let trivia = '';
+            if (songId === 'triangles') {
+                trivia = `<div class=\"lyrics-trivia\" style=\"margin-top:1.5em; color:#bdbdbd; font-size:0.98em;\">
+                <span style=\"font-style:italic; color:#aaa;\">Trivia:</span><br>
+                <ul style=\"margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;\">
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">The intro riff was repeated at least 100 times.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">With the exception of some fills, the song was improvised in one take.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Guitar recorded with Windows Sound Recorder (.wav converted to .mp3).</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Left index finger bruised after repeatedly hitting a prominent edge of the Showmaster neck.</li>
+                </ul>
+                </div>`;
+            } else if (songId === 'bones') {
+                trivia = `<div class=\"lyrics-trivia\" style=\"margin-top:1.5em; color:#bdbdbd; font-size:0.98em;\">
+                <span style=\"font-style:italic; color:#aaa;\">Trivia:</span><br>
+                <ul style=\"margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;\">
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">The intro riff was repeated approximately 500 times.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Around 1,500 audio fragments were recorded but not used in the final mix.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Vocals include Rottweiler and German Shepherd samples.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">The main microphone failed and was replaced with an iPhone.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Recording, production, and mixing were completed in about 72 hours.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Released on Good Friday.</li>
+                </ul>
+                </div>`;
+            } else if (songId === 'dormant') {
+                trivia = `<div class=\"lyrics-trivia\" style=\"margin-top:1.5em; color:#bdbdbd; font-size:0.98em;\">
+                <span style=\"font-style:italic; color:#aaa;\">Trivia:</span><br>
+                <ul style=\"margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;\">
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">The intro riff was repeated at least one hundred times.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Guitar played while barefoot like Steven Wilson.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Some sounds achieved with scissors.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Officially released on Maundy Thursday.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">A broken PC was used for recording.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Recording, production, and mixing took less than 48 hours.</li>
+                </ul>
+                </div>`;
+            } else if (songId === 'haunt') {
+                trivia = `<div class=\"lyrics-trivia\" style=\"margin-top:1.5em; color:#bdbdbd; font-size:0.98em;\">
+                <span style=\"font-style:italic; color:#aaa;\">Trivia:</span><br>
+                <ul style=\"margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;\">
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Recorded sitting on a wooden bench, eating pickles.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">Features an undefined jungle animal, probably a lemur.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">The song that has caused the most fingertip pain.</li>
+                    <li style=\"margin:0; padding:0; line-height:1.1; display:list-item;\">First song conceived in Guitar Pro (originally called 'Melting Sun').</li>
+                </ul>
+                </div>`;
+            }
             modal.innerHTML = `
                 <div class="lyrics-content">
                     <div class="lyrics-header">
@@ -502,6 +553,7 @@ Puma concolor`
                     <div class="lyrics-text">
                         <span style="font-style:italic; color:#aaa;">Lyrics:</span><br>
                         ${song.lyrics.replace(/\n/g, '<br>')}
+                        ${trivia}
                     </div>
                 </div>
             `;
