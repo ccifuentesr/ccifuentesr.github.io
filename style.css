@@ -1,3 +1,271 @@
+/* ============================================
+     ECHOES TOP NAV
+     ============================================ */
+.echoes-topnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2.2em;
+    padding: 1.2em 0 0.5em 0;
+    margin-bottom: 0.5em;
+}
+.echoes-topnav a {
+    color: #888;
+    font-size: 0.92em;
+    font-family: inherit;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0.85;
+    padding: 0.1em 0.2em;
+}
+
+@media (max-width: 600px) {
+    .echoes-topnav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 1.2em;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .echoes-topnav::-webkit-scrollbar {
+        display: none;
+    }
+    .echoes-topnav a {
+        white-space: nowrap;
+        min-width: 70px;
+        flex-shrink: 0;
+    }
+
+    .subtitle {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.7em !important;
+    }
+    .subtitle::-webkit-scrollbar {
+        display: none;
+    }
+    .subtitle a {
+        white-space: nowrap !important;
+        min-width: 70px;
+        flex-shrink: 0 !important;
+    }
+}
+.echoes-topnav a:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+/* Make echoes topnav match the echoes page: dark translucent background with blur */
+.echoes-topnav {
+    background: rgba(17, 18, 22, 0.36);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.echoes-topnav a {
+    color: #c9c9c9;
+}
+/* ============================================
+     SEEN TOP NAV (matches echoes style but uses seen page color)
+     ============================================ */
+.seen-topnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2.2em;
+    padding: 0.9em 0 0.4em 0;
+    margin-bottom: 0.6em;
+    /* user requested: white background and grey text */
+    background: rgba(255,255,255,0.92);
+    color: #6b6b6b;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.seen-topnav a {
+    color: #6b6b6b;
+    font-size: 0.92em;
+    font-family: inherit;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+    opacity: 0.9;
+    padding: 0.08em 0.2em;
+}
+.seen-topnav a:hover {
+    color: #222;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .seen-topnav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 1.2em;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .seen-topnav::-webkit-scrollbar { display: none; }
+    .seen-topnav a {
+        white-space: nowrap;
+        min-width: 70px;
+        flex-shrink: 0;
+    }
+}
+
+/* ============================================
+     ECHOES SIDEBAR (minimalist, collapsible, auto-hide)
+     ============================================ */
+.echoes-sidebar {
+    position: fixed;
+    left: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(17,18,22,0.6);
+    color: #e6e6e6;
+    border-radius: 999px;
+    padding: 0.4rem;
+    width: 48px; /* collapsed */
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 500;
+    transition: width 220ms ease, transform 220ms ease, opacity 220ms ease;
+    overflow: visible;
+    backdrop-filter: blur(6px);
+}
+.echoes-sidebar.hidden {
+    transform: translate(-120%, -50%);
+    opacity: 0.0;
+}
+.echoes-sidebar .echoes-sidebar-toggle {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.05rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.echoes-sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+.echoes-sidebar li a {
+    color: #e6e6e6;
+    text-decoration: none;
+    display: block;
+    padding: 0.4rem 0.8rem;
+    white-space: nowrap;
+    font-size: 0.98rem;
+    /* Use same elegant font as poems */
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+.echoes-sidebar:hover,
+.echoes-sidebar.open {
+    width: 260px; /* expanded */
+    border-radius: 12px;
+    padding: 0.6rem 0.6rem 0.6rem 0.8rem;
+}
+.echoes-sidebar:hover ul,
+.echoes-sidebar.open ul {
+    display: block;
+}
+.echoes-sidebar ul li + li {
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 700px) {
+    /* On small screens keep sidebar collapsed and off by default; use toggle to open */
+    .echoes-sidebar { left: 0.5rem; top: auto; bottom: 1.2rem; transform: translateY(0); }
+}
+
+/* Make Echoes title larger on small screens as requested */
+@media (max-width: 600px) {
+    .echoes-title {
+        font-size: 3.6em !important;
+        line-height: 1.02;
+    }
+    .poem-container { padding: 1.2em 0.9em; }
+}
+/* ============================================
+     ECHOES SECTION STYLES
+     ============================================ */
+body.echoes {
+    background: #111216;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+.echoes-header {
+    text-align: center;
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+}
+.echoes-title {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: 6em;
+    font-style: italic;
+    font-weight: 400;
+    color: #e0e0e0;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.1em;
+}
+.echoes-subtitle {
+    color: #b8b8b8;
+    font-size: 1.3em;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    margin-bottom: 2em;
+}
+.poem-container {
+    max-width: 600px;
+    margin: 2em auto 4em auto;
+    background: rgba(20,20,22,0.7);
+    border-radius: 18px;
+    padding: 2.5em 2em 2em 2em;
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+}
+.poem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.1em;
+    font-style: italic;
+    color: #a78bfa;
+    margin-bottom: 0.2em;
+    text-align: left;
+}
+.poem-author {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+    color: #b8b8b8;
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+.poem-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45em;
+    line-height: 1.6;
+    color: #f3f3f3;
+    white-space: pre-line;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
+@media (max-width: 600px) {
+    .echoes-title { font-size: 2.7em; }
+    .poem-container { padding: 1.2em 0.7em; }
+}
 @media (max-width: 768px) {
     .sidebar-nav h1 {
         margin-bottom: 1.2em;
@@ -2155,6 +2423,29 @@ body.science-new {
     margin: 0; /* Add this */
 }
 
+/* Ensure the small home links in the sidebar stay inline on narrower viewports
+     This overrides the generic `.sidebar-nav a { display: block }` that causes stacking. */
+@media (max-width: 1024px) {
+    .sidebar-nav .mobile-home-link {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0.6em !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    .sidebar-nav .mobile-home-link::-webkit-scrollbar { display: none !important; }
+    .sidebar-nav .mobile-home-link a {
+        display: inline-block !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        min-width: 48px !important;
+        padding: 0.2rem 0.4rem !important;
+        margin: 0 !important;
+    }
+}
+
 
 .sidebar-nav h1 {
     font-size: 1.8rem;
@@ -2571,6 +2862,24 @@ body.science-new {
         margin: 0 0.5em !important;
         font-size: 0.95rem;
         white-space: nowrap;
+    }
+
+    /* Ensure mobile-home-link never wraps and can scroll horizontally if needed */
+    .sidebar-nav .mobile-home-link {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.6em !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+    .sidebar-nav .mobile-home-link::-webkit-scrollbar { display: none !important; }
+    .sidebar-nav .mobile-home-link a {
+        display: inline-block !important;
+        flex-shrink: 0 !important;
+        min-width: 48px !important;
+        padding: 0.2rem 0.4rem !important;
     }
     
     .sidebar-nav ul {
