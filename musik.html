@@ -10,41 +10,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="musik-new">
-    <div class="musik-container">
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-        
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar-nav" id="sidebarNav">
-            <ul>
-                <li><a href="#kosmona" class="nav-link">Kosmona</a></li>
-                <li><a href="#agricola" class="nav-link">Agricola</a></li>
-                <li><a href="#piano" class="nav-link">Piano</a></li>
-                <li><a href="#lest" class="nav-link">Lest we forget</a></li>
-                <li><a href="#equipment" class="nav-link">Equipment</a></li>
-            </ul>
-            <div class="sidebar-footer">
-                <a href="index.html">← home</a><br>
-                <a href="science.html">science</a><br>
-                <a href="seen.html">seen</a><br>
-                <a href="echoes.html">echoes</a>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav" id="sidebarNav">
+        <ul>
+            <li><a href="#kosmona" class="nav-link">Kosmona</a></li>
+            <li><a href="#agricola" class="nav-link">Agricola</a></li>
+            <li><a href="#piano" class="nav-link">Piano</a></li>
+            <li><a href="#lest" class="nav-link">Lest we forget</a></li>
+            <li><a href="#equipment" class="nav-link">Equipment</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="index.html">← home</a><br>
+            <a href="science.html">science</a><br>
+            <a href="seen.html">seen</a><br>
+            <a href="echoes.html">echoes</a>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="musik-section">
+            <a href="index.html" class="main-home-link" style="color:#888;display:inline-block;font-size:1.08em;margin:0 0 0.2em 0;text-decoration:none;letter-spacing:0.01em;">← home</a>
+            <h1>Musik</h1>
+        </section>  
+        <section id="carlic" class="musik-section">
+            <h2>Carlic</h2>
+            <p>My unfinished album. Headphones are recommended for the best experience. <br>You can also explore my playlists on <a href="https://open.spotify.com/user/ccsr_?si=894e3af8e5b74a0b" target="_blank" rel="noopener noreferrer" style="color:#1DB954; text-decoration:none; font-weight:500;">Spotify ↗</a>.</p>
+            <div class="spotify-embed">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/1FTCTlOPZVIhT7wqBfYMpc?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <section class="musik-section">
-                <a href="index.html" class="main-home-link" style="color:#888;display:inline-block;font-size:1.08em;margin:0 0 0.2em 0;text-decoration:none;letter-spacing:0.01em;">← home</a>
-                <h1>Musik</h1>
-            </section>  
-            <section id="carlic" class="musik-section">
-                <h2>Carlic</h2>
-                <p>My unfinished album. Headphones are recommended for the best experience. <br>You can also explore my playlists on <a href="https://open.spotify.com/user/ccsr_?si=894e3af8e5b74a0b" target="_blank" rel="noopener noreferrer" style="color:#1DB954; text-decoration:none; font-weight:500;">Spotify ↗</a>.</p>
-                
-                <div class="spotify-embed">
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/1FTCTlOPZVIhT7wqBfYMpc?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-            </section>
+        </section>
 
             <!-- Kosmona Section -->
             <section id="kosmona" class="musik-section">
