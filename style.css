@@ -1,3 +1,58 @@
+@media (max-width: 700px) {
+    body.echoes .poem-container,
+    body.echoes .echoes-header,
+    body.echoes .echoes-title,
+    body.echoes .echoes-subtitle {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 98vw !important;
+        width: 100vw !important;
+        padding-left: 2vw !important;
+        padding-right: 2vw !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+    }
+    body.echoes .poem-title,
+    body.echoes .poem-author,
+    body.echoes .poem-text {
+        text-align: center !important;
+    }
+}
+/* Centra todo el contenido principal de Science */
+body.science-new .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body.science-new .main-content section,
+body.science-new .main-content > div {
+    width: 100%;
+    max-width: 900px;
+}
+body.science-new .main-content p,
+body.science-new .main-content li,
+body.science-new .main-content .section-grid,
+body.science-new .main-content .research-item {
+    text-align: left;
+}
+/* Oculta menú lateral y botón en Science y Musik en móvil */
+@media (max-width: 700px) {
+    body.science-new .sidebar-nav,
+    body.science-new .mobile-menu-toggle,
+    body.musik-new .sidebar-nav,
+    body.musik-new .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+/* Espaciado compacto para el menú de index */
+body > main > nav ul {
+    gap: 0.6em !important;
+}
+@media (max-width: 700px) {
+    body > main > nav ul {
+        gap: 0.35em !important;
+    }
+}
 /* Minimalist dark index nav */
 /* Minimalist dark index nav, matching echoes/seen nav font/weight */
 .index-link {
@@ -326,6 +381,11 @@ body.echoes {
     background: #111216;
     color: #e0e0e0;
     min-height: 100vh;
+    width: 100vw;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 .echoes-header {
     text-align: center;
@@ -2669,8 +2729,9 @@ body.science-new {
 
 /* Main Content */
 .main-content {
-    margin-left: 220px;
-    padding: 3rem 4rem 8rem 4rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 3rem 0 8rem 0;
     background-color: #0a0a0a;
     box-sizing: border-box;
     min-height: 100vh;
