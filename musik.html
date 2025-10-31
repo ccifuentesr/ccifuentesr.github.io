@@ -16,9 +16,7 @@
         
         <!-- Sidebar Navigation -->
         <nav class="sidebar-nav" id="sidebarNav">
-            <h1>Musik</h1>
             <ul>
-                <li><a href="#carlic" class="nav-link">Carlic</a></li>
                 <li><a href="#kosmona" class="nav-link">Kosmona</a></li>
                 <li><a href="#agricola" class="nav-link">Agricola</a></li>
                 <li><a href="#piano" class="nav-link">Piano</a></li>
@@ -36,6 +34,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <section class="musik-section">
+                <a href="index.html" class="main-home-link" style="color:#888;display:inline-block;font-size:1.08em;margin:0 0 0.2em 0;text-decoration:none;letter-spacing:0.01em;">← home</a>
                 <h1>Musik</h1>
             </section>  
             <section id="carlic" class="musik-section">
@@ -308,10 +307,10 @@
     </div>
 
     <div style="height: 90px;"></div>
-    <footer style="margin-top: 4rem; padding: 2rem 0; text-align: center; color: #666; font-size: 0.85rem;">
-        <p>&copy; 2017-2025 C. Cifuentes. All rights reserved.</p>
+    <footer style="border-top: 1px solid rgb(28, 28, 28);">
+  <p>© 2017–2025 C. Cifuentes. All rights reserved.</p>
     </footer>
-
+    <div style="height: 60px;"></div>
     <script>
         // ==========================================
         // SMOOTH SCROLLING & ACTIVE NAV
@@ -363,7 +362,6 @@
         function togglePlayGlobal() {
             const audio = document.getElementById('global-audio');
             const playBtn = document.querySelector('#global-player .play-btn');
-            
             if (audio.paused) {
                 audio.play();
                 playBtn.textContent = '❚❚';

@@ -1,3 +1,121 @@
+/* Minimalist dark index nav */
+/* Minimalist dark index nav, matching echoes/seen nav font/weight */
+.index-link {
+    color: #bcbcbc;
+    font-family: inherit;
+    font-size: 1.13em;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    background: none;
+    padding: 0.1em 0.2em;
+    transition: color 0.18s;
+    border-radius: 0;
+    opacity: 0.93;
+    box-shadow: none;
+    outline: none;
+    position: relative;
+}
+.index-link:hover, .index-link:focus {
+    color: #fff;
+    text-decoration: none;
+    opacity: 1;
+}
+@media (max-width: 700px) {
+    nav ul {
+        gap: 1.2em !important;
+    }
+    .index-link {
+        font-size: 1.08em;
+        letter-spacing: 0.09em;
+    }
+}
+body {
+    background: #101014 !important;
+    color: #eaeaea !important;
+}
+footer {
+    color: #444 !important;
+    font-family: 'Karla', 'Noto Sans Mono', 'Montserrat', 'Raleway', sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.08em;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+/* Remove old index logo, fade-in, star-canvas, nav-logo, etc. */
+.fade-in, .nav-logo, .star-background, .blur-hover {
+    display: none !important;
+}
+@media (max-width: 700px) {
+    body.seen.dark-mode .seen-topnav .home-icon-link,
+    body.dark-mode.seen .seen-topnav .home-icon-link {
+        color: #222 !important;
+        background: #fff !important;
+    }
+}
+/* Home icon nav: solo visible en móvil, menú oculto */
+@media (max-width: 700px) {
+    .echoes-topnav a:not(.home-icon-link),
+    .seen-topnav a:not(.home-icon-link) {
+        display: none !important;
+    }
+    .echoes-topnav .home-icon-link,
+    .seen-topnav .home-icon-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin: 0 auto;
+        padding: 0.2em 0 0.2em 0;
+        font-size: 1em;
+        font-family: inherit;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        text-transform: lowercase;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+            .echoes-topnav .home-icon-link {
+                color: #888 !important;
+                background: #111 !important;
+            }
+        .seen-topnav .home-icon-link {
+            color: #e0e0e0 !important;
+            background: #fff !important;
+        }
+        body.seen.dark-mode .seen-topnav .home-icon-link,
+        body.dark-mode.seen .seen-topnav .home-icon-link {
+            color: #e0e0e0 !important;
+            background: #111 !important;
+        }
+}
+@media (min-width: 701px) {
+    .echoes-topnav .home-icon-link,
+    .seen-topnav .home-icon-link {
+        display: none !important;
+    }
+}
+/* ========== Refuerzo robusto: topnavs nunca apilados ========== */
+.echoes-topnav, .seen-topnav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+}
+.echoes-topnav::-webkit-scrollbar, .seen-topnav::-webkit-scrollbar {
+    display: none !important;
+}
+.echoes-topnav a, .seen-topnav a {
+    white-space: nowrap !important;
+    min-width: 70px !important;
+    flex-shrink: 0 !important;
+}
 /* ============================================
      ECHOES TOP NAV
      ============================================ */
@@ -196,7 +314,7 @@
 /* Make Echoes title larger on small screens as requested */
 @media (max-width: 600px) {
     .echoes-title {
-        font-size: 3.6em !important;
+        font-size: 6.6em !important;
         line-height: 1.02;
     }
     .poem-container { padding: 1.2em 0.9em; }
@@ -233,10 +351,10 @@ body.echoes {
 .poem-container {
     max-width: 600px;
     margin: 2em auto 4em auto;
-    background: rgba(20,20,22,0.7);
-    border-radius: 18px;
-    padding: 2.5em 2em 2em 2em;
-    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
 }
 .poem-title {
     font-family: 'Cormorant Garamond', serif;
@@ -248,14 +366,14 @@ body.echoes {
 }
 .poem-author {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2em;
+    font-size: 1.25em;
     color: #b8b8b8;
     margin-bottom: 1.5em;
     text-align: left;
 }
 .poem-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45em;
+    font-size: 1.25em;
     line-height: 1.6;
     color: #f3f3f3;
     white-space: pre-line;
