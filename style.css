@@ -22,7 +22,7 @@
     text-decoration: none;
     opacity: 1;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .index-link {
         font-size: 0.97em;
         letter-spacing: 0.05em;
@@ -86,7 +86,7 @@ body.musik-new .sidebar-nav {
 .echoes-home-link {
     display: none;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .echoes-home-link {
         display: block !important;
     }
@@ -94,12 +94,12 @@ body.musik-new .sidebar-nav {
 .seen-home-link {
     display: none;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .seen-home-link {
         display: block !important;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     body.echoes main,
     body.echoes .echoes-header,
     body.echoes .echoes-title,
@@ -161,7 +161,7 @@ body.science-new .main-content .research-item {
     text-align: left;
 }
 /* Oculta menú lateral y botón en Science y Musik en móvil */
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     body.science-new .sidebar-nav,
     body.science-new .mobile-menu-toggle,
     body.musik-new .sidebar-nav,
@@ -173,7 +173,7 @@ body.science-new .main-content .research-item {
 body > main > nav ul {
     gap: 0.38em !important;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     body > main > nav ul {
         gap: 0.18em !important;
     }
@@ -186,6 +186,20 @@ body > main > nav ul {
          border: none !important;
          border-right: 1px solid #444 !important;
     }
+
+/* Sidebar title styling for Science and Musik */
+.sidebar-nav .sidebar-title {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 1em;
+    margin-top: 0;
+    padding: 0.4rem 0.3rem;
+    border-bottom: none;
+    text-align: left;
+    display: block;
+}
+
 /* Minimalist dark index nav, matching echoes/seen nav font/weight */
 .index-link {
     color: #bcbcbc;
@@ -210,7 +224,7 @@ body > main > nav ul {
     text-decoration: none;
     opacity: 1;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .index-link {
         font-size: 0.97em;
         letter-spacing: 0.05em;
@@ -229,7 +243,7 @@ body > main > nav ul {
     text-decoration: none;
     opacity: 1;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     nav ul {
         gap: 0.18em !important;
     }
@@ -254,18 +268,21 @@ body {
 }
 footer {
     color: #444 !important;
-    font-family: 'Karla', 'Noto Sans Mono', 'Montserrat', 'Raleway', sans-serif;
+    font-family: inherit;
     font-size: 1em;
-    letter-spacing: 0.08em;
     background: none !important;
     border: none !important;
     box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 /* Remove old index logo, fade-in, star-canvas, nav-logo, etc. */
 .fade-in, .nav-logo, .star-background, .blur-hover {
     display: none !important;
 }
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     body.seen.dark-mode .seen-topnav .home-icon-link,
     body.dark-mode.seen .seen-topnav .home-icon-link {
         color: #222 !important;
@@ -273,7 +290,7 @@ footer {
     }
 }
 /* Home icon nav: solo visible en móvil, menú oculto */
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     .echoes-topnav a:not(.home-icon-link),
     .seen-topnav a:not(.home-icon-link) {
         display: none !important;
@@ -466,14 +483,14 @@ body.echoes main, body.echoes .echoes-header {
 body.echoes .poem-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 700px;
+    max-width: 767px;
     width: 100%;
 }
 .echoes-sidebar ul li + li {
     margin-top: 0.25rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 767px) {
     /* On small screens keep sidebar collapsed and off by default; use toggle to open */
     .echoes-sidebar { left: 0.5rem; top: auto; bottom: 1.2rem; transform: translateY(0); }
 }
@@ -627,6 +644,15 @@ body {
     min-height: 100%;
 }
 
+/* Override for index, science, echoes, and musik pages to allow full width */
+body:has(main > nav > ul > li > a.index-link),
+body.science-new,
+body.echoes,
+body.musik-new {
+    max-width: none !important;
+    padding: 0 !important;
+}
+
 body.seen {
     background-color: #0a0a0a;
     color: #e0e0e0;
@@ -778,15 +804,6 @@ header img.hovered {
     white-space: pre-line;
     letter-spacing: 0.01em;
     text-align: center;
-}
-.musik footer {
-    text-align: center;
-    padding: 3rem 0;
-    color: rgb(71, 71, 71);
-    font-size: 0.875rem;
-    border-top: 1px solid #333333;
-    margin-top: 2em;
-    margin-bottom: 6rem;
 }
 
 /* ============================================
