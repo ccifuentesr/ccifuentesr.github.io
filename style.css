@@ -77,12 +77,16 @@ body.musik-new .main-content > div {
     box-shadow: none !important;
     border: none !important;
 }
-body.musik-new .sidebar-nav {
-    background: #101014 !important;
+body.musik-new .sidebar-nav,
+body.science-new .sidebar-nav {
+    background: rgba(16, 16, 20, 0.85) !important;
+    backdrop-filter: blur(12px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
     box-shadow: none !important;
     border: none !important;
     border-right: 1px solid #444 !important;
 }
+
 .echoes-home-link {
     display: none;
 }
@@ -181,7 +185,9 @@ body > main > nav ul {
 /* Minimalist dark index nav */
 /* Minimalist dark index nav, matching echoes/seen nav font/weight */
     body.musik-new .sidebar-nav, body.science-new .sidebar-nav {
-         background: #101014 !important;
+         background: rgba(16, 16, 20, 0.85) !important;
+         backdrop-filter: blur(12px) saturate(120%) !important;
+         -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
          box-shadow: none !important;
          border: none !important;
          border-right: 1px solid #444 !important;
@@ -230,13 +236,6 @@ body > main > nav ul {
         letter-spacing: 0.05em;
         padding: 0.04em 0.09em;
     }
-}
-    transition: color 0.18s;
-    border-radius: 0;
-    opacity: 0.93;
-    box-shadow: none;
-    outline: none;
-    position: relative;
 }
 .index-link:hover, .index-link:focus {
     color: #fff;
@@ -2723,13 +2722,15 @@ body.science-new {
     top: 0; 
     height: 100vh;
     width: 220px;
-    background-color: #1a1a1a;
+    background-color: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
     overflow-y: auto;
     border-right: 1px solid #333333;
     z-index: 100;
     padding: 2rem 1rem;
     box-sizing: border-box;
-    margin: 0; /* Add this */
+    margin: 0;
 }
 
 /* Ensure the small home links in the sidebar stay inline on narrower viewports
@@ -3230,7 +3231,7 @@ body.science-new {
     }
     
     .main-content {
-        margin-left: 0;
+        margin-left: 0 !important;
         padding: 2rem 1.5rem 8rem 1.5rem;
         background-color: #0a0a0a;
     }
@@ -3255,5 +3256,24 @@ body.science-new {
     .lyrics-text {
         padding: 1rem;
         font-size: 0.9rem;
+    }
+}
+
+/* CRITICAL: Prevent sidebar overlap on tablets and medium screens (769px - 1200px) 
+   This rule must be at the end to override all previous margin definitions */
+@media (min-width: 769px) and (max-width: 1200px) {
+    body.science-new .main-content,
+    body.musik-new .main-content {
+        margin-left: 240px !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    
+    body.science-new .main-content section,
+    body.science-new .main-content > div,
+    body.musik-new .main-content section,
+    body.musik-new .main-content > div {
+        margin-left: 0 !important;
+        margin-right: auto !important;
     }
 }
