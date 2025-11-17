@@ -239,14 +239,14 @@
                             <a href="https://arxiv.org/pdf/2305.08893" target="_blank" style="text-decoration: none; color: white;">
                                 Astrophysical parameters of M dwarfs with exoplanets
                             </a>
-                            <button id="toggle-thesis-chat" aria-expanded="false" aria-controls="thesis-chat-dropdown" style="background: none; border: none; color: #a259e4; font-size: 1.2em; cursor: pointer; padding: 0 0 0 0.2em; margin: 0; transition: color 0.2s; display: inline-flex; align-items: center;" onclick="toggleThesisChat()" title="Chat with my thesis">
-                                <span id="thesis-chat-arrow" style="display: inline-block; transition: transform 0.2s; color: salmon;">▼ Talk to me</span>
-                            </button>
                         </p>
                     </div>
                     <p style="margin: 0 0 0.1em 0; font-size: 0.9em;">
-                        <span style="color: grey;">C. Cifuentes</span><br>
-                        <span style="color: salmon;">PhD thesis</span>
+                        <span style="color: grey;">C. Cifuentes | </span>
+                        <span style="color: salmon;">PhD thesis</span><br>
+                        <button id="toggle-thesis-chat" aria-expanded="false" aria-controls="thesis-chat-dropdown" style="background: none; border: none; color: #a259e4; font-size: 1.2em; cursor: pointer; padding: 0 0 0 0.2em; margin: 0; transition: color 0.2s; display: inline-flex; align-items: center;" onclick="toggleThesisChat()" title="Chat with my thesis">
+                            <span id="thesis-chat-arrow" style="display: inline-block; transition: transform 0.2s; color: salmon;">▼ Talk to me</span>
+                        </button>
                     </p>
                     <div id="thesis-chat-dropdown" style="display: none; margin-top: 1em; max-width: 600px;">
                         <div class="chat-container">
@@ -384,7 +384,7 @@
                     type="text" 
                     id="unified-search" 
                     placeholder="Object name..."
-                    style="flex: 1; min-width: 200px; padding: 0.6em 0.8em; border: 1px solid #ddd; background-color: #555; border-radius: 4px; font-size: 0.9em; outline: none; transition: border-color 0.2s;"
+                    style="flex: 1; min-width: 200px; padding: 0.6em 0.8em; border: 1px solid #ddd; background-color: #555; color: #f2f2f2; border-radius: 4px; font-size: 0.9em; outline: none; transition: border-color 0.2s;"
                     onfocus="this.style.borderColor='rgb(255, 140, 0)'"
                     onblur="this.style.borderColor='#ddd'"
                 >
@@ -397,6 +397,9 @@
                     Search
                 </button>
             </div>
+            
+            <!-- Search Results Container -->
+            <div id="unified-result" style="display: none; margin-top: 1.5em; padding: 1em; border-radius: 6px;"></div>
 
     <script>
     // Elegant dropdown for thesis chat
@@ -832,6 +835,8 @@
             const catalog = document.getElementById('catalog-select').value;
             const searchInput = document.getElementById('unified-search');
             
+            if (!searchInput) return;
+            
             // Catalogues that support Karmn identifiers
             const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
             
@@ -844,9 +849,11 @@
 
         // Unified catalogue search function
         async function unifiedSearch() {
+            console.log('unifiedSearch called');
             const catalog = document.getElementById('catalog-select').value;
             const searchTerm = document.getElementById('unified-search').value.trim();
             const resultElement = document.getElementById('unified-result');
+            console.log('Catalog:', catalog, 'SearchTerm:', searchTerm, 'ResultElement:', resultElement);
 
             if (!catalog) {
                 resultElement.style.display = 'block';
@@ -884,150 +891,76 @@
             resultElement.style.display = 'block';
             resultElement.style.background = 'rgba(255, 255, 255, 0)';
             resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
-            resultElement.innerHTML = '<p style="color:#666; font-style:italic; margin:0;">Searching...</p>';
+            resultElement.innerHTML = '<p style="color:#fff; font-style:italic; margin:0;">Searching...</p>';
 
             try {
                 // Catalogues that support Karmn identifiers
                 const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
                 
-                // Build the search URL - if it looks like a Karmn identifier and catalogue supports it, search by that field
+                // Build the search URL
                 let tsvUrl;
-                const isKarmnId = searchTerm.match(/^J\d{5}[+-]\d{3}$/i); // Pattern like J00026+383
+                const isKarmnId = searchTerm.match(/^J\d{5}[+-]\d{3}$/i);
                 
                 if (isKarmnId && karmnCatalogues.includes(catalog)) {
-                    // Search by Karmn field
                     tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&Karmn=${encodeURIComponent(searchTerm)}&-out.max=50&-out.all`;
                 } else {
-                    // Standard coordinate/name search
                     tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
                 }
                 
                 const resp = await fetch(tsvUrl);
 
                 if (!resp.ok) {
-                    // Can't check from client: show VizieR in iframe
                     resultElement.style.display = 'block';
                     resultElement.style.background = 'rgba(255, 255, 255, 0)';
                     resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
-                    const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
+                    const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML`;
                     resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
                     return;
                 }
 
                 const text = await resp.text();
                 
-                // Debug: log the raw TSV to understand structure
-                console.log('Raw TSV response:', text.substring(0, 500));
+                // Simple TSV parsing: skip comments and separators, get headers, units, and data
+                const lines = text.split('\n')
+                    .map(l => l.trim())
+                    .filter(l => l && !l.startsWith('#') && !/^[-=\s\t]+$/.test(l));
                 
-                // Parse all tables from TSV
-                // VizieR separates tables with specific comment patterns
-                const allLines = text.split('\n');
-                const tables = [];
-                let currentTable = null;
-                let currentTableName = '';
-                let lineIndex = 0;
-                
-                while (lineIndex < allLines.length) {
-                    const line = allLines[lineIndex].trim();
-                    lineIndex++;
-                    
-                    // Skip empty lines
-                    if (!line) continue;
-                    
-                    // Check for table name in comments (e.g., "#Table1:" or "# Table 2:" or "#Table1_")
-                    if (line.startsWith('#')) {
-                        // More flexible table detection
-                        const tableMatch = line.match(/#\s*Table[_\s]*(\d+|[A-Za-z0-9_]+)/i);
-                        if (tableMatch) {
-                            // Found a new table header
-                            currentTableName = tableMatch[1];
-                            console.log(`Detected table marker: ${line}, extracted name: ${currentTableName}`);
-                            
-                            // If we have a current table, save it before starting new one
-                            if (currentTable && currentTable.data.length > 0) {
-                                tables.push(currentTable);
-                                console.log(`Saved table with ${currentTable.data.length} rows`);
-                            }
-                            currentTable = null;
-                        }
-                        continue;
-                    }
-                    
-                    // Skip separator lines
-                    if (/^[-=\s\t]+$/.test(line)) continue;
-                    
-                    // This is a data line (headers, units, or data)
-                    if (!currentTable) {
-                        // Start new table - this line is headers
-                        currentTable = {
-                            name: currentTableName ? `Table ${currentTableName}` : `Table ${tables.length + 1}`,
-                            headers: line.split('\t').map(h => h.split(' [')[0].trim()),
-                            units: null,
-                            data: []
-                        };
-                        console.log(`Started new table: ${currentTable.name} with ${currentTable.headers.length} columns`);
-                        currentTableName = '';
-                    } else if (!currentTable.units) {
-                        // Second non-comment line is units
-                        currentTable.units = line.split('\t').map(u => u.trim());
-                    } else {
-                        // Data lines
-                        currentTable.data.push(line.split('\t'));
-                    }
-                }
-                
-                // Add last table if exists
-                if (currentTable && currentTable.data.length > 0) {
-                    tables.push(currentTable);
-                }
-                
-                // Debug: log how many tables we found
-                console.log(`Found ${tables.length} table(s) in the TSV response`);
-                tables.forEach((t, i) => console.log(`Table ${i + 1}: ${t.name}, ${t.data.length} rows`));
-                
-                if (tables.length === 0) {
+                if (lines.length < 3) {
                     resultElement.style.background = 'rgba(244, 67, 54, 0.1)';
                     resultElement.style.border = '1px solid rgba(244, 67, 54, 0.3)';
                     const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
-                    resultElement.innerHTML = `<p style="color:#d32f2f; margin:0;">Object not found in this <a href="${catalogueUrl}" target="_blank" style="color: #d32f2f; font-weight: 600; text-decoration: underline;">catalogue</a>.</p>`;
+                    resultElement.innerHTML = `<p style="color:#ff6b6b; margin:0;">Object not found in this <a href="${catalogueUrl}" target="_blank" style="color: #ff6b6b; font-weight: 600; text-decoration: underline;">catalogue</a>.</p>`;
                     return;
                 }
+
+                // Parse headers, units, and first data row
+                const headers = lines[0].split('\t').map(h => h.split(' [')[0].trim());
+                const units = lines[1].split('\t').map(u => u.trim());
+                const data = lines[2].split('\t');
 
                 // Build ReadMe URL and catalogue URL
                 const readmeUrl = `https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/${vizierSource}?format=html&tex=true`;
                 const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
 
-                // Create HTML with all tables
-                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: rgba(255, 255, 255, 0); border-left: 3px solid rgb(255, 140, 0); font-size: 0.9em;">
+                // Create HTML result
+                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: rgba(255, 255, 255, 0); border-left: 3px solid rgb(255, 140, 0); font-size: 0.9em; color: #fff;">
                     For detailed information about this <a href="${catalogueUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: underline;">catalogue</a>, see the <a href="${readmeUrl}" target="_blank" style="color: rgb(255, 140, 0); font-weight: 600; text-decoration: none;">ReadMe file</a>.
                 </div>`;
                 
-                // Display each table
-                tables.forEach((table, tableIndex) => {
-                    if (tableIndex > 0) {
-                        html += '<div style="margin-top: 1.5em; border-top: 2px solid rgba(0,0,0,0.1); padding-top: 1em;"></div>';
-                    }
-                    
-                    html += `<div style="font-size: 0.9em;">`;
-                    if (tables.length > 1) {
-                        html += `<h4 style="margin: 0 0 0.8em 0; color: rgb(255, 140, 0); font-size: 1em;">${table.name}</h4>`;
-                    }
-                    
-                    // Display first row of data for this table
-                    const dataRow = table.data[0];
-                    table.headers.forEach((header, index) => {
-                        const value = dataRow[index] ? dataRow[index].trim() : '';
-                        if (value) {
-                            let display = `<strong>${header}:</strong> ${value}`;
-                            const unit = table.units && table.units[index] ? table.units[index] : '';
-                            if (unit) {
-                                display += ` (${unit})`;
-                            }
-                            html += `<div style="margin-bottom: 0.5em;">${display}</div>`;
+                html += `<div style="font-size: 0.9em; color: #fff;">`;
+                
+                headers.forEach((header, index) => {
+                    const value = data[index] ? data[index].trim() : '';
+                    if (value && value !== '---') {
+                        let display = `<strong style="color: #fff;">${header}:</strong> ${value}`;
+                        const unit = units[index] || '';
+                        if (unit && unit !== '---') {
+                            display += ` <span style="color: #aaa;">(${unit})</span>`;
                         }
-                    });
-                    html += '</div>';
+                        html += `<div style="margin-bottom: 0.5em; color: #fff;">${display}</div>`;
+                    }
                 });
+                html += '</div>';
 
                 // Show the results
                 resultElement.style.background = 'rgba(255, 255, 255, 0)';
@@ -1035,20 +968,24 @@
                 resultElement.innerHTML = html;
 
             } catch (err) {
-                // Likely CORS or network error: show VizieR in iframe as fallback
-                console.error('Client TSV fetch failed, showing VizieR in iframe:', err);
+                console.error('Catalogue search error:', err);
                 resultElement.style.display = 'block';
                 resultElement.style.background = 'rgba(255, 255, 255, 0)';
                 resultElement.style.border = '1px solid rgba(0, 0, 0, 0.08)';
-                const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML&-nav=cat%3A${encodeURIComponent(vizierSource.replace(/\//g, '%2F'))}&-out.src=${encodeURIComponent(vizierSource)}&-sort=_r&-order=I&-oc.form=sexa&-out=*`;
+                const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML`;
                 resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
             }
         }
 
         // Add Enter key support for unified search
-        document.getElementById('unified-search').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                unifiedSearch();
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('unified-search');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        unifiedSearch();
+                    }
+                });
             }
         });
 
