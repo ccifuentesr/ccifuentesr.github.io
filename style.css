@@ -568,6 +568,16 @@ body.echoes {
     letter-spacing: 0.01em;
     text-align: left;
 }
+.poem-index,
+.poem-index div {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.25em !important;
+    line-height: 1.6 !important;
+    color: #f3f3f3 !important;
+    font-style: italic !important;
+    letter-spacing: 0.01em !important;
+    text-align: center !important;
+}
 @media (max-width: 600px) {
     .echoes-title { font-size: 2.7em; text-align: center; margin-left: auto; margin-right: auto; }
     .echoes-header { text-align: center; margin-left: auto; margin-right: auto; }
