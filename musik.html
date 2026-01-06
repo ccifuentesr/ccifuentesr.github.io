@@ -441,19 +441,27 @@
                     </div>
                     
                     <ul style="display: flex; flex-direction: column; gap: 0; margin: 1.5em 0; list-style: none; padding: 0;">
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color);"><span style="font-weight: 500;">01 Semi-major axis</span></li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color);" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">
-                            <span style="font-weight: 500;">02 Eccentricity</span>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">01 Semi-major axis</span><span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">processing...</span></li>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">
+                            <span style="font-weight: 500; flex: 1;">02 Eccentricity</span>
+                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">ready</span>
                         </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color);"><span style="font-weight: 500;">03 Inclination</span></li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color);" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)">
-                            <span style="font-weight: 500;">04 Longitude of the ascending node</span>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">03 Inclination</span><span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">processing...</span></li>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)">
+                            <span style="font-weight: 500; flex: 1;">04 Longitude of the ascending node</span>
+                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">ready</span>
                         </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color);" onclick="loadTrack('media/music/orbital_05_argument.mp3', this)">
-                            <span style="font-weight: 500;">05 Argument of periapsis</span>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_05_argument.mp3', this)">
+                            <span style="font-weight: 500; flex: 1;">05 Argument of periapsis</span>
+                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">ready</span>
                         </li>
-                        <li style="padding: 1em 0; cursor: pointer; color: var(--text-color);" onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)">
-                            <span style="font-weight: 500;">06 True Anomaly</span>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)">
+                            <span style="font-weight: 500; flex: 1;">06 True Anomaly</span>
+                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">ready</span>
+                        </li>
+                        <li style="padding: 1em 0; cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="window.open('https://www.youtube.com/watch?v=pHGvzTXnM0E', '_blank')">
+                            <span style="font-weight: 500; flex: 1;">(Clip) True Anomaly ↗</span>
+                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">ready</span>
                         </li>
                     </ul>
                 </section>
@@ -648,10 +656,6 @@
                     <li onclick="window.open('https://www.youtube.com/watch?v=H7o4vA6Hu9Q', '_blank')">
                         <span class="track-name">Kakariko Village (Zelda) / Koji Kondo ↗</span>
                         <span class="track-year">2012</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=pHGvzTXnM0E', '_blank')">
-                        <span class="track-name">True Anomaly / Kosmona ↗</span>
-                        <span class="track-year">2020</span>
                     </li>
                 </ul>
             </section>
