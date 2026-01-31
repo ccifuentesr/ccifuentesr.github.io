@@ -1,4 +1,3 @@
-   <style>
         * {
             margin: 0;
             padding: 0;
@@ -28,6 +27,10 @@
             background: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            margin: 0;
+        }
+
+        body:has(.container) {
             padding: 16px;
         }
 
@@ -614,9 +617,7 @@ nav a[href="science.html"],
 }
 
 nav a[href="echoes.html"],
-.nav-section a[href="echoes.html"],
-nav a[href="seen.html"],
-.nav-section a[href="seen.html"] {
+.nav-section a[href="echoes.html"] {
     color: #666 !important;
     pointer-events: none !important;
     cursor: default !important;
@@ -642,5 +643,3 @@ nav a[href="seen.html"],
 [data-theme="dark"] #piano-page h3 {
     color: #ffffff !important;
 }
-
-</style>
