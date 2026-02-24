@@ -47,12 +47,28 @@
     }
 
     @media (max-width: 600px) {
+      main > nav {
+        justify-content: center !important;
+      }
+
       nav ul {
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         text-align: center;
         gap: 0.7em !important;
+        margin: 0 auto !important;
+      }
+
+      main {
+        align-items: center !important;
+      }
+
+      main > div,
+      main > nav,
+      main > footer {
+        width: 100%;
+        text-align: center;
       }
     }
 
