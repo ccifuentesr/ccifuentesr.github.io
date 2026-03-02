@@ -573,7 +573,7 @@
 .lyrics-text {
     white-space: pre-line;
     line-height: 1.8;
-    color: black;
+    color: var(--text-color);
 }
 
 .lyrics-icon {
