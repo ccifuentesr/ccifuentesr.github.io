@@ -643,3 +643,18 @@ nav a[href="echoes.html"],
 [data-theme="dark"] #piano-page h3 {
     color: #ffffff !important;
 }
+
+/* Home nav item — subtle "back" style */
+.nav-item.nav-home {
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+}
+
+.nav-item.nav-home:hover {
+    opacity: 1;
+    background: transparent !important;
+}
