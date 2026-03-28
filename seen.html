@@ -7,20 +7,265 @@
     <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, photography, gallery">
     <meta name="description" content="Seen: personal photography collections by C. Cifuentes.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        html, body, button, input, select, textarea {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f6f7fb;
+            --text-color: #111318;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --hover-bg: #f3f4f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #191a1b;
+            --text-color: #f5f7fb;
+            --text-secondary: #8b93a7;
+            --border-color: #2a2d33;
+            --hover-bg: #202226;
+        }
+
+        body {
+            background: #e9edf2 !important;
+        }
+
         [data-theme="dark"] body {
-            background: #1e2430 !important;
+            background: rgb(23, 24, 25) !important;
+        }
+
+        .sidebar {
+            width: 244px !important;
+            padding: 18px 12px 16px !important;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            padding: 4px 8px 0;
+        }
+
+        .home-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .home-breadcrumb span {
+            letter-spacing: 0.06em;
+        }
+
+        .home-breadcrumb svg {
+            width: 14px;
+            height: 14px;
+            color: currentColor;
+            opacity: 0.82;
+            transition: color 0.15s ease, opacity 0.15s ease;
+        }
+
+        .home-breadcrumb:visited {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .home-breadcrumb:hover {
+            color: var(--text-color) !important;
+            text-decoration: none !important;
+        }
+
+        .home-breadcrumb:hover svg {
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .home-breadcrumb {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="dark"] .home-breadcrumb:visited {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="dark"] .home-breadcrumb:hover {
+            color: #f5f7fb !important;
+        }
+
+        .logo-title {
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.03em !important;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-section {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-section h3 {
+            margin: 0 0 6px;
+            padding: 0 10px;
+            font-size: 11px;
+            letter-spacing: 0.02em;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .nav-item {
+            margin: 0;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .nav-item svg {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            opacity: 0.82;
+            color: rgba(119, 124, 135, 0.8) !important;
+        }
+
+        .mobile-home {
+            display: none !important;
+        }
+
+        .mobile-theme-separator,
+        .mobile-theme-toggle {
+            display: none !important;
+        }
+
+        .mobile-theme-toggle {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .nav-item {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        [data-theme="dark"] .nav-item svg {
+            color: rgba(133, 140, 154, 0.8) !important;
+            opacity: 0.72;
+        }
+
+        .nav-item.nav-musik svg {
+            color: #4fb36f !important;
+        }
+
+        .nav-item.nav-science svg {
+            color: #d45a5a !important;
+        }
+
+        .theme-toggle {
+            margin-top: 18px;
+            padding: 14px 8px 0;
+            border-top: 1px solid rgba(127, 127, 127, 0.12);
+        }
+
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px;
+        }
+
+        .theme-option {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 30px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-align: center;
+            background: rgba(17, 24, 39, 0.03);
+            border: 1px solid transparent;
+            font-weight: 500;
+            color: #6b7280 !important;
+        }
+
+        .theme-option:not(.active) {
+            color: #6b7280 !important;
+            background: rgba(17, 24, 39, 0.03) !important;
+            border-color: transparent !important;
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .theme-option:not(.active) {
+            color: #8f98aa !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-color: transparent !important;
+        }
+
+        .theme-option:not(.active):hover {
+            color: #6b7280 !important;
+            background: rgba(17, 24, 39, 0.03) !important;
+        }
+
+        [data-theme="dark"] .theme-option:not(.active):hover {
+            color: #8f98aa !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+        }
+
+        .theme-option.active {
+            background: rgba(17, 24, 39, 0.06);
+            border-color: rgba(17, 24, 39, 0.05);
+            color: #6b7280 !important;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .theme-option.active {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #8f98aa !important;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.995) !important;
+            border: 1px solid rgba(17, 19, 24, 0.08) !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
 
         [data-theme="dark"] .main-content {
-            background: #0f1419 !important;
-            border-color: #0f1419 !important;
+            background: rgb(25, 26, 27) !important;
+            border-color: rgba(255, 255, 255, 0.04) !important;
         }
 
         @media (min-width: 769px) {
             .main-content .content-wrapper {
-                max-width: 980px;
+                max-width: 980px !important;
             }
         }
 
@@ -33,7 +278,7 @@
 
         .seen-card {
             position: relative;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             min-height: 120px;
             background-size: cover;
@@ -57,7 +302,8 @@
         .seen-card span {
             position: relative;
             z-index: 1;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(17, 24, 39, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             padding: 6px 10px;
             border-radius: 999px;
             font-size: 12px;
@@ -91,7 +337,7 @@
 
         .seen-photo img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             display: block;
         }
 
@@ -135,7 +381,7 @@
 
         .haus-photo img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             display: block;
         }
 
@@ -147,7 +393,7 @@
 
         .places-grid img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             display: block;
         }
 
@@ -156,13 +402,67 @@
             border-top: 1px solid var(--border-color);
         }
 
-        nav a[href="seen.html"],
-        .nav-section a[href="seen.html"] {
-            pointer-events: auto !important;
-            cursor: pointer !important;
+        a {
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: inherit !important;
+            text-decoration: none !important;
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 88px) !important;
+            }
+
+            .sidebar {
+                width: 100% !important;
+                height: auto !important;
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                top: auto !important;
+                padding: 10px 12px calc(env(safe-area-inset-bottom, 0px) + 10px) !important;
+                border-top: 1px solid rgba(17, 24, 39, 0.08) !important;
+                background: rgba(248, 250, 252, 0.76) !important;
+                box-shadow: none !important;
+                backdrop-filter: blur(20px) saturate(140%) !important;
+                -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+                overflow: hidden !important;
+                z-index: 1100 !important;
+            }
+
+            [data-theme="dark"] .sidebar {
+                background: rgba(17, 18, 20, 0.82) !important;
+                border-top-color: rgba(255, 255, 255, 0.08) !important;
+            }
+
+            .logo,
+            .theme-toggle {
+                display: none !important;
+            }
+
+            .sidebar nav {
+                display: flex !important;
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+                align-items: flex-start !important;
+                gap: 8px !important;
+                width: 100% !important;
+                overflow: visible !important;
+            }
+
+            .sidebar nav::-webkit-scrollbar,
+            .nav-section::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav {
+                justify-content: flex-start !important;
+            }
+
             .content-wrapper {
                 display: flex;
                 flex-direction: column;
@@ -182,10 +482,91 @@
                 max-width: 320px;
             }
 
+            .nav-section {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+                justify-content: center !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: none;
+            }
+
+            .nav-section h3,
+            .nav-section > span:not(.mobile-theme-separator) {
+                display: none !important;
+            }
+
+            .mobile-home {
+                display: flex !important;
+            }
+
+            .mobile-theme-separator {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: rgba(107, 114, 128, 0.72) !important;
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                margin-left: 6px !important;
+                margin-right: 2px !important;
+                opacity: 1 !important;
+            }
+
+            .mobile-theme-toggle {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                min-width: 48px !important;
+                height: 46px !important;
+                padding: 0 14px !important;
+                border-radius: 14px !important;
+                margin-left: 6px !important;
+            }
+
+            [data-theme="dark"] .mobile-theme-separator {
+                color: rgba(148, 163, 184, 0.58) !important;
+            }
+
+            .nav-item {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                min-width: 48px !important;
+                height: 46px !important;
+                padding: 0 14px !important;
+                justify-content: center !important;
+                border-radius: 14px !important;
+                white-space: nowrap !important;
+            }
+
+            .nav-item svg {
+                margin-right: 0 !important;
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .nav-item span:not(.shortcut) {
+                display: none !important;
+            }
+
             #seen-page h1,
             #seen-page .intro {
                 text-align: center;
                 width: 100%;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                min-height: 100vh !important;
+                padding: 24px 16px 32px !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-radius: 12px !important;
             }
         }
     </style>
@@ -194,19 +575,14 @@
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
-                <div style="font-size: 12px; color: var(--text-secondary); font-weight: 400; font-variant: small-caps; letter-spacing: 0.05em;">C. Cifuentes</div>
-                <div style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Seen</div>
+                <a href="index.html" class="home-breadcrumb">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    <span>C. Cifuentes</span>
+                </a>
+                <div class="logo-title" style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Seen</div>
             </div>
 
             <nav>
-                <div class="nav-section">
-                    <a href="index.html" class="nav-item nav-home">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                        <span>Home</span>
-                    </a>
-                    <span style="color: var(--border-color); padding: 0 4px; display: flex; align-items: center;">|</span>
-                </div>
-
                 <div class="nav-section">
                     <h3>Collections</h3>
                     <a href="#light" class="nav-item">
@@ -230,29 +606,34 @@
                         <span>Astro</span>
                     </a>
                     <a href="#haus" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 20c-3.9 0-7-2.6-7-6c0-2.7 2-4.9 4.8-5.7c.6-2.5 2.5-4.3 4.9-4.3c2.9 0 5.3 2.5 5.3 5.6c0 .4 0 .8-.1 1.1c1.2.8 2 2.1 2 3.7c0 3.1-2.7 5.6-6 5.6H12z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.2 18.2c.8-1.2 1.8-1.8 2.8-1.8s2 .6 2.8 1.8"/></svg>
                         <span>Haus</span>
                     </a>
                     <a href="#places" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="8.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 7.5c1.7 1.3 2.6 2.8 2.6 4.5s-.9 3.2-2.6 4.5c-1.7-1.3-2.6-2.8-2.6-4.5s.9-3.2 2.6-4.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7.5 12h9"/></svg>
                         <span>Places</span>
                     </a>
                 </div>
 
                 <div class="nav-section">
                     <h3>Resources</h3>
-                    <a href="science.html" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    <a href="index.html" class="nav-item mobile-home">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10.5L12 4l9 6.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.5 9.5V20h13V9.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20v-5h4v5"/></svg>
+                    </a>
+                    <a href="science.html" class="nav-item nav-science">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 21l2-5 2 5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 16V9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 5l1.5 1.5M17 5l-1.5 1.5M4 10h2M18 10h2"/><circle cx="12" cy="10" r="3.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13.5L7 16M14.5 13.5L17 16"/></svg>
                         <span>Science</span>
                     </a>
-                    <a href="musik.html" class="nav-item">
+                    <a href="musik.html" class="nav-item nav-musik">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
                         <span>Musik</span>
                     </a>
-                    <a href="echoes.html" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
-                        <span>Echoes</span>
-                    </a>
+                    <span class="mobile-theme-separator" aria-hidden="true">|</span>
+                    <button type="button" class="nav-item mobile-theme-toggle" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3c0 .28-.02.56-.02.84A7.95 7.95 0 0019.16 12c.28 0 .56-.02.84-.02z"/>
+                        </svg>
+                    </button>
                 </div>
             </nav>
 
@@ -864,10 +1245,22 @@
         function initTheme() {
             const savedTheme = localStorage.getItem('theme') || 'auto';
             applyTheme(savedTheme);
+            syncThemeControls(savedTheme);
+        }
 
+        function syncThemeControls(savedTheme) {
             document.querySelectorAll('.theme-option').forEach(option => {
                 option.classList.toggle('active', option.dataset.theme === savedTheme);
             });
+
+            const mobileToggle = document.querySelector('.mobile-theme-toggle');
+            if (mobileToggle) {
+                const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const nextTheme = appliedTheme === 'dark' ? 'light' : 'dark';
+                mobileToggle.setAttribute('aria-label', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+                mobileToggle.setAttribute('title', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+                mobileToggle.dataset.themeState = appliedTheme;
+            }
         }
 
         document.querySelectorAll('.theme-option').forEach(option => {
@@ -875,11 +1268,17 @@
                 const theme = option.dataset.theme;
                 localStorage.setItem('theme', theme);
                 applyTheme(theme);
+                syncThemeControls(theme);
+            });
+        });
 
-                document.querySelectorAll('.theme-option').forEach(opt => {
-                    opt.classList.remove('active');
-                });
-                option.classList.add('active');
+        document.querySelectorAll('.mobile-theme-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const currentAppliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const nextTheme = currentAppliedTheme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', nextTheme);
+                applyTheme(nextTheme);
+                syncThemeControls(nextTheme);
             });
         });
 
@@ -887,10 +1286,11 @@
             const currentTheme = localStorage.getItem('theme') || 'auto';
             if (currentTheme === 'auto') {
                 applyTheme('auto');
+                syncThemeControls('auto');
             }
         });
 
         initTheme();
     </script>
 </body>
-</html><!DOCTYPE html>
+</html>

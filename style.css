@@ -214,6 +214,7 @@
             display: flex;
             gap: 12px;
             margin-top: 12px;
+            justify-content: center;
         }
 
         .social-link {
@@ -222,7 +223,7 @@
             gap: 8px;
             padding: 8px 16px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 999px;
             text-decoration: none;
             color: var(--text-color);
             font-size: 14px;

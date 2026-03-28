@@ -7,20 +7,488 @@
     <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE">
     <meta name="description" content="Personal page of C. Cifuentes.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Musik-specific background color */
-        [data-theme="dark"] body {
-            background: #1e2430 !important;
+        html, body, button, input, select, textarea {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
         }
-        
+
+        [data-theme="light"] {
+            --bg-color: #f6f7fb;
+            --text-color: #111318;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --hover-bg: #f3f4f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #191a1b;
+            --text-color: #f5f7fb;
+            --text-secondary: #8b93a7;
+            --border-color: #2a2d33;
+            --hover-bg: #202226;
+        }
+
+        body {
+            background: #e9edf2 !important;
+        }
+
+        [data-theme="dark"] body {
+            background: rgb(23, 24, 25) !important;
+        }
+
+        .sidebar {
+            width: 244px !important;
+            padding: 18px 12px 16px !important;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            padding: 4px 8px 0;
+        }
+
+        .home-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .home-breadcrumb span {
+            letter-spacing: 0.06em;
+        }
+
+        .home-breadcrumb svg {
+            width: 14px;
+            height: 14px;
+            color: currentColor;
+            opacity: 0.82;
+            transition: color 0.15s ease, opacity 0.15s ease;
+        }
+
+        .home-breadcrumb:visited {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .home-breadcrumb:hover {
+            color: var(--text-color) !important;
+            text-decoration: none !important;
+        }
+
+        .home-breadcrumb:hover svg {
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .home-breadcrumb {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="dark"] .home-breadcrumb:visited {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        [data-theme="dark"] .home-breadcrumb:hover {
+            color: #f5f7fb !important;
+        }
+
+        .logo-title {
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.03em !important;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-section {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-section h3 {
+            margin: 0 0 6px;
+            padding: 0 10px;
+            font-size: 11px;
+            letter-spacing: 0.02em;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .nav-item {
+            margin: 0;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .nav-item svg {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            opacity: 0.82;
+            color: rgba(119, 124, 135, 0.8) !important;
+        }
+
+        .nav-item.active {
+            background: rgba(17, 24, 39, 0.06);
+            color: var(--text-color);
+            box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.05);
+        }
+
+        .mobile-home {
+            display: none !important;
+        }
+
+        .mobile-footer-separator,
+        .mobile-theme-toggle {
+            display: none !important;
+        }
+
+        .mobile-theme-toggle {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .nav-item {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        [data-theme="dark"] .nav-item.active {
+            background: rgba(255, 255, 255, 0.06);
+            color: #f5f7fb;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        [data-theme="dark"] .nav-item svg {
+            color: rgba(133, 140, 154, 0.8) !important;
+            opacity: 0.72;
+        }
+
+        .nav-item.nav-seen svg {
+            color: #d6b24a !important;
+        }
+
+        .nav-item.nav-science svg {
+            color: #d45a5a !important;
+        }
+
+        .theme-toggle {
+            margin-top: 18px;
+            padding: 14px 8px 0;
+            border-top: none;
+        }
+
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px;
+        }
+
+        .theme-option {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 30px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-align: center;
+            background: rgba(17, 24, 39, 0.03);
+            border: 1px solid transparent;
+            font-weight: 500;
+            color: #6b7280 !important;
+        }
+
+        .theme-option:not(.active) {
+            color: #6b7280 !important;
+            background: rgba(17, 24, 39, 0.03) !important;
+            border-color: transparent !important;
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .theme-option:not(.active) {
+            color: #8f98aa !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-color: transparent !important;
+        }
+
+        .theme-option:not(.active):hover {
+            color: #6b7280 !important;
+            background: rgba(17, 24, 39, 0.03) !important;
+        }
+
+        [data-theme="dark"] .theme-option:not(.active):hover {
+            color: #8f98aa !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+        }
+
+        .theme-option.active {
+            background: rgba(17, 24, 39, 0.06);
+            border-color: rgba(17, 24, 39, 0.05);
+            color: #6b7280 !important;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .theme-option.active {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #8f98aa !important;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.995) !important;
+            border: 1px solid rgba(17, 19, 24, 0.08) !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
         [data-theme="dark"] .main-content {
-            background: #0f1419 !important;
-            border-color: #0f1419 !important;
+            background: rgb(25, 26, 27) !important;
+            border-color: rgba(255, 255, 255, 0.04) !important;
+        }
+
+        .content-wrapper {
+            max-width: none !important;
+        }
+
+        a {
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        [style*="border-left: 3px solid #1e2430; background: var(--hover-bg);"] {
+            padding: 1.5em !important;
+            border: 1px solid var(--border-color) !important;
+            border-left: 1px solid var(--border-color) !important;
+            border-radius: 14px !important;
+            background: rgba(255, 255, 255, 0.48) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
+        }
+
+        [data-theme="dark"] [style*="border-left: 3px solid #1e2430; background: var(--hover-bg);"] {
+            background: rgba(255, 255, 255, 0.02) !important;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        [style*="color: orange;"] {
+            color: #d6b24a !important;
+        }
+
+        [style*="color: rgb(0, 163, 0);"] {
+            color: #4fb36f !important;
+        }
+
+        [style*="color: #191919;"],
+        [style*="color: #000000;"] {
+            color: var(--text-color) !important;
+        }
+
+        .equipment-label {
+            font-weight: 700 !important;
+            color: var(--text-color);
+        }
+
+        .equipment-list {
+            margin: 0.5em 0 0 0;
+            padding-left: 1.25em;
+        }
+
+        .equipment-list li {
+            margin-left: 0.15em;
+        }
+
+        .welcome-project {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .welcome-project-icon {
+            width: 20px;
+            height: 20px;
+            flex: 0 0 auto;
+            color: var(--text-secondary);
+            margin-top: 1px;
+        }
+
+        .welcome-project-copy {
+            min-width: 0;
+        }
+
+        .lyrics-trivia ul {
+            margin: 0.55em 0 0;
+            padding-left: 1.1em;
+        }
+
+        .lyrics-trivia li {
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 0.98 !important;
+        }
+
+        .lyrics-trivia li + li {
+            margin-top: -0.08em !important;
+        }
+
+        #lest {
+            margin-top: 4.5rem;
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 192px) !important;
+            }
+
+            .sidebar {
+                width: 100% !important;
+                height: auto !important;
+                min-height: calc(env(safe-area-inset-bottom, 0px) + 68px) !important;
+                position: fixed !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                top: auto !important;
+                padding: 10px 12px calc(env(safe-area-inset-bottom, 0px) + 10px) !important;
+                border-top: 1px solid rgba(17, 24, 39, 0.08) !important;
+                background: rgba(248, 250, 252, 0.76) !important;
+                box-shadow: none !important;
+                backdrop-filter: blur(20px) saturate(140%) !important;
+                -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                z-index: 1100 !important;
+            }
+
+            [data-theme="dark"] .sidebar {
+                background: rgba(17, 18, 20, 0.82) !important;
+                border-top-color: rgba(255, 255, 255, 0.08) !important;
+            }
+
+            .logo,
+            .theme-toggle {
+                display: none !important;
+            }
+
+            .sidebar nav {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                width: 100% !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scrollbar-width: none;
+            }
+
+            .sidebar nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav {
+                justify-content: flex-start !important;
+            }
+
+            .nav-section {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: none !important;
+                margin: 0 !important;
+                justify-content: flex-start !important;
+            }
+
+            .nav-section h3,
+            .nav-section > span {
+                display: none !important;
+            }
+
+            .mobile-home {
+                display: flex !important;
+            }
+
+            .mobile-footer-separator {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: var(--border-color) !important;
+                font-size: 15px !important;
+                font-weight: 600 !important;
+                padding: 0 2px !important;
+                opacity: 0.95 !important;
+            }
+
+            .mobile-theme-toggle {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                min-width: 48px !important;
+                height: 46px !important;
+                padding: 0 14px !important;
+                border-radius: 14px !important;
+            }
+
+            .nav-item {
+                display: flex !important;
+                flex: 0 0 auto !important;
+                min-width: 48px !important;
+                height: 46px !important;
+                padding: 0 14px !important;
+                justify-content: center !important;
+                border-radius: 14px !important;
+                white-space: nowrap !important;
+            }
+
+            .nav-item svg {
+                margin-right: 0 !important;
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .nav-item span:not(.shortcut) {
+                display: none !important;
+            }
+
             .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                min-height: 100vh !important;
+                padding: 24px 16px 32px !important;
+                border-left: none !important;
+                border-right: none !important;
                 border-radius: 12px !important;
             }
         }
@@ -31,15 +499,17 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <div style="font-size: 12px; color: var(--text-secondary); font-weight: 400; font-variant: small-caps; letter-spacing: 0.05em;">C. Cifuentes</div>
-                <div style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Musik</div>
+                <a href="index.html" class="home-breadcrumb">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    <span>C. Cifuentes</span>
+                </a>
+                <div class="logo-title" style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Musik</div>
             </div>
             
             <nav>
                 <div class="nav-section">
-                    <a href="index.html" class="nav-item nav-home">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                        <span>Home</span>
+                    <a href="index.html" class="nav-item mobile-home">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10.5L12 4l9 6.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.5 9.5V20h13V9.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20v-5h4v5"/></svg>
                     </a>
                     <a href="/about" class="nav-item active">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -53,32 +523,35 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         <span>Agricola</span>
                     </a>
-                    <a href="/piano" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 18V5l12-2v13M9 18c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-5c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"/></svg>
-                        <span>Piano</span>
+                    <a href="/klavier" class="nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="5" width="16" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9v6M12 9v6M16 9v6"/></svg>
+                        <span>Klavier</span>
                     </a>
                     <a href="/equipment" class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4m13.657-5.657l-11.314 11.314m0-11.314l11.314 11.314"/></svg>
                         <span>Equipment</span>
                     </a>
-                    <span style="color: var(--border-color); padding: 0 4px; display: flex; align-items: center;">|</span>
                 </div>
 
+                <span class="mobile-footer-separator" aria-hidden="true">|</span>
                 <div class="nav-section">
                     <h3>Resources</h3>
-                    <a href="science.html" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3c.132 0 .263 0 .393.01c3.753.358 6.607 3.7 6.607 7.733c0 4.287-3.134 7.773-7 7.773S5 15.02 5 10.732C5 6.702 7.854 3.368 11.607 3.01c.13-.007.261-.01.393-.01zM12 1C6.477 1 2 5.373 2 10.733c0 3.393 1.889 6.35 4.667 7.92l.333 3.667h2l.667-2.333h3.666l.667 2.333h2l.333-3.667C20.111 17.083 22 14.126 22 10.733 22 5.373 17.523 1 12 1z"/></svg>
+                    <a href="science.html" class="nav-item nav-science">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 21l2-5 2 5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 16V9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 5l1.5 1.5M17 5l-1.5 1.5M4 10h2M18 10h2"/><circle cx="12" cy="10" r="3.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13.5L7 16M14.5 13.5L17 16"/></svg>
                         <span>Science</span>
                     </a>
-                    <a href="seen.html" class="nav-item">
+                    <a href="seen.html" class="nav-item nav-seen">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         <span>Seen</span>
                     </a>
-                    <a href="echoes.html" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
-                        <span>Echoes</span>
-                    </a>
                 </div>
+
+                <span class="mobile-footer-separator" aria-hidden="true">|</span>
+                <button type="button" class="nav-item mobile-theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3c0 .28-.02.56-.02.84A7.95 7.95 0 0019.16 12c.28 0 .56-.02.84-.02z"/>
+                    </svg>
+                </button>
             </nav>
 
             <div class="theme-toggle">
@@ -88,24 +561,24 @@
                     <span class="theme-option active" data-theme="auto">Auto</span>
                 </div>
             </div>
+        </aside>
 
-            <!-- Global Audio Player -->
-            <div id="global-player">
-                <audio id="global-audio"></audio>
-                <div class="player-controls">
-                    <button class="play-btn" onclick="togglePlayGlobal()">▶</button>
-                    <div class="player-right">
-                        <div id="global-progress-container" onclick="setProgressGlobal(event)">
-                            <div id="global-progress-bar"></div>
-                        </div>
-                        <div class="player-times">
-                            <span id="global-current-time">0:00</span>
-                            <span id="global-duration">0:00</span>
-                        </div>
+        <!-- Global Audio Player -->
+        <div id="global-player">
+            <audio id="global-audio"></audio>
+            <div class="player-controls">
+                <button class="play-btn" onclick="togglePlayGlobal()">▶</button>
+                <div class="player-right">
+                    <div id="global-progress-container" onclick="setProgressGlobal(event)">
+                        <div id="global-progress-bar"></div>
+                    </div>
+                    <div class="player-times">
+                        <span id="global-current-time">0:00</span>
+                        <span id="global-duration">0:00</span>
                     </div>
                 </div>
             </div>
-        </aside>
+        </div>
 
         <style>
             /* Active track styling - bold text with black circle indicator */
@@ -159,6 +632,37 @@
             @media (max-width: 768px) {
                 #global-player {
                     display: block !important;
+                    position: fixed !important;
+                    left: 12px !important;
+                    right: 12px !important;
+                    top: auto !important;
+                    bottom: calc(env(safe-area-inset-bottom, 0px) + 88px) !important;
+                    width: auto !important;
+                    margin: 0 !important;
+                    padding: 12px 16px !important;
+                    background: rgba(248, 250, 252, 0.78) !important;
+                    border: 1px solid rgba(17, 24, 39, 0.08) !important;
+                    border-radius: 18px !important;
+                    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14) !important;
+                    backdrop-filter: blur(20px) saturate(140%) !important;
+                    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+                    box-sizing: border-box !important;
+                    z-index: 1101 !important;
+                }
+
+                [data-theme="dark"] #global-player {
+                    background: rgba(17, 18, 20, 0.86) !important;
+                    border-color: rgba(255, 255, 255, 0.08) !important;
+                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3) !important;
+                }
+
+                .player-controls {
+                    width: 100% !important;
+                    align-items: center !important;
+                }
+
+                .player-right {
+                    max-width: none !important;
                 }
             }
 
@@ -176,9 +680,13 @@
 
             /* Global Player Styles */
             #global-player {
-                margin-top: auto;
-                padding-top: 24px;
-                border-top: 1px solid var(--border-color);
+                position: fixed;
+                left: 12px;
+                bottom: 18px;
+                width: calc(244px - 24px);
+                padding-top: 0;
+                border-top: none;
+                z-index: 900;
             }
 
             .player-controls {
@@ -209,11 +717,19 @@
             /* Mobile-specific adjustments for progress bar */
             @media (max-width: 768px) {
                 .player-right {
-                    max-width: calc(100vw - 80px);
+                    max-width: none !important;
                 }
                 
                 #global-progress-container {
-                    max-width: 100%;
+                    max-width: none !important;
+                }
+            }
+
+            @media (min-width: 769px) {
+                #global-player {
+                    left: 12px;
+                    bottom: 18px;
+                    width: calc(244px - 24px);
                 }
             }
 
@@ -264,26 +780,41 @@
                     <div style="display: grid; gap: 2em; margin-top: 2em;">
                         <!-- Kosmona -->
                         <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Kosmona</h3>
-                            <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                An electronica project inspired by the planetary orbital elements.
-                            </p>
+                            <div class="welcome-project">
+                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                                <div class="welcome-project-copy">
+                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Kosmona</h3>
+                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                                        An electronica project inspired by the planetary orbital elements.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Agricola -->
                         <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Agricola</h3>
-                            <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                A metal project that gives voice to different animals.
-                            </p>
+                            <div class="welcome-project">
+                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                <div class="welcome-project-copy">
+                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Agricola</h3>
+                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                                        A metal project that gives voice to different animals.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Piano -->
+                        <!-- Klavier -->
                         <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Piano</h3>
-                            <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                Original compositions and personal renditions, including my unfinished album under the name <i>Carlic</i>.
-                            </p>
+                            <div class="welcome-project">
+                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="5" width="16" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9v6M12 9v6M16 9v6"/></svg>
+                                <div class="welcome-project-copy">
+                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Klavier</h3>
+                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                                        Original compositions and personal renditions, including my unfinished album under the name <i>Carlic</i>.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -308,12 +839,12 @@
                     </div>
                     
                     <ul style="display: flex; flex-direction: column; gap: 0; margin: 1.5em 0; list-style: none; padding: 0;">
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">01 Semi-major axis</span><span style="color: orange; font-size: 0.9em; margin-left: auto;"><i>processing..</i>.</span></li>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">01 Semi-major axis</span><span style="color: orange; font-size: 0.9em; margin-left: auto;">processing..</span></li>
                         <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">
                             <span style="font-weight: 500; flex: 1;">02 Eccentricity</span>
                             <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
                         </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">03 Inclination</span><span style="color: orange; font-size: 0.9em; margin-left: auto;"><i>processing..</i>.</span></li>
+                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">03 Inclination</span><span style="color: orange; font-size: 0.9em; margin-left: auto;">processing..</span></li>
                         <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)">
                             <span style="font-weight: 500; flex: 1;">04 Longitude of the ascending node</span>
                             <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
@@ -395,9 +926,9 @@
                 </section>
             </div>
 
-            <div id="piano-page" style="display: none;">
+            <div id="klavier-page" style="display: none;">
                 <div class="note-box">
-                <h2>Piano</h2>
+                <h2>Klavier</h2>
                 <p>Collection of on-the-fly improvisations, early ideas and personal renditions for piano. I work on an unfinished album under the name Carlic.</p>
                 </div>
                 
@@ -572,9 +1103,9 @@
                         <section id="past-equipment" class="musik-section">
                             
                             <ul class="equipment-list">
-                                <li><span class="equipment-label">Pedalboard:</span> <span>POD XT Live</span></li>
-                                <li><span class="equipment-label">Headphones:</span> <span>Superlux HD 681</span></li>
-                                <li><span class="equipment-label">Computer:</span> <span>MacBook Pro 13 (2011-2020)</span></li>
+                                <li><span class="equipment-label">Pedalboard:</span> <span>POD XT Live</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
+                                <li><span class="equipment-label">Headphones:</span> <span>Superlux HD 681</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
+                                <li><span class="equipment-label">Computer:</span> <span>MacBook Pro 13 (2011-2020)</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
                             </ul>
                         </section>
                     </div>
@@ -598,11 +1129,22 @@
         function initTheme() {
             const savedTheme = localStorage.getItem('theme') || 'auto';
             applyTheme(savedTheme);
-            
-            // Update active theme option
+            syncThemeControls(savedTheme);
+        }
+
+        function syncThemeControls(savedTheme) {
             document.querySelectorAll('.theme-option').forEach(option => {
                 option.classList.toggle('active', option.dataset.theme === savedTheme);
             });
+
+            const mobileToggle = document.querySelector('.mobile-theme-toggle');
+            if (mobileToggle) {
+                const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const nextTheme = appliedTheme === 'dark' ? 'light' : 'dark';
+                mobileToggle.setAttribute('aria-label', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+                mobileToggle.setAttribute('title', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+                mobileToggle.dataset.themeState = appliedTheme;
+            }
         }
 
         // Theme toggle listeners
@@ -611,12 +1153,17 @@
                 const theme = option.dataset.theme;
                 localStorage.setItem('theme', theme);
                 applyTheme(theme);
-                
-                // Update active state
-                document.querySelectorAll('.theme-option').forEach(opt => {
-                    opt.classList.remove('active');
-                });
-                option.classList.add('active');
+                syncThemeControls(theme);
+            });
+        });
+
+        document.querySelectorAll('.mobile-theme-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const currentAppliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const nextTheme = currentAppliedTheme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', nextTheme);
+                applyTheme(nextTheme);
+                syncThemeControls(nextTheme);
             });
         });
 
@@ -625,6 +1172,7 @@
             const currentTheme = localStorage.getItem('theme') || 'auto';
             if (currentTheme === 'auto') {
                 applyTheme('auto');
+                syncThemeControls('auto');
             }
         });
 
@@ -659,7 +1207,7 @@
         const navItems = document.querySelectorAll('.nav-item');
         const aboutPage = document.getElementById('about-page');
         const kosmonaPage = document.getElementById('kosmona-page');
-        const pianoPage = document.getElementById('piano-page');
+        const klavierPage = document.getElementById('klavier-page');
         const agricolaPage = document.getElementById('agricola-page');
         const equipmentPage = document.getElementById('equipment-page');
 
@@ -667,13 +1215,13 @@
             item.addEventListener('click', (e) => {
                 const href = item.getAttribute('href');
                 
-                if (['/about', '/kosmona', '/piano', '/agricola', '/equipment'].includes(href)) {
+                if (['/about', '/kosmona', '/klavier', '/agricola', '/equipment'].includes(href)) {
                     e.preventDefault();
                     
                     // Hide all pages
                     aboutPage.style.display = 'none';
                     kosmonaPage.style.display = 'none';
-                    pianoPage.style.display = 'none';
+                    klavierPage.style.display = 'none';
                     agricolaPage.style.display = 'none';
                     equipmentPage.style.display = 'none';
                     
@@ -688,9 +1236,9 @@
                     } else if (href === '/kosmona') {
                         kosmonaPage.style.display = 'block';
                         document.title = 'C. Cifuentes · Kosmona';
-                    } else if (href === '/piano') {
-                        pianoPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Piano';
+                    } else if (href === '/klavier') {
+                        klavierPage.style.display = 'block';
+                        document.title = 'C. Cifuentes · Klavier';
                     } else if (href === '/agricola') {
                         agricolaPage.style.display = 'block';
                         document.title = 'C. Cifuentes · Agricola';
@@ -707,7 +1255,7 @@
         if (currentPath === '/equipment') {
             aboutPage.style.display = 'none';
             kosmonaPage.style.display = 'none';
-            pianoPage.style.display = 'none';
+            klavierPage.style.display = 'none';
             agricolaPage.style.display = 'none';
             equipmentPage.style.display = 'block';
             
@@ -715,20 +1263,20 @@
             navItems.forEach(nav => nav.classList.remove('active'));
             document.querySelector('a[href="/equipment"]').classList.add('active');
             document.title = 'C. Cifuentes · Equipment';
-        } else if (currentPath === '/piano') {
+        } else if (currentPath === '/klavier') {
             aboutPage.style.display = 'none';
             kosmonaPage.style.display = 'none';
-            pianoPage.style.display = 'block';
+            klavierPage.style.display = 'block';
             agricolaPage.style.display = 'none';
             equipmentPage.style.display = 'none';
             
             navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/piano"]').classList.add('active');
-            document.title = 'C. Cifuentes · Piano';
+            document.querySelector('a[href="/klavier"]').classList.add('active');
+            document.title = 'C. Cifuentes · Klavier';
         } else if (currentPath === '/agricola') {
             aboutPage.style.display = 'none';
             kosmonaPage.style.display = 'none';
-            pianoPage.style.display = 'none';
+            klavierPage.style.display = 'none';
             agricolaPage.style.display = 'block';
             equipmentPage.style.display = 'none';
             
@@ -738,7 +1286,7 @@
         } else if (currentPath === '/kosmona') {
             aboutPage.style.display = 'none';
             kosmonaPage.style.display = 'block';
-            pianoPage.style.display = 'none';
+            klavierPage.style.display = 'none';
             agricolaPage.style.display = 'none';
             equipmentPage.style.display = 'none';
             
@@ -749,7 +1297,7 @@
             // Default to about page
             aboutPage.style.display = 'block';
             kosmonaPage.style.display = 'none';
-            pianoPage.style.display = 'none';
+            klavierPage.style.display = 'none';
             agricolaPage.style.display = 'none';
             equipmentPage.style.display = 'none';
             
@@ -1178,45 +1726,45 @@ Puma concolor`
             if (songId === 'triangles') {
                 trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
                 <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">The intro riff was repeated at least 100 times.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">With the exception of some fills, the song was improvised in one take.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Guitar recorded with Windows Sound Recorder (.wav converted to .mp3).</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Left index finger bruised after repeatedly hitting a prominent edge of the Showmaster neck.</li>
+                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated at least 100 times.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">With the exception of some fills, the song was improvised in one take.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Guitar recorded with Windows Sound Recorder (.wav converted to .mp3).</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Left index finger bruised after repeatedly hitting a prominent edge of the Showmaster neck.</li>
                 </ul>
                 </div>`;
             } else if (songId === 'bones') {
                 trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
                 <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">The intro riff was repeated approximately 500 times.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Around 1,500 audio fragments were recorded but not used in the final mix.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Vocals include Rottweiler and German Shepherd samples.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">The main microphone failed and was replaced with an iPhone.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Recording, production, and mixing were completed in about 72 hours.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Released on Good Friday.</li>
+                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated approximately 500 times.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Around 1,500 audio fragments were recorded but not used in the final mix.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Vocals include Rottweiler and German Shepherd samples.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The main microphone failed and was replaced with an iPhone.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recording, production, and mixing were completed in about 72 hours.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Released on Good Friday.</li>
                 </ul>
                 </div>`;
             } else if (songId === 'dormant') {
                 trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
                 <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">The intro riff was repeated at least one hundred times.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Guitar played while barefoot like Steven Wilson.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Some sounds achieved with scissors.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Officially released on Maundy Thursday.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">A broken PC was used for recording.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Recording, production, and mixing took less than 48 hours.</li>
+                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated at least one hundred times.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Guitar played while barefoot like Steven Wilson.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Some sounds achieved with scissors.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Officially released on Maundy Thursday.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">A broken PC was used for recording.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recording, production, and mixing took less than 48 hours.</li>
                 </ul>
                 </div>`;
             } else if (songId === 'haunt') {
                 trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
                 <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.25em 0 0 1.2em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Recorded sitting on a wooden bench, eating pickles.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">Features an undefined jungle animal, probably a lemur.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">The song that has caused the most fingertip pain.</li>
-                    <li style="margin:0; padding:0; line-height:1.1; display:list-item;">First song conceived in Guitar Pro (originally called 'Melting Sun').</li>
+                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recorded sitting on a wooden bench, eating pickles.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Features an undefined jungle animal, probably a lemur.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The song that has caused the most fingertip pain.</li>
+                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">First song conceived in Guitar Pro (originally called 'Melting Sun').</li>
                 </ul>
                 </div>`;
             }
