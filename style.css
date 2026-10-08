@@ -848,10 +848,25 @@ nav a[href="echoes.html"],
 }
 
 /* Portfolio section styles. */
+#about-page .intro {
+    max-width: 700px;
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+#about-page .intro p + p {
+    margin-top: 18px;
+}
+
 .about-skills {
     display: grid;
-    gap: 3px;
-    margin: 22px 0 0;
+    gap: 10px;
+    max-width: 750px;
+    margin: 34px 0 0;
+}
+
+#positions-page .experience-section {
+    margin-top: 0;
 }
 
 .about-skills-methods,
@@ -874,12 +889,6 @@ nav a[href="echoes.html"],
 .experience-section {
     max-width: 900px;
     margin: 34px 0 30px;
-}
-
-.experience-section > h2 {
-    margin: 0 0 22px;
-    font-size: 21px;
-    font-weight: 600;
 }
 
 .experience-timeline {
