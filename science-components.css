@@ -186,64 +186,25 @@
 /* Portfolio sections share the same spacing and surfaces as Science. */
 .about-skills {
     display: grid;
-    gap: 10px;
+    gap: 3px;
     margin: 22px 0 0;
 }
 
-.about-skills-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.about-skills-methods,
+.about-skills-tools {
+    margin: 0;
+    line-height: 1.7;
 }
 
-.skill-tag {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 4px 9px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.3;
-    white-space: nowrap;
-}
-
-.skill-tag-core {
-    background: #e3e7eb;
-    border-color: #d4dae0;
-    color: #202a35;
+.about-skills-methods {
+    color: var(--text-color);
+    font-size: 16px;
     font-weight: 600;
 }
 
-.skill-tag-library {
-    background: #f6f7f8;
-    border-color: #e8ebee;
-    color: #68717c;
-}
-
-.skill-tag-method {
-    background: #f3f8ff;
-    border-color: #9bc2fa;
-    color: #225995;
-}
-
-[data-theme="dark"] .skill-tag-core {
-    background: #303943;
-    border-color: #45515d;
-    color: #f0f3f6;
-}
-
-[data-theme="dark"] .skill-tag-library {
-    background: #1b222a;
-    border-color: #303943;
-    color: #a8b2bd;
-}
-
-[data-theme="dark"] .skill-tag-method {
-    background: #17283d;
-    border-color: #456a9a;
-    color: #acd0ff;
+.about-skills-tools {
+    color: var(--text-secondary);
+    font-size: 13px;
 }
 
 .experience-section {
