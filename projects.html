@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio · Carlos Cifuentes</title>
+  <title>Projects · Carlos Cifuentes</title>
   <script>
     const oldSections = {
       overview: 'about',
@@ -11,12 +11,13 @@
       demos: 'queries',
       tools: 'queries',
       queries: 'queries',
-      code: 'code',
-      'selected-work': 'code',
+      code: 'projects',
+      projects: 'projects',
+      'selected-work': 'projects',
       research: 'publications',
       contact: 'contact'
     };
-    const section = oldSections[window.location.hash.slice(1)] || 'about';
+    const section = oldSections[window.location.hash.slice(1)] || 'projects';
     window.location.replace('science.html#' + section);
   </script>
 </head>

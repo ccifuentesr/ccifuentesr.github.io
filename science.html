@@ -797,13 +797,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16M7 4v16M17 4v16"/></svg>
                         <span>Capabilities</span>
                     </a>
+                    <a href="#projects" class="nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8l-4 4 4 4m8-8l4 4-4 4m-3-11l-2 18"/></svg>
+                        <span>Projects</span>
+                    </a>
                     <a href="#queries" class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10l3 2-3 2m5 0h3"/></svg>
                         <span>Queries</span>
-                    </a>
-                    <a href="#code" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8l-4 4 4 4m8-8l4 4-4 4m-3-11l-2 18"/></svg>
-                        <span>Code projects</span>
                     </a>
                     <a href="#publications" class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6M9 8h3m-5 13h10a2 2 0 002-2V7.828a2 2 0 00-.586-1.414l-2.828-2.828A2 2 0 0014.172 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
@@ -1088,12 +1088,12 @@
                     <div class="portfolio-row">
                         <h2>Data preparation</h2>
                         <p>I combined measurements and catalogue records, checked identifiers and inconsistencies, and produced tables for analysis.</p>
-                        <a href="#code">See code →</a>
+                        <a href="#projects">See projects →</a>
                     </div>
                     <div class="portfolio-row">
                         <h2>Scientific Python</h2>
                         <p>I wrote scripts for repeatable calculations and figures, with intermediate results that can be checked.</p>
-                        <a href="#code">See code →</a>
+                        <a href="#projects">See projects →</a>
                     </div>
                     <div class="portfolio-row">
                         <h2>Simple searches</h2>
@@ -1106,6 +1106,36 @@
                         <a href="#publications">See publications →</a>
                     </div>
                 </div>
+            </div>
+
+            <div id="projects-page" style="display: none;">
+                <h1>Projects</h1>
+                <p class="section-lead">Public code and results. Longer walkthroughs will have their own pages as they are prepared.</p>
+                <article class="portfolio-code-project">
+                    <div class="portfolio-code-meta"><span>Public repository</span><span>Python · scikit-learn</span></div>
+                    <h2>RUNA</h2>
+                    <p>A command-line prototype that estimates M-dwarf spectral subtype from Gaia G and 2MASS J photometry. It compares a simple colour-based model with a random forest and reports errors on held-out stars. A broader stellar-property app is planned.</p>
+                    <div class="portfolio-code-links">
+                        <a href="https://github.com/ccifuentesr/runa-app" target="_blank" rel="noopener noreferrer">Code and documentation ↗</a>
+                    </div>
+                </article>
+                <article class="portfolio-code-project">
+                    <div class="portfolio-code-meta"><span>Public repository</span><span>Python</span></div>
+                    <h2>KOBE stellar characterisation</h2>
+                    <p>A pipeline for late-K dwarf spectra. It merges CARMENES echelle orders, estimates stellar parameters through iSpec-based spectral synthesis, and includes quality flags, diagnostic plots and benchmark-star checks. Spectra and iSpec are required separately.</p>
+                    <div class="portfolio-code-links">
+                        <a href="https://github.com/ccifuentesr/kobe-spectral-synthesis" target="_blank" rel="noopener noreferrer">Code and documentation ↗</a>
+                    </div>
+                </article>
+                <article class="portfolio-code-project">
+                    <div class="portfolio-code-meta"><span>Public repository</span><span>2021</span></div>
+                    <h2>Multiplicity in cool dwarfs</h2>
+                    <p>Python code and data for a study of 22 known and newly identified multiple systems. The repository includes scripts, a data table, and figures; the paper reports 11 newly identified systems.</p>
+                    <div class="portfolio-code-links">
+                        <a href="https://github.com/ccifuentesr/cif21-multiplicity" target="_blank" rel="noopener noreferrer">Code and data ↗</a>
+                        <a href="https://ui.adsabs.harvard.edu/abs/2021RNAAS...5..129C/abstract" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+                    </div>
+                </article>
             </div>
 
             <div id="queries-page" style="display: none;">
@@ -1146,28 +1176,6 @@
                         <div id="unified-result" class="portfolio-result" aria-live="polite"></div>
                     </section>
                 </div>
-            </div>
-
-            <div id="code-page" style="display: none;">
-                <h1>Code projects</h1>
-                <p class="section-lead">Public code and results. Longer walkthroughs will have their own pages as they are prepared.</p>
-                <article class="portfolio-code-project">
-                    <div class="portfolio-code-meta"><span>Public repository</span><span>2021</span></div>
-                    <h2>Multiplicity in cool dwarfs</h2>
-                    <p>Python code and data for a study of 22 known and newly identified multiple systems. The repository includes scripts, a data table, and figures; the paper reports 11 newly identified systems.</p>
-                    <div class="portfolio-code-links">
-                        <a href="https://github.com/ccifuentesr/cif21-multiplicity" target="_blank" rel="noopener noreferrer">Code and data ↗</a>
-                        <a href="https://ui.adsabs.harvard.edu/abs/2021RNAAS...5..129C/abstract" target="_blank" rel="noopener noreferrer">Paper ↗</a>
-                    </div>
-                </article>
-                <article class="portfolio-code-project">
-                    <div class="portfolio-code-meta"><span>Public repository</span><span>Python</span></div>
-                    <h2>KOBE stellar characterisation</h2>
-                    <p>A pipeline for late-K dwarf spectra. It merges CARMENES echelle orders, estimates stellar parameters through iSpec-based spectral synthesis, and includes quality flags, diagnostic plots and benchmark-star checks. Spectra and iSpec are required separately.</p>
-                    <div class="portfolio-code-links">
-                        <a href="https://github.com/ccifuentesr/kobe-spectral-synthesis" target="_blank" rel="noopener noreferrer">Code and documentation ↗</a>
-                    </div>
-                </article>
             </div>
 
             <div id="publications-page" style="display: none;">
@@ -1377,8 +1385,8 @@
         const portfolioSections = {
             about: 'about-page',
             capabilities: 'capabilities-page',
+            projects: 'projects-page',
             queries: 'queries-page',
-            code: 'code-page',
             publications: 'publications-page',
             contact: 'contact-page'
         };
@@ -1387,6 +1395,7 @@
             const requested = window.location.hash.slice(1);
             const section = requested === 'questions' ? 'about' :
                 requested === 'demos' ? 'queries' :
+                requested === 'code' || requested === 'selected-work' ? 'projects' :
                 Object.hasOwn(portfolioSections, requested) ? requested : 'about';
             Object.entries(portfolioSections).forEach(([name, id]) => {
                 document.getElementById(id).style.display = name === section ? 'block' : 'none';
@@ -1395,7 +1404,7 @@
             document.querySelectorAll('.sidebar a.nav-item[href^="#"]').forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === `#${section}`);
             });
-            const label = section === 'code' ? 'Code projects' : section.charAt(0).toUpperCase() + section.slice(1);
+            const label = section.charAt(0).toUpperCase() + section.slice(1);
             document.title = `C. Cifuentes · Portfolio · ${label}`;
         }
 
