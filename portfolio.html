@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=positions-1">
+    <link rel="stylesheet" href="style.css?v=education-1">
     <script src="portfolio-tools.js" defer></script>
     <style>
         .sidebar {
@@ -796,17 +796,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="7" width="18" height="14" rx="2" stroke-width="1.8"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18" stroke-width="1.8"/></svg>
                         <span>Positions</span>
                     </a>
-                    <a href="#capabilities" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16M7 4v16M17 4v16"/></svg>
-                        <span>Capabilities</span>
-                    </a>
                     <a href="#projects" class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8l-4 4 4 4m8-8l4 4-4 4m-3-11l-2 18"/></svg>
                         <span>Projects</span>
-                    </a>
-                    <a href="#queries" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10l3 2-3 2m5 0h3"/></svg>
-                        <span>Queries</span>
                     </a>
                     <a href="#publications" class="nav-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6M9 8h3m-5 13h10a2 2 0 002-2V7.828a2 2 0 00-.586-1.414l-2.828-2.828A2 2 0 0014.172 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
@@ -871,7 +863,7 @@
 
             <div id="positions-page" style="display: none;">
                 <h1 id="positions-heading">Positions</h1>
-                <p class="section-lead">Career history, research questions, collaborations and events.</p>
+                <p class="section-lead">Career history, education, research questions and collaborations.</p>
                 <section class="experience-section" aria-labelledby="positions-heading">
                     <ol class="experience-timeline">
                         <li class="experience-entry">
@@ -922,12 +914,41 @@
                     </ol>
                 </section>
 
+                <section class="education-section" aria-labelledby="education-heading">
+                    <h2 id="education-heading">Education</h2>
+                    <ol class="experience-timeline education-timeline">
+                        <li class="experience-entry">
+                            <span class="experience-date">2017</span>
+                            <span class="experience-marker" aria-hidden="true"></span>
+                            <div class="experience-detail">
+                                <h3>MSc in Astrophysics</h3>
+                                <p class="experience-place">Universidad Complutense de Madrid (UCM)</p>
+                            </div>
+                        </li>
+                        <li class="experience-entry">
+                            <span class="experience-date">2014</span>
+                            <span class="experience-marker" aria-hidden="true"></span>
+                            <div class="experience-detail">
+                                <h3>MSc in Renewable Energies</h3>
+                                <p class="experience-place">Universidad Autónoma de Madrid (UAM)</p>
+                            </div>
+                        </li>
+                        <li class="experience-entry">
+                            <span class="experience-date">2013</span>
+                            <span class="experience-marker" aria-hidden="true"></span>
+                            <div class="experience-detail">
+                                <h3>Degree in Physics</h3>
+                                <p class="experience-place">Universidad de Salamanca (USAL)</p>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+
                 <div class="tabs">
                     <div class="tab active" data-tab="questions">Questions</div>
                     <div class="tab" data-tab="collaborations">
                         <span>Collaborations</span>
                     </div>
-                    <div class="tab" data-tab="events">Events</div>
                 </div>
 
                 <div class="tab-content">
@@ -954,65 +975,6 @@
                                     <span style="padding: 0.3em 0.8em; background: var(--hover-bg); border-radius: 4px; font-size: 0.85em;">Gaia</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Events Tab -->
-                    <div id="events-content" class="tab-pane" style="display: none;">
-                        <div style="display: flex; flex-direction: column; gap: 1em;">
-
-                            <div style="padding: 1em; border-left: 3px solid var(--border-color);">
-                                <div style="color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5em;">February 2026</div>
-                                <h3 style="font-size: 15px; margin-bottom: 0.5em;">
-                                    <a href="" target="_blank" style="color: var(--text-color); text-decoration: none;">Workshop on Planets Around M-Dwarfs</a>
-                                </h3>
-                                <div style="display: inline-block; padding: 0.2em 0.6em; background: var(--hover-bg); border-radius: 4px; font-size: 0.85em; margin-bottom: 0.5em;">
-                                    Invited talk: "M dwarfs in multiple star systems"
-                                </div>
-                                <p style="color: var(--text-secondary); font-size: 0.9em; margin: 0;">Lund University, Sweden</p>
-                            </div>
-
-                            <div style="padding: 1em; border-left: 3px solid var(--border-color);">
-                                <div style="color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5em;">January 2026</div>
-                                <h3 style="font-size: 15px; margin-bottom: 0.5em;">
-                                    <a href="" target="_blank" style="color: var(--text-color); text-decoration: none;">Gaia NIR: Engagement of the Spanish Community</a>
-                                </h3>
-                                <p style="color: var(--text-secondary); font-size: 0.9em; margin: 0;">Agencia Espacial Española, Seville</p>
-                            </div>
-
-                            <div style="padding: 1em; border-left: 3px solid var(--border-color);">
-                                <div style="color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5em;">October 2025</div>
-                                <h3 style="font-size: 15px; margin-bottom: 0.5em;">
-                                    <a href="https://www.cosmos.esa.int/web/circumbinary-planets-with-esa-missions" target="_blank" style="color: var(--text-color); text-decoration: none;">Exploring Tatooine and beyond: Circumbinary planets with ESA missions</a>
-                                </h3>
-                                <div style="display: inline-block; padding: 0.2em 0.6em; background: var(--hover-bg); border-radius: 4px; font-size: 0.85em; margin-bottom: 0.5em;">
-                                    Local Organising Committee
-                                </div>
-                                <p style="color: var(--text-secondary); font-size: 0.9em; margin: 0;">European Space Astronomy Centre, Spain</p>
-                            </div>
-
-                            <div style="padding: 1em; border-left: 3px solid var(--border-color);">
-                                <div style="color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5em;">October 2025</div>
-                                <h3 style="font-size: 15px; margin-bottom: 0.5em;">
-                                    <a href="https://www.cosmos.esa.int/web/exoplanetsworkinggroup/maesm-2025" target="_blank" style="color: var(--text-color); text-decoration: none;">ESA's Madrid-Area Exoplanet Science Meeting (MAESM)</a>
-                                </h3>
-                                <div style="display: inline-block; padding: 0.2em 0.6em; background: var(--hover-bg); border-radius: 4px; font-size: 0.85em; margin-bottom: 0.5em;">
-                                    Talk: "Exoplanets in triple star systems"
-                                </div>
-                                <p style="color: var(--text-secondary); font-size: 0.9em; margin: 0;">European Space Astronomy Centre, Spain</p>
-                            </div>
-
-                            <div style="padding: 1em; border-left: 3px solid var(--border-color);">
-                                <div style="color: var(--text-secondary); font-weight: 600; margin-bottom: 0.5em;">July 2025</div>
-                                <h3 style="font-size: 15px; margin-bottom: 0.5em;">
-                                    <a href="https://indico.global/event/8940/" target="_blank" style="color: var(--text-color); text-decoration: none;">Detection and Dynamics of Exoplanets (DDE)</a>
-                                </h3>
-                                <div style="display: inline-block; padding: 0.2em 0.6em; background: var(--hover-bg); border-radius: 4px; font-size: 0.85em; margin-bottom: 0.5em;">
-                                    Talk: "Exoplanets in triple star systems"
-                                </div>
-                                <p style="color: var(--text-secondary); font-size: 0.9em; margin: 0;">University of Coimbra, Portugal</p>
-                            </div>
-
                         </div>
                     </div>
 
@@ -1071,33 +1033,6 @@
 
             </div>
 
-            <div id="capabilities-page" style="display: none;">
-                <h1>Capabilities</h1>
-                <p class="section-lead">The work behind the code, tools, and publications on this site.</p>
-                <div class="portfolio-list">
-                    <div class="portfolio-row">
-                        <h2>Data preparation</h2>
-                        <p>I combined measurements and catalogue records, checked identifiers and inconsistencies, and produced tables for analysis.</p>
-                        <a href="#projects">See projects →</a>
-                    </div>
-                    <div class="portfolio-row">
-                        <h2>Scientific Python</h2>
-                        <p>I wrote scripts for repeatable calculations and figures, with intermediate results that can be checked.</p>
-                        <a href="#projects">See projects →</a>
-                    </div>
-                    <div class="portfolio-row">
-                        <h2>Simple searches</h2>
-                        <p>Search my thesis text and selected published astronomical catalogues.</p>
-                        <a href="#queries">Open queries →</a>
-                    </div>
-                    <div class="portfolio-row">
-                        <h2>Analysis and validation</h2>
-                        <p>I compared independent measurements, investigated discrepancies, and reported results in scientific publications.</p>
-                        <a href="#publications">See publications →</a>
-                    </div>
-                </div>
-            </div>
-
             <div id="projects-page" style="display: none;">
                 <h1>Projects</h1>
                 <p class="section-lead">Code, methods and results from projects built around stellar data.</p>
@@ -1149,46 +1084,45 @@
                         <a href="https://ui.adsabs.harvard.edu/abs/2021RNAAS...5..129C/abstract" target="_blank" rel="noopener noreferrer">Publication ↗</a>
                     </div>
                 </article>
-            </div>
-
-            <div id="queries-page" style="display: none;">
-                <h1>Queries</h1>
-                <p class="section-lead">Two simple searches: one for my thesis text and one for selected public VizieR catalogues. The thesis search uses a separate service.</p>
-                <div class="portfolio-demo-grid">
-                    <section class="portfolio-tool" aria-labelledby="thesis-tool-title">
-                        <h2 id="thesis-tool-title">Ask my thesis</h2>
-                        <p>Ask a question about the text of my PhD thesis.</p>
-                        <div id="chatMessages" class="portfolio-chat" aria-live="polite">
-                            <p class="portfolio-hint">Enter a question below. The first response may take a little longer.</p>
-                        </div>
-                        <div class="portfolio-input-row">
-                            <label class="portfolio-visually-hidden" for="question">Question about the thesis</label>
-                            <input id="question" type="text" placeholder="Your question" autocomplete="off">
-                            <button id="askBtn" type="button" onclick="askThesis()">Ask</button>
-                        </div>
-                        <div id="progressContainer" class="portfolio-progress"><div id="progressBar"></div></div>
-                    </section>
-                    <section class="portfolio-tool" aria-labelledby="catalogue-tool-title">
-                        <h2 id="catalogue-tool-title">Search a star</h2>
-                        <p>Find an object in selected published VizieR catalogues.</p>
-                        <div class="portfolio-catalogue-form">
-                            <label for="catalog-select">Catalogue</label>
-                            <select id="catalog-select" onchange="updateSearchPlaceholder()">
-                                <option value="">Select catalogue…</option>
-                                <option value="cifuentes25">Multiplicity (Cifuentes+ 2025)</option>
-                                <option value="cortes-contreras24">Kinematics and age (Cortés-Contreras+ 2024)</option>
-                                <option value="gonzalez-payo24">Multiplicity of stars with planets (González-Payo+ 2024)</option>
-                                <option value="cifuentes20">Stellar parameters (Cifuentes+ 2020)</option>
-                                <option value="schweitzer19">Masses and radii (Schweitzer+ 2019)</option>
-                                <option value="martinez-rodriguez19">Exomoons detectability (Martínez-Rodríguez+ 2019)</option>
-                            </select>
-                            <label for="unified-search">Star or object</label>
-                            <input id="unified-search" type="text" placeholder="Object name" autocomplete="off">
-                            <button type="button" onclick="unifiedSearch()">Search</button>
-                        </div>
-                        <div id="unified-result" class="portfolio-result" aria-live="polite"></div>
-                    </section>
-                </div>
+                <section id="queries" class="portfolio-queries" aria-labelledby="queries-heading">
+                    <h2 id="queries-heading">Queries</h2>
+                    <p class="section-lead">Two simple searches: one for my thesis text and one for selected public VizieR catalogues. The thesis search uses a separate service.</p>
+                    <div class="portfolio-demo-grid">
+                        <section class="portfolio-tool" aria-labelledby="thesis-tool-title">
+                            <h2 id="thesis-tool-title">Ask my thesis</h2>
+                            <p>Ask a question about the text of my PhD thesis.</p>
+                            <div id="chatMessages" class="portfolio-chat" aria-live="polite">
+                                <p class="portfolio-hint">Enter a question below. The first response may take a little longer.</p>
+                            </div>
+                            <div class="portfolio-input-row">
+                                <label class="portfolio-visually-hidden" for="question">Question about the thesis</label>
+                                <input id="question" type="text" placeholder="Your question" autocomplete="off">
+                                <button id="askBtn" type="button" onclick="askThesis()">Ask</button>
+                            </div>
+                            <div id="progressContainer" class="portfolio-progress"><div id="progressBar"></div></div>
+                        </section>
+                        <section class="portfolio-tool" aria-labelledby="catalogue-tool-title">
+                            <h2 id="catalogue-tool-title">Search a star</h2>
+                            <p>Find an object in selected published VizieR catalogues.</p>
+                            <div class="portfolio-catalogue-form">
+                                <label for="catalog-select">Catalogue</label>
+                                <select id="catalog-select" onchange="updateSearchPlaceholder()">
+                                    <option value="">Select catalogue…</option>
+                                    <option value="cifuentes25">Multiplicity (Cifuentes+ 2025)</option>
+                                    <option value="cortes-contreras24">Kinematics and age (Cortés-Contreras+ 2024)</option>
+                                    <option value="gonzalez-payo24">Multiplicity of stars with planets (González-Payo+ 2024)</option>
+                                    <option value="cifuentes20">Stellar parameters (Cifuentes+ 2020)</option>
+                                    <option value="schweitzer19">Masses and radii (Schweitzer+ 2019)</option>
+                                    <option value="martinez-rodriguez19">Exomoons detectability (Martínez-Rodríguez+ 2019)</option>
+                                </select>
+                                <label for="unified-search">Star or object</label>
+                                <input id="unified-search" type="text" placeholder="Object name" autocomplete="off">
+                                <button type="button" onclick="unifiedSearch()">Search</button>
+                            </div>
+                            <div id="unified-result" class="portfolio-result" aria-live="polite"></div>
+                        </section>
+                    </div>
+                </section>
             </div>
 
             <div id="publications-page" style="display: none;">
@@ -1398,9 +1332,7 @@
         const portfolioSections = {
             about: 'about-page',
             positions: 'positions-page',
-            capabilities: 'capabilities-page',
             projects: 'projects-page',
-            queries: 'queries-page',
             publications: 'publications-page',
             contact: 'contact-page'
         };
@@ -1408,13 +1340,16 @@
         function showPortfolioSection() {
             const requested = window.location.hash.slice(1);
             const section = requested === 'questions' ? 'positions' :
-                requested === 'demos' ? 'queries' :
+                requested === 'queries' || requested === 'demos' ? 'projects' :
                 requested === 'code' || requested === 'selected-work' ? 'projects' :
                 Object.hasOwn(portfolioSections, requested) ? requested : 'about';
             Object.entries(portfolioSections).forEach(([name, id]) => {
                 document.getElementById(id).style.display = name === section ? 'block' : 'none';
             });
             if (section === 'positions') showPositionsTab('questions');
+            if (requested === 'queries' || requested === 'demos') {
+                requestAnimationFrame(() => document.getElementById('queries').scrollIntoView({ block: 'start' }));
+            }
             document.querySelectorAll('.sidebar a.nav-item[href^="#"]').forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === `#${section}`);
             });
