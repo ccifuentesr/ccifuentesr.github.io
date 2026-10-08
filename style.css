@@ -847,10 +847,44 @@ nav a[href="echoes.html"],
 }
 
 .about-skills {
-    display: grid;
-    gap: 10px;
-    max-width: 750px;
-    margin: 34px 0 0;
+    max-width: 780px;
+    margin: 42px 0 0;
+    padding: 24px 28px;
+    border: 1px solid #d9e5f0;
+    border-left: 4px solid #a7c4df;
+    border-radius: 12px;
+    background: #f7fafd;
+    box-shadow: 0 8px 24px rgba(31, 55, 78, 0.04);
+}
+
+[data-theme="dark"] .about-skills {
+    border-color: #35404b;
+    border-left-color: #779cbe;
+    background: #192128;
+    box-shadow: none;
+}
+
+.about-skills-group + .about-skills-group {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #d9e5f0;
+}
+
+[data-theme="dark"] .about-skills-group + .about-skills-group {
+    border-top-color: #35404b;
+}
+
+.about-skills h2 {
+    margin: 0 0 8px;
+    color: #567697;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] .about-skills h2 {
+    color: #a8c5df;
 }
 
 #positions-page .experience-section {
@@ -860,18 +894,19 @@ nav a[href="echoes.html"],
 .about-skills-methods,
 .about-skills-tools {
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.65;
 }
 
 .about-skills-methods {
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 600;
 }
 
 .about-skills-tools {
-    color: var(--text-secondary);
-    font-size: 15px;
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .experience-section {
@@ -1271,6 +1306,20 @@ nav a[href="echoes.html"],
 }
 
 @media (max-width: 600px) {
+    .about-skills {
+        margin-top: 32px;
+        padding: 20px;
+    }
+    .about-skills-group + .about-skills-group {
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+    .about-skills-methods {
+        font-size: 17px;
+    }
+    .about-skills-tools {
+        font-size: 16px;
+    }
     .experience-section {
         margin-top: 28px;
     }
