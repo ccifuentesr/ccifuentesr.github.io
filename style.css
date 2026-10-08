@@ -683,18 +683,6 @@ nav a[href="echoes.html"],
     margin: 0 0 18px;
 }
 
-.publication-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.publication-actions .social-link {
-    min-width: 80px;
-    justify-content: center;
-}
-
 .publication-group {
     margin-top: 40px;
 }
