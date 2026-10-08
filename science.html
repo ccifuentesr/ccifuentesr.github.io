@@ -840,9 +840,9 @@
 
             <div class="theme-toggle">
                 <div class="theme-options">
-                    <span class="theme-option" data-theme="light">Light</span>
-                    <span class="theme-option" data-theme="dark">Dark</span>
-                    <span class="theme-option active" data-theme="auto">Auto</span>
+                    <span class="theme-option" data-theme-choice="light">Light</span>
+                    <span class="theme-option" data-theme-choice="dark">Dark</span>
+                    <span class="theme-option active" data-theme-choice="auto">Auto</span>
                 </div>
             </div>
         </aside>
@@ -1343,7 +1343,7 @@
 
         function syncThemeControls(savedTheme) {
             document.querySelectorAll('.theme-option').forEach(option => {
-                option.classList.toggle('active', option.dataset.theme === savedTheme);
+                option.classList.toggle('active', option.dataset.themeChoice === savedTheme);
             });
 
             const mobileToggle = document.querySelector('.mobile-theme-toggle');
@@ -1359,7 +1359,7 @@
         // Theme toggle listeners
         document.querySelectorAll('.theme-option').forEach(option => {
             option.addEventListener('click', () => {
-                const theme = option.dataset.theme;
+                const theme = option.dataset.themeChoice;
                 localStorage.setItem('theme', theme);
                 applyTheme(theme);
                 syncThemeControls(theme);
