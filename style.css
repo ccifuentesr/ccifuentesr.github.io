@@ -932,11 +932,6 @@ nav a[href="echoes.html"],
     box-sizing: content-box;
 }
 
-.experience-entry--education {
-    min-height: 0;
-    padding-bottom: 28px;
-}
-
 .experience-entry--education .experience-marker {
     background: #3b82f6;
 }
