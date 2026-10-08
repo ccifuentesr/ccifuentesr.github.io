@@ -89,7 +89,7 @@ Instructions:
 # --- Endpoints ---
 @app.route("/")
 def home():
-    return send_from_directory(FRONTEND_DIR, "science.html")
+    return send_from_directory(FRONTEND_DIR, "portfolio.html")
 
 @app.route("/<path:filename>")
 def static_files(filename):
