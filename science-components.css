@@ -530,28 +530,61 @@
 }
 
 .portfolio-code-project {
-    max-width: 980px;
+    max-width: 1060px;
+    padding: 28px 30px;
 }
 
 .portfolio-code-project + .portfolio-code-project {
-    margin-top: 16px;
+    margin-top: 20px;
 }
 
-.portfolio-code-meta,
 .portfolio-code-links {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.portfolio-code-meta {
-    margin-bottom: 12px;
-    color: var(--text-secondary);
-    font-size: 12px;
+.portfolio-code-project h2 {
+    margin-bottom: 14px;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.portfolio-project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 18px;
+}
+
+.portfolio-project-badge {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    padding: 7px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--hover-bg);
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.portfolio-project-badge--skill {
+    border-color: var(--text-color);
+    background: var(--text-color);
+    color: var(--bg-color);
 }
 
 .portfolio-code-project > p {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.portfolio-code-links a {
+    font-size: 14px;
 }
 
 .portfolio-visually-hidden {
@@ -617,9 +650,14 @@
     .portfolio-demo-grid {
         grid-template-columns: 1fr;
     }
-    .portfolio-tool,
-    .portfolio-code-project {
+    .portfolio-tool {
         padding: 17px;
+    }
+    .portfolio-code-project {
+        padding: 22px;
+    }
+    .portfolio-code-project h2 {
+        font-size: 20px;
     }
 }
 
