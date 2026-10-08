@@ -944,33 +944,31 @@ nav a[href="echoes.html"],
     box-sizing: content-box;
 }
 
-.education-section {
-    max-width: 900px;
-    margin: 42px 0;
-}
-
-.education-section > h2 {
-    margin: 0 0 22px;
-    font-size: 21px;
-    font-weight: 600;
-}
-
-.education-timeline .experience-entry {
-    min-height: 100px;
-    padding-bottom: 26px;
-}
-
-.education-timeline .experience-entry:last-child {
+.experience-entry--education {
     min-height: 0;
-    padding-bottom: 0;
+    padding-bottom: 28px;
 }
 
-.education-timeline .experience-marker {
+.experience-entry--education .experience-marker {
     background: #3b82f6;
 }
 
-[data-theme="dark"] .education-timeline .experience-marker {
+.experience-entry--education .experience-date,
+.experience-entry--education .experience-detail h3 {
+    color: #1d4ed8;
+}
+
+.experience-entry--education .experience-detail h3 {
+    font-size: 15px;
+}
+
+[data-theme="dark"] .experience-entry--education .experience-marker {
     background: #60a5fa;
+}
+
+[data-theme="dark"] .experience-entry--education .experience-date,
+[data-theme="dark"] .experience-entry--education .experience-detail h3 {
+    color: #93c5fd;
 }
 
 .experience-detail h3 {
@@ -1303,9 +1301,6 @@ nav a[href="echoes.html"],
         column-gap: 14px;
         min-height: 0;
         padding-bottom: 28px;
-    }
-    .education-timeline .experience-entry {
-        min-height: 0;
     }
     .experience-date {
         grid-column: 2;
