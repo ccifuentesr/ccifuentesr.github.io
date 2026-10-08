@@ -572,15 +572,24 @@
 }
 
 .portfolio-project-badge--skill {
-    border-color: var(--border-color);
-    background: transparent;
-    color: var(--text-secondary);
-    font-weight: 500;
+    border-color: #a5f3fc;
+    background: #ecfeff;
+    color: #155e75;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .portfolio-project-badge--skill {
+    border-color: rgba(34, 211, 238, 0.3);
+    background: rgba(34, 211, 238, 0.12);
+    color: #a5f3fc;
 }
 
 .portfolio-project-badge--language {
-    border-color: var(--text-secondary);
     background: transparent;
+    color: var(--text-secondary);
+    font-weight: 700;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .portfolio-code-project > p {
