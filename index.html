@@ -40,6 +40,15 @@
     /* Override external CSS for navigation links */
     .index-link {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+      display: inline-block;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      transition: color 0.15s ease;
+    }
+
+    main > nav ul {
+      flex-direction: column;
+      gap: 0.65em !important;
     }
 
     @media (max-width: 768px) {
@@ -71,11 +80,22 @@
       }
     }
 
-    a[href="science.html"],
+    a[href="science.html"] {
+      text-decoration: none !important;
+      color: white !important;
+    }
+
     a[href="musik.html"],
     a[href="seen.html"] {
       text-decoration: none !important;
-      color: white !important;
+      color: #85858d !important;
+    }
+
+    a[href="musik.html"]:hover,
+    a[href="musik.html"]:focus-visible,
+    a[href="seen.html"]:hover,
+    a[href="seen.html"]:focus-visible {
+      color: #b7b7be !important;
     }
 
     a[href="echoes.html"] {
