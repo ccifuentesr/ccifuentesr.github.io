@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=contact-direct-1">
+    <link rel="stylesheet" href="style.css?v=contact-form-1">
     <script src="portfolio-tools.js" defer></script>
+    <script src="contact.js" defer></script>
     <style>
         .sidebar {
             width: 232px;
@@ -1227,10 +1228,28 @@
 
             <div id="contact-page" style="display: none;">
                 <h1>Contact</h1>
-                <div class="contact-details">
-                    <p class="section-lead">For collaborations, roles or questions about my work, write to me by email.</p>
-                    <p class="contact-email"><a href="mailto:ccifuentessanroman@gmail.com">ccifuentessanroman@gmail.com</a></p>
-                    <p class="contact-note">The link opens an email draft. You can also copy the address into your preferred email service.</p>
+                <div class="contact-form-wrap">
+                    <p class="section-lead">For collaborations, roles or questions about my work, send me a message.</p>
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/maeqoveg" method="POST">
+                        <div class="form-honeypot" aria-hidden="true">
+                            <label for="contact-website">Leave this field empty</label>
+                            <input id="contact-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-name">Name</label>
+                            <input id="contact-name" type="text" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-email">Email</label>
+                            <input id="contact-email" type="email" name="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button class="form-submit" type="submit">Send message</button>
+                        <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+                    </form>
                 </div>
             </div>
             </div>
