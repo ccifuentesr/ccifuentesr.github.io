@@ -1017,6 +1017,10 @@ nav a[href="echoes.html"],
     line-height: 1.35;
 }
 
+.experience-detail h3.experience-title--featured {
+    font-size: 19px;
+}
+
 .experience-detail p {
     margin: 0;
     color: var(--text-secondary);
@@ -1379,6 +1383,9 @@ nav a[href="echoes.html"],
     }
     .experience-detail h3 {
         font-size: 16px;
+    }
+    .experience-detail h3.experience-title--featured {
+        font-size: 18px;
     }
     .publication-card {
         padding: 17px;
