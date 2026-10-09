@@ -762,92 +762,27 @@ nav a[href="echoes.html"],
     margin-bottom: 4px;
 }
 
-.contact-form-wrap {
-    max-width: 520px;
-    margin: 38px auto 0;
+.contact-details {
+    max-width: 620px;
+    margin: 38px 0 0;
 }
 
-.contact-form-wrap > .section-lead {
-    text-align: center;
+.contact-details > .section-lead {
+    margin-bottom: 14px;
 }
 
-.contact-direct {
-    margin: 16px 0 0;
+.contact-email {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.contact-note {
+    margin: 12px 0 0;
     color: var(--text-secondary);
     font-size: 14px;
-    text-align: center;
-}
-
-.contact-form {
-    display: grid;
-    gap: 18px;
-    padding: 26px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--bg-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.form-field {
-    display: grid;
-    gap: 7px;
-}
-
-.form-field label {
-    color: var(--text-color);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.form-field input,
-.form-field textarea {
-    display: block;
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    outline: none;
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-size: 14px;
-    line-height: 1.5;
-    box-sizing: border-box;
-}
-
-.form-field textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-    border-color: var(--text-secondary);
-    box-shadow: 0 0 0 3px var(--hover-bg);
-}
-
-.form-submit {
-    min-height: 42px;
-    padding: 9px 16px;
-    border: 1px solid var(--text-color);
-    border-radius: 8px;
-    background: var(--text-color);
-    color: var(--bg-color);
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: opacity 0.15s ease;
-}
-
-.form-submit:hover {
-    opacity: 0.84;
-}
-
-.form-honeypot {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
+    line-height: 1.6;
 }
 
 /* Portfolio section styles. */
@@ -1368,8 +1303,7 @@ nav a[href="echoes.html"],
     .experience-detail h3 {
         font-size: 16px;
     }
-    .publication-card,
-    .contact-form {
+    .publication-card {
         padding: 17px;
     }
     .portfolio-row {
