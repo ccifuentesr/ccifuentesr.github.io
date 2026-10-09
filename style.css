@@ -865,6 +865,7 @@ nav a[href="echoes.html"],
 #about-page .intro {
     max-width: 700px;
     margin-bottom: 0;
+    font-size: 17px;
     line-height: 1.8;
 }
 
