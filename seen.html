@@ -1,1296 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seen - C. Cifuentes</title>
-    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, photography, gallery">
-    <meta name="description" content="Seen: personal photography collections by C. Cifuentes.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=positions-titles-2">
-    <style>
-        html, body, button, input, select, textarea {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f6f7fb;
-            --text-color: #111318;
-            --text-secondary: #6b7280;
-            --border-color: #e5e7eb;
-            --hover-bg: #f3f4f6;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #191a1b;
-            --text-color: #f5f7fb;
-            --text-secondary: #8b93a7;
-            --border-color: #2a2d33;
-            --hover-bg: #202226;
-        }
-
-        body {
-            background: #e9edf2 !important;
-        }
-
-        [data-theme="dark"] body {
-            background: rgb(23, 24, 25) !important;
-        }
-
-        .sidebar {
-            width: 244px !important;
-            padding: 18px 12px 16px !important;
-            border: none !important;
-            border-radius: 0 !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
-
-        .logo {
-            margin-bottom: 20px;
-            padding: 4px 8px 0;
-        }
-
-        .home-breadcrumb {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.01em;
-            text-decoration: none;
-            transition: color 0.15s ease;
-        }
-
-        .home-breadcrumb span {
-            letter-spacing: 0.06em;
-        }
-
-        .home-breadcrumb svg {
-            width: 14px;
-            height: 14px;
-            color: currentColor;
-            opacity: 0.82;
-            transition: color 0.15s ease, opacity 0.15s ease;
-        }
-
-        .home-breadcrumb:visited {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .home-breadcrumb:hover {
-            color: var(--text-color) !important;
-            text-decoration: none !important;
-        }
-
-        .home-breadcrumb:hover svg {
-            opacity: 1;
-        }
-
-        [data-theme="dark"] .home-breadcrumb {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .home-breadcrumb:visited {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .home-breadcrumb:hover {
-            color: #f5f7fb !important;
-        }
-
-        .logo-title {
-            font-size: 24px !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.03em !important;
-        }
-
-        .sidebar nav {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .nav-section {
-            margin-bottom: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .nav-section h3 {
-            margin: 0 0 6px;
-            padding: 0 10px;
-            font-size: 11px;
-            letter-spacing: 0.02em;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .nav-item {
-            margin: 0;
-            padding: 8px 10px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .nav-item svg {
-            width: 15px;
-            height: 15px;
-            margin-right: 10px;
-            opacity: 0.82;
-            color: rgba(119, 124, 135, 0.8) !important;
-        }
-
-        .mobile-home {
-            display: none !important;
-        }
-
-        .mobile-theme-separator,
-        .mobile-theme-toggle {
-            display: none !important;
-        }
-
-        .mobile-theme-toggle {
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-        }
-
-        [data-theme="dark"] .nav-item {
-            color: rgba(255, 255, 255, 0.72);
-        }
-
-        [data-theme="dark"] .nav-item svg {
-            color: rgba(133, 140, 154, 0.8) !important;
-            opacity: 0.72;
-        }
-
-        .nav-item.nav-musik svg {
-            color: #4fb36f !important;
-        }
-
-        .nav-item.nav-portfolio svg {
-            color: #d45a5a !important;
-        }
-
-        .theme-toggle {
-            margin-top: 18px;
-            padding: 14px 8px 0;
-            border-top: 1px solid rgba(127, 127, 127, 0.12);
-        }
-
-        .theme-options {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 6px;
-        }
-
-        .theme-option {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 30px;
-            padding: 5px 8px;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-align: center;
-            background: rgba(17, 24, 39, 0.03);
-            border: 1px solid transparent;
-            font-weight: 500;
-            color: #6b7280 !important;
-        }
-
-        .theme-option:not(.active) {
-            color: #6b7280 !important;
-            background: rgba(17, 24, 39, 0.03) !important;
-            border-color: transparent !important;
-            opacity: 1;
-        }
-
-        [data-theme="dark"] .theme-option:not(.active) {
-            color: #8f98aa !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-            border-color: transparent !important;
-        }
-
-        .theme-option:not(.active):hover {
-            color: #6b7280 !important;
-            background: rgba(17, 24, 39, 0.03) !important;
-        }
-
-        [data-theme="dark"] .theme-option:not(.active):hover {
-            color: #8f98aa !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-        }
-
-        .theme-option.active {
-            background: rgba(17, 24, 39, 0.06);
-            border-color: rgba(17, 24, 39, 0.05);
-            color: #6b7280 !important;
-            font-weight: 600;
-        }
-
-        [data-theme="dark"] .theme-option.active {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.04);
-            color: #8f98aa !important;
-        }
-
-        .main-content {
-            background: rgba(255, 255, 255, 0.995) !important;
-            border: 1px solid rgba(17, 19, 24, 0.08) !important;
-            box-shadow: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
-
-        [data-theme="dark"] .main-content {
-            background: rgb(25, 26, 27) !important;
-            border-color: rgba(255, 255, 255, 0.04) !important;
-        }
-
-        @media (min-width: 769px) {
-            .main-content .content-wrapper {
-                max-width: 980px !important;
-            }
-        }
-
-        .seen-collections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin: 24px 0 48px;
-        }
-
-        .seen-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            min-height: 120px;
-            background-size: cover;
-            background-position: center;
-            text-decoration: none;
-            color: #ffffff;
-            display: flex;
-            align-items: flex-end;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .seen-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
-            z-index: 0;
-        }
-
-        .seen-card span {
-            position: relative;
-            z-index: 1;
-            background: rgba(17, 24, 39, 0.58);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 12px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        [data-theme="dark"] .seen-card span {
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .seen-section {
-            margin-top: 64px;
-        }
-
-        .seen-section h2 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .seen-section-note {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        .seen-photo {
-            margin-bottom: 36px;
-            position: relative;
-        }
-
-        .seen-photo img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-        }
-
-        .seen-caption {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .seen-caption.overlay {
-            position: static;
-            bottom: auto;
-            left: auto;
-            margin-top: 10px;
-        }
-
-        .seen-caption.overlay .seen-title {
-            color: var(--text-color);
-            text-shadow: none;
-        }
-
-        .seen-caption.overlay .seen-location {
-            color: var(--text-secondary);
-            text-shadow: none;
-        }
-
-        .seen-caption .seen-title {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .seen-caption .seen-location {
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-
-        .haus-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 36px;
-        }
-
-        .haus-photo img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-        }
-
-        .places-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 36px;
-        }
-
-        .places-grid img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-        }
-
-        .seen-divider {
-            margin-top: 64px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        a {
-            transition: color 0.15s ease;
-        }
-
-        a:hover {
-            color: inherit !important;
-            text-decoration: none !important;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 88px) !important;
-            }
-
-            .sidebar {
-                width: 100% !important;
-                height: auto !important;
-                position: fixed !important;
-                left: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                top: auto !important;
-                padding: 10px 12px calc(env(safe-area-inset-bottom, 0px) + 10px) !important;
-                border-top: 1px solid rgba(17, 24, 39, 0.08) !important;
-                background: rgba(248, 250, 252, 0.76) !important;
-                box-shadow: none !important;
-                backdrop-filter: blur(20px) saturate(140%) !important;
-                -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
-                overflow: hidden !important;
-                z-index: 1100 !important;
-            }
-
-            [data-theme="dark"] .sidebar {
-                background: rgba(17, 18, 20, 0.82) !important;
-                border-top-color: rgba(255, 255, 255, 0.08) !important;
-            }
-
-            .logo,
-            .theme-toggle {
-                display: none !important;
-            }
-
-            .sidebar nav {
-                display: flex !important;
-                flex-direction: column !important;
-                flex-wrap: nowrap !important;
-                align-items: flex-start !important;
-                gap: 8px !important;
-                width: 100% !important;
-                overflow: visible !important;
-            }
-
-            .sidebar nav::-webkit-scrollbar,
-            .nav-section::-webkit-scrollbar {
-                display: none;
-            }
-
-            nav {
-                justify-content: flex-start !important;
-            }
-
-            .content-wrapper {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .seen-collections {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 16px;
-                width: 100%;
-            }
-
-            .seen-card {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .nav-section {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: none !important;
-                width: 100% !important;
-                margin: 0 !important;
-                justify-content: center !important;
-                overflow-x: auto !important;
-                overflow-y: hidden !important;
-                scrollbar-width: none;
-            }
-
-            .nav-section h3,
-            .nav-section > span:not(.mobile-theme-separator) {
-                display: none !important;
-            }
-
-            .mobile-home {
-                display: flex !important;
-            }
-
-            .mobile-theme-separator {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                align-items: center !important;
-                justify-content: center !important;
-                color: rgba(107, 114, 128, 0.72) !important;
-                font-size: 14px !important;
-                font-weight: 600 !important;
-                margin-left: 6px !important;
-                margin-right: 2px !important;
-                opacity: 1 !important;
-            }
-
-            .mobile-theme-toggle {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                min-width: 48px !important;
-                height: 46px !important;
-                padding: 0 14px !important;
-                border-radius: 14px !important;
-                margin-left: 6px !important;
-            }
-
-            [data-theme="dark"] .mobile-theme-separator {
-                color: rgba(148, 163, 184, 0.58) !important;
-            }
-
-            .nav-item {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                min-width: 48px !important;
-                height: 46px !important;
-                padding: 0 14px !important;
-                justify-content: center !important;
-                border-radius: 14px !important;
-                white-space: nowrap !important;
-            }
-
-            .nav-item svg {
-                margin-right: 0 !important;
-                width: 20px !important;
-                height: 20px !important;
-            }
-
-            .nav-item span:not(.shortcut) {
-                display: none !important;
-            }
-
-            #seen-page h1,
-            #seen-page .intro {
-                text-align: center;
-                width: 100%;
-            }
-
-            .main-content {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                min-height: 100vh !important;
-                padding: 24px 16px 32px !important;
-                border-left: none !important;
-                border-right: none !important;
-                border-radius: 12px !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="logo">
-                <a href="index.html" class="home-breadcrumb">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                    <span>C. Cifuentes</span>
-                </a>
-                <div class="logo-title" style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Seen</div>
-            </div>
-
-            <nav>
-                <div class="nav-section">
-                    <h3>Collections</h3>
-                    <a href="#light" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                        <span>Light</span>
-                    </a>
-                    <a href="#scenes" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span>Scenes</span>
-                    </a>
-                    <a href="#colors" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-                        <span>Colors</span>
-                    </a>
-                    <a href="#film" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/></svg>
-                        <span>Film</span>
-                    </a>
-                    <a href="#astro" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <span>Astro</span>
-                    </a>
-                    <a href="#haus" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 20c-3.9 0-7-2.6-7-6c0-2.7 2-4.9 4.8-5.7c.6-2.5 2.5-4.3 4.9-4.3c2.9 0 5.3 2.5 5.3 5.6c0 .4 0 .8-.1 1.1c1.2.8 2 2.1 2 3.7c0 3.1-2.7 5.6-6 5.6H12z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.2 18.2c.8-1.2 1.8-1.8 2.8-1.8s2 .6 2.8 1.8"/></svg>
-                        <span>Haus</span>
-                    </a>
-                    <a href="#places" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="8.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 7.5c1.7 1.3 2.6 2.8 2.6 4.5s-.9 3.2-2.6 4.5c-1.7-1.3-2.6-2.8-2.6-4.5s.9-3.2 2.6-4.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7.5 12h9"/></svg>
-                        <span>Places</span>
-                    </a>
-                </div>
-
-                <div class="nav-section">
-                    <h3>Resources</h3>
-                    <a href="index.html" class="nav-item mobile-home">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10.5L12 4l9 6.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.5 9.5V20h13V9.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20v-5h4v5"/></svg>
-                    </a>
-                    <a href="portfolio.html" class="nav-item nav-portfolio">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 21l2-5 2 5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 16V9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 5l1.5 1.5M17 5l-1.5 1.5M4 10h2M18 10h2"/><circle cx="12" cy="10" r="3.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13.5L7 16M14.5 13.5L17 16"/></svg>
-                        <span>Portfolio</span>
-                    </a>
-                    <a href="musik.html" class="nav-item nav-musik">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
-                        <span>Musik</span>
-                    </a>
-                    <span class="mobile-theme-separator" aria-hidden="true">|</span>
-                    <button type="button" class="nav-item mobile-theme-toggle" aria-label="Toggle theme">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3c0 .28-.02.56-.02.84A7.95 7.95 0 0019.16 12c.28 0 .56-.02.84-.02z"/>
-                        </svg>
-                    </button>
-                </div>
-            </nav>
-
-            <div class="theme-toggle">
-                <div class="theme-options">
-                    <span class="theme-option" data-theme="light">Light</span>
-                    <span class="theme-option" data-theme="dark">Dark</span>
-                    <span class="theme-option active" data-theme="auto">Auto</span>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <div class="content-wrapper">
-                <div id="seen-page">
-                    <h1>Seen</h1>
-                    <p class="intro" style="color: var(--text-secondary);">
-                        An archive of places, light, and memories.
-                    </p>
-
-                    <section id="light" class="seen-section">
-                        <h2>Light</h2>
-                        <p class="seen-section-note">Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.</p>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria4.jpeg" alt="Sanabria">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">One last word</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria1.jpeg" alt="Sanabria">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A light in the dark</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria6.jpeg" alt="Sanabria">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Bridges in the sky</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/galicia1.jpg" alt="Galicia 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">We are here because we are here</div>
-                                <div class="seen-location">Galicia, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/galicia2.jpg" alt="Galicia 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A moment in a million years (called life)</div>
-                                <div class="seen-location">Galicia, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/tenerife1.jpg" alt="Tenerife 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">On an island</div>
-                                <div class="seen-location">La Laguna, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/madrid1.jpeg" alt="Madrid 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Volverte a ver</div>
-                                <div class="seen-location">Madrid, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/madrid2.jpeg" alt="Madrid 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Witness</div>
-                                <div class="seen-location">Madrid, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/madrid3.jpg" alt="Madrid 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">An open door</div>
-                                <div class="seen-location">Madrid, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma1.jpeg" alt="Roma 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Ancora luce</div>
-                                <div class="seen-location">Roma, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma6.jpeg" alt="Roma 6">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Nessun dorma</div>
-                                <div class="seen-location">Roma, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/florencia3.jpeg" alt="Florencia 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Harmony</div>
-                                <div class="seen-location">Firenze, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma4.jpeg" alt="Roma 4">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Once upon a time</div>
-                                <div class="seen-location">Roma, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roque1.jpg" alt="Roque 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Mapping the stars for a while</div>
-                                <div class="seen-location">La Palma, 2020</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/salzburgo1.jpg" alt="Salzburgo 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A window to the past</div>
-                                <div class="seen-location">Salzburg, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/vaticano1.jpeg" alt="Vaticano 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Let&apos;s talk</div>
-                                <div class="seen-location">Vaticano, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria2.jpeg" alt="Sanabria 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A place for my head</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="scenes" class="seen-section">
-                        <h2>Scenes</h2>
-                        <p class="seen-section-note">Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.</p>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma2.jpeg" alt="Roma 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A fountain</div>
-                                <div class="seen-location">Roma, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/paris1.jpeg" alt="París 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Smile for me</div>
-                                <div class="seen-location">Paris, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/florencia5.jpeg" alt="Florencia 5">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Orbiting Venus</div>
-                                <div class="seen-location">Paris, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/paris2.jpeg" alt="París 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Sérénité</div>
-                                <div class="seen-location">Paris, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/florencia2.jpeg" alt="Florencia 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Sun sets</div>
-                                <div class="seen-location">Firenze, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma3.jpeg" alt="Roma 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Where the day ends</div>
-                                <div class="seen-location">Roma, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk1.jpeg" alt="UK 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Waltzer</div>
-                                <div class="seen-location">Brighton, 2017</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="colors" class="seen-section">
-                        <h2>Colors</h2>
-                        <p class="seen-section-note">Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.</p>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/asturias1.jpg" alt="Asturias">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">The life that follows</div>
-                                <div class="seen-location">Asturias, 2016</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/roma5.jpeg" alt="Roma 5">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Cupido</div>
-                                <div class="seen-location">Roma, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/florencia4.jpeg" alt="Florencia 4">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">We are here</div>
-                                <div class="seen-location">Firenze, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/vaticano2.jpeg" alt="Vaticano 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Silentium</div>
-                                <div class="seen-location">Vaticano, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria3.jpeg" alt="Sanabria 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Dulce hogar</div>
-                                <div class="seen-location">Sanabria, 2016</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/sanabria5.jpeg" alt="Trains">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Trains</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/salzburgo2.jpg" alt="Salzburgo 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">The past</div>
-                                <div class="seen-location">Salzburg, 2018</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk3.jpg" alt="UK 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Fish, Play, Love</div>
-                                <div class="seen-location">Brighton, 2015</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk4.jpg" alt="UK 4">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A return to the origins</div>
-                                <div class="seen-location">Brighton, 2016</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk5.jpg" alt="UK 5">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Seven Sisters</div>
-                                <div class="seen-location">Brighton, 2016</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk6.jpg" alt="UK 6">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Lux</div>
-                                <div class="seen-location">London, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk7.jpg" alt="UK 7">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">The Word</div>
-                                <div class="seen-location">London, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/uk2.jpg" alt="UK 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">The English Way</div>
-                                <div class="seen-location">London, 2015</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/vialactea.jpeg" alt="Via Lactea">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Find me a Way</div>
-                                <div class="seen-location">Anywhere, 2018</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="film" class="seen-section">
-                        <h2>Film</h2>
-                        <p class="seen-section-note">Captured with a Pentax MX on Kodak 400 35mm film.</p>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/35mm_1.jpg" alt="35mm 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">A link to the past</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/35mm_2.jpg" alt="35mm 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Tanto tiempo juntos</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/35mm_3.jpg" alt="35mm 3">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Big my secret</div>
-                                <div class="seen-location">Sanabria, 2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/35mm_4.jpg" alt="35mm 4">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">On the run</div>
-                                <div class="seen-location">Madrid, 2017</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="astro" class="seen-section">
-                        <h2>Astro</h2>
-                        <p class="seen-section-note">Skywatcher 200/1000 and Canon EOS 450D in prime focus.</p>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/astro_sol1.jpg" alt="Sol 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Sun (Baader filter, coloured)</div>
-                                <div class="seen-location">2012</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/astro_jupiter.jpg" alt="Jupiter">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Jupiter and Galilean moons</div>
-                                <div class="seen-location">2016</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/astro_sol2.jpeg" alt="Sol 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Sun (Baader filter, raw)</div>
-                                <div class="seen-location">2012</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/astro_luna1.jpeg" alt="Luna 1">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Moon, partial eclipse</div>
-                                <div class="seen-location">2017</div>
-                            </div>
-                        </div>
-
-                        <div class="seen-photo">
-                            <img loading="lazy" src="media/photos/astro_luna2.jpeg" alt="Luna 2">
-                            <div class="seen-caption overlay">
-                                <div class="seen-title">Moon</div>
-                                <div class="seen-location">2017</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="haus" class="seen-section">
-                        <h2>Haus</h2>
-                        <p class="seen-section-note">Heidelberg · Frankfurt · Nürnberg · Mannheim · Karlsruhe · Berlin · Strasbourg. Shot with an iPhone 12 mini. Unedited.</p>
-
-                        <div class="haus-gallery">
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1669.jpeg" alt="Altstadt">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1674.jpeg" alt="Bismarkplatz">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1683.jpeg" alt="Bergheimer Str.">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1778.jpeg" alt="Hauptstraße">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1788.jpeg" alt="Zähringerstraße">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2082.jpeg" alt="Königstuhl">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_1826.jpeg" alt="Gutleutviertel">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1809.jpeg" alt="Westhafen Tower">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1895.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2058.jpeg" alt="Nürnberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_1970.jpeg" alt="Mamutblumen">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_2072.jpeg" alt="Heiligenberg Thingstätte">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2129.jpeg" alt="Königstuhl">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2161.jpeg" alt="Landensternwarte">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2173.jpeg" alt="Königstuhl">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2339.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2354.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2647.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_2523.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2443.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2504.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2407.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2516.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2564.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2578.jpeg" alt="Berlin">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_2590.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_2715.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2597.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2736.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_2764.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_3341.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2812.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2994.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_2999.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_3016.jpeg" alt="Heidelberg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_3103.jpeg" alt="Strasbourg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_3128.jpeg" alt="Strasbourg">
-                            </figure>
-                            <figure class="haus-photo">
-                                <img loading="lazy" src="media/photos/heidelberg_3155.jpeg" alt="Strasbourg">
-                            </figure>
-                            <figure class="haus-photo full-width">
-                                <img loading="lazy" src="media/photos/heidelberg_3388.jpeg" alt="Heidelberg">
-                            </figure>
-                        </div>
-                    </section>
-
-                    <div class="seen-divider"></div>
-
-                    <section id="places" class="seen-section">
-                        <h2>Places</h2>
-                        <p class="seen-section-note">Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.</p>
-
-                        <div class="places-grid">
-                            <img loading="lazy" src="media/photos/instagram_48.jpg" alt="Place 48">
-                            <img loading="lazy" src="media/photos/instagram_49.jpg" alt="Place 49">
-                            <img loading="lazy" src="media/photos/instagram_50.jpg" alt="Place 50">
-                            <img loading="lazy" src="media/photos/instagram_51.jpg" alt="Place 51">
-                            <img loading="lazy" src="media/photos/instagram_52.jpg" alt="Place 52">
-                            <img loading="lazy" src="media/photos/instagram_53.jpg" alt="Place 53">
-                            <img loading="lazy" src="media/photos/instagram_54.jpg" alt="Place 54">
-                            <img loading="lazy" src="media/photos/instagram_55.jpg" alt="Place 55">
-                            <img loading="lazy" src="media/photos/instagram_56.jpg" alt="Place 56">
-                            <img loading="lazy" src="media/photos/instagram_57.jpg" alt="Place 57">
-                            <img loading="lazy" src="media/photos/instagram_58.jpg" alt="Place 58">
-                            <img loading="lazy" src="media/photos/instagram_59.jpg" alt="Place 59">
-                            <img loading="lazy" src="media/photos/instagram_60.jpg" alt="Place 60">
-                            <img loading="lazy" src="media/photos/instagram_61.jpg" alt="Place 61">
-                            <img loading="lazy" src="media/photos/instagram_62.jpg" alt="Place 62">
-                            <img loading="lazy" src="media/photos/instagram_63.jpg" alt="Place 63">
-                            <img loading="lazy" src="media/photos/instagram_64.jpg" alt="Place 64">
-                            <img loading="lazy" src="media/photos/instagram_65.jpg" alt="Place 65">
-                            <img loading="lazy" src="media/photos/instagram_35.jpg" alt="Place 35">
-                            <img loading="lazy" src="media/photos/instagram_66.jpg" alt="Place 66">
-                            <img loading="lazy" src="media/photos/instagram_67.jpg" alt="Place 67">
-                            <img loading="lazy" src="media/photos/instagram_68.JPG" alt="Place 68">
-                        </div>
-                    </section>
-
-                    <div style="height: 48px;"></div>
-
-                    <footer style="border-top: 1px solid var(--border-color); padding-top: 16px; text-align: center;">
-                        <p>&copy; 2017-2025 C. Cifuentes. All rights reserved.</p>
-                    </footer>
-                </div>
-            </div>
-        </main>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark" name="color-scheme"/>
+  <title>
+   Carlos Cifuentes · Seen
+  </title>
+  <meta content="Carlos Cifuentes — Seen. Scientific data analysis, software and astrophysics." name="description"/>
+  <link href="assets/css/site.css?v=20261019-music2" rel="stylesheet"/>
+  <script defer="" src="assets/js/site.js">
+  </script>
+ </head>
+ <body class="page-seen">
+  <div class="site-shell site-shell--wide">
+   <a class="skip" href="#main">
+    Skip to content
+   </a>
+   <div class="topline">
+    <a class="brand" href="index.html">
+     C. Cifuentes
+    </a>
+    <nav aria-label="Main navigation">
+     <a href="projects.html">
+      Projects
+     </a>
+     <a href="cv.html">
+      CV
+     </a>
+     <a href="publications.html">
+      Publications
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+   </div>
+   <main id="main">
+    <nav aria-label="Photo collections" class="collection-nav">
+     <a href="#light">
+      Light
+     </a>
+     <a href="#places">
+      Places
+     </a>
+     <a href="#haus">
+      Haus
+     </a>
+    </nav>
+    <div id="seen-page">
+     <h1>
+      Seen
+     </h1>
+     <p class="intro collection-style-26">
+      An archive of places, light, and memories.
+     </p>
+     <section class="seen-section" id="light">
+      <h2>
+       Light
+      </h2>
+      <p class="seen-section-note">
+       Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.
+      </p>
+      <div class="seen-photo">
+       <img alt="Sanabria" loading="lazy" src="media/photos/sanabria4.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         One last word
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Sanabria" loading="lazy" src="media/photos/sanabria1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A light in the dark
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Sanabria" loading="lazy" src="media/photos/sanabria6.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Bridges in the sky
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Galicia 1" loading="lazy" src="media/photos/galicia1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         We are here because we are here
+        </div>
+        <div class="seen-location">
+         Galicia, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Galicia 2" loading="lazy" src="media/photos/galicia2.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A moment in a million years (called life)
+        </div>
+        <div class="seen-location">
+         Galicia, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Tenerife 1" loading="lazy" src="media/photos/tenerife1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         On an island
+        </div>
+        <div class="seen-location">
+         La Laguna, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Madrid 1" loading="lazy" src="media/photos/madrid1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Volverte a ver
+        </div>
+        <div class="seen-location">
+         Madrid, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Madrid 2" loading="lazy" src="media/photos/madrid2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Witness
+        </div>
+        <div class="seen-location">
+         Madrid, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Madrid 3" loading="lazy" src="media/photos/madrid3.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         An open door
+        </div>
+        <div class="seen-location">
+         Madrid, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roma 1" loading="lazy" src="media/photos/roma1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Ancora luce
+        </div>
+        <div class="seen-location">
+         Roma, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roma 6" loading="lazy" src="media/photos/roma6.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Nessun dorma
+        </div>
+        <div class="seen-location">
+         Roma, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Florencia 3" loading="lazy" src="media/photos/florencia3.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Harmony
+        </div>
+        <div class="seen-location">
+         Firenze, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roma 4" loading="lazy" src="media/photos/roma4.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Once upon a time
+        </div>
+        <div class="seen-location">
+         Roma, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roque 1" loading="lazy" src="media/photos/roque1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Mapping the stars for a while
+        </div>
+        <div class="seen-location">
+         La Palma, 2020
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Salzburgo 1" loading="lazy" src="media/photos/salzburgo1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A window to the past
+        </div>
+        <div class="seen-location">
+         Salzburg, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Vaticano 1" loading="lazy" src="media/photos/vaticano1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Let's talk
+        </div>
+        <div class="seen-location">
+         Vaticano, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Sanabria 2" loading="lazy" src="media/photos/sanabria2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A place for my head
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="scenes">
+      <h2>
+       Scenes
+      </h2>
+      <p class="seen-section-note">
+       Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.
+      </p>
+      <div class="seen-photo">
+       <img alt="Roma 2" loading="lazy" src="media/photos/roma2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A fountain
+        </div>
+        <div class="seen-location">
+         Roma, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="París 1" loading="lazy" src="media/photos/paris1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Smile for me
+        </div>
+        <div class="seen-location">
+         Paris, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Florencia 5" loading="lazy" src="media/photos/florencia5.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Orbiting Venus
+        </div>
+        <div class="seen-location">
+         Paris, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="París 2" loading="lazy" src="media/photos/paris2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Sérénité
+        </div>
+        <div class="seen-location">
+         Paris, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Florencia 1" loading="lazy" src="media/photos/florencia2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Sun sets
+        </div>
+        <div class="seen-location">
+         Firenze, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roma 3" loading="lazy" src="media/photos/roma3.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Where the day ends
+        </div>
+        <div class="seen-location">
+         Roma, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 1" loading="lazy" src="media/photos/uk1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Waltzer
+        </div>
+        <div class="seen-location">
+         Brighton, 2017
+        </div>
+       </div>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="colors">
+      <h2>
+       Colors
+      </h2>
+      <p class="seen-section-note">
+       Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.
+      </p>
+      <div class="seen-photo">
+       <img alt="Asturias" loading="lazy" src="media/photos/asturias1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         The life that follows
+        </div>
+        <div class="seen-location">
+         Asturias, 2016
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Roma 5" loading="lazy" src="media/photos/roma5.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Cupido
+        </div>
+        <div class="seen-location">
+         Roma, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Florencia 4" loading="lazy" src="media/photos/florencia4.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         We are here
+        </div>
+        <div class="seen-location">
+         Firenze, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Vaticano 2" loading="lazy" src="media/photos/vaticano2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Silentium
+        </div>
+        <div class="seen-location">
+         Vaticano, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Sanabria 3" loading="lazy" src="media/photos/sanabria3.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Dulce hogar
+        </div>
+        <div class="seen-location">
+         Sanabria, 2016
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Trains" loading="lazy" src="media/photos/sanabria5.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Trains
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Salzburgo 2" loading="lazy" src="media/photos/salzburgo2.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         The past
+        </div>
+        <div class="seen-location">
+         Salzburg, 2018
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 3" loading="lazy" src="media/photos/uk3.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Fish, Play, Love
+        </div>
+        <div class="seen-location">
+         Brighton, 2015
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 4" loading="lazy" src="media/photos/uk4.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A return to the origins
+        </div>
+        <div class="seen-location">
+         Brighton, 2016
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 5" loading="lazy" src="media/photos/uk5.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Seven Sisters
+        </div>
+        <div class="seen-location">
+         Brighton, 2016
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 6" loading="lazy" src="media/photos/uk6.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Lux
+        </div>
+        <div class="seen-location">
+         London, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 7" loading="lazy" src="media/photos/uk7.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         The Word
+        </div>
+        <div class="seen-location">
+         London, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="UK 2" loading="lazy" src="media/photos/uk2.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         The English Way
+        </div>
+        <div class="seen-location">
+         London, 2015
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Via Lactea" loading="lazy" src="media/photos/vialactea.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Find me a Way
+        </div>
+        <div class="seen-location">
+         Anywhere, 2018
+        </div>
+       </div>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="film">
+      <h2>
+       Film
+      </h2>
+      <p class="seen-section-note">
+       Captured with a Pentax MX on Kodak 400 35mm film.
+      </p>
+      <div class="seen-photo">
+       <img alt="35mm 1" loading="lazy" src="media/photos/35mm_1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         A link to the past
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="35mm 2" loading="lazy" src="media/photos/35mm_2.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Tanto tiempo juntos
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="35mm 3" loading="lazy" src="media/photos/35mm_3.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Big my secret
+        </div>
+        <div class="seen-location">
+         Sanabria, 2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="35mm 4" loading="lazy" src="media/photos/35mm_4.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         On the run
+        </div>
+        <div class="seen-location">
+         Madrid, 2017
+        </div>
+       </div>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="astro">
+      <h2>
+       Astro
+      </h2>
+      <p class="seen-section-note">
+       Skywatcher 200/1000 and Canon EOS 450D in prime focus.
+      </p>
+      <div class="seen-photo">
+       <img alt="Sol 1" loading="lazy" src="media/photos/astro_sol1.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Sun (Baader filter, coloured)
+        </div>
+        <div class="seen-location">
+         2012
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Jupiter" loading="lazy" src="media/photos/astro_jupiter.jpg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Jupiter and Galilean moons
+        </div>
+        <div class="seen-location">
+         2016
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Sol 2" loading="lazy" src="media/photos/astro_sol2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Sun (Baader filter, raw)
+        </div>
+        <div class="seen-location">
+         2012
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Luna 1" loading="lazy" src="media/photos/astro_luna1.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Moon, partial eclipse
+        </div>
+        <div class="seen-location">
+         2017
+        </div>
+       </div>
+      </div>
+      <div class="seen-photo">
+       <img alt="Luna 2" loading="lazy" src="media/photos/astro_luna2.jpeg"/>
+       <div class="seen-caption overlay">
+        <div class="seen-title">
+         Moon
+        </div>
+        <div class="seen-location">
+         2017
+        </div>
+       </div>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="haus">
+      <h2>
+       Haus
+      </h2>
+      <p class="seen-section-note">
+       Heidelberg · Frankfurt · Nürnberg · Mannheim · Karlsruhe · Berlin · Strasbourg. Shot with an iPhone 12 mini. Unedited.
+      </p>
+      <div class="haus-gallery">
+       <figure class="haus-photo">
+        <img alt="Altstadt" loading="lazy" src="media/photos/heidelberg_1669.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Bismarkplatz" loading="lazy" src="media/photos/heidelberg_1674.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Bergheimer Str." loading="lazy" src="media/photos/heidelberg_1683.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Hauptstraße" loading="lazy" src="media/photos/heidelberg_1778.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Zähringerstraße" loading="lazy" src="media/photos/heidelberg_1788.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Königstuhl" loading="lazy" src="media/photos/heidelberg_2082.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Gutleutviertel" loading="lazy" src="media/photos/heidelberg_1826.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Westhafen Tower" loading="lazy" src="media/photos/heidelberg_1809.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_1895.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Nürnberg" loading="lazy" src="media/photos/heidelberg_2058.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Mamutblumen" loading="lazy" src="media/photos/heidelberg_1970.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Heiligenberg Thingstätte" loading="lazy" src="media/photos/heidelberg_2072.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Königstuhl" loading="lazy" src="media/photos/heidelberg_2129.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Landensternwarte" loading="lazy" src="media/photos/heidelberg_2161.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Königstuhl" loading="lazy" src="media/photos/heidelberg_2173.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2339.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2354.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2647.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2523.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2443.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2504.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2407.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2516.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2564.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Berlin" loading="lazy" src="media/photos/heidelberg_2578.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2590.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2715.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2597.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2736.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2764.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_3341.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2812.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2994.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_2999.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_3016.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Strasbourg" loading="lazy" src="media/photos/heidelberg_3103.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Strasbourg" loading="lazy" src="media/photos/heidelberg_3128.jpeg"/>
+       </figure>
+       <figure class="haus-photo">
+        <img alt="Strasbourg" loading="lazy" src="media/photos/heidelberg_3155.jpeg"/>
+       </figure>
+       <figure class="haus-photo full-width">
+        <img alt="Heidelberg" loading="lazy" src="media/photos/heidelberg_3388.jpeg"/>
+       </figure>
+      </div>
+     </section>
+     <div class="seen-divider">
+     </div>
+     <section class="seen-section" id="places">
+      <h2>
+       Places
+      </h2>
+      <p class="seen-section-note">
+       Captured with Nikon D5500 and Sigma 10–20mm f/3.5 lens.
+      </p>
+      <div class="places-grid">
+       <img alt="Place 48" loading="lazy" src="media/photos/instagram_48.jpg"/>
+       <img alt="Place 49" loading="lazy" src="media/photos/instagram_49.jpg"/>
+       <img alt="Place 50" loading="lazy" src="media/photos/instagram_50.jpg"/>
+       <img alt="Place 51" loading="lazy" src="media/photos/instagram_51.jpg"/>
+       <img alt="Place 52" loading="lazy" src="media/photos/instagram_52.jpg"/>
+       <img alt="Place 53" loading="lazy" src="media/photos/instagram_53.jpg"/>
+       <img alt="Place 54" loading="lazy" src="media/photos/instagram_54.jpg"/>
+       <img alt="Place 55" loading="lazy" src="media/photos/instagram_55.jpg"/>
+       <img alt="Place 56" loading="lazy" src="media/photos/instagram_56.jpg"/>
+       <img alt="Place 57" loading="lazy" src="media/photos/instagram_57.jpg"/>
+       <img alt="Place 58" loading="lazy" src="media/photos/instagram_58.jpg"/>
+       <img alt="Place 59" loading="lazy" src="media/photos/instagram_59.jpg"/>
+       <img alt="Place 60" loading="lazy" src="media/photos/instagram_60.jpg"/>
+       <img alt="Place 61" loading="lazy" src="media/photos/instagram_61.jpg"/>
+       <img alt="Place 62" loading="lazy" src="media/photos/instagram_62.jpg"/>
+       <img alt="Place 63" loading="lazy" src="media/photos/instagram_63.jpg"/>
+       <img alt="Place 64" loading="lazy" src="media/photos/instagram_64.jpg"/>
+       <img alt="Place 65" loading="lazy" src="media/photos/instagram_65.jpg"/>
+       <img alt="Place 35" loading="lazy" src="media/photos/instagram_35.jpg"/>
+       <img alt="Place 66" loading="lazy" src="media/photos/instagram_66.jpg"/>
+       <img alt="Place 67" loading="lazy" src="media/photos/instagram_67.jpg"/>
+       <img alt="Place 68" loading="lazy" src="media/photos/instagram_68.JPG"/>
+      </div>
+     </section>
+     <div class="collection-style-27">
+     </div>
+     <footer class="collection-style-28">
+      <p>
+       © 2017-2025 C. Cifuentes. All rights reserved.
+      </p>
+     </footer>
     </div>
-
-    <script>
-        function applyTheme(theme) {
-            if (theme === 'auto') {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            applyTheme(savedTheme);
-            syncThemeControls(savedTheme);
-        }
-
-        function syncThemeControls(savedTheme) {
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.classList.toggle('active', option.dataset.theme === savedTheme);
-            });
-
-            const mobileToggle = document.querySelector('.mobile-theme-toggle');
-            if (mobileToggle) {
-                const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const nextTheme = appliedTheme === 'dark' ? 'light' : 'dark';
-                mobileToggle.setAttribute('aria-label', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
-                mobileToggle.setAttribute('title', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
-                mobileToggle.dataset.themeState = appliedTheme;
-            }
-        }
-
-        document.querySelectorAll('.theme-option').forEach(option => {
-            option.addEventListener('click', () => {
-                const theme = option.dataset.theme;
-                localStorage.setItem('theme', theme);
-                applyTheme(theme);
-                syncThemeControls(theme);
-            });
-        });
-
-        document.querySelectorAll('.mobile-theme-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const currentAppliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const nextTheme = currentAppliedTheme === 'dark' ? 'light' : 'dark';
-                localStorage.setItem('theme', nextTheme);
-                applyTheme(nextTheme);
-                syncThemeControls(nextTheme);
-            });
-        });
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            const currentTheme = localStorage.getItem('theme') || 'auto';
-            if (currentTheme === 'auto') {
-                applyTheme('auto');
-                syncThemeControls('auto');
-            }
-        });
-
-        initTheme();
-    </script>
-</body>
+   </main>
+   <footer>
+    <span>
+     © 2026 C. Cifuentes
+    </span>
+    <nav aria-label="Beyond work">
+     <span>
+      Beyond work
+     </span>
+     <a href="musik.html">
+      Musik
+     </a>
+     <a href="seen.html">
+      Seen
+     </a>
+    </nav>
+   </footer>
+  </div>
+ </body>
 </html>

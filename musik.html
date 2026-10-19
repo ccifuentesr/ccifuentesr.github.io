@@ -1,1802 +1,985 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C. Cifuentes</title>
-    <meta name="keywords" content="Carlos Cifuentes San Roman, Carlos Cifuentes, C. Cifuentes, astronomo, astrophysics, exoplanets, CARMENES, KOBE">
-    <meta name="description" content="Personal page of C. Cifuentes.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=positions-titles-2">
-    <style>
-        html, body, button, input, select, textarea {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-        }
-
-        [data-theme="light"] {
-            --bg-color: #f6f7fb;
-            --text-color: #111318;
-            --text-secondary: #6b7280;
-            --border-color: #e5e7eb;
-            --hover-bg: #f3f4f6;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #191a1b;
-            --text-color: #f5f7fb;
-            --text-secondary: #8b93a7;
-            --border-color: #2a2d33;
-            --hover-bg: #202226;
-        }
-
-        body {
-            background: #e9edf2 !important;
-        }
-
-        [data-theme="dark"] body {
-            background: rgb(23, 24, 25) !important;
-        }
-
-        .sidebar {
-            width: 244px !important;
-            padding: 18px 12px 16px !important;
-            border: none !important;
-            border-radius: 0 !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
-
-        .logo {
-            margin-bottom: 20px;
-            padding: 4px 8px 0;
-        }
-
-        .home-breadcrumb {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.01em;
-            text-decoration: none;
-            transition: color 0.15s ease;
-        }
-
-        .home-breadcrumb span {
-            letter-spacing: 0.06em;
-        }
-
-        .home-breadcrumb svg {
-            width: 14px;
-            height: 14px;
-            color: currentColor;
-            opacity: 0.82;
-            transition: color 0.15s ease, opacity 0.15s ease;
-        }
-
-        .home-breadcrumb:visited {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .home-breadcrumb:hover {
-            color: var(--text-color) !important;
-            text-decoration: none !important;
-        }
-
-        .home-breadcrumb:hover svg {
-            opacity: 1;
-        }
-
-        [data-theme="dark"] .home-breadcrumb {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .home-breadcrumb:visited {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        [data-theme="dark"] .home-breadcrumb:hover {
-            color: #f5f7fb !important;
-        }
-
-        .logo-title {
-            font-size: 24px !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.03em !important;
-        }
-
-        .sidebar nav {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .nav-section {
-            margin-bottom: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .nav-section h3 {
-            margin: 0 0 6px;
-            padding: 0 10px;
-            font-size: 11px;
-            letter-spacing: 0.02em;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .nav-item {
-            margin: 0;
-            padding: 8px 10px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .nav-item svg {
-            width: 15px;
-            height: 15px;
-            margin-right: 10px;
-            opacity: 0.82;
-            color: rgba(119, 124, 135, 0.8) !important;
-        }
-
-        .nav-item.active {
-            background: rgba(17, 24, 39, 0.06);
-            color: var(--text-color);
-            box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.05);
-        }
-
-        .mobile-home {
-            display: none !important;
-        }
-
-        .mobile-footer-separator,
-        .mobile-theme-toggle {
-            display: none !important;
-        }
-
-        .mobile-theme-toggle {
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-        }
-
-        [data-theme="dark"] .nav-item {
-            color: rgba(255, 255, 255, 0.72);
-        }
-
-        [data-theme="dark"] .nav-item.active {
-            background: rgba(255, 255, 255, 0.06);
-            color: #f5f7fb;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-        }
-
-        [data-theme="dark"] .nav-item svg {
-            color: rgba(133, 140, 154, 0.8) !important;
-            opacity: 0.72;
-        }
-
-        .nav-item.nav-seen svg {
-            color: #d6b24a !important;
-        }
-
-        .nav-item.nav-portfolio svg {
-            color: #d45a5a !important;
-        }
-
-        .theme-toggle {
-            margin-top: 18px;
-            padding: 14px 8px 0;
-            border-top: none;
-        }
-
-        .theme-options {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 6px;
-        }
-
-        .theme-option {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 30px;
-            padding: 5px 8px;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-align: center;
-            background: rgba(17, 24, 39, 0.03);
-            border: 1px solid transparent;
-            font-weight: 500;
-            color: #6b7280 !important;
-        }
-
-        .theme-option:not(.active) {
-            color: #6b7280 !important;
-            background: rgba(17, 24, 39, 0.03) !important;
-            border-color: transparent !important;
-            opacity: 1;
-        }
-
-        [data-theme="dark"] .theme-option:not(.active) {
-            color: #8f98aa !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-            border-color: transparent !important;
-        }
-
-        .theme-option:not(.active):hover {
-            color: #6b7280 !important;
-            background: rgba(17, 24, 39, 0.03) !important;
-        }
-
-        [data-theme="dark"] .theme-option:not(.active):hover {
-            color: #8f98aa !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-        }
-
-        .theme-option.active {
-            background: rgba(17, 24, 39, 0.06);
-            border-color: rgba(17, 24, 39, 0.05);
-            color: #6b7280 !important;
-            font-weight: 600;
-        }
-
-        [data-theme="dark"] .theme-option.active {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.04);
-            color: #8f98aa !important;
-        }
-
-        .main-content {
-            background: rgba(255, 255, 255, 0.995) !important;
-            border: 1px solid rgba(17, 19, 24, 0.08) !important;
-            box-shadow: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
-
-        [data-theme="dark"] .main-content {
-            background: rgb(25, 26, 27) !important;
-            border-color: rgba(255, 255, 255, 0.04) !important;
-        }
-
-        .content-wrapper {
-            max-width: none !important;
-        }
-
-        a {
-            transition: color 0.15s ease;
-        }
-
-        a:hover {
-            color: inherit !important;
-            text-decoration: none !important;
-        }
-
-        [style*="border-left: 3px solid #1e2430; background: var(--hover-bg);"] {
-            padding: 1.5em !important;
-            border: 1px solid var(--border-color) !important;
-            border-left: 1px solid var(--border-color) !important;
-            border-radius: 14px !important;
-            background: rgba(255, 255, 255, 0.48) !important;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
-        }
-
-        [data-theme="dark"] [style*="border-left: 3px solid #1e2430; background: var(--hover-bg);"] {
-            background: rgba(255, 255, 255, 0.02) !important;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-        }
-
-        [style*="color: orange;"] {
-            color: #d6b24a !important;
-        }
-
-        [style*="color: rgb(0, 163, 0);"] {
-            color: #4fb36f !important;
-        }
-
-        [style*="color: #191919;"],
-        [style*="color: #000000;"] {
-            color: var(--text-color) !important;
-        }
-
-        .equipment-label {
-            font-weight: 700 !important;
-            color: var(--text-color);
-        }
-
-        .equipment-list {
-            margin: 0.5em 0 0 0;
-            padding-left: 1.25em;
-        }
-
-        .equipment-list li {
-            margin-left: 0.15em;
-        }
-
-        .welcome-project {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-
-        .welcome-project-icon {
-            width: 20px;
-            height: 20px;
-            flex: 0 0 auto;
-            color: var(--text-secondary);
-            margin-top: 1px;
-        }
-
-        .welcome-project-copy {
-            min-width: 0;
-        }
-
-        .lyrics-trivia ul {
-            margin: 0.55em 0 0;
-            padding-left: 1.1em;
-        }
-
-        .lyrics-trivia li {
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 0.98 !important;
-        }
-
-        .lyrics-trivia li + li {
-            margin-top: -0.08em !important;
-        }
-
-        #lest {
-            margin-top: 4.5rem;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 0 0 calc(env(safe-area-inset-bottom, 0px) + 192px) !important;
-            }
-
-            .sidebar {
-                width: 100% !important;
-                height: auto !important;
-                min-height: calc(env(safe-area-inset-bottom, 0px) + 68px) !important;
-                position: fixed !important;
-                left: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                top: auto !important;
-                padding: 10px 12px calc(env(safe-area-inset-bottom, 0px) + 10px) !important;
-                border-top: 1px solid rgba(17, 24, 39, 0.08) !important;
-                background: rgba(248, 250, 252, 0.76) !important;
-                box-shadow: none !important;
-                backdrop-filter: blur(20px) saturate(140%) !important;
-                -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
-                overflow: hidden !important;
-                box-sizing: border-box !important;
-                z-index: 1100 !important;
-            }
-
-            [data-theme="dark"] .sidebar {
-                background: rgba(17, 18, 20, 0.82) !important;
-                border-top-color: rgba(255, 255, 255, 0.08) !important;
-            }
-
-            .logo,
-            .theme-toggle {
-                display: none !important;
-            }
-
-            .sidebar nav {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                width: 100% !important;
-                overflow-x: auto !important;
-                overflow-y: hidden !important;
-                scrollbar-width: none;
-            }
-
-            .sidebar nav::-webkit-scrollbar {
-                display: none;
-            }
-
-            nav {
-                justify-content: flex-start !important;
-            }
-
-            .nav-section {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: none !important;
-                margin: 0 !important;
-                justify-content: flex-start !important;
-            }
-
-            .nav-section h3,
-            .nav-section > span {
-                display: none !important;
-            }
-
-            .mobile-home {
-                display: flex !important;
-            }
-
-            .mobile-footer-separator {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                align-items: center !important;
-                justify-content: center !important;
-                color: var(--border-color) !important;
-                font-size: 15px !important;
-                font-weight: 600 !important;
-                padding: 0 2px !important;
-                opacity: 0.95 !important;
-            }
-
-            .mobile-theme-toggle {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                min-width: 48px !important;
-                height: 46px !important;
-                padding: 0 14px !important;
-                border-radius: 14px !important;
-            }
-
-            .nav-item {
-                display: flex !important;
-                flex: 0 0 auto !important;
-                min-width: 48px !important;
-                height: 46px !important;
-                padding: 0 14px !important;
-                justify-content: center !important;
-                border-radius: 14px !important;
-                white-space: nowrap !important;
-            }
-
-            .nav-item svg {
-                margin-right: 0 !important;
-                width: 20px !important;
-                height: 20px !important;
-            }
-
-            .nav-item span:not(.shortcut) {
-                display: none !important;
-            }
-
-            .main-content {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                min-height: 100vh !important;
-                padding: 24px 16px 32px !important;
-                border-left: none !important;
-                border-right: none !important;
-                border-radius: 12px !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <a href="index.html" class="home-breadcrumb">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                    <span>C. Cifuentes</span>
-                </a>
-                <div class="logo-title" style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em;">Musik</div>
-            </div>
-            
-            <nav>
-                <div class="nav-section">
-                    <a href="index.html" class="nav-item mobile-home">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10.5L12 4l9 6.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5.5 9.5V20h13V9.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 20v-5h4v5"/></svg>
-                    </a>
-                    <a href="/about" class="nav-item active">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span>About</span>
-                    </a>
-                    <a href="/kosmona" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                        <span>Kosmona</span>
-                    </a>
-                    <a href="/agricola" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        <span>Agricola</span>
-                    </a>
-                    <a href="/klavier" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="5" width="16" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9v6M12 9v6M16 9v6"/></svg>
-                        <span>Klavier</span>
-                    </a>
-                    <a href="/equipment" class="nav-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4m13.657-5.657l-11.314 11.314m0-11.314l11.314 11.314"/></svg>
-                        <span>Equipment</span>
-                    </a>
-                </div>
-
-                <span class="mobile-footer-separator" aria-hidden="true">|</span>
-                <div class="nav-section">
-                    <h3>Resources</h3>
-                    <a href="portfolio.html" class="nav-item nav-portfolio">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 21l2-5 2 5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 16V9"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 5l1.5 1.5M17 5l-1.5 1.5M4 10h2M18 10h2"/><circle cx="12" cy="10" r="3.25" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13.5L7 16M14.5 13.5L17 16"/></svg>
-                        <span>Portfolio</span>
-                    </a>
-                    <a href="seen.html" class="nav-item nav-seen">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <span>Seen</span>
-                    </a>
-                </div>
-
-                <span class="mobile-footer-separator" aria-hidden="true">|</span>
-                <button type="button" class="nav-item mobile-theme-toggle" aria-label="Toggle theme">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12.79A9 9 0 1111.21 3c0 .28-.02.56-.02.84A7.95 7.95 0 0019.16 12c.28 0 .56-.02.84-.02z"/>
-                    </svg>
-                </button>
-            </nav>
-
-            <div class="theme-toggle">
-                <div class="theme-options">
-                    <span class="theme-option" data-theme="light">Light</span>
-                    <span class="theme-option" data-theme="dark">Dark</span>
-                    <span class="theme-option active" data-theme="auto">Auto</span>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Global Audio Player -->
-        <div id="global-player">
-            <audio id="global-audio"></audio>
-            <div class="player-controls">
-                <button class="play-btn" onclick="togglePlayGlobal()">▶</button>
-                <div class="player-right">
-                    <div id="global-progress-container" onclick="setProgressGlobal(event)">
-                        <div id="global-progress-bar"></div>
-                    </div>
-                    <div class="player-times">
-                        <span id="global-current-time">0:00</span>
-                        <span id="global-duration">0:00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <style>
-            /* Active track styling - bold text with black circle indicator */
-            .playing {
-                font-weight: bold !important;
-                color: var(--text-color) !important;
-            }
-            
-            .playing span {
-                font-weight: bold !important;
-                color: var(--text-color) !important;
-            }
-
-            /* Black circle indicator for playing track */
-            .playing::before {
-                content: '● ';
-                color: #000000;
-                font-size: 0.8em;
-                font-weight: bold;
-                margin-left: -16px;
-                margin-right: 8px;
-                display: inline-block;
-                width: 8px;
-            }
-            
-            /* White circle in dark mode */
-            @media (prefers-color-scheme: dark) {
-                .playing::before {
-                    color: #ffffff;
-                }
-            }
-            
-            [data-theme="dark"] .playing::before {
-                color: #ffffff;
-            }
-
-            /* Cursor pointer for track lists */
-            .track-list li {
-                cursor: pointer;
-            }
-
-            /* Player display styling */
-            #player-display {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                width: 100%;
-            }
-
-            /* Player responsive behavior */
-            @media (max-width: 768px) {
-                #global-player {
-                    display: block !important;
-                    position: fixed !important;
-                    left: 12px !important;
-                    right: 12px !important;
-                    top: auto !important;
-                    bottom: calc(env(safe-area-inset-bottom, 0px) + 88px) !important;
-                    width: auto !important;
-                    margin: 0 !important;
-                    padding: 12px 16px !important;
-                    background: rgba(248, 250, 252, 0.78) !important;
-                    border: 1px solid rgba(17, 24, 39, 0.08) !important;
-                    border-radius: 18px !important;
-                    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14) !important;
-                    backdrop-filter: blur(20px) saturate(140%) !important;
-                    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
-                    box-sizing: border-box !important;
-                    z-index: 1101 !important;
-                }
-
-                [data-theme="dark"] #global-player {
-                    background: rgba(17, 18, 20, 0.86) !important;
-                    border-color: rgba(255, 255, 255, 0.08) !important;
-                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3) !important;
-                }
-
-                .player-controls {
-                    width: 100% !important;
-                    align-items: center !important;
-                }
-
-                .player-right {
-                    max-width: none !important;
-                }
-            }
-
-            /* Ensure progress bar container works properly */
-            #global-progress-container {
-                overflow: visible !important;
-                box-sizing: border-box !important;
-            }
-
-            #global-progress-bar {
-                overflow: visible !important;
-                box-sizing: border-box !important;
-                z-index: 1;
-            }
-
-            /* Global Player Styles */
-            #global-player {
-                position: fixed;
-                left: 12px;
-                bottom: 18px;
-                width: calc(244px - 24px);
-                padding-top: 0;
-                border-top: none;
-                z-index: 900;
-            }
-
-            .player-controls {
-                display: flex;
-                gap: 8px;
-                align-items: flex-start;
-            }
-
-            #global-player .play-btn {
-                background: var(--text-color);
-                color: var(--bg-color);
-                border: none;
-                border-radius: 6px;
-                width: 36px;
-                height: 36px;
-                cursor: pointer;
-                font-size: 14px;
-                flex-shrink: 0;
-                margin-top: 2px;
-            }
-
-            .player-right {
-                flex: 1;
-                min-width: 0;
-                max-width: calc(100% - 44px);
-            }
-
-            /* Mobile-specific adjustments for progress bar */
-            @media (max-width: 768px) {
-                .player-right {
-                    max-width: none !important;
-                }
-                
-                #global-progress-container {
-                    max-width: none !important;
-                }
-            }
-
-            @media (min-width: 769px) {
-                #global-player {
-                    left: 12px;
-                    bottom: 18px;
-                    width: calc(244px - 24px);
-                }
-            }
-
-            #global-progress-container {
-                width: 100%;
-                height: 8px;
-                background-color: var(--border-color);
-                border-radius: 4px;
-                cursor: pointer;
-                position: relative;
-            }
-
-            #global-progress-bar {
-                height: 100%;
-                background-color: var(--text-color);
-                width: 0%;
-                border-radius: 4px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 2;
-                transition: width 0.1s ease;
-                box-sizing: border-box;
-            }
-
-            .player-times {
-                display: flex;
-                justify-content: space-between;
-                font-size: 11px;
-                color: var(--text-color);
-                width: 100%;
-                font-weight: 600;
-                margin-top: 6px;
-            }
-        </style>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-            <div id="about-page">
-                <h1>Welcome to Musik</h1>
-
-                <section style="margin-top: 3em;">
-                    <p style="color: var(--text-secondary); margin-bottom: 2em; font-size: 1.1em; line-height: 1.6;">
-                        The following is my personal journey through music.
-                    </p>
-
-                    <div style="display: grid; gap: 2em; margin-top: 2em;">
-                        <!-- Kosmona -->
-                        <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <div class="welcome-project">
-                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                                <div class="welcome-project-copy">
-                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Kosmona</h3>
-                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                        An electronica project inspired by the planetary orbital elements.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Agricola -->
-                        <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <div class="welcome-project">
-                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                                <div class="welcome-project-copy">
-                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Agricola</h3>
-                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                        A metal project that gives voice to different animals.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Klavier -->
-                        <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); border-radius: 6px;">
-                            <div class="welcome-project">
-                                <svg class="welcome-project-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="5" width="16" height="14" rx="2" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9v6M12 9v6M16 9v6"/></svg>
-                                <div class="welcome-project-copy">
-                                    <h3 style="margin: 0 0 0.5em 0; color: var(--text-color);">Klavier</h3>
-                                    <p style="color: var(--text-secondary); margin: 0; line-height: 1.6;">
-                                        Original compositions and personal renditions, including my unfinished album under the name <i>Carlic</i>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 3em; padding: 1.5em; background: var(--hover-bg); border-radius: 6px; text-align: center;">
-                        <p style="color: var(--text-secondary); margin: 0; font-style: italic;">
-                             Headphones are recommended for the best experience.
-                        </p>
-                    </div>
-                </section>
-            </div>
-
-            <div id="kosmona-page" style="display: none;">
-                <h1>Kosmona</h1>
-
-                <!-- Kosmona Section -->
-                <section id="kosmona" style="margin-top: 3em;">
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5em;"><strong>Kosmona</strong> is an electronica project inspired by the
-                         planetary orbital elements.</p>
-                    
-                    <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); margin: 1.5em 0; border-radius: 6px;">
-                        <p style="color: var(--text-secondary); margin: 0;">Six fundamental parameters define a celestial body's orbit: the semi-major axis (orbit size), eccentricity (orbit shape), inclination (orbital plane tilt), longitude of the ascending node (where the orbit crosses the reference plane), argument of periapsis (orientation of the orbit's closest point), and true anomaly (the body's position along its orbit).</p>
-                    </div>
-                    
-                    <ul style="display: flex; flex-direction: column; gap: 0; margin: 1.5em 0; list-style: none; padding: 0;">
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">01 Semi-major axis</span><span style="color: orange; font-size: 0.9em; margin-left: auto;">processing..</span></li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">02 Eccentricity</span>
-                            <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: default; color: var(--text-color); display: flex; align-items: center; gap: 12px;"><span style="font-weight: 500; flex: 1;">03 Inclination</span><span style="color: orange; font-size: 0.9em; margin-left: auto;">processing..</span></li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">04 Longitude of the ascending node</span>
-                            <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_05_argument.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">05 Argument of periapsis</span>
-                            <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">06 True Anomaly</span>
-                            <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
-                        </li>
-                        <li style="padding: 1em 0; cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="window.open('https://www.youtube.com/watch?v=pHGvzTXnM0E', '_blank')">
-                            <span style="font-weight: 500; flex: 1;">(Clip) True Anomaly ↗</span>
-                            <span style="color: rgb(0, 163, 0); font-size: 0.9em; margin-left: auto;">ready</span>
-                        </li>
-                    </ul>
-                </section>
-
-            </div>
-
-            <div id="agricola-page" style="display: none;">
-                <h1>Agricola</h1>
-                
-                <!-- Agricola Section -->
-                <section id="agricola" style="margin-top: 3em;">
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5em;"><strong>AGRICOLA</strong> is a metal project that gives voice to different animals.</p>
-
-                    <div style="padding: 1.5em; border-left: 3px solid #1e2430; background: var(--hover-bg); margin: 1.5em 0; border-radius: 6px;">
-                        <p style="color: var(--text-secondary); margin: 0;">This music is built upon drum tracks designed by Arnaud Krakowka. Bass lines are absent. Guitar playing is poor and clunky. Human voices are barely distinguishable. 
-                            AGRICOLA gives voice to animals such as dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, and dinosaur (Broncosaurus Rex).
-                            Click on the paw  <span style="font-size:1.1em;">🐾</span> to find the lyrics and some recording details.</p>
-                    </div>
-                    
-                    <ul style="display: flex; flex-direction: column; gap: 0; margin: 1.5em 0; list-style: none; padding: 0;">
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_triangles.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">01 TRIANGLES</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('triangles')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2018</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_dormant.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">02 DORMANT</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('dormant')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2019</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_haunt.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">03 HAUNT</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('haunt')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2019</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_bones.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">04 BONES</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('bones')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2019</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_puma.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">05 PUMA</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('puma')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2021</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_pig.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">06 PIG</span>
-                            <span style="cursor: pointer; padding: 0 8px; transition: transform 0.2s; display: inline-block;" onclick="event.stopPropagation(); showLyrics('pig')" title="Ver letras">🐾</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2024</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_triangles_remix1.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">R01 TRIANGLES DIVINITY REMIX</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2024</span>
-                        </li>
-                        <li style="padding: 1em 0; border-bottom: 1px solid var(--border-color); cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_triangles_remix2.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">R02 TRIANGLES ENIGMA REMIX</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2024</span>
-                        </li>
-                        <li style="padding: 1em 0; cursor: pointer; color: var(--text-color); display: flex; align-items: center; gap: 12px;" onclick="loadTrack('media/music/agricola_puma_remix1.mp3', this)">
-                            <span style="font-weight: 500; flex: 1;">R03 PUMA PUNK REMIX</span>
-                            <span style="color: var(--text-secondary); font-size: 0.9em; margin-left: auto;">2024</span>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-
-            <div id="klavier-page" style="display: none;">
-                <div class="note-box">
-                <h2>Klavier</h2>
-                <p>Collection of on-the-fly improvisations, early ideas and personal renditions for piano. I work on an unfinished album under the name Carlic.</p>
-                </div>
-                
-                <h3 style="color: #191919; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">Carlic</h3>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/1FTCTlOPZVIhT7wqBfYMpc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                
-                <h3 style="color: #191919; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">Improvised originals</h3>
-                <ul class="track-list">
-                    <li onclick="loadTrack('media/music/piano_original_things.mp3', this)"><span class="track-name">The Things That Be</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_run.mp3', this)"><span class="track-name">Run & Love</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_colma.mp3', this)"><span class="track-name">Colma</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_chiller.mp3', this)"><span class="track-name">Chiller</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_meanwhile.mp3', this)"><span class="track-name">Meanwhile</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_breeze.mp3', this)"><span class="track-name">Gentle Breeze Of February</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_three.mp3', this)"><span class="track-name">3:30</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_create.mp3', this)"><span class="track-name">Create</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_vinteren.mp3', this)"><span class="track-name">Vinteren</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_door.mp3', this)"><span class="track-name">An Open Door</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_waltz.mp3', this)"><span class="track-name">Colloquy of Waltz</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_wonder.mp3', this)"><span class="track-name">To The Wonder</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_shorewards.mp3', this)"><span class="track-name">Shorewards</span><span class="track-year">improv</span></li>
-                    <li onclick="loadTrack('media/music/piano_original_dolphins.mp3', this)"><span class="track-name">Why Dolphins Leave</span><span class="track-year">improv</span></li>
-                </ul>
-
-                <h3 style="color: #191919; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">Early sketches</h3>
-                <ul class="track-list">
-                    <li onclick="loadTrack('media/music/ideas_message.mp3', this)"><span class="track-name">Message</span><span class="track-year">2014</span></li>
-                    <li onclick="loadTrack('media/music/ideas_fly.mp3', this)"><span class="track-name">Flying Away</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/ideas_intro.mp3', this)"><span class="track-name">Untitled Intro</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/ideas_strings.mp3', this)"><span class="track-name">Smart Strings</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/ideas_loose.mp3', this)"><span class="track-name">Loose Ends</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/ideas_mint.mp3', this)"><span class="track-name">Mint</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/ideas_machine.mp3', this)"><span class="track-name">To Keep A Time Machine</span><span class="track-year">2011</span></li>
-                    <li onclick="loadTrack('media/music/ideas_handsome.mp3', this)"><span class="track-name">A Handsome Devil</span><span class="track-year">2010</span></li>
-                    <li onclick="loadTrack('media/music/ideas_F7.mp3', this)"><span class="track-name">F7</span><span class="track-year">2009</span></li>
-                </ul>
-
-                <h3 style="color: #191919; font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem;">Personal renditions</h3>
-                <ul class="track-list">
-                    <li onclick="loadTrack('media/music/piano_olafur_saman.mp3', this)"><span class="track-name">Saman / Ólafur Arnalds</span><span class="track-year">2021</span></li>
-                    <li onclick="loadTrack('media/music/piano_frahm_sweet.mp3', this)"><span class="track-name">Sweet Little Lie / Nils Frahm</span><span class="track-year">2021</span></li>
-                    <li onclick="loadTrack('media/music/piano_rammstein_sonne.mp3', this)"><span class="track-name">Sonne / Rammstein</span><span class="track-year">2021</span></li>
-                    <li onclick="loadTrack('media/music/piano_frahm_familiar.mp3', this)"><span class="track-name">Familiar / Nils Frahm</span><span class="track-year">2020</span></li>
-                    <li onclick="loadTrack('media/music/piano_beving_brings.mp3', this)"><span class="track-name">The Light She Brings / Joep Beving</span><span class="track-year">2020</span></li>
-                    <li onclick="loadTrack('media/music/piano_eluvium_ballet.mp3', this)"><span class="track-name">Radio Ballet / Eluvium</span><span class="track-year">2016</span></li>
-                    <li onclick="loadTrack('media/music/piano_hisaishi_summer2.mp3', this)"><span class="track-name">Summer / Joe Hisaishi & Vanessa James</span><span class="track-year">2015</span></li>
-                    <li onclick="loadTrack('media/music/piano_horner_forest.mp3', this)"><span class="track-name">Exploring The Forest / James Horner</span><span class="track-year">2014</span></li>
-                    <li onclick="loadTrack('media/music/piano_andrews_gretchen.mp3', this)"><span class="track-name">Gretchen Ross / Michael Andrews</span><span class="track-year">2014</span></li>
-                    <li onclick="loadTrack('media/music/piano_hisaishi_summer.mp3', this)"><span class="track-name">Summer / Joe Hisaishi</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/piano_bach_crab.mp3', this)"><span class="track-name">Musikalisches Opfer, BWV 1079 / Bach</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/piano_tiersen_comptine.mp3', this)"><span class="track-name">Comptine D'Un Autre Été / Yann Tiersen</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/piano_arnalds_tomorrow.mp3', this)"><span class="track-name">Tomorrow's Song / Ólafur Arnalds</span><span class="track-year">2013</span></li>
-                    <li onclick="loadTrack('media/music/piano_nyman_secret.mp3', this)"><span class="track-name">Big My Secret / Michael Nyman</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_nyman_heart.mp3', this)"><span class="track-name">The Heart Asks Pleasure First / Michael Nyman</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_satie_gymnopedie.mp3', this)"><span class="track-name">Gymnopédie 1 / Erik Satie</span><span class="track-year">2011</span></li>
-                    <li onclick="loadTrack('media/music/piano_kondo_kakariko.mp3', this)"><span class="track-name">Kakariko Village (Zelda) / Koji Kondo</span><span class="track-year">2011</span></li>
-                    <li onclick="loadTrack('media/music/piano_horner_rose.mp3', this)"><span class="track-name">Rose Theme (Titanic) / James Horner</span><span class="track-year">2011</span></li>
-                </ul>
-
-                <h3 style="color: #000000; font-size: 1.2rem; margin-top: 3rem; margin-bottom: 1rem;">Chopin: unintentionally unfinished</h3>
-                <ul class="track-list">
-                    <li onclick="loadTrack('media/music/piano_chopin_nocturne9_1.mp3', this)"><span class="track-name">Nocturne Op.9 no.1 / Chopin</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_chopin_nocturne9_2.mp3', this)"><span class="track-name">Nocturne Op.9 no.2 / Chopin</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_chopin_nocturne15_1.mp3', this)"><span class="track-name">Nocturne Op.15 no.1 / Chopin</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_chopin_nocturne15_2.mp3', this)"><span class="track-name">Nocturne Op.15 no.2 / Chopin</span><span class="track-year">2012</span></li>
-                    <li onclick="loadTrack('media/music/piano_chopin_nocturne28_4.mp3', this)"><span class="track-name">Nocturne Op.28 no.4 / Chopin</span><span class="track-year">2017</span></li>
-                </ul>
-            </section>
-
-            <!-- Lest we forget Section -->
-            <section id="lest" class="musik-section">
-                <h2>Lest we forget</h2>
-                <ul class="track-list">
-                    <li onclick="window.open('https://www.youtube.com/watch?v=D_yy9ZDid-0', '_blank')">
-                        <span class="track-name">Saman / Ólafur Arnalds ↗</span>
-                        <span class="track-year">2021</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=4C97WGNEEd8', '_blank')">
-                        <span class="track-name">Sweet Little Lie / Nils Frahm ↗</span>
-                        <span class="track-year">2021</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=1NNvhRrAm6I', '_blank')">
-                        <span class="track-name">The Light She Brings / Joep Beving ↗</span>
-                        <span class="track-year">2020</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=pZRRReEHGKk', '_blank')">
-                        <span class="track-name">Familiar / Nils Frahm ↗</span>
-                        <span class="track-year">2020</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=QCKAxC6Tvbg', '_blank')">
-                        <span class="track-name">Radio Ballet / Eluvium ↗</span>
-                        <span class="track-year">2016</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=XZ-nJzDQdOE', '_blank')">
-                        <span class="track-name">Summer / Joe Hisaishi & Vanessa James ↗</span>
-                        <span class="track-year">2015</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=52lETwqArF8', '_blank')">
-                        <span class="track-name">Gretchen Ross / Michael Andrews ↗</span>
-                        <span class="track-year">2014</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=yYmRo3zQzhM', '_blank')">
-                        <span class="track-name">Exploring The Forest / James Horner ↗</span>
-                        <span class="track-year">2014</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=_LeYbDFmik4', '_blank')">
-                        <span class="track-name">Tomorrow's Song / Ólafur Arnalds ↗</span>
-                        <span class="track-year">2013</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=PUfiqJ9EF7s', '_blank')">
-                        <span class="track-name">Big My Secret / Michael Nyman ↗</span>
-                        <span class="track-year">2013</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=efbUNQ6pWgI', '_blank')">
-                        <span class="track-name">The Heart Asks Pleasure First / Michael Nyman ↗</span>
-                        <span class="track-year">2013</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=ng6IQTRmMBU', '_blank')">
-                        <span class="track-name">Gnossienne No. 1 / Erik Satie ↗</span>
-                        <span class="track-year">2013</span>
-                    </li>
-                    <li onclick="window.open('https://www.youtube.com/watch?v=H7o4vA6Hu9Q', '_blank')">
-                        <span class="track-name">Kakariko Village (Zelda) / Koji Kondo ↗</span>
-                        <span class="track-year">2012</span>
-                    </li>
-                </ul>
-            </section>
-
-            </div>
-
-            <div id="equipment-page" style="display: none;">
-                <h1>Equipment</h1>
-
-                <div class="tabs">
-                    <div class="tab active" data-tab="instruments">Instruments</div>
-                    <div class="tab" data-tab="software">Software</div>
-                    <div class="tab" data-tab="past">Past</div>
-                </div>
-
-                <div class="tab-content">
-                    <!-- Instruments Tab -->
-                    <div id="instruments-content" class="tab-pane active">
-                        <section id="equipment" class="musik-section">                            
-                            <ul class="equipment-list">
-                                <li><span class="equipment-label">Audio interface:</span> <span>Focusrite Scarlett 2i4</span></li>
-                                <li><span class="equipment-label">Studio monitors:</span> <span>Rokit KRK G4 5</span></li>
-                                <li><span class="equipment-label">Microphone:</span> <span>Røde NT1-A</span></li>
-                                <li><span class="equipment-label">MIDI keyboard:</span> <span>Midistart Music</span></li>
-                                <li><span class="equipment-label">Digital piano:</span> <span>Yamaha P85</span></li>
-                                <li><span class="equipment-label">Electric guitar:</span> <span>Fender Showmaster</span></li>
-                                <li><span class="equipment-label">Acoustic guitar:</span> <span>Cort L-450</span></li>
-                                <li><span class="equipment-label">Electronic drum kit:</span> <span>Millenium MPS-850 + stand</span></li>
-                            </ul>
-                        </section>
-                    </div>
-
-                    <!-- Software Tab -->
-                    <div id="software-content" class="tab-pane" style="display: none;">
-                        <section id="software" class="musik-section">
-                            
-                            <ul class="equipment-list">
-                                <li><span class="equipment-label">Piano VST:</span> <span>Piano Noire</span></li>
-                                <li><span class="equipment-label">DAW:</span> <span>Garage Band</span></li>
-                                <li><span class="equipment-label">Composition:</span> <span>Guitar Pro</span></li>
-                                <li><span class="equipment-label">Audio editing:</span> <span>MacBook Pro 16 (2020-today)</span></li>
-                            </ul>
-                        </section>
-                    </div>
-
-                    <!-- Past Tab -->
-                    <div id="past-content" class="tab-pane" style="display: none;">
-                        <section id="past-equipment" class="musik-section">
-                            
-                            <ul class="equipment-list">
-                                <li><span class="equipment-label">Pedalboard:</span> <span>POD XT Live</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
-                                <li><span class="equipment-label">Headphones:</span> <span>Superlux HD 681</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
-                                <li><span class="equipment-label">Computer:</span> <span>MacBook Pro 13 (2011-2020)</span> <span style="display: inline-block; margin-left: 0.55em; padding: 0.2em 0.65em; border-radius: 999px; background: rgba(239, 68, 68, 0.14); color: #d45a5a; font-size: 0.78em; font-weight: 600; letter-spacing: 0.01em;">retired</span></li>
-                            </ul>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </main>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark" name="color-scheme"/>
+  <title>
+   Carlos Cifuentes · Musik
+  </title>
+  <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
+  <link href="assets/css/site.css?v=20261019-music2" rel="stylesheet"/>
+  <script defer="" src="assets/js/site.js">
+  </script>
+  <script defer="" src="assets/js/musik.js">
+  </script>
+ </head>
+ <body class="page-musik">
+  <div class="site-shell site-shell--wide">
+   <a class="skip" href="#main">
+    Skip to content
+   </a>
+   <div class="topline">
+    <a class="brand" href="index.html">
+     C. Cifuentes
+    </a>
+    <nav aria-label="Main navigation">
+     <a href="projects.html">
+      Projects
+     </a>
+     <a href="cv.html">
+      CV
+     </a>
+     <a href="publications.html">
+      Publications
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+   </div>
+   <main id="main">
+    <nav aria-label="Music collections" class="collection-nav">
+     <a href="#about">
+      Overview
+     </a>
+     <a href="#kosmona">
+      Kosmona
+     </a>
+     <a href="#agricola">
+      Agricola
+     </a>
+     <a href="#klavier">
+      Klavier
+     </a>
+     <a href="#equipment">
+      Equipment
+     </a>
+    </nav>
+    <div data-music-panel="about" id="about-page">
+     <h1>
+      Musik
+     </h1>
+     <p class="music-intro">
+      Original music, piano recordings and unfinished ideas.
+     </p>
+     <div class="music-overview">
+      <a href="#kosmona">
+       <span>
+        Kosmona
+       </span>
+       <span>
+        Electronica inspired by planetary orbits.
+       </span>
+       <span aria-hidden="true">
+        ↗
+       </span>
+      </a>
+      <a href="#agricola">
+       <span>
+        Agricola
+       </span>
+       <span>
+        A metal project that gives voice to animals.
+       </span>
+       <span aria-hidden="true">
+        ↗
+       </span>
+      </a>
+      <a href="#klavier">
+       <span>
+        Klavier
+       </span>
+       <span>
+        Original compositions and personal renditions.
+       </span>
+       <span aria-hidden="true">
+        ↗
+       </span>
+      </a>
+     </div>
+     <p class="music-note">
+      Best listened to with headphones.
+     </p>
     </div>
-
-    <script>
-        // Theme handling
-        function applyTheme(theme) {
-            if (theme === 'auto') {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', theme);
-            }
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            applyTheme(savedTheme);
-            syncThemeControls(savedTheme);
-        }
-
-        function syncThemeControls(savedTheme) {
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.classList.toggle('active', option.dataset.theme === savedTheme);
-            });
-
-            const mobileToggle = document.querySelector('.mobile-theme-toggle');
-            if (mobileToggle) {
-                const appliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const nextTheme = appliedTheme === 'dark' ? 'light' : 'dark';
-                mobileToggle.setAttribute('aria-label', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
-                mobileToggle.setAttribute('title', nextTheme === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
-                mobileToggle.dataset.themeState = appliedTheme;
-            }
-        }
-
-        // Theme toggle listeners
-        document.querySelectorAll('.theme-option').forEach(option => {
-            option.addEventListener('click', () => {
-                const theme = option.dataset.theme;
-                localStorage.setItem('theme', theme);
-                applyTheme(theme);
-                syncThemeControls(theme);
-            });
-        });
-
-        document.querySelectorAll('.mobile-theme-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const currentAppliedTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const nextTheme = currentAppliedTheme === 'dark' ? 'light' : 'dark';
-                localStorage.setItem('theme', nextTheme);
-                applyTheme(nextTheme);
-                syncThemeControls(nextTheme);
-            });
-        });
-
-        // Listen for system theme changes when in auto mode
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            const currentTheme = localStorage.getItem('theme') || 'auto';
-            if (currentTheme === 'auto') {
-                applyTheme('auto');
-                syncThemeControls('auto');
-            }
-        });
-
-        // Initialize theme on load
-        initTheme();
-
-        // Tab functionality for About page
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetTab = tab.getAttribute('data-tab');
-                if (!targetTab) return;
-
-                // Update active tab
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                // Update active content
-                document.querySelectorAll('.tab-pane').forEach(pane => {
-                    pane.style.display = 'none';
-                    pane.classList.remove('active');
-                });
-                
-                const targetContent = document.getElementById(`${targetTab}-content`);
-                if (targetContent) {
-                    targetContent.style.display = 'block';
-                    targetContent.classList.add('active');
-                }
-            });
-        });
-
-        // Navigation handling
-        const navItems = document.querySelectorAll('.nav-item');
-        const aboutPage = document.getElementById('about-page');
-        const kosmonaPage = document.getElementById('kosmona-page');
-        const klavierPage = document.getElementById('klavier-page');
-        const agricolaPage = document.getElementById('agricola-page');
-        const equipmentPage = document.getElementById('equipment-page');
-
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                const href = item.getAttribute('href');
-                
-                if (['/about', '/kosmona', '/klavier', '/agricola', '/equipment'].includes(href)) {
-                    e.preventDefault();
-                    
-                    // Hide all pages
-                    aboutPage.style.display = 'none';
-                    kosmonaPage.style.display = 'none';
-                    klavierPage.style.display = 'none';
-                    agricolaPage.style.display = 'none';
-                    equipmentPage.style.display = 'none';
-                    
-                    // Update active nav item
-                    navItems.forEach(nav => nav.classList.remove('active'));
-                    item.classList.add('active');
-                    
-                    // Show corresponding page
-                    if (href === '/about') {
-                        aboutPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Musik';
-                    } else if (href === '/kosmona') {
-                        kosmonaPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Kosmona';
-                    } else if (href === '/klavier') {
-                        klavierPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Klavier';
-                    } else if (href === '/agricola') {
-                        agricolaPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Agricola';
-                    } else if (href === '/equipment') {
-                        equipmentPage.style.display = 'block';
-                        document.title = 'C. Cifuentes · Equipment';
-                    }
-                }
-            });
-        });
-
-        // Handle initial page load based on URL
-        const currentPath = window.location.pathname;
-        if (currentPath === '/equipment') {
-            aboutPage.style.display = 'none';
-            kosmonaPage.style.display = 'none';
-            klavierPage.style.display = 'none';
-            agricolaPage.style.display = 'none';
-            equipmentPage.style.display = 'block';
-            
-            // Update active nav item
-            navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/equipment"]').classList.add('active');
-            document.title = 'C. Cifuentes · Equipment';
-        } else if (currentPath === '/klavier') {
-            aboutPage.style.display = 'none';
-            kosmonaPage.style.display = 'none';
-            klavierPage.style.display = 'block';
-            agricolaPage.style.display = 'none';
-            equipmentPage.style.display = 'none';
-            
-            navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/klavier"]').classList.add('active');
-            document.title = 'C. Cifuentes · Klavier';
-        } else if (currentPath === '/agricola') {
-            aboutPage.style.display = 'none';
-            kosmonaPage.style.display = 'none';
-            klavierPage.style.display = 'none';
-            agricolaPage.style.display = 'block';
-            equipmentPage.style.display = 'none';
-            
-            navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/agricola"]').classList.add('active');
-            document.title = 'C. Cifuentes · Agricola';
-        } else if (currentPath === '/kosmona') {
-            aboutPage.style.display = 'none';
-            kosmonaPage.style.display = 'block';
-            klavierPage.style.display = 'none';
-            agricolaPage.style.display = 'none';
-            equipmentPage.style.display = 'none';
-            
-            navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/kosmona"]').classList.add('active');
-            document.title = 'C. Cifuentes · Kosmona';
-        } else {
-            // Default to about page
-            aboutPage.style.display = 'block';
-            kosmonaPage.style.display = 'none';
-            klavierPage.style.display = 'none';
-            agricolaPage.style.display = 'none';
-            equipmentPage.style.display = 'none';
-            
-            navItems.forEach(nav => nav.classList.remove('active'));
-            document.querySelector('a[href="/about"]').classList.add('active');
-            document.title = 'C. Cifuentes · Musik';
-        }
-
-        // ===== THESIS CHAT FUNCTIONS =====
-        function showProgress() {
-            const bar = document.getElementById("progressBar");
-            let width = 0;
-            return setInterval(() => {
-                if (width < 90) {
-                    width += 1;
-                    bar.style.width = width + "%";
-                }
-            }, 50);
-        }
-
-        function addMessage(content, type) {
-            const messagesEl = document.getElementById("chatMessages");
-            const messageDiv = document.createElement('div');
-            messageDiv.style.cssText = 'padding: 0.8em; background: ' + (type === 'user' ? 'var(--text-color)' : 'var(--hover-bg)') + '; color: ' + (type === 'user' ? 'var(--bg-color)' : 'var(--text-color)') + '; border-radius: 6px; margin-bottom: 0.8em;';
-            messageDiv.innerHTML = '<p style="margin: 0; font-size: 0.9em;">' + content + '</p>';
-            messagesEl.appendChild(messageDiv);
-            messagesEl.scrollTop = messagesEl.scrollHeight;
-        }
-
-        async function askThesis() {
-            const questionEl = document.getElementById("question");
-            if (!questionEl) return;
-            
-            const question = questionEl.value.trim();
-            if (!question) return;
-
-            addMessage(question, 'user');
-
-            const btn = document.getElementById("askBtn");
-            const container = document.getElementById("progressContainer");
-
-            questionEl.value = '';
-
-            if (btn) {
-                btn.disabled = true;
-                btn.style.opacity = 0.6;
-            }
-            if (container) {
-                container.style.display = "block";
-            }
-
-            const interval = showProgress();
-
-            try {
-                const res = await fetch("https://ccifuentesr-github-io.onrender.com/ask", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ question })
-                });
-
-                const data = await res.json();
-                clearInterval(interval);
-
-                const bar = document.getElementById("progressBar");
-                bar.style.width = "100%";
-
-                container.style.transition = "opacity 0.3s ease";
-                container.style.opacity = 0;
-                setTimeout(() => {
-                    container.style.display = "none";
-                    container.style.opacity = 1;
-                    bar.style.width = "0%";
-                }, 300);
-
-                const rawAnswer = data.answer || "No answer.";
-                let formatted = rawAnswer
-                    .replace(/^### (.*$)/gim, "<h3>$1</h3>")
-                    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-                    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                    .replace(/\*(.*?)\*/g, "<em>$1</em>")
-                    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
-                    .replace(/^\s*[-+*]\s+(.*)/gim, "<li>$1</li>")
-                    .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
-                    .replace(/\n/g, "<br>");
-
-                if (data.chunks && data.chunks.length > 0) {
-                    formatted += "<br><br><strong>Sources</strong><ul>";
-                    data.chunks.forEach(c => {
-                        formatted += `<li>${c}</li>`;
-                    });
-                    formatted += "</ul>";
-                }
-
-                addMessage(formatted, 'bot');
-
-            } catch (err) {
-                clearInterval(interval);
-                container.style.display = "none";
-                addMessage("Uh-oh, I'm lost for words...", 'bot');
-            } finally {
-                btn.disabled = false;
-                btn.style.opacity = 1;
-            }
-        }
-
-        const questionElement = document.getElementById("question");
-        if (questionElement) {
-            questionElement.addEventListener("keypress", function(e) {
-                if (e.key === "Enter") {
-                    askThesis();
-                }
-            });
-        }
-
-        // ===== CATALOGUE SEARCH FUNCTIONS =====
-        function updateSearchPlaceholder() {
-            const catalogEl = document.getElementById('catalog-select');
-            const searchInput = document.getElementById('unified-search');
-            
-            if (!catalogEl || !searchInput) return;
-            
-            const catalog = catalogEl.value;
-            const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
-            
-            if (karmnCatalogues.includes(catalog)) {
-                searchInput.placeholder = 'Object name or Karmn identifier (e.g., J00026+383)...';
-            } else {
-                searchInput.placeholder = 'Object name...';
-            }
-        }
-
-        async function unifiedSearch() {
-            const catalogEl = document.getElementById('catalog-select');
-            const searchInput = document.getElementById('unified-search');
-            const resultElement = document.getElementById('unified-result');
-            
-            if (!catalogEl || !searchInput) return;
-            
-            const catalog = catalogEl.value;
-            const searchTerm = searchInput.value.trim();
-
-            if (!catalog) {
-                resultElement.style.display = 'block';
-                resultElement.style.background = 'var(--hover-bg)';
-                resultElement.style.border = '1px solid var(--border-color)';
-                resultElement.innerHTML = '<p style="color: var(--text-secondary); margin:0;">Please select a catalogue first.</p>';
-                return;
-            }
-
-            if (!searchTerm) {
-                resultElement.style.display = 'block';
-                resultElement.style.background = 'var(--hover-bg)';
-                resultElement.style.border = '1px solid var(--border-color)';
-                resultElement.innerHTML = '<p style="color: var(--text-secondary); margin:0;">Please enter an object name to search.</p>';
-                return;
-            }
-
-            let vizierSource;
-            if (catalog === 'cifuentes25') {
-                vizierSource = 'J/A+A/693/A228';
-            } else if (catalog === 'cifuentes20') {
-                vizierSource = 'J/A+A/642/A115';
-            } else if (catalog === 'schweitzer19') {
-                vizierSource = 'J/A+A/625/A68';
-            } else if (catalog === 'martinez-rodriguez19') {
-                vizierSource = 'J/ApJ/887/261';
-            } else if (catalog === 'gonzalez-payo24') {
-                vizierSource = 'J/A+A/689/A302';
-            } else if (catalog === 'cortes-contreras24') {
-                vizierSource = 'J/A+A/692/A206';
-            }
-
-            resultElement.style.display = 'block';
-            resultElement.style.background = 'var(--bg-color)';
-            resultElement.style.border = '1px solid var(--border-color)';
-            resultElement.innerHTML = '<p style="color: var(--text-secondary); font-style:italic; margin:0;">Searching...</p>';
-
-            try {
-                const karmnCatalogues = ['cifuentes25', 'cifuentes20', 'schweitzer19', 'cortes-contreras24'];
-                
-                let tsvUrl;
-                const isKarmnId = searchTerm.match(/^J\d{5}[+-]\d{3}$/i);
-                
-                if (isKarmnId && karmnCatalogues.includes(catalog)) {
-                    tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&Karmn=${encodeURIComponent(searchTerm)}&-out.max=50&-out.all`;
-                } else {
-                    tsvUrl = `https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.all`;
-                }
-                
-                const resp = await fetch(tsvUrl);
-
-                if (!resp.ok) {
-                    resultElement.style.display = 'block';
-                    const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML`;
-                    resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
-                    return;
-                }
-
-                const text = await resp.text();
-                
-                const lines = text.split('\n')
-                    .map(l => l.trim())
-                    .filter(l => l && !l.startsWith('#') && !/^[-=\s\t]+$/.test(l));
-                
-                if (lines.length < 3) {
-                    resultElement.style.background = 'var(--hover-bg)';
-                    resultElement.style.border = '1px solid var(--border-color)';
-                    const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
-                    resultElement.innerHTML = `<p style="color: var(--text-secondary); margin:0;">Object not found in this <a href="${catalogueUrl}" target="_blank" style="color: #0084ff; font-weight: 600; text-decoration: underline;">catalogue</a>.</p>`;
-                    return;
-                }
-
-                const headers = lines[0].split('\t').map(h => h.split(' [')[0].trim());
-                const units = lines[1].split('\t').map(u => u.trim());
-                const data = lines[2].split('\t');
-
-                const readmeUrl = `https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/${vizierSource}?format=html&tex=true`;
-                const catalogueUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${vizierSource}`;
-
-                let html = `<div style="margin-bottom: 1em; padding: 0.8em; background: var(--hover-bg); border-left: 3px solid var(--text-color); font-size: 0.9em; color: var(--text-color);">
-                    For detailed information about this <a href="${catalogueUrl}" target="_blank" style="color: #0084ff; font-weight: 600; text-decoration: underline;">catalogue</a>, see the <a href="${readmeUrl}" target="_blank" style="color: #0084ff; font-weight: 600; text-decoration: none;">ReadMe file</a>.
-                </div>`;
-                
-                html += `<div style="font-size: 0.9em; color: var(--text-color);">`;
-                
-                headers.forEach((header, index) => {
-                    const value = data[index] ? data[index].trim() : '';
-                    if (value && value !== '---') {
-                        let display = `<strong style="color: var(--text-color);">${header}:</strong> ${value}`;
-                        const unit = units[index] || '';
-                        if (unit && unit !== '---') {
-                            display += ` <span style="color: var(--text-secondary);">(${unit})</span>`;
-                        }
-                        html += `<div style="margin-bottom: 0.5em; color: var(--text-color);">${display}</div>`;
-                    }
-                });
-                html += '</div>';
-
-                resultElement.style.background = 'var(--bg-color)';
-                resultElement.style.border = '1px solid var(--border-color)';
-                resultElement.innerHTML = html;
-
-            } catch (err) {
-                console.error('Catalogue search error:', err);
-                resultElement.style.display = 'block';
-                const vizierUrl = `https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=${encodeURIComponent(vizierSource)}&-c=${encodeURIComponent(searchTerm)}&-out.max=1&-out.form=HTML`;
-                resultElement.innerHTML = `<iframe src="${vizierUrl}" style="width: 100%; height: 600px; border: none;" title="VizieR Catalogue Results"></iframe>`;
-            }
-        }
-
-        const searchElement = document.getElementById('unified-search');
-        if (searchElement) {
-            searchElement.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    unifiedSearch();
-                }
-            });
-        }
-
-        // ==========================================
-        // GLOBAL AUDIO PLAYER
-        // ==========================================
-        function togglePlayGlobal() {
-            const audio = document.getElementById('global-audio');
-            const playBtn = document.querySelector('#global-player .play-btn');
-            if (audio.paused) {
-                audio.play();
-                playBtn.textContent = '❚❚';
-            } else {
-                audio.pause();
-                playBtn.textContent = '▶';
-            }
-        }
-
-        function setProgressGlobal(e) {
-            const audio = document.getElementById('global-audio');
-            const container = e.currentTarget;
-            const rect = container.getBoundingClientRect();
-            const percent = (e.clientX - rect.left) / rect.width;
-            audio.currentTime = percent * audio.duration;
-        }
-
-        function loadTrack(src, el) {
-            const audio = document.getElementById('global-audio');
-            if (!audio) return;
-            
-            const absoluteSrc = new URL(src, location.href).href;
-            if (audio.src !== absoluteSrc) audio.src = src;
-            audio.play().catch(() => {});
-
-            // Update UI states - remove playing class from all track elements across all sections
-            document.querySelectorAll('.track-list li, ul li[onclick*="loadTrack"]').forEach(li => li.classList.remove('playing'));
-            el.classList.add('playing');
-
-            const playBtn = document.querySelector('#global-player .play-btn');
-
-            audio.onplaying = () => {
-                if (playBtn) playBtn.textContent = '❚❚';
-            };
-            
-            audio.onpause = () => {
-                if (playBtn) playBtn.textContent = '▶';
-            };
-            
-            audio.onended = () => {
-                el.classList.remove('playing');
-                if (playBtn) playBtn.textContent = '▶';
-            };
-        }
-
-        // Audio player event listeners - with retry mechanism
-        function setupAudioPlayer() {
-            try {
-                const audioElement = document.getElementById('global-audio');
-                const progressBar = document.getElementById('global-progress-bar');
-                const currentTimeEl = document.getElementById('global-current-time');
-                const durationEl = document.getElementById('global-duration');
-                
-                if (!audioElement || !progressBar || !currentTimeEl || !durationEl) {
-                    // Retry after a short delay if elements not found
-                    setTimeout(setupAudioPlayer, 100);
-                    return;
-                }
-                
-                audioElement.addEventListener('timeupdate', () => {
-                    try {
-                        const progress = (audioElement.currentTime / audioElement.duration) * 100;
-                        if (progressBar) {
-                            progressBar.style.width = progress + '%';
-                        }
-                        
-                        const minutes = Math.floor(audioElement.currentTime / 60);
-                        const seconds = Math.floor(audioElement.currentTime % 60);
-                        const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                        if (currentTimeEl) {
-                            currentTimeEl.textContent = timeString;
-                        }
-                    } catch (e) {
-                        console.error('Error in timeupdate:', e);
-                    }
-                });
-
-                audioElement.addEventListener('loadedmetadata', () => {
-                    try {
-                        const minutes = Math.floor(audioElement.duration / 60);
-                        const seconds = Math.floor(audioElement.duration % 60);
-                        const durationString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                        if (durationEl) {
-                            durationEl.textContent = durationString;
-                        }
-                    } catch (e) {
-                        console.error('Error in loadedmetadata:', e);
-                    }
-                });
-            } catch (e) {
-                console.error('Error in setupAudioPlayer:', e);
-            }
-        }
-        
-        setupAudioPlayer();
-
-        // ==========================================
-        // LYRICS FUNCTIONALITY
-        // ==========================================
-        const lyricsDatabase = {
-            triangles: {
-                title: "TRIANGLES (2018)",
-                lyrics: `If the triangles made a god
-If the triangles made a god
-They would give him three sides`
-            },
-            dormant: {
-                title: "DORMANT (2019)",
-                lyrics: `Again you fail to see
-It's no one but you
-The powers that be`
-            },
-            haunt: {
-                title: "HAUNT (2019)",
-                lyrics: `There is no plan
-There is no purpose
-Zweck sein selbst ist jegliches Tier
-(Each animal is an end in itself)`
-            },
-            bones: {
-                title: "BONES (2019)",
-                lyrics: `[These lyrics are lost forever]`
-            },
-            puma: {
-                title: "PUMA (2021)",
-                lyrics: `Eumetazoa
-Deuterostomia
-Chordata
-Vertebrata
-Gnathostomata
-Tetrapoda
-Mammalia
-Theria
-Placentalia
-Laurasiatheria
-Carnivora
-Feliformia
-Felidae
-Felinae
-Puma
-Puma concolor`
-            },
-            pig: {
-                title: "PIG (2024)",
-                lyrics: `(Instrumental)`
-            }
-        };
-
-        function showLyrics(songId) {
-            const song = lyricsDatabase[songId];
-            if (!song) {
-                alert('Letras no disponibles para esta canción.');
-                return;
-            }
-            
-            // Create modal
-            const modal = document.createElement('div');
-            modal.className = 'lyrics-modal';
-            let trivia = '';
-            if (songId === 'triangles') {
-                trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
-                <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated at least 100 times.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">With the exception of some fills, the song was improvised in one take.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Guitar recorded with Windows Sound Recorder (.wav converted to .mp3).</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Left index finger bruised after repeatedly hitting a prominent edge of the Showmaster neck.</li>
-                </ul>
-                </div>`;
-            } else if (songId === 'bones') {
-                trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
-                <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated approximately 500 times.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Around 1,500 audio fragments were recorded but not used in the final mix.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Vocals include Rottweiler and German Shepherd samples.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The main microphone failed and was replaced with an iPhone.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recording, production, and mixing were completed in about 72 hours.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Released on Good Friday.</li>
-                </ul>
-                </div>`;
-            } else if (songId === 'dormant') {
-                trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
-                <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The intro riff was repeated at least one hundred times.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Guitar played while barefoot like Steven Wilson.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Some sounds achieved with scissors.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Officially released on Maundy Thursday.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">A broken PC was used for recording.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recording, production, and mixing took less than 48 hours.</li>
-                </ul>
-                </div>`;
-            } else if (songId === 'haunt') {
-                trivia = `<div class="lyrics-trivia" style="margin-top:1.5em; color:var(--text-color); font-size:0.98em;">
-                <span style="font-weight: bold; color: var(--text-color);">Trivia:</span><br>
-                <ul style="margin:0.15em 0 0 1.1em; padding:0; list-style-type:disc;">
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Recorded sitting on a wooden bench, eating pickles.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">Features an undefined jungle animal, probably a lemur.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">The song that has caused the most fingertip pain.</li>
-                    <li style="margin:0; padding:0; line-height:0.95; display:list-item;">First song conceived in Guitar Pro (originally called 'Melting Sun').</li>
-                </ul>
-                </div>`;
-            }
-            modal.innerHTML = `
-                <div class="lyrics-content">
-                    <div class="lyrics-header">
-                        <h3>${song.title}</h3>
-                        <span class="close-lyrics" onclick="closeLyrics()">&times;</span>
-                    </div>
-                    <div class="lyrics-text">
-                        <span style="font-weight: bold; color: var(--text-color);">Human lyrics:</span><br>
-                        <span style="font-style: italic;">${song.lyrics.replace(/\n/g, '<br>')}</span>
-                        ${trivia}
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeLyrics();
-            });
-        }
-        
-        function closeLyrics() {
-            const modal = document.querySelector('.lyrics-modal');
-            if (modal) modal.remove();
-        }
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLyrics();
-        });
-    </script>
-</body>
+    <div data-music-panel="kosmona" id="kosmona-page">
+     <h1>
+      Kosmona
+     </h1>
+     <!-- Kosmona Section -->
+     <section class="collection-style-1" id="kosmona">
+      <p class="collection-style-9">
+       <strong>
+        Kosmona
+       </strong>
+       is an electronica project inspired by the
+                         planetary orbital elements.
+      </p>
+      <div class="collection-style-10">
+       <p class="collection-style-11">
+        Six fundamental parameters define a celestial body's orbit: the semi-major axis (orbit size), eccentricity (orbit shape), inclination (orbital plane tilt), longitude of the ascending node (where the orbit crosses the reference plane), argument of periapsis (orientation of the orbit's closest point), and true anomaly (the body's position along its orbit).
+       </p>
+      </div>
+      <ul class="collection-style-12">
+       <li class="collection-style-13">
+        <span class="collection-style-14">
+         01 Semi-major axis
+        </span>
+        <span class="collection-style-15">
+         processing..
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         02 Eccentricity
+        </span>
+        <span class="collection-style-17">
+         ready
+        </span>
+       </li>
+       <li class="collection-style-13">
+        <span class="collection-style-14">
+         03 Inclination
+        </span>
+        <span class="collection-style-15">
+         processing..
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         04 Longitude of the ascending node
+        </span>
+        <span class="collection-style-17">
+         ready
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/orbital_05_argument.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         05 Argument of periapsis
+        </span>
+        <span class="collection-style-17">
+         ready
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         06 True Anomaly
+        </span>
+        <span class="collection-style-17">
+         ready
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=pHGvzTXnM0E', '_blank')" role="button" tabindex="0">
+        <span class="collection-style-14">
+         (Clip) True Anomaly ↗
+        </span>
+        <span class="collection-style-17">
+         ready
+        </span>
+       </li>
+      </ul>
+     </section>
+    </div>
+    <div data-music-panel="agricola" id="agricola-page">
+     <h1>
+      Agricola
+     </h1>
+     <!-- Agricola Section -->
+     <section class="collection-style-1" id="agricola">
+      <p class="collection-style-9">
+       <strong>
+        AGRICOLA
+       </strong>
+       is a metal project that gives voice to different animals.
+      </p>
+      <div class="collection-style-10">
+       <p class="collection-style-11">
+        This music is built upon drum tracks designed by Arnaud Krakowka. Bass lines are absent. Guitar playing is poor and clunky. Human voices are barely distinguishable.
+                            AGRICOLA gives voice to animals such as dog (Rottweiler), sheep, cow, kiwi, chimpanzee, grebe, and dinosaur (Broncosaurus Rex).
+                            Click on the paw
+        <span class="collection-style-19">
+         🐾
+        </span>
+        to find the lyrics and some recording details.
+       </p>
+      </div>
+      <ul class="collection-style-12">
+       <li class="music-track" onclick="loadTrack('media/music/agricola_triangles.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         01 TRIANGLES
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('triangles')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2018
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_dormant.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         02 DORMANT
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('dormant')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2019
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_haunt.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         03 HAUNT
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('haunt')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2019
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_bones.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         04 BONES
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('bones')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2019
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_puma.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         05 PUMA
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('puma')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2021
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_pig.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         06 PIG
+        </span>
+        <button aria-label="Show lyrics" class="lyrics-trigger" onclick="event.stopPropagation(); showLyrics('pig')" title="Show lyrics" type="button">
+         🐾
+        </button>
+        <span class="collection-style-21">
+         2024
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_triangles_remix1.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         R01 TRIANGLES DIVINITY REMIX
+        </span>
+        <span class="collection-style-21">
+         2024
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_triangles_remix2.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         R02 TRIANGLES ENIGMA REMIX
+        </span>
+        <span class="collection-style-21">
+         2024
+        </span>
+       </li>
+       <li class="music-track" onclick="loadTrack('media/music/agricola_puma_remix1.mp3', this)" role="button" tabindex="0">
+        <span class="collection-style-14">
+         R03 PUMA PUNK REMIX
+        </span>
+        <span class="collection-style-21">
+         2024
+        </span>
+       </li>
+      </ul>
+     </section>
+    </div>
+    <div data-music-panel="klavier" id="klavier-page">
+     <div class="note-box">
+      <h2 class="music-group-title">
+       Klavier
+      </h2>
+      <p>
+       Collection of on-the-fly improvisations, early ideas and personal renditions for piano. I work on an unfinished album under the name Carlic.
+      </p>
+     </div>
+     <h3 class="music-group-title">
+      Carlic
+     </h3>
+     <iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" class="collection-style-23" data-testid="embed-iframe" frameborder="0" height="152" loading="lazy" src="https://open.spotify.com/embed/artist/1FTCTlOPZVIhT7wqBfYMpc?utm_source=generator&amp;theme=0" width="100%">
+     </iframe>
+     <h3 class="music-group-title">
+      Improvised originals
+     </h3>
+     <ul class="track-list">
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_things.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        The Things That Be
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_run.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Run &amp; Love
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_colma.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Colma
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_chiller.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Chiller
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_meanwhile.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Meanwhile
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_breeze.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Gentle Breeze Of February
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_three.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        3:30
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_create.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Create
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_vinteren.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Vinteren
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_door.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        An Open Door
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_waltz.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Colloquy of Waltz
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_wonder.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        To The Wonder
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_shorewards.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Shorewards
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_original_dolphins.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Why Dolphins Leave
+       </span>
+       <span class="track-year">
+        improv
+       </span>
+      </li>
+     </ul>
+     <h3 class="music-group-title">
+      Early sketches
+     </h3>
+     <ul class="track-list">
+      <li class="music-track" onclick="loadTrack('media/music/ideas_message.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Message
+       </span>
+       <span class="track-year">
+        2014
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_fly.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Flying Away
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_intro.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Untitled Intro
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_strings.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Smart Strings
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_loose.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Loose Ends
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_mint.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Mint
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_machine.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        To Keep A Time Machine
+       </span>
+       <span class="track-year">
+        2011
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_handsome.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        A Handsome Devil
+       </span>
+       <span class="track-year">
+        2010
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/ideas_F7.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        F7
+       </span>
+       <span class="track-year">
+        2009
+       </span>
+      </li>
+     </ul>
+     <h3 class="music-group-title">
+      Personal renditions
+     </h3>
+     <ul class="track-list">
+      <li class="music-track" onclick="loadTrack('media/music/piano_olafur_saman.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Saman / Ólafur Arnalds
+       </span>
+       <span class="track-year">
+        2021
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_frahm_sweet.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Sweet Little Lie / Nils Frahm
+       </span>
+       <span class="track-year">
+        2021
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_rammstein_sonne.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Sonne / Rammstein
+       </span>
+       <span class="track-year">
+        2021
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_frahm_familiar.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Familiar / Nils Frahm
+       </span>
+       <span class="track-year">
+        2020
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_beving_brings.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        The Light She Brings / Joep Beving
+       </span>
+       <span class="track-year">
+        2020
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_eluvium_ballet.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Radio Ballet / Eluvium
+       </span>
+       <span class="track-year">
+        2016
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_hisaishi_summer2.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Summer / Joe Hisaishi &amp; Vanessa James
+       </span>
+       <span class="track-year">
+        2015
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_horner_forest.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Exploring The Forest / James Horner
+       </span>
+       <span class="track-year">
+        2014
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_andrews_gretchen.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Gretchen Ross / Michael Andrews
+       </span>
+       <span class="track-year">
+        2014
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_hisaishi_summer.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Summer / Joe Hisaishi
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_bach_crab.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Musikalisches Opfer, BWV 1079 / Bach
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_tiersen_comptine.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Comptine D'Un Autre Été / Yann Tiersen
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_arnalds_tomorrow.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Tomorrow's Song / Ólafur Arnalds
+       </span>
+       <span class="track-year">
+        2013
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_nyman_secret.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Big My Secret / Michael Nyman
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_nyman_heart.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        The Heart Asks Pleasure First / Michael Nyman
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_satie_gymnopedie.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Gymnopédie 1 / Erik Satie
+       </span>
+       <span class="track-year">
+        2011
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_kondo_kakariko.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Kakariko Village (Zelda) / Koji Kondo
+       </span>
+       <span class="track-year">
+        2011
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_horner_rose.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Rose Theme (Titanic) / James Horner
+       </span>
+       <span class="track-year">
+        2011
+       </span>
+      </li>
+     </ul>
+     <h3 class="music-group-title">
+      Chopin: unintentionally unfinished
+     </h3>
+     <ul class="track-list">
+      <li class="music-track" onclick="loadTrack('media/music/piano_chopin_nocturne9_1.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Nocturne Op.9 no.1 / Chopin
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_chopin_nocturne9_2.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Nocturne Op.9 no.2 / Chopin
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_chopin_nocturne15_1.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Nocturne Op.15 no.1 / Chopin
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_chopin_nocturne15_2.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Nocturne Op.15 no.2 / Chopin
+       </span>
+       <span class="track-year">
+        2012
+       </span>
+      </li>
+      <li class="music-track" onclick="loadTrack('media/music/piano_chopin_nocturne28_4.mp3', this)" role="button" tabindex="0">
+       <span class="track-name">
+        Nocturne Op.28 no.4 / Chopin
+       </span>
+       <span class="track-year">
+        2017
+       </span>
+      </li>
+     </ul>
+     <!-- Lest we forget Section -->
+     <section class="musik-section" id="lest">
+      <h2 class="music-group-title">
+       Lest we forget
+      </h2>
+      <ul class="track-list">
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=D_yy9ZDid-0', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Saman / Ólafur Arnalds ↗
+        </span>
+        <span class="track-year">
+         2021
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=4C97WGNEEd8', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Sweet Little Lie / Nils Frahm ↗
+        </span>
+        <span class="track-year">
+         2021
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=1NNvhRrAm6I', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         The Light She Brings / Joep Beving ↗
+        </span>
+        <span class="track-year">
+         2020
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=pZRRReEHGKk', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Familiar / Nils Frahm ↗
+        </span>
+        <span class="track-year">
+         2020
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=QCKAxC6Tvbg', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Radio Ballet / Eluvium ↗
+        </span>
+        <span class="track-year">
+         2016
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=XZ-nJzDQdOE', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Summer / Joe Hisaishi &amp; Vanessa James ↗
+        </span>
+        <span class="track-year">
+         2015
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=52lETwqArF8', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Gretchen Ross / Michael Andrews ↗
+        </span>
+        <span class="track-year">
+         2014
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=yYmRo3zQzhM', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Exploring The Forest / James Horner ↗
+        </span>
+        <span class="track-year">
+         2014
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=_LeYbDFmik4', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Tomorrow's Song / Ólafur Arnalds ↗
+        </span>
+        <span class="track-year">
+         2013
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=PUfiqJ9EF7s', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Big My Secret / Michael Nyman ↗
+        </span>
+        <span class="track-year">
+         2013
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=efbUNQ6pWgI', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         The Heart Asks Pleasure First / Michael Nyman ↗
+        </span>
+        <span class="track-year">
+         2013
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=ng6IQTRmMBU', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Gnossienne No. 1 / Erik Satie ↗
+        </span>
+        <span class="track-year">
+         2013
+        </span>
+       </li>
+       <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=H7o4vA6Hu9Q', '_blank')" role="button" tabindex="0">
+        <span class="track-name">
+         Kakariko Village (Zelda) / Koji Kondo ↗
+        </span>
+        <span class="track-year">
+         2012
+        </span>
+       </li>
+      </ul>
+     </section>
+    </div>
+    <div data-music-panel="equipment" id="equipment-page">
+     <h1>
+      Equipment
+     </h1>
+     <div class="tabs">
+      <div class="tab active" data-tab="instruments">
+       Instruments
+      </div>
+      <div class="tab" data-tab="software">
+       Software
+      </div>
+      <div class="tab" data-tab="past">
+       Past
+      </div>
+     </div>
+     <div class="tab-content">
+      <!-- Instruments Tab -->
+      <div class="tab-pane active" id="instruments-content">
+       <section class="musik-section" id="equipment">
+        <dl class="equipment-details">
+         <dt>
+          Audio interface
+         </dt>
+         <dd>
+          Focusrite Scarlett 2i4
+         </dd>
+         <dt>
+          Studio monitors
+         </dt>
+         <dd>
+          Rokit KRK G4 5
+         </dd>
+         <dt>
+          Microphone
+         </dt>
+         <dd>
+          Røde NT1-A
+         </dd>
+         <dt>
+          MIDI keyboard
+         </dt>
+         <dd>
+          Midistart Music
+         </dd>
+         <dt>
+          Digital piano
+         </dt>
+         <dd>
+          Yamaha P85
+         </dd>
+         <dt>
+          Electric guitar
+         </dt>
+         <dd>
+          Fender Showmaster
+         </dd>
+         <dt>
+          Acoustic guitar
+         </dt>
+         <dd>
+          Cort L-450
+         </dd>
+         <dt>
+          Electronic drum kit
+         </dt>
+         <dd>
+          Millenium MPS-850 + stand
+         </dd>
+        </dl>
+       </section>
+      </div>
+      <!-- Software Tab -->
+      <div class="tab-pane" hidden="" id="software-content">
+       <section class="musik-section" id="software">
+        <dl class="equipment-details">
+         <dt>
+          Piano VST
+         </dt>
+         <dd>
+          Piano Noire
+         </dd>
+         <dt>
+          DAW
+         </dt>
+         <dd>
+          Garage Band
+         </dd>
+         <dt>
+          Composition
+         </dt>
+         <dd>
+          Guitar Pro
+         </dd>
+         <dt>
+          Audio editing
+         </dt>
+         <dd>
+          MacBook Pro 16 (2020-today)
+         </dd>
+        </dl>
+       </section>
+      </div>
+      <!-- Past Tab -->
+      <div class="tab-pane" hidden="" id="past-content">
+       <section class="musik-section" id="past-equipment">
+        <dl class="equipment-details">
+         <dt>
+          Pedalboard
+         </dt>
+         <dd>
+          POD XT Live retired
+         </dd>
+         <dt>
+          Headphones
+         </dt>
+         <dd>
+          Superlux HD 681 retired
+         </dd>
+         <dt>
+          Computer
+         </dt>
+         <dd>
+          MacBook Pro 13 (2011-2020) retired
+         </dd>
+        </dl>
+       </section>
+      </div>
+     </div>
+    </div>
+    <div hidden="" id="global-player">
+     <audio id="global-audio" preload="metadata">
+     </audio>
+     <button aria-label="Play" class="play-btn" onclick="togglePlayGlobal()" type="button">
+      ▶
+     </button>
+     <div class="player-detail">
+      <span id="now-playing">
+       Select a track
+      </span>
+      <input aria-label="Playback position" id="audio-seek" max="100" min="0" step="0.1" type="range" value="0"/>
+     </div>
+     <span class="player-clock">
+      <span id="global-current-time">
+       0:00
+      </span>
+      /
+      <span id="global-duration">
+       0:00
+      </span>
+     </span>
+    </div>
+   </main>
+   <footer>
+    <span>
+     © 2026 C. Cifuentes
+    </span>
+    <nav aria-label="Beyond work">
+     <span>
+      Beyond work
+     </span>
+     <a href="musik.html">
+      Musik
+     </a>
+     <a href="seen.html">
+      Seen
+     </a>
+    </nav>
+   </footer>
+  </div>
+ </body>
 </html>
