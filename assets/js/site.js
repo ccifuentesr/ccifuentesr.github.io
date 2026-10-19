@@ -20,3 +20,15 @@ document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', activate);
   tab.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
 });
+
+const photoPanels = document.querySelectorAll('[data-photo-panel]');
+function showPhotoPanel() {
+  const requested = location.hash.slice(1);
+  const name = [...photoPanels].some(p => p.dataset.photoPanel === requested) ? requested : 'light';
+  photoPanels.forEach(p => { p.hidden = p.dataset.photoPanel !== name; });
+  document.querySelectorAll('.collection-nav a').forEach(a => {
+    if (a.hash === '#' + name) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+}
+if (photoPanels.length) { showPhotoPanel(); window.addEventListener('hashchange', showPhotoPanel); }

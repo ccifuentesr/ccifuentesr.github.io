@@ -24,3 +24,6 @@ Buildless HTML site. Open locally with `python3 -m http.server 8765` and visit h
 No build step or client-side routing framework is required. Navigation remains normal HTML links. Keep navigation/footer links consistent when adding a page. Project tool labels are based on the previous portfolio; update them only when supported by the project itself. CV facts originate from cifuentes-cv.tex.
 
 The `.env` file is local service configuration and is not a frontend asset. It is not read or copied by this redesign.
+
+## Photo gallery
+`media/photos/` preserves the originals. `media/gallery/` contains 800 px WebP previews and 2200 px viewing versions (never upscaled), named with a source-content hash. `assets/js/gallery.js` loads previews near the viewport and opens large photos on demand. `gallery-sw.js` caches only these generated images, up to 240 entries, over HTTPS or localhost. Browser storage can be cleared or evicted. When replacing an image, generate new hashed derivatives and update its links; do not overwrite a hashed image with different content.

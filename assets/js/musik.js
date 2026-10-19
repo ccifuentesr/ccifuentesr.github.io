@@ -1,3 +1,6 @@
+let lyricsInputMode = 'pointer';
+document.addEventListener('pointerdown', () => { lyricsInputMode = 'pointer'; }, true);
+document.addEventListener('keydown', () => { lyricsInputMode = 'keyboard'; }, true);
 const audio = document.getElementById('global-audio');
 const player = document.getElementById('global-player');
 const playButton = player.querySelector('.play-btn');
@@ -82,12 +85,13 @@ Puma concolor`
         };
 
         function showLyrics(songId) {
+            const openedWithPointer = lyricsInputMode === 'pointer';
             const song = lyricsDatabase[songId];
             if (!song) {
                 alert('Letras no disponibles para esta canción.');
                 return;
             }
-            
+
             closeLyrics();
             // Native modal keeps lyrics separate from page content.
             const modal = document.createElement('dialog');
@@ -143,7 +147,7 @@ Puma concolor`
                 <div class="lyrics-content">
                     <div class="lyrics-header">
                         <h3 id="lyrics-title">${song.title}</h3>
-                        <button type="button" class="close-lyrics" onclick="closeLyrics()" aria-label="Close lyrics">×</button>
+
                     </div>
                     <div class="lyrics-text">
                         <span style="font-weight: bold; color: var(--text-color);">Human lyrics:</span><br>
@@ -152,23 +156,31 @@ Puma concolor`
                     </div>
                 </div>
             `;
-            
+
             document.body.appendChild(modal);
             modal.showModal();
-            modal.addEventListener("close", () => modal.remove());
-            
+            modal.addEventListener("close", () => {
+                modal.remove();
+                // A pointer-opened dialog must not leave a keyboard focus ring on its song.
+                // Keep restored focus untouched for keyboard users.
+                if (openedWithPointer) requestAnimationFrame(() => {
+                    const active = document.activeElement;
+                    if (active?.matches('.music-track, .lyrics-trigger')) active.blur();
+                });
+            });
+
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeLyrics();
             });
         }
-        
+
         function closeLyrics() {
             const modal = document.querySelector('.lyrics-modal');
             if (modal) { modal.close(); modal.remove(); }
         }
-        
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLyrics();
         });
-    
+
 window.addEventListener('hashchange', closeLyrics);

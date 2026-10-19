@@ -8,11 +8,12 @@
    Carlos Cifuentes · Musik
   </title>
   <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261019-music2" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261019-kosmonabadges1" rel="stylesheet"/>
   <script defer="" src="assets/js/site.js">
   </script>
   <script defer="" src="assets/js/musik.js">
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
  <body class="page-musik">
   <div class="site-shell site-shell--wide">
@@ -20,25 +21,22 @@
     Skip to content
    </a>
    <div class="topline">
-    <a class="brand" href="index.html">
-     C. Cifuentes
+    <a aria-label="C. Cifuentes — Home" class="brand" href="index.html">
+     <span class="brand-initial">
+      C.
+     </span>
+     <span>
+      Cifuentes
+     </span>
+     <span aria-hidden="true" class="brand-accent">
+      _
+     </span>
     </a>
-    <nav aria-label="Main navigation">
-     <a href="projects.html">
-      Projects
-     </a>
-     <a href="cv.html">
-      CV
-     </a>
-     <a href="publications.html">
-      Publications
-     </a>
-     <a href="contact.html">
-      Contact
-     </a>
-    </nav>
    </div>
    <main id="main">
+    <h1>
+     Musik
+    </h1>
     <nav aria-label="Music collections" class="collection-nav">
      <a href="#about">
       Overview
@@ -57,9 +55,6 @@
      </a>
     </nav>
     <div data-music-panel="about" id="about-page">
-     <h1>
-      Musik
-     </h1>
      <p class="music-intro">
       Original music, piano recordings and unfinished ideas.
      </p>
@@ -103,9 +98,6 @@
      </p>
     </div>
     <div data-music-panel="kosmona" id="kosmona-page">
-     <h1>
-      Kosmona
-     </h1>
      <!-- Kosmona Section -->
      <section class="collection-style-1" id="kosmona">
       <p class="collection-style-9">
@@ -125,65 +117,62 @@
         <span class="collection-style-14">
          01 Semi-major axis
         </span>
-        <span class="collection-style-15">
-         processing..
+        <span class="status-badge status-badge--processing">
+         Processing
         </span>
        </li>
        <li class="music-track" onclick="loadTrack('media/music/orbital_02_eccentricity.mp3', this)" role="button" tabindex="0">
         <span class="collection-style-14">
          02 Eccentricity
         </span>
-        <span class="collection-style-17">
-         ready
+        <span class="status-badge status-badge--ready">
+         Ready
         </span>
        </li>
        <li class="collection-style-13">
         <span class="collection-style-14">
          03 Inclination
         </span>
-        <span class="collection-style-15">
-         processing..
+        <span class="status-badge status-badge--processing">
+         Processing
         </span>
        </li>
        <li class="music-track" onclick="loadTrack('media/music/orbital_04_longitude.mp3', this)" role="button" tabindex="0">
         <span class="collection-style-14">
          04 Longitude of the ascending node
         </span>
-        <span class="collection-style-17">
-         ready
+        <span class="status-badge status-badge--ready">
+         Ready
         </span>
        </li>
        <li class="music-track" onclick="loadTrack('media/music/orbital_05_argument.mp3', this)" role="button" tabindex="0">
         <span class="collection-style-14">
          05 Argument of periapsis
         </span>
-        <span class="collection-style-17">
-         ready
+        <span class="status-badge status-badge--ready">
+         Ready
         </span>
        </li>
        <li class="music-track" onclick="loadTrack('media/music/orbital_06_trueanomaly.mp3', this)" role="button" tabindex="0">
         <span class="collection-style-14">
          06 True Anomaly
         </span>
-        <span class="collection-style-17">
-         ready
+        <span class="status-badge status-badge--ready">
+         Ready
         </span>
        </li>
        <li class="music-track" onclick="window.open('https://www.youtube.com/watch?v=pHGvzTXnM0E', '_blank')" role="button" tabindex="0">
         <span class="collection-style-14">
          (Clip) True Anomaly ↗
         </span>
-        <span class="collection-style-17">
-         ready
+        <span class="status-badge status-badge--ready">
+         Ready
         </span>
        </li>
       </ul>
      </section>
     </div>
     <div data-music-panel="agricola" id="agricola-page">
-     <h1>
-      Agricola
-     </h1>
      <!-- Agricola Section -->
      <section class="collection-style-1" id="agricola">
       <p class="collection-style-9">
@@ -299,9 +288,6 @@
     </div>
     <div data-music-panel="klavier" id="klavier-page">
      <div class="note-box">
-      <h2 class="music-group-title">
-       Klavier
-      </h2>
       <p>
        Collection of on-the-fly improvisations, early ideas and personal renditions for piano. I work on an unfinished album under the name Carlic.
       </p>
@@ -813,9 +799,6 @@
      </section>
     </div>
     <div data-music-panel="equipment" id="equipment-page">
-     <h1>
-      Equipment
-     </h1>
      <div class="tabs">
       <div class="tab active" data-tab="instruments">
        Instruments
@@ -922,19 +905,19 @@
           Pedalboard
          </dt>
          <dd>
-          POD XT Live retired
+          POD XT Live <span class="status-badge status-badge--retired">retired</span>
          </dd>
          <dt>
           Headphones
          </dt>
          <dd>
-          Superlux HD 681 retired
+          Superlux HD 681 <span class="status-badge status-badge--retired">retired</span>
          </dd>
          <dt>
           Computer
          </dt>
          <dd>
-          MacBook Pro 13 (2011-2020) retired
+          MacBook Pro 13 (2011-2020) <span class="status-badge status-badge--retired">retired</span>
          </dd>
         </dl>
        </section>
