@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark" name="color-scheme"/>
+  <title>Carlos Cifuentes · RUNA</title>
+  <meta content="RUNA: a Python application for stellar characterisation, catalogue integration and supervised spectral-type estimation." name="description"/>
+  <link href="assets/css/site.css?v=20261022-runa1" rel="stylesheet"/>
+  <script defer src="assets/js/site.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="page-projects">
+  <div class="site-shell">
+   <a class="skip" href="#main">Skip to content</a>
+   <div class="topline">
+    <a aria-label="C. Cifuentes — Home" class="brand" href="index.html">
+     <span class="brand-initial">C.</span><span>Cifuentes</span><span aria-hidden="true" class="brand-accent">_</span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a href="projects.html">Projects</a><a href="cv.html">CV</a><a href="publications.html">Publications</a><a href="contact.html">Contact</a>
+    </nav>
+   </div>
+   <main id="main" class="runa-detail">
+    <nav aria-label="Breadcrumb" class="project-breadcrumb">
+     <a href="index.html">C. Cifuentes<span aria-hidden="true" class="breadcrumb-accent">_</span></a>
+     <span aria-hidden="true">/</span><a href="projects.html">Projects</a><span aria-hidden="true">/</span><strong>RUNA</strong>
+    </nav>
+    <header>
+     <div class="eyebrow">Python · Machine learning · Scientific data</div>
+     <h1>RUNA</h1>
+     <p class="subtitle">A single interface for stellar characterisation.</p>
+     <p>RUNA brings together catalogue identification, photometry, published empirical relations and quality indicators that I developed and used during my research. A selected star becomes the common input for the application, keeping each calculation traceable to its source data and method.</p>
+    </header>
+    <section>
+     <h2>Machine-learning component</h2>
+     <p>The spectral-type tool estimates an M-dwarf subtype from Gaia G and 2MASS J photometry. It compares a quadratic colour model with a random forest that also uses W2, on the same separate test set. The deployed two-band estimator intentionally uses the simpler model so that its inputs and limits remain easy to inspect.</p>
+     <p class="runa-note">The training sample contains selected single, non-young M0–M5.5 stars from Cifuentes et al. (2020). It is an estimate to be checked against spectroscopy, not a classification replacement.</p>
+    </section>
+    <section>
+     <h2>Current tools</h2>
+     <p>RUNA queries SIMBAD and Gaia DR3, visualises a colour–magnitude diagram and observed SED, retrieves additional photometry, checks Gaia multiplicity indicators, explores nearby sources, retrieves TESS light curves when available, and connects stellar names with records in the NASA Exoplanet Archive. It also exposes published luminosities and the inputs behind its empirical estimates.</p>
+     <ul aria-label="RUNA tools" class="project-tags">
+      <li>Machine learning</li><li class="tech-tag--language">Python</li><li class="tech-tag--library">Streamlit</li><li class="tech-tag--library">scikit-learn</li><li class="tech-tag--library">Astropy · astroquery</li><li class="tech-tag--library">ADQL / SQL</li>
+     </ul>
+    </section>
+    <section>
+     <h2>Code</h2>
+     <p>The repository contains the Streamlit interface, data files and the independent Python modules behind each tool.</p>
+     <div class="project-links">
+      <a href="https://github.com/ccifuentesr/runa-app" rel="noopener noreferrer" target="_blank">Open the RUNA repository ↗</a>
+      <a href="projects.html">Back to Projects ↗</a>
+     </div>
+    </section>
+   </main>
+   <footer>
+    <span>© Carlos Cifuentes</span>
+    <nav aria-label="Footer navigation"><a href="contact.html">Contact</a><a href="musik.html">Music</a><a href="seen.html">Seen</a></nav>
+   </footer>
+  </div>
+ </body>
+</html>
