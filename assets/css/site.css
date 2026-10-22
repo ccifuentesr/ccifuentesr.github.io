@@ -161,3 +161,5 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-detail{max-width:760px}.runa-detail h2{margin-top:40px}.runa-detail .project-tags{margin-top:24px}.runa-note{color:var(--text-secondary);font-size:15px}
 
 .runa-launch-note{flex-basis:100%;font-size:13px;color:var(--text-secondary);margin-top:-4px}
+
+.runa-logo-mini{display:block;width:auto;height:45px;max-width:100%;object-fit:contain}
