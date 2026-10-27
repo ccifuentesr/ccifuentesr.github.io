@@ -6,7 +6,7 @@
   <meta content="dark" name="color-scheme"/>
   <title>Carlos Cifuentes · RUNA</title>
   <meta content="RUNA: a Python application for stellar characterisation, catalogue integration and supervised spectral-type estimation." name="description"/>
-  <link href="assets/css/site.css?v=20261022-runa7" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261027-runa8" rel="stylesheet"/>
   <script defer src="assets/js/site.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
@@ -33,26 +33,72 @@
      <div class="eyebrow">Python · Machine learning · Scientific data</div>
      <p>RUNA brings together catalogue identification, photometry, published empirical relations and quality indicators that I developed and used during my research. A selected star becomes the common input for the application, keeping each calculation traceable to its source data and method.</p>
     </header>
+    <nav aria-label="RUNA links" class="runa-actions">
+     <a class="runa-open-button" href="https://runa-ccifuentes.streamlit.app" rel="noopener noreferrer" target="_blank">Open RUNA ↗</a>
+     <a href="https://github.com/ccifuentesr/runa-app" rel="noopener noreferrer" target="_blank">Code and documentation ↗</a>
+     <a href="projects.html">Back to Projects ↗</a>
+    </nav>
     <section>
-     <h2>Machine-learning component</h2>
-     <p>The spectral-type tool estimates an M-dwarf subtype from Gaia G and 2MASS J photometry. It compares a quadratic colour model with a random forest that also uses W2, on the same separate test set. The deployed two-band estimator intentionally uses the simpler model so that its inputs and limits remain easy to inspect.</p>
-     <p class="runa-note">The training sample contains selected single, non-young M0–M5.5 stars from Cifuentes et al. (2020). It is an estimate to be checked against spectroscopy, not a classification replacement.</p>
-    </section>
-    <section>
-     <h2>Current tools</h2>
-     <p>RUNA queries SIMBAD and Gaia DR3, visualises a colour–magnitude diagram and observed SED, retrieves additional photometry, checks Gaia multiplicity indicators, explores nearby sources, retrieves TESS light curves when available, and connects stellar names with records in the NASA Exoplanet Archive. It also exposes published luminosities and the inputs behind its empirical estimates.</p>
-     <ul aria-label="RUNA tools" class="project-tags">
-      <li>Machine learning</li><li class="tech-tag--language">Python</li><li class="tech-tag--library">Streamlit</li><li class="tech-tag--library">scikit-learn</li><li class="tech-tag--library">Astropy · astroquery</li><li class="tech-tag--library">ADQL / SQL</li>
-     </ul>
-    </section>
-    <section>
-     <h2>RUNA</h2>
-     <p>Open the public application or inspect the repository, including its independent Python modules and source data.</p>
-     <div class="project-links">
-      <a href="https://runa-ccifuentes.streamlit.app" rel="noopener noreferrer" target="_blank">Open RUNA ↗</a>
-      <a href="https://github.com/ccifuentesr/runa-app" rel="noopener noreferrer" target="_blank">Code and documentation ↗</a>
-      <a href="projects.html">Back to Projects ↗</a>
+     <h2>MACHINE-LEARNING BUILT-IN</h2>
+     <div class="runa-ml-grid">
+      <article class="runa-info-card runa-ml-card">
+       <span class="runa-card-kicker">SPECTRAL-TYPE ESTIMATE</span>
+       <h3>Gaia G + 2MASS J</h3>
+       <p>A quadratic colour model estimates M-dwarf subtype from a selected sample of 1,509 stars, M0–M5.5.</p>
+       <div class="runa-card-stat"><strong>0.247</strong><span>subtypes mean absolute error on a separate test set</span></div>
+       <p class="runa-card-note">A photometric estimate for comparison with spectroscopy. The deployed model uses two bands; a random forest is evaluated separately.</p>
+      </article>
+      <article class="runa-info-card runa-ml-card">
+       <span class="runa-card-kicker">BINARY MODEL · CLOSE UNRESOLVED</span>
+       <h3>Gaia DR3 indicators</h3>
+       <p>A random forest uses eight Gaia diagnostics to score close unresolved multiplicity. Evaluation uses 644 labelled catalogue rows, grouped by system.</p>
+       <div class="runa-card-stat"><strong>0.955</strong><span>ROC AUC · one system-separated test split</span></div>
+       <p class="runa-card-note">Internal evaluation only. The score is uncalibrated; it does not confirm a binary or establish external performance.</p>
+      </article>
      </div>
+    </section>
+    <section>
+     <h2>CURRENT TOOLS</h2>
+     <div aria-label="RUNA capabilities" class="runa-tools-grid">
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">01 · IDENTIFICATION</span>
+       <h3>One selected star</h3>
+       <p>SIMBAD name resolution; Gaia DR3, 2MASS and UCAC4 data; astrometry, radial velocity and sky views.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">02 · PHOTOMETRY</span>
+       <h3>Measurements across bands</h3>
+       <p>Gaia colour–magnitude context, catalogue photometry, observed SED, approximate G−J distance and VOSA-compatible export.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">03 · PARAMETERS · IN PREPARATION</span>
+       <h3>Published relations</h3>
+       <p>Absolute magnitudes, published luminosities, mass estimates within calibration limits and experimental metallicity.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">04 · MULTIPLICITY</span>
+       <h3>Indicators and neighbours</h3>
+       <p>Gaia multiplicity criteria, nearby-source inspection and RVS score versus RUWE. Indicators suggest; they do not confirm.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">05 · TIME SERIES & PLANETS</span>
+       <h3>TESS and archive records</h3>
+       <p>Available TESS light curves from MAST and NASA Exoplanet Archive searches by star name or catalogue ID.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">06 · KINEMATICS · EXPERIMENTAL</span>
+       <h3>Coordinates and groups</h3>
+       <p>Propagate coordinates to an epoch and prepare inputs for BANYAN Σ young-association analysis.</p>
+      </article>
+      <article class="runa-info-card">
+       <span class="runa-card-kicker">07 · REFERENCE DATA</span>
+       <h3>Published stellar values</h3>
+       <p>Browse published average values from K5 V to L2.0 in Cifuentes et al. (2020), Table 6.</p>
+      </article>
+     </div>
+     <ul aria-label="RUNA technologies" class="project-tags">
+      <li class="tech-tag--language">Python</li><li class="tech-tag--library">Streamlit</li><li class="tech-tag--library">scikit-learn</li><li class="tech-tag--library">Astropy · astroquery</li><li class="tech-tag--library">ADQL / SQL</li>
+     </ul>
     </section>
    </main>
    <footer>

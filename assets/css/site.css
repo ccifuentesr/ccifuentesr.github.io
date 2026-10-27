@@ -167,3 +167,28 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-motto{font-family:"Space Grotesk",sans-serif;font-size:clamp(22px,3.4vw,30px);font-weight:500;letter-spacing:.01em;text-transform:none!important;color:var(--accent);margin:12px 0 10px}.runa-detail .subtitle{color:#fff!important;font-size:clamp(24px,4vw,32px);font-weight:700;line-height:1.25;margin:0 0 20px}.runa-detail .eyebrow{margin:0 0 26px}
 
 .runa-open-button{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:var(--accent);color:#08130f!important;font-weight:600;text-decoration:none!important}.runa-open-button:hover{background:#8bf0c7;color:#08130f!important}
+
+/* RUNA capability cards: compact facts with a clear editorial hierarchy. */
+.runa-detail{max-width:1040px}
+.runa-actions{display:flex;align-items:center;gap:12px 26px;flex-wrap:wrap;margin:30px 0 54px}
+.runa-actions a:not(.runa-open-button){color:var(--text-secondary);text-decoration:none}
+.runa-actions a:not(.runa-open-button):hover{color:#fff}
+.runa-detail section{margin-top:54px}
+.runa-detail h2{font-size:clamp(17px,2vw,21px);letter-spacing:.09em;color:var(--text-secondary);margin:0 0 20px}
+.runa-ml-grid,.runa-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.runa-tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.runa-info-card{min-width:0;padding:22px;border:1px solid #29292e;border-radius:14px;background:linear-gradient(145deg,#151518 0%,#101012 78%)}
+.runa-ml-card{padding:26px;min-height:280px}
+.runa-card-kicker{display:block;color:#92929a;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;letter-spacing:.08em}
+.runa-info-card h3{margin:15px 0 9px;color:#f4f4f5;font-size:clamp(19px,2.5vw,25px);line-height:1.15;letter-spacing:-.025em;text-transform:none}
+.runa-info-card p{margin:0;color:#b0b0b7;font-size:14px;line-height:1.55}
+.runa-card-stat{display:flex;align-items:baseline;gap:12px;margin:22px 0 12px;padding-top:14px;border-top:1px solid #303035}
+.runa-card-stat strong{color:var(--accent);font-size:clamp(28px,4vw,38px);font-weight:500;letter-spacing:-.05em;line-height:1}
+.runa-card-stat span{max-width:270px;color:#a1a1aa;font-size:12px;line-height:1.4}
+.runa-info-card p.runa-card-note{margin-top:12px;color:#85858e;font-size:12px;line-height:1.5}
+.runa-tools-grid .runa-info-card{padding:18px;min-height:172px}
+.runa-tools-grid .runa-info-card h3{margin:12px 0 8px;font-size:19px}
+.runa-tools-grid .runa-info-card p{font-size:13px;line-height:1.5}
+.runa-detail .project-tags{margin-top:20px}
+@media(max-width:760px){.runa-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.runa-ml-grid,.runa-tools-grid{grid-template-columns:1fr}.runa-info-card,.runa-ml-card{padding:20px}.runa-ml-card{min-height:0}.runa-actions{gap:14px 20px;margin:24px 0 42px}.runa-tools-grid .runa-info-card{min-height:0}}
