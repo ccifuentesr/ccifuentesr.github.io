@@ -179,7 +179,7 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .runa-ml-grid>article+article,.runa-tools-grid>article+article{margin-top:0}
 .runa-info-card{min-width:0;padding:22px;border:1px solid #29292e;border-radius:14px;background:linear-gradient(145deg,#151518 0%,#101012 78%)}
-.runa-ml-card{padding:26px;min-height:280px}
+.runa-ml-card{padding:26px;min-height:380px}
 .runa-card-kicker{display:block;color:var(--accent);font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;letter-spacing:.08em}
 .runa-info-card h3{margin:15px 0 9px;color:#f4f4f5;font-size:clamp(19px,2.5vw,25px);line-height:1.15;letter-spacing:-.025em;text-transform:none}
 .runa-info-card p{margin:0;color:#b0b0b7;font-size:14px;line-height:1.55}
@@ -188,7 +188,7 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-card-stat{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:14px;margin:auto 0 12px;padding-top:14px;border-top:1px solid #303035}
 .runa-card-stat strong{color:var(--accent);font-size:clamp(28px,4vw,38px);font-weight:500;letter-spacing:-.05em;line-height:1}
 .runa-card-stat span{max-width:270px;color:#fff;font-size:14px;line-height:1.45}
-.runa-info-card p.runa-card-note{margin-top:12px;color:#85858e;font-size:12px;line-height:1.5;min-height:36px}
+.runa-info-card p.runa-card-note{margin-top:12px;color:#85858e;font-size:12px;line-height:1.5;height:72px;min-height:72px}
 .runa-tools-grid{grid-auto-rows:1fr}
 .runa-tools-grid .runa-info-card{padding:18px;min-height:190px}
 .runa-tools-grid .runa-info-card h3{margin:12px 0 8px;font-size:19px}
@@ -196,4 +196,4 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-detail .project-tags{margin-top:16px}
 .page-projects .project-tags li.tech-tag--neutral{border-color:#45454b;color:#a1a1aa}
 @media(max-width:760px){.runa-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.runa-ml-grid,.runa-tools-grid{grid-template-columns:1fr}.runa-info-card,.runa-ml-card{padding:20px}.runa-ml-card{min-height:0}.runa-actions{gap:14px 20px;margin:24px 0 42px}.runa-tools-grid .runa-info-card{min-height:0}.runa-card-stat{grid-template-columns:82px minmax(0,1fr);gap:10px}}
+@media(max-width:560px){.runa-ml-grid,.runa-tools-grid{grid-template-columns:1fr}.runa-info-card,.runa-ml-card{padding:20px}.runa-actions{gap:14px 20px;margin:24px 0 42px}.runa-tools-grid .runa-info-card{min-height:0}.runa-card-stat{grid-template-columns:82px minmax(0,1fr);gap:10px}}
