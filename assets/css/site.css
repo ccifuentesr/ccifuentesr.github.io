@@ -183,6 +183,9 @@ footer a[href="musik.html"]:hover,footer a[href="seen.html"]:hover{color:#7db8dc
 .runa-card-kicker{display:block;color:var(--accent);font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;letter-spacing:.08em}
 .runa-info-card h3{margin:15px 0 9px;color:#f4f4f5;font-size:clamp(19px,2.5vw,25px);line-height:1.15;letter-spacing:-.025em;text-transform:none}
 .runa-info-card p{margin:0;color:#b0b0b7;font-size:14px;line-height:1.55}
+.runa-info-card p.runa-card-source{margin-top:8px;color:#85858e;font-size:12px;line-height:1.45}
+.runa-card-source a{color:inherit;text-decoration:underline;text-decoration-color:#55555d;text-underline-offset:3px}
+.runa-card-source a:hover{color:#f4f4f5;text-decoration-color:currentColor}
 .runa-ml-card{display:flex;flex-direction:column}
 .runa-ml-card p.runa-hook{margin:15px 0 9px;color:#f4f4f5;font-size:clamp(19px,2.5vw,25px);font-weight:500;line-height:1.15;letter-spacing:-.025em}
 .runa-card-stat{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:14px;margin:auto 0 12px;padding-top:14px;border-top:1px solid #303035}
