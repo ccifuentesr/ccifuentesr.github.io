@@ -8,10 +8,8 @@
    Carlos Cifuentes · Projects
   </title>
   <meta content="Carlos Cifuentes — Projects. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261027-runa12" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261028-projects1" rel="stylesheet"/>
   <script defer="" src="assets/js/site.js">
-  </script>
-  <script defer="" src="assets/js/projects.js">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
@@ -187,90 +185,6 @@
       </div>
      </article>
     </div>
-    <section aria-labelledby="queries-heading" class="tools-section" id="queries">
-     <h2 id="queries-heading">
-      Explore the research
-     </h2>
-     <p class="section-lead">
-      Read the thesis, ask about its text, or look up an object in the published catalogues.
-     </p>
-     <div class="portfolio-demo-grid">
-      <section aria-labelledby="thesis-tool-title" class="portfolio-tool">
-       <h2 id="thesis-tool-title">
-        Chat with my thesis
-       </h2>
-       <p>
-        Ask a question about the text of my PhD thesis.
-        <a href="https://arxiv.org/pdf/2305.08893">
-         Read the PhD thesis ↗
-        </a>
-       </p>
-       <div aria-live="polite" class="portfolio-chat" id="chatMessages">
-        <p class="portfolio-hint">
-         Enter a question below. The first response may take a little longer.
-        </p>
-       </div>
-       <div class="portfolio-input-row">
-        <label class="portfolio-visually-hidden" for="question">
-         Question about the thesis
-        </label>
-        <input autocomplete="off" id="question" placeholder="Your question" type="text"/>
-        <button id="askBtn" onclick="askThesis()" type="button">
-         Ask
-        </button>
-       </div>
-       <div class="portfolio-progress" id="progressContainer">
-        <div id="progressBar">
-        </div>
-       </div>
-      </section>
-      <section aria-labelledby="catalogue-tool-title" class="portfolio-tool">
-       <h2 id="catalogue-tool-title">
-        Search catalogues
-       </h2>
-       <p>
-        Find an object in selected published VizieR catalogues.
-       </p>
-       <div class="portfolio-catalogue-form">
-        <label for="catalog-select">
-         Catalogue
-        </label>
-        <select id="catalog-select" onchange="updateSearchPlaceholder()">
-         <option value="">
-          Select catalogue…
-         </option>
-         <option value="cifuentes25">
-          Multiplicity (Cifuentes+ 2025)
-         </option>
-         <option value="cortes-contreras24">
-          Kinematics and age (Cortés-Contreras+ 2024)
-         </option>
-         <option value="gonzalez-payo24">
-          Multiplicity of stars with planets (González-Payo+ 2024)
-         </option>
-         <option value="cifuentes20">
-          Stellar parameters (Cifuentes+ 2020)
-         </option>
-         <option value="schweitzer19">
-          Masses and radii (Schweitzer+ 2019)
-         </option>
-         <option value="martinez-rodriguez19">
-          Exomoons detectability (Martínez-Rodríguez+ 2019)
-         </option>
-        </select>
-        <label for="unified-search">
-         Star or object
-        </label>
-        <input autocomplete="off" id="unified-search" placeholder="Object name" type="text"/>
-        <button onclick="unifiedSearch()" type="button">
-         Search
-        </button>
-       </div>
-       <div aria-live="polite" class="portfolio-result" id="unified-result">
-       </div>
-      </section>
-     </div>
-    </section>
    </main>
    <footer>
     <span>
