@@ -1,19 +1,65 @@
 let lyricsInputMode = 'pointer';
+const themeToggle = document.getElementById('theme-toggle');
+function syncMusikTheme() {
+  const isLight = document.documentElement.dataset.musikTheme === 'light';
+  themeToggle.setAttribute('aria-pressed', String(isLight));
+  themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+  themeToggle.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
+}
+themeToggle.addEventListener('click', () => {
+  const useLight = document.documentElement.dataset.musikTheme !== 'light';
+  if (useLight) document.documentElement.dataset.musikTheme = 'light';
+  else delete document.documentElement.dataset.musikTheme;
+  try { localStorage.setItem('musik-theme', useLight ? 'light' : 'dark'); } catch (error) {}
+  syncMusikTheme();
+});
+syncMusikTheme();
 document.addEventListener('pointerdown', () => { lyricsInputMode = 'pointer'; }, true);
 document.addEventListener('keydown', () => { lyricsInputMode = 'keyboard'; }, true);
 const audio = document.getElementById('global-audio');
 const player = document.getElementById('global-player');
 const playButton = player.querySelector('.play-btn');
 const seek = document.getElementById('audio-seek');
+let isSeeking = false;
+let activeTrackToken = 0;
+const seekableSources = new Map();
 const timeLabel = seconds => Number.isFinite(seconds) ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}` : '0:00';
+function syncSeekProgress() {
+  seek.style.setProperty('--seek-progress', `${Number(seek.value)}%`);
+}
 function togglePlayGlobal() {
   if (!audio.src) return;
   if (audio.paused) audio.play().catch(() => {}); else audio.pause();
 }
+async function upgradeToSeekableSource(sourceUrl, token) {
+  try {
+    let objectUrl = seekableSources.get(sourceUrl);
+    if (!objectUrl) {
+      const response = await fetch(sourceUrl);
+      if (!response.ok) return;
+      objectUrl = URL.createObjectURL(await response.blob());
+      seekableSources.set(sourceUrl, objectUrl);
+    }
+    if (token !== activeTrackToken || audio.currentSrc !== sourceUrl) return;
+    const previousTime = audio.currentTime;
+    const shouldResume = !audio.paused;
+    audio.src = objectUrl;
+    await new Promise(resolve => audio.addEventListener('loadedmetadata', resolve, { once: true }));
+    audio.currentTime = Math.min(previousTime, audio.duration || previousTime);
+    if (shouldResume) audio.play().catch(() => {});
+  } catch (error) {}
+}
 function loadTrack(src, el) {
   closeLyrics();
   player.hidden = false;
-  if (audio.src !== new URL(src, location.href).href) { audio.src = src; seek.value = 0; }
+  const sourceUrl = new URL(src, location.href).href;
+  if (audio.dataset.source !== sourceUrl) {
+    activeTrackToken += 1;
+    audio.dataset.source = sourceUrl;
+    audio.src = seekableSources.get(sourceUrl) || sourceUrl;
+    seek.value = 0;
+    syncSeekProgress();
+  }
   document.querySelectorAll('.music-track').forEach(row => row.classList.remove('playing'));
   el.classList.add('playing');
   document.getElementById('now-playing').textContent = (el.querySelector('.track-name') || el.querySelector('span') || el).textContent.trim();
@@ -25,13 +71,26 @@ function syncPlayback() {
 }
 ['play','pause','ended'].forEach(event => audio.addEventListener(event, syncPlayback));
 audio.addEventListener('ended', () => document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing')));
+audio.addEventListener('loadedmetadata', () => {
+  if (audio.currentSrc.startsWith('blob:')) return;
+  const lastRange = audio.seekable.length ? audio.seekable.end(audio.seekable.length - 1) : 0;
+  if (lastRange <= 0) upgradeToSeekableSource(audio.currentSrc, activeTrackToken);
+});
 function syncTime() {
-  seek.value = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.currentTime / audio.duration * 100 : 0;
+  if (!isSeeking) seek.value = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.currentTime / audio.duration * 100 : 0;
+  syncSeekProgress();
   document.getElementById('global-current-time').textContent = timeLabel(audio.currentTime);
   document.getElementById('global-duration').textContent = timeLabel(audio.duration);
 }
 ['timeupdate','loadedmetadata','emptied'].forEach(event => audio.addEventListener(event, syncTime));
-seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = Number(seek.value) / 100 * audio.duration; });
+function applySeek() {
+  if (Number.isFinite(audio.duration) && audio.duration > 0) audio.currentTime = Number(seek.value) / 100 * audio.duration;
+  syncSeekProgress();
+}
+seek.addEventListener('pointerdown', () => { isSeeking = true; });
+seek.addEventListener('input', () => { isSeeking = true; applySeek(); });
+['pointerup','pointercancel','change'].forEach(event => seek.addEventListener(event, () => { applySeek(); isSeeking = false; }));
+syncSeekProgress();
 document.querySelectorAll('.music-track').forEach(row => row.addEventListener('keydown', event => {
   if (event.target === row && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); row.click(); }
 }));

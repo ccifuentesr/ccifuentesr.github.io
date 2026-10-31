@@ -3,15 +3,20 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="dark" name="color-scheme"/>
+  <meta content="dark light" name="color-scheme"/>
   <title>
    Carlos Cifuentes · Musik
   </title>
   <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261031-site3" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261031-musik-theme2" rel="stylesheet"/>
   <script defer="" src="assets/js/site.js">
   </script>
-  <script defer="" src="assets/js/musik.js">
+  <script>
+   try {
+    if (localStorage.getItem('musik-theme') === 'light') document.documentElement.dataset.musikTheme = 'light';
+   } catch (error) {}
+  </script>
+  <script defer="" src="assets/js/musik.js?v=20261031-theme4">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
@@ -32,6 +37,15 @@
       _
      </span>
     </a>
+    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" title="Switch to light mode" type="button">
+     <svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24">
+      <path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+     </svg>
+     <svg aria-hidden="true" class="theme-icon theme-icon--sun" fill="none" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M12 2.5v2M12 19.5v2M21.5 12h-2M4.5 12h-2M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4M18.7 18.7l-1.4-1.4M6.7 6.7 5.3 5.3" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/>
+     </svg>
+    </button>
    </div>
    <main id="main">
     <h1>
@@ -57,6 +71,9 @@
     <div data-music-panel="about" id="about-page">
      <p class="music-intro">
       Original music, piano recordings and unfinished ideas.
+     </p>
+     <p class="music-note">
+      Best listened to with headphones.
      </p>
      <div class="music-overview">
       <a href="#kosmona">
@@ -93,9 +110,6 @@
        </span>
       </a>
      </div>
-     <p class="music-note">
-      Best listened to with headphones.
-     </p>
     </div>
     <div data-music-panel="kosmona" id="kosmona-page">
      <!-- Kosmona Section -->
