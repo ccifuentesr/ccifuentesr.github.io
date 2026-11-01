@@ -1,4 +1,10 @@
 document.getElementById('print-cv')?.addEventListener('click', () => window.print());
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+const activeFooterPage = currentPage.startsWith('echoes-') ? 'echoes.html' : currentPage;
+document.querySelectorAll('footer nav a').forEach(link => {
+  const linkPage = new URL(link.href, location.href).pathname.split('/').pop();
+  if (linkPage === activeFooterPage) link.hidden = true;
+});
 const musicPanels = document.querySelectorAll('[data-music-panel]');
 function showMusicPanel() {
   const requested = location.hash.slice(1) || 'about';

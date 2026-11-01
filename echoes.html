@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>Carlos Cifuentes · Echoes</title>
+  <meta content="Echoes — textos y notas de Carlos Cifuentes." name="description"/>
+  <link href="assets/css/site.css?v=20261101-echoes5" rel="stylesheet"/>
+  <script defer src="assets/js/site.js?v=20261101-echoes5"></script>
+  <script>
+   try {
+    if (localStorage.getItem('echoes-theme') === 'light') document.documentElement.dataset.echoesTheme = 'light';
+   } catch (error) {}
+  </script>
+  <script defer src="assets/js/echoes.js?v=20261101-echoes5"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="page-echoes">
+  <div class="site-shell site-shell--wide">
+   <a class="skip" href="#main">Skip to content</a>
+   <div class="topline">
+    <a aria-label="C. Cifuentes — Home" class="brand" href="index.html">
+     <span class="brand-initial">C.</span><span>Cifuentes</span><span aria-hidden="true" class="brand-accent">_</span>
+    </a>
+    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" id="echoes-theme-toggle" title="Switch to light mode" type="button">
+     <svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24">
+      <path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+     </svg>
+     <svg aria-hidden="true" class="theme-icon theme-icon--sun" fill="none" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M12 2.5v2M12 19.5v2M21.5 12h-2M4.5 12h-2M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4M18.7 18.7l-1.4-1.4M6.7 6.7 5.3 5.3" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/>
+     </svg>
+    </button>
+   </div>
+   <main id="main">
+    <h1>Echoes</h1>
+    <section aria-labelledby="echoes-list-title" class="echoes-index">
+     <h2 class="visually-hidden" id="echoes-list-title">Entradas</h2>
+     <ol class="echoes-timeline">
+      <li>
+       <time datetime="2022-05-09">9 mayo 2022</time>
+       <a href="echoes-look-right.html">Look Right</a>
+      </li>
+      <li>
+       <time datetime="2022-04-13">13 abril 2022</time>
+       <a href="echoes-cerro-y-estrellas.html">Cerro y Estrellas</a>
+      </li>
+      <li>
+       <time datetime="2010-08-15">15 agosto 2010</time>
+       <a href="echoes-chaak.html">Cháak</a>
+      </li>
+     </ol>
+    </section>
+   </main>
+   <footer>
+    <span>© 2026 C. Cifuentes</span>
+    <nav aria-label="Beyond work">
+     <span>Beyond work</span>
+     <a href="musik.html">Musik</a>
+     <a href="seen.html">Seen</a>
+     <a href="echoes.html">Echoes</a>
+    </nav>
+   </footer>
+  </div>
+ </body>
+</html>
