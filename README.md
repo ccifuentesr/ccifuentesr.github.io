@@ -31,7 +31,7 @@ The `.env` file is local service configuration and is not a frontend asset. It i
 
 ## ADS citation counts
 
-`assets/data/ads-citations.json` contains public counts and their retrieval date for all selected publications, including the thesis. `assets/js/publications.js` displays these below each publication description (green for first-author work, grey for co-authored articles), with links to each ADS citations page. The browser never calls the authenticated ADS API.
+`assets/data/ads-citations.json` contains public counts and their retrieval date for all selected publications, including the thesis. It also stores the ADS-derived publication count, citation total, h-index and first-to-third-author count used in the CV. `assets/js/publications.js` displays article counts below each publication description (green for first-author work, grey for co-authored articles), with links to each ADS citations page. The browser never calls the authenticated ADS API.
 
 To refresh locally, set `ADS_API_TOKEN` in the process environment and run `python3 scripts/update_ads_citations.py`. Credentials must not be committed. Partial or invalid responses leave the previous cache untouched; missing counts are not shown as zero.
 

@@ -253,6 +253,7 @@ html[data-echoes-theme="light"] body.page-echoes{--bg-color:#f4f1eb;--text-color
 .publication-citations{display:block;width:fit-content;margin-top:12px;color:var(--accent);font-size:13px;text-decoration:none}.publication-citations:hover{text-decoration:underline}.citation-source{margin-top:20px;color:var(--text-secondary);font-size:12px}
 
 .publication-citations--coauthor{color:var(--text-secondary)}
+.ads-metric{color:var(--accent)}
 
 .academic-record-note{color:#66666f;font-size:14px;margin:6px 0 16px}.publication-badge--disabled{opacity:.35;cursor:default;user-select:none}
 

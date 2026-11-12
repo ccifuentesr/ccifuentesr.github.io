@@ -25,6 +25,8 @@ BIBCODES = (
     '2019ApJ...887..261M',
     '2019A&A...625A..68S',
 )
+AUTHOR_QUERY = 'author:"Cifuentes, C." AND collection:astronomy'
+PAGE_SIZE = 200
 
 
 def validate_response(payload):
@@ -44,6 +46,70 @@ def validate_response(payload):
     return {bibcode: records[bibcode] for bibcode in BIBCODES}
 
 
+def author_rank(authors):
+    """Return Carlos Cifuentes's byline position, if ADS provides one."""
+    if not isinstance(authors, list):
+        return None
+    for position, author in enumerate(authors, start=1):
+        if isinstance(author, str) and author.startswith('Cifuentes, C'):
+            return position
+    return None
+
+
+def author_metrics(token):
+    """Calculate publication, citation and h-index figures from ADS records."""
+    docs = []
+    total = None
+    for start in range(0, 10_000, PAGE_SIZE):
+        params = urlencode({
+            'q': AUTHOR_QUERY,
+            'fl': 'citation_count,author',
+            'rows': PAGE_SIZE,
+            'start': start,
+        })
+        request = Request(
+            'https://api.adsabs.harvard.edu/v1/search/query?' + params,
+            headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/json'},
+        )
+        with urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+        response_data = payload['response']
+        page = response_data['docs']
+        found = response_data['numFound']
+        if type(found) is not int or found < 1 or not isinstance(page, list):
+            raise ValueError('Invalid ADS author search response')
+        if total is None:
+            total = found
+        elif found != total:
+            raise ValueError('ADS author search changed during pagination')
+        docs.extend(page)
+        if len(docs) >= total:
+            break
+        if not page:
+            raise ValueError('ADS author search returned an incomplete page')
+    if total is None or len(docs) != total:
+        raise ValueError('ADS author search returned incomplete results')
+
+    citations = []
+    top_three = 0
+    for doc in docs:
+        count = doc.get('citation_count')
+        if type(count) is not int or count < 0:
+            raise ValueError('Invalid ADS author citation count')
+        citations.append(count)
+        rank = author_rank(doc.get('author'))
+        if rank is not None and rank <= 3:
+            top_three += 1
+    citations.sort(reverse=True)
+    h_index = sum(count >= rank for rank, count in enumerate(citations, start=1))
+    return {
+        'publication_count': total,
+        'top_three_author_count': top_three,
+        'citation_count': sum(citations),
+        'h_index': h_index,
+    }
+
+
 def refresh(token, destination=CACHE):
     if not token or not token.strip():
         raise ValueError('Set ADS_API_TOKEN before running this script')
@@ -58,10 +124,12 @@ def refresh(token, destination=CACHE):
     )
     with urlopen(request, timeout=30) as response:
         records = validate_response(json.load(response))
+    metrics = author_metrics(token.strip())
     cache = {
         'source': 'NASA ADS',
         'updated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
         'records': records,
+        'author_metrics': metrics,
     }
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix('.json.tmp')
