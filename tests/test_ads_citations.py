@@ -19,7 +19,7 @@ def payload(count=0):
 class CitationCacheTests(unittest.TestCase):
     def test_zero_is_a_valid_count(self):
         result = ads.validate_response(payload(0))
-        self.assertEqual(len(result), 4)
+        self.assertEqual(len(result), len(ads.BIBCODES))
         self.assertTrue(all(record['citation_count'] == 0 for record in result.values()))
 
     def test_incomplete_response_preserves_cache(self):
@@ -53,7 +53,7 @@ class CitationCacheTests(unittest.TestCase):
             with patch.object(ads, 'urlopen', return_value=io.BytesIO(json.dumps(payload(5)).encode())):
                 ads.refresh('test-token', cache)
             saved = json.loads(cache.read_text())
-            self.assertEqual(len(saved['records']), 4)
+            self.assertEqual(len(saved['records']), len(ads.BIBCODES))
             self.assertEqual(saved['source'], 'NASA ADS')
             self.assertNotIn('test-token', cache.read_text())
             self.assertFalse(cache.with_suffix('.json.tmp').exists())

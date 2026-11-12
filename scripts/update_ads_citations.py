@@ -13,9 +13,17 @@ ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / 'assets/data/ads-citations.json'
 BIBCODES = (
     '2025A&A...693A.228C',
-    '2023PhDT.........1C',
-    '2021RNAAS...5..129C',
     '2020A&A...642A.115C',
+    '2021RNAAS...5..129C',
+    '2023PhDT.........1C',
+    '2026A&A...713A.272L',
+    '2025A&A...694A..15B',
+    '2024A&A...692A.206C',
+    '2024A&A...689A.302G',
+    '2022A&A...665A.120C',
+    '2021A&A...656A.162M',
+    '2019ApJ...887..261M',
+    '2019A&A...625A..68S',
 )
 
 

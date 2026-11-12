@@ -1,18 +1,42 @@
 {
   "source": "NASA ADS",
-  "updated_at": "2026-11-12T16:52:45+00:00",
+  "updated_at": "2026-11-12T17:06:17.545Z",
   "records": {
     "2025A&A...693A.228C": {
       "citation_count": 37
     },
-    "2023PhDT.........1C": {
-      "citation_count": 4
+    "2019A&A...625A..68S": {
+      "citation_count": 204
     },
-    "2021RNAAS...5..129C": {
-      "citation_count": 9
+    "2022A&A...665A.120C": {
+      "citation_count": 56
     },
     "2020A&A...642A.115C": {
       "citation_count": 186
+    },
+    "2024A&A...689A.302G": {
+      "citation_count": 20
+    },
+    "2024A&A...692A.206C": {
+      "citation_count": 24
+    },
+    "2025A&A...694A..15B": {
+      "citation_count": 9
+    },
+    "2021A&A...656A.162M": {
+      "citation_count": 130
+    },
+    "2019ApJ...887..261M": {
+      "citation_count": 40
+    },
+    "2023PhDT.........1C": {
+      "citation_count": 4
+    },
+    "2026A&A...713A.272L": {
+      "citation_count": 0
+    },
+    "2021RNAAS...5..129C": {
+      "citation_count": 9
     }
   }
 }

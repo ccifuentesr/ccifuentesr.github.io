@@ -34,8 +34,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: assets/data/ads-citations.json
-          key: ads-citations-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ads-citations-
+          key: ads-citations-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ads-citations-v2-
       - name: Refresh citation counts
         id: citations
         continue-on-error: true
@@ -50,7 +50,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: assets/data/ads-citations.json
-          key: ads-citations-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ads-citations-v2-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Check citation cache
         run: python -m json.tool assets/data/ads-citations.json > /dev/null
       - name: Prepare static site
