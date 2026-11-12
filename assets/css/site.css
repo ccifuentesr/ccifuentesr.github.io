@@ -255,3 +255,5 @@ html[data-echoes-theme="light"] body.page-echoes{--bg-color:#f4f1eb;--text-color
 .publication-citations--coauthor{color:var(--text-secondary)}
 
 .academic-record-note{color:#66666f;font-size:14px;margin:6px 0 16px}.publication-badge--disabled{opacity:.35;cursor:default;user-select:none}
+
+.teaching-institution a{color:inherit;text-decoration:none}.teaching-institution a:hover{color:var(--accent);text-decoration:none}
