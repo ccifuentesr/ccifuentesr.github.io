@@ -1,0 +1,63 @@
+name: Update ADS citations and publish site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate citation updater
+        run: python -m unittest discover -s tests -v
+      - name: Restore most recent citation cache
+        uses: actions/cache/restore@v4
+        with:
+          path: assets/data/ads-citations.json
+          key: ads-citations-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ads-citations-
+      - name: Refresh citation counts
+        id: citations
+        continue-on-error: true
+        env:
+          ADS_API_TOKEN: ${{ secrets.ADS_API_TOKEN }}
+        run: python scripts/update_ads_citations.py
+      - name: Keep previous counts if ADS is unavailable
+        if: steps.citations.outcome == 'failure'
+        run: echo '::warning::ADS refresh failed. Publishing with the previous citation cache and its original date.'
+      - name: Save successfully refreshed counts
+        if: steps.citations.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: assets/data/ads-citations.json
+          key: ads-citations-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Check citation cache
+        run: python -m json.tool assets/data/ads-citations.json > /dev/null
+      - name: Prepare static site
+        run: python scripts/prepare_pages.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

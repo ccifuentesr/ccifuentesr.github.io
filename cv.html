@@ -8,9 +8,10 @@
    Carlos Cifuentes · CV
   </title>
   <meta content="Carlos Cifuentes — CV. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261101-echoes5" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261112-contact2" rel="stylesheet"/>
   <script defer="" src="assets/js/site.js?v=20261101-echoes5">
   </script>
+  <script defer="" src="assets/js/contact.js?v=20261112-contact2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
  <body class="page-cv">
@@ -40,8 +41,8 @@
      <a href="publications.html">
       Publications
      </a>
-     <a href="contact.html">
-      Contact
+     <a href="teaching.html">
+      Teaching
      </a>
     </nav>
    </div>
@@ -76,7 +77,7 @@
       <a href="https://www.linkedin.com/in/ccifuentesr">
        LinkedIn ↗
       </a>
-      <a href="contact.html">
+      <a href="cv.html#contact">
        Get in touch ↗
       </a>
      </div>
@@ -175,7 +176,7 @@
       <p aria-label="Technical skills" class="experience-tools">Requirements analysis · IoT data integration · Energy-use analysis · Client reporting</p>
       <ul>
        <li>
-        Gathered client requirements for energy monitoring and coordinated device specifications with suppliers and Indra’s software team to support IoT data integration.
+        Gathered energy-monitoring requirements from <a href="https://www.indragroup.com/en/news/smart-management-system-energy-developed-indra-sena-colombia-receives-national-energy" target="_blank" rel="noopener noreferrer">international clients</a> and coordinated device specifications with suppliers and Indra’s software team to support IoT data integration.
        </li>
        <li>
         Analysed energy use and prepared client reports to guide energy-management decisions.
@@ -204,6 +205,18 @@
       </dt>
       <dd>
        <code>Scikit-learn</code> · Supervised learning and model evaluation.
+      </dd>
+      <dt>
+       Agentic AI
+      </dt>
+      <dd>
+       Hands-on training with the <code>Anthropic API</code> and <code>Model Context Protocol (MCP)</code>, including <code>Python</code> clients and servers.
+      </dd>
+      <dt>
+       Software engineering
+      </dt>
+      <dd>
+       Formal training in software engineering, <code>Flask</code>, <code>Docker</code>, <code>Kubernetes</code> and <code>OpenShift</code>.
       </dd>
       <dt>
        Databases
@@ -416,6 +429,45 @@
        Basic
       </dd>
      </dl>
+    </section>
+    <section class="cv-contact" aria-label="Contact">
+     <details id="contact" class="contact-disclosure">
+      <summary>Contact</summary>
+      <div class="contact-form-wrap">
+       <p>Send me a message.</p>
+     <form action="https://formspree.io/f/maeqoveg" class="contact-form" id="contact-form" method="POST">
+      <div aria-hidden="true" class="form-honeypot">
+       <label for="contact-website">
+        Leave this field empty
+       </label>
+       <input autocomplete="off" id="contact-website" name="_gotcha" tabindex="-1" type="text"/>
+      </div>
+      <div class="form-field">
+       <label for="contact-name">
+        Name
+       </label>
+       <input autocomplete="name" id="contact-name" name="name" required="" type="text"/>
+      </div>
+      <div class="form-field">
+       <label for="contact-email">
+        Email
+       </label>
+       <input autocomplete="email" id="contact-email" name="email" required="" type="email"/>
+      </div>
+      <div class="form-field">
+       <label for="contact-message">
+        Message
+       </label>
+       <textarea id="contact-message" name="message" required="" rows="6"></textarea>
+      </div>
+      <button class="form-submit" type="submit">
+       Send message
+      </button>
+      <p aria-live="polite" class="contact-status" id="contact-status" role="status">
+      </p>
+     </form>
+      </div>
+     </details>
     </section>
     <div class="print-action">
      <button id="print-cv" type="button">

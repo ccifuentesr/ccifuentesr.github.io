@@ -210,3 +210,44 @@ html[data-echoes-theme="light"] body.page-echoes{--bg-color:#f4f1eb;--text-color
 .page-projects .project-tags li.tech-tag--neutral{border-color:#45454b;color:#a1a1aa}
 @media(max-width:760px){.runa-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.runa-ml-grid,.runa-tools-grid{grid-template-columns:1fr}.runa-info-card,.runa-ml-card{padding:20px}.runa-actions{gap:14px 20px;margin:24px 0 42px}.runa-tools-grid .runa-info-card{min-height:0}.runa-card-stat{grid-template-columns:82px minmax(0,1fr);gap:10px}}
+
+/* Teaching portfolio */
+.teaching-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.teaching-course{display:flex;flex-direction:column;min-width:0;padding:26px;border:1px solid #303036;border-radius:12px;background:#111113}
+.teaching-course+.teaching-course{margin-top:0}
+.teaching-course h3{font-size:24px;letter-spacing:-.02em;line-height:1.3}
+.teaching-institution{margin:10px 0 0;color:var(--text-secondary);font-size:14px}
+.teaching-audience{margin:22px 0 10px;color:var(--accent);font-size:18px;line-height:1.5}
+.teaching-course>p:not([class]){margin:0 0 24px;font-size:16px;line-height:1.65;min-height:4.95em}
+.teaching-lectures{margin-top:auto;padding-top:16px;border-top:1px solid var(--border-color);font-size:14px}
+.teaching-lectures summary{width:fit-content;cursor:pointer;color:var(--accent);text-underline-offset:4px}
+.teaching-lectures summary:hover{text-decoration:underline}
+.teaching-lectures summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.teaching-lectures p{color:var(--text-secondary);margin:14px 0 8px}
+.teaching-access .section-links{margin-top:18px}
+@media(max-width:640px){.teaching-grid{grid-template-columns:1fr}.teaching-course{padding:22px}.teaching-course h3{font-size:23px}}
+
+.teaching-material-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;list-style:none;padding:0;margin:0}.teaching-material-links li{padding:0;margin:0}.teaching-material-links a{color:var(--accent)}
+
+.teaching-bibliography{margin-top:18px;padding-top:16px;border-top:1px solid var(--border-color)}.teaching-bibliography ul{list-style:none;padding:0;margin:18px 0 0}.teaching-bibliography li{padding:0;margin:0 0 18px;font-size:14px;line-height:1.6}.teaching-bibliography li:last-child{margin-bottom:0}.bibliography-author,.teaching-bibliography cite,.bibliography-date{display:block}.bibliography-author,.bibliography-date{color:var(--text-secondary)}.teaching-bibliography cite{margin:3px 0;font-style:italic}
+
+.teaching-syllabus{margin-top:18px;padding-top:16px;border-top:1px solid var(--border-color)}.teaching-syllabus ol{padding-left:22px;margin:18px 0 0}.teaching-syllabus li{margin:0 0 18px;padding-left:5px}.teaching-syllabus li:last-child{margin-bottom:0}.teaching-syllabus li::marker{color:var(--accent)}.teaching-syllabus h4{margin:0;font-size:14px;font-weight:500;color:#f4f4f5}.teaching-syllabus p{margin:6px 0 0;font-size:14px;line-height:1.65}
+
+.teaching-lecture-list{padding-left:24px;margin:20px 0 0}.teaching-lecture-list li{margin:0 0 17px;padding-left:4px}.teaching-lecture-list li::marker{color:var(--text-secondary);font-size:12px}.teaching-lecture-list a{color:var(--text-color);font-size:15px}.teaching-lecture-list a:hover{color:var(--accent)}.teaching-lecture-list p{margin:5px 0 0;color:var(--text-secondary);font-size:13px;line-height:1.6}.teaching-exam-links{margin-top:18px;padding-top:16px;border-top:1px solid var(--border-color)}
+
+.teaching-syllabus--resources{margin-top:0;padding-top:0;border-top:0}.teaching-unie-exams{grid-template-columns:1fr;gap:10px}
+
+.teaching-unit-resources{margin-top:12px}.teaching-unit-resources p{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;margin:6px 0 0;font-size:13px;line-height:1.8}.resource-label,.resource-separator{color:var(--text-secondary)}.teaching-unit-resources a{color:var(--accent);text-decoration:none;white-space:nowrap}.teaching-unit-resources a:hover{text-decoration:underline}
+
+@media(min-width:641px) and (max-width:800px){.teaching-course h3{min-height:2.6em}.teaching-audience{min-height:3em}.teaching-course>p:not([class]){min-height:6.6em}}
+@media(max-width:640px){.teaching-course>p:not([class]){min-height:0}}
+
+.teaching-exams{margin-top:18px;padding-top:16px;border-top:1px solid var(--border-color)}.teaching-exams .teaching-material-links{margin-top:16px}
+
+.contact-disclosure>summary{cursor:pointer;color:var(--text-secondary);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14.16px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--border-color);padding-bottom:10px}
+.contact-disclosure>summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.page-cv main>section.cv-contact>.contact-disclosure{margin-left:0}
+.contact-disclosure .contact-form-wrap{max-width:580px;padding-top:18px}
+@media print{.cv-contact{display:none}}
+
+.publication-citations{display:block;width:fit-content;margin-top:12px;color:var(--accent);font-size:13px;text-decoration:none}.publication-citations:hover{text-decoration:underline}.citation-source{margin-top:20px;color:var(--text-secondary);font-size:12px}
