@@ -6,14 +6,9 @@
   <meta content="dark light" name="color-scheme"/>
   <title>Cháak · Echoes · Carlos Cifuentes</title>
   <meta content="Cháak (Lluvia), un texto de Carlos Cifuentes escrito en Puebla el 15 de agosto de 2010." name="description"/>
-  <link href="assets/css/site.css?v=20261101-echoes5" rel="stylesheet"/>
-  <script defer src="assets/js/site.js?v=20261101-echoes5"></script>
-  <script>
-   try {
-    if (localStorage.getItem('echoes-theme') === 'light') document.documentElement.dataset.echoesTheme = 'light';
-   } catch (error) {}
-  </script>
-  <script defer src="assets/js/echoes.js?v=20261101-echoes5"></script>
+  <link href="assets/css/site.css?v=20261113-theme1" rel="stylesheet"/>
+  <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
+  <script defer src="assets/js/site.js?v=20261113-theme1"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
  <body class="page-echoes page-echoes-entry">
@@ -23,7 +18,7 @@
     <a aria-label="C. Cifuentes — Home" class="brand" href="index.html">
      <span class="brand-initial">C.</span><span>Cifuentes</span><span aria-hidden="true" class="brand-accent">_</span>
     </a>
-    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" id="echoes-theme-toggle" title="Switch to light mode" type="button">
+    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" data-theme-toggle title="Switch to light mode" type="button">
      <svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24">
       <path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
      </svg>

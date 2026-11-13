@@ -8,13 +8,11 @@
    Carlos Cifuentes · Musik
   </title>
   <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261101-echoes5" rel="stylesheet"/>
-  <script defer="" src="assets/js/site.js?v=20261101-echoes5">
+  <link href="assets/css/site.css?v=20261113-theme1" rel="stylesheet"/>
+  <script defer="" src="assets/js/site.js?v=20261113-theme1">
   </script>
   <script>
-   try {
-    if (localStorage.getItem('musik-theme') === 'light') document.documentElement.dataset.musikTheme = 'light';
-   } catch (error) {}
+   try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}
   </script>
   <script defer="" src="assets/js/musik.js?v=20261031-theme4">
   </script>
@@ -37,7 +35,7 @@
       _
      </span>
     </a>
-    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" title="Switch to light mode" type="button">
+    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" data-theme-toggle title="Switch to light mode" type="button">
      <svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24">
       <path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
      </svg>

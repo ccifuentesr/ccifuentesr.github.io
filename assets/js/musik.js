@@ -1,19 +1,4 @@
 let lyricsInputMode = 'pointer';
-const themeToggle = document.getElementById('theme-toggle');
-function syncMusikTheme() {
-  const isLight = document.documentElement.dataset.musikTheme === 'light';
-  themeToggle.setAttribute('aria-pressed', String(isLight));
-  themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
-  themeToggle.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
-}
-themeToggle.addEventListener('click', () => {
-  const useLight = document.documentElement.dataset.musikTheme !== 'light';
-  if (useLight) document.documentElement.dataset.musikTheme = 'light';
-  else delete document.documentElement.dataset.musikTheme;
-  try { localStorage.setItem('musik-theme', useLight ? 'light' : 'dark'); } catch (error) {}
-  syncMusikTheme();
-});
-syncMusikTheme();
 document.addEventListener('pointerdown', () => { lyricsInputMode = 'pointer'; }, true);
 document.addEventListener('keydown', () => { lyricsInputMode = 'keyboard'; }, true);
 const audio = document.getElementById('global-audio');

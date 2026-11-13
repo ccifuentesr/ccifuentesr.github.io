@@ -1,4 +1,22 @@
 document.getElementById('print-cv')?.addEventListener('click', () => window.print());
+
+const themeToggle = document.querySelector('[data-theme-toggle]');
+function syncTheme() {
+  if (!themeToggle) return;
+  const isLight = document.documentElement.dataset.theme === 'light';
+  themeToggle.setAttribute('aria-pressed', String(isLight));
+  themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+  themeToggle.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
+}
+themeToggle?.addEventListener('click', () => {
+  const useLight = document.documentElement.dataset.theme !== 'light';
+  if (useLight) document.documentElement.dataset.theme = 'light';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('site-theme', useLight ? 'light' : 'dark'); } catch (error) {}
+  syncTheme();
+});
+syncTheme();
+
 const currentPage = location.pathname.split('/').pop() || 'index.html';
 const activeFooterPage = currentPage.startsWith('echoes-') ? 'echoes.html' : currentPage;
 document.querySelectorAll('footer nav a').forEach(link => {
