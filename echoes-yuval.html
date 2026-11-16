@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>Yuval · Echoes · Carlos Cifuentes</title>
+  <meta content="Yuval — Making Sense of a World in Crisis." name="description"/>
+  <link href="assets/css/site.css?v=20261116-echoes-hover3" rel="stylesheet"/>
+  <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
+  <script defer src="assets/js/site.js?v=20261113-theme1"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+  <style>.private-gate{width:min(720px,100%);margin:72px auto 24px}.private-gate label{display:block;margin-bottom:10px;color:var(--text-secondary);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}.private-gate>div{display:flex;gap:10px}.private-gate input{margin:0}.private-gate button{border:1px solid var(--border-color);border-radius:5px;padding:10px 16px;background:transparent;color:var(--text-color);cursor:pointer}.private-gate button:hover{border-color:var(--accent);color:var(--accent)}.private-gate__error{margin-top:10px;color:#a54b4b;font-size:14px}</style>
+ </head>
+ <body class="page-echoes page-echoes-entry">
+  <div class="site-shell site-shell--wide">
+   <a class="skip" href="#main">Skip to content</a>
+   <div class="topline">
+    <a aria-label="C. Cifuentes — Home" class="brand" href="index.html"><span class="brand-initial">C.</span><span>Cifuentes</span><span aria-hidden="true" class="brand-accent">_</span></a>
+    <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" data-theme-toggle title="Switch to light mode" type="button">
+     <svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24"><path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>
+     <svg aria-hidden="true" class="theme-icon theme-icon--sun" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M21.5 12h-2M4.5 12h-2M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4M18.7 18.7l-1.4-1.4M6.7 6.7 5.3 5.3" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></svg>
+    </button>
+   </div>
+   <main id="main">
+    <p class="echoes-back"><a href="echoes.html">← Echoes</a></p>
+    <form class="private-gate" data-private-gate="yuval">
+     <label for="yuval-password">Contraseña</label>
+     <div><input autocomplete="current-password" id="yuval-password" type="password"/><button type="submit">Entrar</button></div>
+     <p aria-live="polite" class="private-gate__error" hidden>Contraseña incorrecta.</p>
+    </form>
+    <article class="echoes-entry" data-private-content="yuval" hidden>
+     <header class="echoes-entry-header echoes-entry-header--with-subtitle">
+      <h1><em>Yuval</em></h1>
+      <p class="echoes-entry-subtitle"><em>Making Sense of a World in Crisis</em></p>
+     </header>
+     <div class="echoes-prose">
+      <blockquote><p><em>“You said your next book might be your last. What is your purpose in life? Do you think it will change? And if so, how do you anticipate it will change?”</em></p></blockquote>
+      <p>I don't think in terms of purposes. I try to understand life. And I think one of the most misleading things about life is that the human mind tends to think in stories, <strong>but reality is not a story</strong>. We constantly try to impose a story on reality and, of course, with ourselves as very important heroes at the center of the narrative. <strong>But reality doesn't work like that</strong>. So as long as we keep being attached to these ideas of what is the story of the universe, what is the meaning of life, what is the purpose of life, <strong>it guarantees that we misunderstand what life actually is</strong>.</p>
+     </div>
+     <div class="echoes-signature"><span>Carlos</span><time datetime="2025-12">December 2025</time><em>Making Sense of a World in Crisis</em></div>
+     <nav aria-label="Navegación entre artículos" class="echoes-entry-nav">
+      <span aria-hidden="true" class="echoes-entry-nav__slot"></span>
+      <a class="echoes-entry-nav__index" href="echoes.html">Todas las entradas</a>
+      <a class="echoes-entry-nav__next" href="echoes-look-right.html">Look Right →</a>
+     </nav>
+    </article>
+   </main>
+   <footer><span>© 2026 C. Cifuentes</span><nav aria-label="Beyond work"><span>Beyond work</span><a href="musik.html">Musik</a><a href="seen.html">Seen</a><a href="echoes.html">Echoes</a></nav></footer>
+  </div>
+  <script>
+   (() => {
+    const gate = document.querySelector('[data-private-gate="yuval"]');
+    const content = document.querySelector('[data-private-content="yuval"]');
+    const input = document.getElementById('yuval-password');
+    const error = gate.querySelector('.private-gate__error');
+    gate.addEventListener('submit', event => {
+     event.preventDefault();
+     if (input.value === 'Gliese486b') { gate.hidden = true; content.hidden = false; }
+     else { error.hidden = false; input.select(); }
+    });
+   })();
+  </script>
+ </body>
+</html>
