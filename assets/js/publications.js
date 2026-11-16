@@ -13,7 +13,10 @@
     }
     links.forEach((link, index) => {
       const count = counts[index];
-      link.textContent = `${count.toLocaleString('en-GB')} ${count === 1 ? 'citation' : 'citations'}`;
+      const countLabel = document.createElement('span');
+      countLabel.className = 'publication-citation-count';
+      countLabel.textContent = count.toLocaleString('en-GB');
+      link.replaceChildren(countLabel, ` ${count === 1 ? 'citation' : 'citations'}`);
       link.hidden = false;
     });
     const note = document.getElementById('citation-source');
