@@ -16,15 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / 'assets/data/ads-publications.json'
 AUTHOR = 'author:"Cifuentes, C." AND collection:astronomy'
 QUERIES = {
-    'articles': (AUTHOR + ' AND property:refereed AND '
-                 '(bibstem:"A&A" OR bibstem:"MNRAS" OR bibstem:"AJ" OR bibstem:"ApJ" OR bibstem:"Sci")'),
+    'articles': (AUTHOR + ' AND ((property:refereed AND '
+                 '(bibstem:"A&A" OR bibstem:"MNRAS" OR bibstem:"AJ" OR bibstem:"ApJ" OR bibstem:"Sci" OR bibstem:"RNAAS")) '
+                 'OR bibcode:2021RNAAS...5..129C)'),
     'catalogues': AUTHOR + ' AND (doctype:catalog OR doctype:dataset OR bibstem:yCat)',
     'proceedings': AUTHOR + ' AND doctype:inproceedings',
-    'other': AUTHOR + ' AND doctype:circular',
-    'refereed': 'bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)',
+    'other': AUTHOR + ' AND (doctype:circular OR bibcode:2023PhDT.........1C)',
 }
-JOURNALS = {'A&A', 'MNRAS', 'AJ', 'ApJ', 'Sci'}
-JOURNAL_LABELS = {'Sci': 'Science'}
+JOURNALS = {'A&A', 'MNRAS', 'AJ', 'ApJ', 'Sci', 'RNAAS'}
+JOURNAL_LABELS = {'Sci': 'Science', 'RNAAS': 'Research Notes of the American Astronomical Society'}
 FIELDS = 'bibcode,title,author,year,pub,pubdate,bibstem,volume,page,doi,identifier,citation_count,property,doctype'
 
 
@@ -49,8 +49,10 @@ def clean_record(doc, category='articles'):
     authors = doc['author']
     title = doc['title'][0]
     count = doc['citation_count']
-    if (category == 'articles' and (journal is None or doc.get('doctype') != 'article' or
-                                    'REFEREED' not in doc.get('property', []))) or (
+    special_rnaas = bibcode == '2021RNAAS...5..129C'
+    if (category == 'articles' and not special_rnaas and
+            (journal is None or doc.get('doctype') != 'article' or
+             'REFEREED' not in doc.get('property', []))) or (
             not isinstance(authors, list) or not authors or
             not isinstance(title, str) or not title or
             type(count) is not int or count < 0):

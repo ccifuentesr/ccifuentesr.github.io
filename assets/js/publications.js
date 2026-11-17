@@ -50,7 +50,8 @@
       details.append(link('arXiv', `https://arxiv.org/abs/${encodeURIComponent(record.arxiv)}`, 'publication-link-badge'));
     }
     const count = record.citation_count;
-    if (Number.isInteger(count) && count >= 0) {
+    const showCitations = record.category !== 'catalogues' && record.category !== 'proceedings';
+    if (showCitations && Number.isInteger(count) && count >= 0) {
       const citations = link('', `https://ui.adsabs.harvard.edu/abs/${encodeURIComponent(record.bibcode)}/citations`, 'publication-citations');
       citations.append(el('span', 'publication-citation-count', count.toLocaleString('en-GB')),
         ` ${count === 1 ? 'citation' : 'citations'}`);
