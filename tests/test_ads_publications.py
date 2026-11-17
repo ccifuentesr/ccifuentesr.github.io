@@ -23,12 +23,12 @@ def record(position, bibcode='2026A&A...713A.272L'):
 
 class PublicationCacheTests(unittest.TestCase):
     def test_author_cutoff_and_zero_citations(self):
+        seventh = ads.clean_record(record(7))
         eighth = ads.clean_record(record(8))
-        ninth = ads.clean_record(record(9))
-        self.assertEqual(eighth['byline'][-2:], ['Cifuentes', 'et al.'])
-        self.assertEqual(ninth['byline'][-1], 'et al. (incl. Cifuentes)')
-        self.assertEqual(eighth['citation_count'], 0)
-        self.assertEqual(eighth['arxiv'], '2607.19756')
+        self.assertEqual(seventh['byline'][-2:], ['Cifuentes', 'et al.'])
+        self.assertEqual(eighth['byline'][-2:], ['Author 7', 'et al. (incl. Cifuentes)'])
+        self.assertEqual(seventh['citation_count'], 0)
+        self.assertEqual(seventh['arxiv'], '2607.19756')
 
     def test_ads_title_markup_is_plain_text(self):
         item = record(2)
