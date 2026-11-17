@@ -139,7 +139,7 @@ Puma concolor`
             closeLyrics();
             // Native modal keeps lyrics separate from page content.
             const modal = document.createElement('dialog');
-            modal.className = 'lyrics-modal';
+            modal.className = 'lyrics-modal agricola-lyrics';
             modal.setAttribute('aria-labelledby', 'lyrics-title');
             let trivia = '';
             if (songId === 'triangles') {

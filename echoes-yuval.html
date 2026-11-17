@@ -10,7 +10,6 @@
   <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
   <script defer src="assets/js/site.js?v=20261113-theme1"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
-  <style>.private-gate{width:min(720px,100%);margin:72px auto 24px}.private-gate label{display:block;margin-bottom:10px;color:var(--text-secondary);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}.private-gate>div{display:flex;gap:10px}.private-gate input{margin:0}.private-gate button{border:1px solid var(--border-color);border-radius:5px;padding:10px 16px;background:transparent;color:var(--text-color);cursor:pointer}.private-gate button:hover{border-color:var(--accent);color:var(--accent)}.private-gate__error{margin-top:10px;color:#a54b4b;font-size:14px}</style>
  </head>
  <body class="page-echoes page-echoes-entry">
   <div class="site-shell site-shell--wide">
@@ -24,12 +23,7 @@
    </div>
    <main id="main">
     <p class="echoes-back"><a href="echoes.html">← Echoes</a></p>
-    <form class="private-gate" data-private-gate="yuval">
-     <label for="yuval-password">Contraseña</label>
-     <div><input autocomplete="current-password" id="yuval-password" type="password"/><button type="submit">Entrar</button></div>
-     <p aria-live="polite" class="private-gate__error" hidden>Contraseña incorrecta.</p>
-    </form>
-    <article class="echoes-entry" data-private-content="yuval" hidden>
+    <article class="echoes-entry">
      <header class="echoes-entry-header echoes-entry-header--with-subtitle">
       <h1><em>Yuval</em></h1>
       <p class="echoes-entry-subtitle"><em>Making Sense of a World in Crisis</em></p>
@@ -48,18 +42,5 @@
    </main>
    <footer><span>© 2026 C. Cifuentes</span><nav aria-label="Beyond work"><span>Beyond work</span><a href="musik.html">Musik</a><a href="seen.html">Seen</a><a href="echoes.html">Echoes</a></nav></footer>
   </div>
-  <script>
-   (() => {
-    const gate = document.querySelector('[data-private-gate="yuval"]');
-    const content = document.querySelector('[data-private-content="yuval"]');
-    const input = document.getElementById('yuval-password');
-    const error = gate.querySelector('.private-gate__error');
-    gate.addEventListener('submit', event => {
-     event.preventDefault();
-     if (input.value === 'Gliese486b') { gate.hidden = true; content.hidden = false; }
-     else { error.hidden = false; input.select(); }
-    });
-   })();
-  </script>
  </body>
 </html>

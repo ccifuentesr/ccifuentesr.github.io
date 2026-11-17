@@ -24,10 +24,12 @@ document.querySelectorAll('footer nav a').forEach(link => {
   if (linkPage === activeFooterPage) link.hidden = true;
 });
 const musicPanels = document.querySelectorAll('[data-music-panel]');
+const musicBack = document.querySelector('[data-music-back]');
 function showMusicPanel() {
   const requested = location.hash.slice(1) || 'about';
   const name = [...musicPanels].some(p => p.dataset.musicPanel === requested) ? requested : 'about';
   musicPanels.forEach(p => { p.hidden = p.dataset.musicPanel !== name; });
+  if (musicBack) musicBack.hidden = name === 'about';
   document.querySelectorAll('.collection-nav a').forEach(a => {
     if (a.hash === '#' + name) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');

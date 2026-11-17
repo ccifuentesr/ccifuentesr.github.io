@@ -8,13 +8,13 @@
    Carlos Cifuentes · Musik
   </title>
   <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261116-music-cards37" rel="stylesheet"/>
-  <script defer="" src="assets/js/site.js?v=20261113-theme1">
+  <link href="assets/css/site.css?v=20261116-music-cards57" rel="stylesheet"/>
+  <script defer="" src="assets/js/site.js?v=20261117-musik-menu2">
   </script>
   <script>
    try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}
   </script>
-  <script defer="" src="assets/js/musik.js?v=20261031-theme4">
+  <script defer="" src="assets/js/musik.js?v=20261117-lyrics6">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Orbitron:wght@500;600&amp;family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
@@ -49,14 +49,7 @@
     <h1>
      Musik
     </h1>
-    <nav aria-label="Music collections" class="collection-nav">
-     <a href="#about">
-      Overview
-     </a>
-     <a href="#equipment">
-      Equipment
-     </a>
-    </nav>
+    <a aria-label="Back to Musik menu" class="musik-menu-back" data-music-back href="#about" hidden="" title="Back to Musik menu">←</a>
     <div data-music-panel="about" id="about-page">
      <div class="music-overview">
       <a class="music-overview-card music-overview-card--kosmona" href="#kosmona">
@@ -75,8 +68,11 @@
        </span>
       </a>
      </div>
+     <p class="music-equipment-link">
+      Check my <a href="#equipment">equipment</a>
+     </p>
      <p class="music-note">
-      Best listened to with headphones.
+      Use headphones for a better experience.
      </p>
     </div>
     <div data-music-panel="kosmona" id="kosmona-page">
@@ -249,7 +245,6 @@
      <section class="collection-style-1" id="klavier">
       <header class="klavier-intro">
        <h2 class="klavier-title">Klavier</h2>
-       <p class="klavier-tagline">On-the-fly improvisations, early ideas and personal renditions for piano.</p>
       </header>
      </section>
      <h3 class="music-group-title">
@@ -927,5 +922,88 @@
     </nav>
    </footer>
   </div>
+  <script>
+   (() => {
+    document.querySelectorAll('.music-track .track-name').forEach((trackName) => {
+     const text = trackName.textContent.replace(/\s+/g, ' ').trim();
+     const separator = text.indexOf(' / ');
+     if (separator === -1) return;
+     const title = text.slice(0, separator);
+     const artist = text.slice(separator + 3);
+     trackName.replaceChildren();
+     const titleElement = document.createElement('span');
+     titleElement.className = 'track-title';
+     titleElement.textContent = title;
+     const artistElement = document.createElement('span');
+     artistElement.className = 'track-artist';
+     artistElement.textContent = artist;
+     trackName.append(titleElement, artistElement);
+    });
+    const page = document.getElementById('klavier-page');
+    if (!page) return;
+    const lest = page.querySelector('#lest');
+    const headings = [...page.querySelectorAll('h3.music-group-title')];
+    const labels = ['Carlic', 'Improvised', 'Sketches', 'Renditions', 'Chopin', 'Lest we forget'];
+    const descriptions = [
+     'A personal musical voyage under the name Carlic.',
+     'On-the-fly improvisations, never scored.',
+     'Early ideas, never finished.',
+     'Personal piano renditions of music by others.',
+     'Unintentionally unfinished. It was only a dream.',
+     'Captured, lest we forget.'
+    ];
+    if (!headings.length) return;
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs klavier-tabs';
+    tabs.setAttribute('role', 'tablist');
+    headings.forEach((heading, index) => {
+     const id = `klavier-tab-${index}`;
+     const label = labels[index] || heading.textContent.trim();
+     const pane = document.createElement('section');
+     pane.className = 'tab-pane klavier-tab-pane';
+     pane.id = `${id}-content`;
+     const nodes = [];
+     const nextHeading = headings[index + 1] || lest;
+     let node = heading;
+     while (node && node !== nextHeading) { const next = node.nextSibling; nodes.push(node); node = next; }
+     heading.parentNode.insertBefore(pane, heading);
+     nodes.forEach(item => pane.appendChild(item));
+     heading.remove();
+     const description = document.createElement('p');
+     description.className = 'klavier-tab-description';
+     description.textContent = descriptions[index];
+     pane.prepend(description);
+     const tab = document.createElement('button');
+     tab.className = 'tab';
+     tab.type = 'button';
+     tab.dataset.tab = id;
+     tab.setAttribute('role', 'tab');
+     tab.textContent = label;
+     tab.addEventListener('click', () => {
+      tabs.querySelectorAll('.tab').forEach(item => item.classList.toggle('active', item === tab));
+      page.querySelectorAll('.klavier-tab-pane').forEach(item => { item.hidden = item !== pane; });
+     });
+     tabs.appendChild(tab);
+    });
+    if (lest) {
+     const pane = document.createElement('section');
+     pane.className = 'tab-pane klavier-tab-pane';
+     pane.id = 'klavier-tab-5-content';
+     while (lest.firstChild) pane.appendChild(lest.firstChild);
+     pane.querySelector('.music-group-title')?.remove();
+     const description = document.createElement('p');
+     description.className = 'klavier-tab-description';
+     description.textContent = descriptions[5];
+     pane.prepend(description);
+     lest.replaceWith(pane);
+     const tab = document.createElement('button');
+     tab.className = 'tab'; tab.type = 'button'; tab.dataset.tab = 'klavier-tab-5'; tab.setAttribute('role', 'tab'); tab.textContent = 'Lest we forget';
+     tab.addEventListener('click', () => { tabs.querySelectorAll('.tab').forEach(item => item.classList.toggle('active', item === tab)); page.querySelectorAll('.klavier-tab-pane').forEach(item => { item.hidden = item !== pane; }); });
+     tabs.appendChild(tab);
+    }
+    page.insertBefore(tabs, page.querySelector('.klavier-tab-pane'));
+    tabs.querySelector('.tab')?.click();
+   })();
+  </script>
  </body>
 </html>

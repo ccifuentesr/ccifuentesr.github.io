@@ -6,7 +6,7 @@
   <meta content="dark light" name="color-scheme"/>
   <title>Carlos Cifuentes · Echoes</title>
   <meta content="Echoes — textos y notas de Carlos Cifuentes." name="description"/>
-  <link href="assets/css/site.css?v=20261116-mobile-toggle3" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=20261117-echoes-gate4" rel="stylesheet"/>
   <style>.echoes-timeline{position:relative}.echoes-timeline::before{content:"";position:absolute;left:156px;top:.72em;bottom:.72em;width:1px;background:var(--border-color)}.echoes-timeline li::before{display:none}.echoes-timeline li.echoes-gap--small{margin-top:0}.echoes-timeline li.echoes-gap--medium{margin-top:18px}.echoes-timeline li.echoes-gap--large{margin-top:38px}.echoes-timeline li.echoes-gap--xlarge{margin-top:64px}@media(max-width:640px){.echoes-timeline::before{left:3px}}</style>
   <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
   <script defer src="assets/js/site.js?v=20261113-theme1"></script>
@@ -31,7 +31,12 @@
    </div>
    <main id="main">
     <h1>Echoes</h1>
-    <section aria-labelledby="echoes-list-title" class="echoes-index">
+    <form class="echoes-gate" data-echoes-gate>
+     <label for="echoes-password">Contraseña</label>
+     <div><input autocomplete="current-password" id="echoes-password" type="password"/><button type="submit">Entrar</button></div>
+     <p aria-live="polite" class="echoes-gate__error" hidden>Contraseña incorrecta.</p>
+    </form>
+    <section aria-labelledby="echoes-list-title" class="echoes-index" data-echoes-content hidden>
      <h2 class="visually-hidden" id="echoes-list-title">Entradas</h2>
      <ol class="echoes-timeline">
       <li class="echoes-gap--small">
@@ -71,5 +76,18 @@
     </nav>
    </footer>
   </div>
+  <script>
+   (() => {
+    const gate = document.querySelector('[data-echoes-gate]');
+    const content = document.querySelector('[data-echoes-content]');
+    const input = document.getElementById('echoes-password');
+    const error = gate.querySelector('.echoes-gate__error');
+    gate.addEventListener('submit', event => {
+     event.preventDefault();
+     if (input.value === 'cwasdqwe123') { gate.hidden = true; content.hidden = false; }
+     else { error.hidden = false; input.select(); }
+    });
+   })();
+  </script>
  </body>
 </html>

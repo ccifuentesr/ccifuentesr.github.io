@@ -7,7 +7,6 @@
   <title>Nuestros pasos · Echoes · Carlos Cifuentes</title>
   <meta content="Nuestros pasos, un texto de Carlos Cifuentes escrito en Madrid el 6 de mayo de 2022." name="description"/>
   <link href="assets/css/site.css?v=20261116-echoes-hover3" rel="stylesheet"/>
-  <style>.private-gate{width:min(720px,100%);margin:72px auto 24px}.private-gate label{display:block;margin-bottom:10px;color:var(--text-secondary);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}.private-gate>div{display:flex;gap:10px}.private-gate input{margin:0}.private-gate button{border:1px solid var(--border-color);border-radius:5px;padding:10px 16px;background:transparent;color:var(--text-color);cursor:pointer}.private-gate button:hover{border-color:var(--accent);color:var(--accent)}.private-gate__error{margin-top:10px;color:#a54b4b;font-size:14px}</style>
   <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
   <script defer src="assets/js/site.js?v=20261113-theme1"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
@@ -24,12 +23,7 @@
    </div>
    <main id="main">
     <p class="echoes-back"><a href="echoes.html">← Echoes</a></p>
-    <form class="private-gate" data-private-gate="nuestros-pasos">
-     <label for="nuestros-pasos-password">Contraseña</label>
-     <div><input autocomplete="current-password" id="nuestros-pasos-password" type="password"/><button type="submit">Entrar</button></div>
-     <p aria-live="polite" class="private-gate__error" hidden>Contraseña incorrecta.</p>
-    </form>
-    <article class="echoes-entry" data-private-content="nuestros-pasos" hidden>
+    <article class="echoes-entry">
      <header class="echoes-entry-header"><h1>Nuestros pasos</h1></header>
      <div class="echoes-prose">
       <p>El Sol es una estrella que esta tarde derrochaba vida sobre mi piel. Creo que sus rayos fueron mi aliento algunas veces. Sentí el aire anhelando tempestades y gobernando a las nubes y a sus destinos. Yo me encontraba ante un paisaje que no pude haber previsto. El tiempo y el mundo me parecieron pequeños.</p>
@@ -47,18 +41,5 @@
    </main>
    <footer><span>© 2026 C. Cifuentes</span><nav aria-label="Beyond work"><span>Beyond work</span><a href="musik.html">Musik</a><a href="seen.html">Seen</a><a href="echoes.html">Echoes</a></nav></footer>
   </div>
-  <script>
-   (() => {
-    const gate = document.querySelector('[data-private-gate="nuestros-pasos"]');
-    const content = document.querySelector('[data-private-content="nuestros-pasos"]');
-    const input = document.getElementById('nuestros-pasos-password');
-    const error = gate.querySelector('.private-gate__error');
-    gate.addEventListener('submit', event => {
-     event.preventDefault();
-     if (input.value === 'Gliese486b') { gate.hidden = true; content.hidden = false; }
-     else { error.hidden = false; input.select(); }
-    });
-   })();
-  </script>
  </body>
 </html>
