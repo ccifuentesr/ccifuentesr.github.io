@@ -1,12 +1,12 @@
 {
   "source": "NASA ADS",
-  "updated_at": "2026-11-17T12:29:16+00:00",
+  "updated_at": "2026-11-17T12:30:56+00:00",
   "queries": {
     "articles": "author:\"Cifuentes, C.\" AND collection:astronomy AND property:refereed AND (bibstem:\"A&A\" OR bibstem:\"MNRAS\" OR bibstem:\"AJ\" OR bibstem:\"ApJ\" OR bibstem:\"Sci\")",
-    "catalogues": "author:\"Cifuentes, C.\" AND collection:astronomy AND (doctype:catalog OR bibstem:\"VizieR\")",
+    "catalogues": "author:\"Cifuentes, C.\" AND collection:astronomy AND (doctype:catalog OR doctype:dataset OR bibstem:yCat)",
     "proceedings": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:inproceedings",
     "other": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:circular",
-    "extraordinary": "bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)"
+    "refereed": "bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)"
   },
   "records": [
     {
@@ -50,6 +50,24 @@
       "citation_count": 0
     },
     {
+      "bibcode": "2026yCat..37130272L",
+      "year": 2026,
+      "pubdate": "2026-07-00",
+      "title": "VizieR Online Data Catalog: TESS hot Jupiter candidates CAFE follow-up (Lillo-Box+, 2026)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "371",
+      "page": "J/A+A/713/A272",
+      "byline": [
+        "Lillo-Box",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 2,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2026csss.confE.175G",
       "year": 2026,
       "pubdate": "2026-06-00",
@@ -88,6 +106,25 @@
       "citation_count": 5
     },
     {
+      "bibcode": "2026yCat..75499838G",
+      "year": 2026,
+      "pubdate": "2026-05-00",
+      "title": "VizieR Online Data Catalog: Known mult. stellar systems within 10pc (Gonzalez-Payo+, 2026)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "754",
+      "page": "J/MNRAS/549/G838",
+      "byline": [
+        "Gonzalez-Payo",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 3,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2026A&A...709A.244V",
       "year": 2026,
       "pubdate": "2026-05-00",
@@ -110,6 +147,30 @@
       "author_position": 8,
       "arxiv": "2604.15428",
       "citation_count": 2
+    },
+    {
+      "bibcode": "2026yCat..37090244V",
+      "year": 2026,
+      "pubdate": "2026-04-00",
+      "title": "VizieR Online Data Catalog: CARMENES M dwarfs projected rotational velocities (Varas+, 2026)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "370",
+      "page": "J/A+A/709/A244",
+      "byline": [
+        "Varas",
+        "Morello",
+        "Zechmeister",
+        "Amado",
+        "Pozuelos",
+        "Caballero",
+        "Claret",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 8,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2026A&A...707A.106P",
@@ -155,6 +216,28 @@
       "citation_count": 1
     },
     {
+      "bibcode": "2025yCat..37070106P",
+      "year": 2025,
+      "pubdate": "2025-11-00",
+      "title": "VizieR Online Data Catalog: TOI-1243, TOI-4529, TOI-5388 RV datasets (Poultourtzidis+, 2026)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "370",
+      "page": "J/A+A/707/A106",
+      "byline": [
+        "Poultourtzidis",
+        "Lacedelli",
+        "Palle",
+        "Carleo",
+        "Magliano",
+        "Geraldia-Gonzalez",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 17,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2025A&A...703A..93S",
       "year": 2025,
       "pubdate": "2025-11-00",
@@ -177,6 +260,27 @@
       "citation_count": 2
     },
     {
+      "bibcode": "2025yCat..37040150A",
+      "year": 2025,
+      "pubdate": "2025-10-00",
+      "title": "VizieR Online Data Catalog: ExoDNN v1 candidates (Abreu+, 2025)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "370",
+      "page": "J/A+A/704/A150",
+      "byline": [
+        "Abreu",
+        "Lillo-Box",
+        "Perez-Garcia",
+        "Sahlmann",
+        "de Bruine",
+        "Cifuentes"
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2025A&A...700A.216G",
       "year": 2025,
       "pubdate": "2025-08-00",
@@ -197,6 +301,28 @@
       "author_position": 16,
       "arxiv": "2507.15763",
       "citation_count": 3
+    },
+    {
+      "bibcode": "2025yCat..37000216G",
+      "year": 2025,
+      "pubdate": "2025-05-00",
+      "title": "VizieR Online Data Catalog: Ross 176 phot., RVs, activity indices (Geraldia-Gonzalez+, 2025)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "370",
+      "page": "J/A+A/700/A216",
+      "byline": [
+        "Geraldia-Gonzalez",
+        "Orell-Miquel",
+        "Palle",
+        "Murgas",
+        "Lacedelli",
+        "Bejar",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 16,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2025hsa..conf..204C",
@@ -366,6 +492,90 @@
       "citation_count": 11
     },
     {
+      "bibcode": "2024yCat..36940015B",
+      "year": 2024,
+      "pubdate": "2024-11-00",
+      "title": "VizieR Online Data Catalog: KOBE-1 activity indicators and RVs (Balsalobre-Ruza+, 2025)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "369",
+      "page": "J/A+A/694/A15",
+      "byline": [
+        "Balsalobre-Ruza",
+        "Lillo-Box",
+        "Silva",
+        "Grouffal",
+        "Aceituno",
+        "Castro-Gonzalez",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36930228C",
+      "year": 2024,
+      "pubdate": "2024-11-00",
+      "title": "VizieR Online Data Catalog: CARMENES input catalogue of M dwarfs. IX. (Cifuentes+, 2025)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "369",
+      "page": "J/A+A/693/A228",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36920206C",
+      "year": 2024,
+      "pubdate": "2024-11-00",
+      "title": "VizieR Online Data Catalog: CARMENES input cat. of M dwarfs VIII (Cortes-Contreras+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "369",
+      "page": "J/A+A/692/A206",
+      "byline": [
+        "Cortes-Contreras",
+        "Caballero",
+        "Montes",
+        "Cardona-Guillen",
+        "Bejar",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36920138R",
+      "year": 2024,
+      "pubdate": "2024-10-00",
+      "title": "VizieR Online Data Catalog: Radial velocity jitter in cool stars (Ruh+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "369",
+      "page": "J/A+A/692/A138",
+      "byline": [
+        "Ruh",
+        "Zechmeister",
+        "Reiners",
+        "Nagel",
+        "Shan",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2024A&A...689A.302G",
       "year": 2024,
       "pubdate": "2024-09-00",
@@ -409,6 +619,27 @@
       "citation_count": 13
     },
     {
+      "bibcode": "2024yCat..36890302G",
+      "year": 2024,
+      "pubdate": "2024-07-00",
+      "title": "VizieR Online Data Catalog: Multiplicity of stars with planets (Gonzalez-Payo+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/689/A302",
+      "byline": [
+        "Gonzalez-Payo",
+        "Caballero",
+        "Gorgas",
+        "Cortes-Contreras",
+        "Gelvez-Ortiz",
+        "Cifuentes"
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2024A&A...687A.205M",
       "year": 2024,
       "pubdate": "2024-07-00",
@@ -429,6 +660,50 @@
       "author_position": 12,
       "arxiv": "2405.08703",
       "citation_count": 16
+    },
+    {
+      "bibcode": "2024yCat..36880112V",
+      "year": 2024,
+      "pubdate": "2024-06-00",
+      "title": "VizieR Online Data Catalog: GJ 581 RVs and activity indices (von Stauffenberg+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/688/A112",
+      "byline": [
+        "von Stauffenberg",
+        "Trifonov",
+        "Quirrenbach",
+        "Reffert",
+        "Kaminski",
+        "Dreizler",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 15,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36870205M",
+      "year": 2024,
+      "pubdate": "2024-05-00",
+      "title": "VizieR Online Data Catalog: Stellar parameters of 286 CARMENES M dwarfs (Mas-Buitrago+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/687/A205",
+      "byline": [
+        "Mas-Buitrago",
+        "Gonzalez-Marcos",
+        "Solano",
+        "Passegger",
+        "Cortes-Contreras",
+        "Ordieres-Mere",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 12,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2024A&A...685A.147G",
@@ -521,6 +796,74 @@
       "citation_count": 40
     },
     {
+      "bibcode": "2024yCat..36840117D",
+      "year": 2024,
+      "pubdate": "2024-03-00",
+      "title": "VizieR Online Data Catalog: RVs of Teegarden's star (Dreizler+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/684/A117",
+      "byline": [
+        "Dreizler",
+        "Luque",
+        "Ribas",
+        "Koseleva",
+        "Ruh",
+        "Nagel",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 15,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36840028L",
+      "year": 2024,
+      "pubdate": "2024-03-00",
+      "title": "VizieR Online Data Catalog: Evolution of lithium in FGK dwarfs (Llorente de Andres+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/684/A28",
+      "byline": [
+        "Llorente de",
+        "de La Reza",
+        "Cruz",
+        "Cuenda-Munoz",
+        "Alfaro",
+        "Chavero",
+        "Cifuentes"
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2024yCat..36840009S",
+      "year": 2024,
+      "pubdate": "2024-03-00",
+      "title": "VizieR Online Data Catalog: Rotation periods for 261 M dwarfs (Shan+, 2024)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/684/A9",
+      "byline": [
+        "Shan",
+        "Revilla",
+        "Skrzypinski",
+        "Dreizler",
+        "Bejar",
+        "Caballero",
+        "Cardona Guillen",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 8,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2023A&A...680A..76M",
       "year": 2023,
       "pubdate": "2023-12-00",
@@ -563,6 +906,52 @@
       "author_position": 17,
       "arxiv": "2310.05599",
       "citation_count": 10
+    },
+    {
+      "bibcode": "2023yCat..36750141G",
+      "year": 2023,
+      "pubdate": "2023-11-00",
+      "title": "VizieR Online Data Catalog: HN Lib radial velocities (Gonzalez-Alvarez+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/675/A141",
+      "byline": [
+        "Gonzalez-Alvarez",
+        "Kemmer",
+        "Chaturvedi",
+        "Caballero",
+        "Quirrenbach",
+        "Amado",
+        "Bejar",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 8,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023yCat..36800028G",
+      "year": 2023,
+      "pubdate": "2023-10-00",
+      "title": "VizieR Online Data Catalog: GJ 724 and GJ 3988 RV timeseries (Gorrini+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "368",
+      "page": "J/A+A/680/A28",
+      "byline": [
+        "Gorrini",
+        "Kemmer",
+        "Dreizler",
+        "Burn",
+        "Hirano",
+        "Pozuelos",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 17,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2023A&A...678A..80P",
@@ -737,7 +1126,7 @@
       "year": 2023,
       "pubdate": "2023-05-00",
       "title": "Astrophysical parameters of M dwarfs with exoplanets",
-      "category": "extraordinary",
+      "category": "refereed",
       "journal": "Ph.D. Thesis",
       "volume": "",
       "page": "2023",
@@ -769,6 +1158,28 @@
       "author_position": 12,
       "arxiv": "2304.00224",
       "citation_count": 15
+    },
+    {
+      "bibcode": "2023yCat..36730105B",
+      "year": 2023,
+      "pubdate": "2023-04-00",
+      "title": "VizieR Online Data Catalog: Deep Transfer Learning of Teff and [M/H] (Bello-Garcia+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/673/A105",
+      "byline": [
+        "Bello-Garcia",
+        "Passegger",
+        "Ordieres-Mere",
+        "Schweitzer",
+        "Caballero",
+        "Gonzalez-Marcos",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 12,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2023A&A...671A.136D",
@@ -860,6 +1271,73 @@
       "citation_count": 35
     },
     {
+      "bibcode": "2023yCat..36710136D",
+      "year": 2023,
+      "pubdate": "2023-01-00",
+      "title": "VizieR Online Data Catalog: Stars with debris disks and planets (de la Reza+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/671/A136",
+      "byline": [
+        "de La",
+        "Chavero",
+        "Roca-Fabrega",
+        "Llorente de",
+        "Cruz",
+        "Cifuentes"
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023yCat..36710050B",
+      "year": 2023,
+      "pubdate": "2023-01-00",
+      "title": "VizieR Online Data Catalog: GJ 1151 CARMENES and HARPS-N data (Blanco-Pozo+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/671/A50",
+      "byline": [
+        "Blanco-Pozo",
+        "Perger",
+        "Damasso",
+        "Anglada Escude",
+        "Ribas",
+        "Baroch",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 8,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023yCat..36700084K",
+      "year": 2023,
+      "pubdate": "2023-01-00",
+      "title": "VizieR Online Data Catalog: Wolf 1069 RV and stellar activity indices (Kossakowski+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/670/A84",
+      "byline": [
+        "Kossakowski",
+        "Kuerster",
+        "Trifonov",
+        "Henning",
+        "Kemmer",
+        "Caballero",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 25,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2022csss.confE.139C",
       "year": 2022,
       "pubdate": "2022-12-00",
@@ -875,6 +1353,28 @@
       "author_position": 1,
       "arxiv": "",
       "citation_count": 0
+    },
+    {
+      "bibcode": "2022yCat..36700139R",
+      "year": 2022,
+      "pubdate": "2022-11-00",
+      "title": "VizieR Online Data Catalog: CARMENES search for exoplanets around M dwarfs (Ribas+, 2023)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "367",
+      "page": "J/A+A/670/A139",
+      "byline": [
+        "Ribas",
+        "Reiners",
+        "Zechmeister",
+        "Caballero",
+        "Morales",
+        "Sabotta",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 22,
+      "arxiv": "",
+      "citation_count": 1
     },
     {
       "bibcode": "2022A&A...666A.187D",
@@ -965,6 +1465,28 @@
       "citation_count": 37
     },
     {
+      "bibcode": "2022yCat..36660143K",
+      "year": 2022,
+      "pubdate": "2022-09-00",
+      "title": "VizieR Online Data Catalog: AD Leo RV and stellar activity indices (Kossakowski+, 2022)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "366",
+      "page": "J/A+A/666/A143",
+      "byline": [
+        "Kossakowski",
+        "Kuerster",
+        "Henning",
+        "Trifonov",
+        "Caballero",
+        "Lafarga",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 20,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2022A&A...665A.120C",
       "year": 2022,
       "pubdate": "2022-09-00",
@@ -986,6 +1508,28 @@
       "author_position": 7,
       "arxiv": "2206.09990",
       "citation_count": 56
+    },
+    {
+      "bibcode": "2022yCat..36660155C",
+      "year": 2022,
+      "pubdate": "2022-08-00",
+      "title": "VizieR Online Data Catalog: TOI-1468 photometry and radial velocities (Chaturvedi+, 2022)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "366",
+      "page": "J/A+A/666/A155",
+      "byline": [
+        "Chaturvedi",
+        "Bluhm",
+        "Nagel",
+        "Hatzes",
+        "Morello",
+        "Brady",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 16,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2022eas..conf.1099C",
@@ -1051,6 +1595,50 @@
       "citation_count": 41
     },
     {
+      "bibcode": "2022yCat..51630133E",
+      "year": 2022,
+      "pubdate": "2022-04-00",
+      "title": "VizieR Online Data Catalog: VRI photometry and radial velocity of TOI-1759 (Espinoza+, 2022)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "516",
+      "page": "J/AJ/163/133",
+      "byline": [
+        "Espinoza",
+        "Palle",
+        "Kemmer",
+        "Luque",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2022yCat..36660187D",
+      "year": 2022,
+      "pubdate": "2022-04-00",
+      "title": "VizieR Online Data Catalog: Gl514 RVs and activity diagnostics (Damasso+, 2022)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "366",
+      "page": "J/A+A/666/A187",
+      "byline": [
+        "Damasso",
+        "Perger",
+        "Almenara",
+        "Nardiello",
+        "Perez-Torres",
+        "Sozzetti",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 19,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2022AJ....163..133E",
       "year": 2022,
       "pubdate": "2022-03-00",
@@ -1093,6 +1681,28 @@
       "author_position": 29,
       "arxiv": "2202.00970",
       "citation_count": 27
+    },
+    {
+      "bibcode": "2022yCat..36590017K",
+      "year": 2022,
+      "pubdate": "2022-02-00",
+      "title": "VizieR Online Data Catalog: GJ 3929 b RVs and activity indicators (Kemmer+, 2022)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/659/A17",
+      "byline": [
+        "Kemmer",
+        "Dreizler",
+        "Kossakowski",
+        "Stock",
+        "Quirrenbach",
+        "Caballero",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 29,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2021A&A...656A.162M",
@@ -1159,6 +1769,28 @@
       "citation_count": 7
     },
     {
+      "bibcode": "2021yCat..36560162M",
+      "year": 2021,
+      "pubdate": "2021-10-00",
+      "title": "VizieR Online Data Catalog: CARMENES stellar atmospheric parameters (Marfil+, 2021)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/656/A162",
+      "byline": [
+        "Marfil",
+        "Tabernero",
+        "Montes",
+        "Caballero",
+        "Lazaro",
+        "Gonzalez Hernandez",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 14,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2021spc..confE..11C",
       "year": 2021,
       "pubdate": "2021-10-00",
@@ -1218,6 +1850,48 @@
       "citation_count": 21
     },
     {
+      "bibcode": "2021yCat..36560124K",
+      "year": 2021,
+      "pubdate": "2021-09-00",
+      "title": "VizieR Online Data Catalog: TOI-1201 RV and activity index (Kossakowski+, 2021)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/656/A124",
+      "byline": [
+        "Kossakowski",
+        "Kemmer",
+        "Bluhm",
+        "Stock",
+        "Caballero",
+        "Bejar",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 23,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2021yCat..36540137L",
+      "year": 2021,
+      "pubdate": "2021-08-00",
+      "title": "VizieR Online Data Catalog: Evolution of Li in FGK dwarf stars (Llorente de Andres+, 2021)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/654/A137",
+      "byline": [
+        "Llorente de",
+        "Chavero",
+        "de La",
+        "Roca-Fabrega",
+        "Cifuentes"
+      ],
+      "author_position": 5,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2021A&A...652A.116P",
       "year": 2021,
       "pubdate": "2021-08-00",
@@ -1240,11 +1914,33 @@
       "citation_count": 36
     },
     {
+      "bibcode": "2021yCat..36520116P",
+      "year": 2021,
+      "pubdate": "2021-07-00",
+      "title": "VizieR Online Data Catalog: CARMENES time-resolved CaII H&K catalog (Perdelwitz+, 2021)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/652/A116",
+      "byline": [
+        "Perdelwitz",
+        "Mittag",
+        "Tal-Or",
+        "Schmitt",
+        "Caballero",
+        "Jeffers",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 14,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2021RNAAS...5..129C",
       "year": 2021,
       "pubdate": "2021-06-00",
       "title": "One Is the Loneliest Number: Multiplicity in Cool Dwarfs",
-      "category": "extraordinary",
+      "category": "refereed",
       "journal": "Research Notes of the American Astronomical Society",
       "volume": "5",
       "page": "129",
@@ -1277,6 +1973,47 @@
       "author_position": 23,
       "arxiv": "2105.13785",
       "citation_count": 28
+    },
+    {
+      "bibcode": "2021yCat..36500188A",
+      "year": 2021,
+      "pubdate": "2021-05-00",
+      "title": "VizieR Online Data Catalog: G 264-012 and Gl 393 radial velocity curves (Amado+, 2021)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "365",
+      "page": "J/A+A/650/A188",
+      "byline": [
+        "Amado",
+        "Bauer",
+        "Rodriguez Lopez",
+        "Rodriguez",
+        "Cardona Guillen",
+        "Perger",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 23,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2021yCat..18870261M",
+      "year": 2021,
+      "pubdate": "2021-05-00",
+      "title": "VizieR Online Data Catalog: Compilation of planets around M dwarfs (Martinez-Rodriguez+, 2019)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "188",
+      "page": "J/ApJ/887/261",
+      "byline": [
+        "Martinez-Rodriguez",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 3,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2021csss.confE..19M",
@@ -1367,6 +2104,28 @@
       "citation_count": 44
     },
     {
+      "bibcode": "2020yCat..36440127D",
+      "year": 2020,
+      "pubdate": "2020-11-00",
+      "title": "VizieR Online Data Catalog: LP714-47 (TOI 442) radial velocity curve (Dreizler+, 2020)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "364",
+      "page": "J/A+A/644/A127",
+      "byline": [
+        "Dreizler",
+        "Crossfield",
+        "Kossakowski",
+        "Plavchan",
+        "Jeffers",
+        "Kemmer",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 47,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2020A&A...642A.236K",
       "year": 2020,
       "pubdate": "2020-10-00",
@@ -1428,6 +2187,28 @@
       "citation_count": 186
     },
     {
+      "bibcode": "2020yCat..36420236K",
+      "year": 2020,
+      "pubdate": "2020-09-00",
+      "title": "VizieR Online Data Catalog: GJ 3473 (TOI-488) radial velocity curve (Kemmer+, 2020)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "364",
+      "page": "J/A+A/642/A236",
+      "byline": [
+        "Kemmer",
+        "Stock",
+        "Kossakowski",
+        "Kaminski",
+        "Molaverdikhani",
+        "Schlecker",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 36,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2020A&A...641A..69B",
       "year": 2020,
       "pubdate": "2020-09-00",
@@ -1448,6 +2229,23 @@
       "author_position": 13,
       "arxiv": "2006.16608",
       "citation_count": 47
+    },
+    {
+      "bibcode": "2020yCat..36420115C",
+      "year": 2020,
+      "pubdate": "2020-07-00",
+      "title": "VizieR Online Data Catalog: CARMENES input catalogue of M dwarfs. V. (Cifuentes+, 2020)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "364",
+      "page": "J/A+A/642/A115",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2020sea..confE.180R",
@@ -1638,6 +2436,28 @@
       "citation_count": 158
     },
     {
+      "bibcode": "2019yCat..36270049Z",
+      "year": 2019,
+      "pubdate": "2019-05-00",
+      "title": "VizieR Online Data Catalog: Teegarden's Star RV and Hα curves (Zechmeister+, 2019)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "362",
+      "page": "J/A+A/627/A49",
+      "byline": [
+        "Zechmeister",
+        "Dreizler",
+        "Ribas",
+        "Reiners",
+        "Caballero",
+        "Bauer",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 48,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2019A&A...625A..68S",
       "year": 2019,
       "pubdate": "2019-05-00",
@@ -1655,6 +2475,25 @@
       "author_position": 3,
       "arxiv": "1904.03231",
       "citation_count": 204
+    },
+    {
+      "bibcode": "2019yCat..36250068S",
+      "year": 2019,
+      "pubdate": "2019-04-00",
+      "title": "VizieR Online Data Catalog: Radii and masses of the CARMENES targets (Schweitzer+, 2019)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "362",
+      "page": "J/A+A/625/A68",
+      "byline": [
+        "Schweitzer",
+        "Passegger",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 3,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2019hsax.conf..507C",
@@ -1696,6 +2535,28 @@
       "citation_count": 51
     },
     {
+      "bibcode": "2018yCat..36180115K",
+      "year": 2018,
+      "pubdate": "2018-08-00",
+      "title": "VizieR Online Data Catalog:  A Neptune-mass planet traversing the habitable zone around HD 180617 (Kaminski+, 2018)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "361",
+      "page": "J/A+A/618/A115",
+      "byline": [
+        "Kaminski",
+        "Trifonov",
+        "Caballero",
+        "Quirrenbach",
+        "Ribas",
+        "Reiners",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 17,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2018SPIE10702E..0WQ",
       "year": 2018,
       "pubdate": "2018-07-00",
@@ -1716,6 +2577,28 @@
       "author_position": 17,
       "arxiv": "",
       "citation_count": 123
+    },
+    {
+      "bibcode": "2018yCat..36120049R",
+      "year": 2018,
+      "pubdate": "2018-06-00",
+      "title": "VizieR Online Data Catalog: 324 CARMENES M dwarfs velocities (Reiners+, 2018)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "361",
+      "page": "J/A+A/612/A49",
+      "byline": [
+        "Reiners",
+        "Zechmeister",
+        "Caballero",
+        "Ribas",
+        "Morales",
+        "Jeffers",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 36,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2018A&A...612A..49R",
@@ -1782,6 +2665,50 @@
       "author_position": 45,
       "arxiv": "1712.05797",
       "citation_count": 69
+    },
+    {
+      "bibcode": "2017yCat..36099005R",
+      "year": 2017,
+      "pubdate": "2017-11-00",
+      "title": "VizieR Online Data Catalog: HD147379 b velocity curve (Reiners+, 2018)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "360",
+      "page": "J/A+A/609/L5",
+      "byline": [
+        "Reiners",
+        "Ribas",
+        "Zechmeister",
+        "Caballero",
+        "Trifonov",
+        "Dreizler",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 45,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2017yCat..36090117T",
+      "year": 2017,
+      "pubdate": "2017-10-00",
+      "title": "VizieR Online Data Catalog: CARMENES radial velocity curves of 7 M-dwarf (Trifonov+, 2018)",
+      "category": "catalogues",
+      "journal": "VizieR Online Data Catalog",
+      "volume": "360",
+      "page": "J/A+A/609/A117",
+      "byline": [
+        "Trifonov",
+        "Kuerster",
+        "Zechmeister",
+        "Tal-Or",
+        "Caballero",
+        "Quirrenbach",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 54,
+      "arxiv": "",
+      "citation_count": 0
     }
   ]
 }

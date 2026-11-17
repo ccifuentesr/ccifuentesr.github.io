@@ -18,10 +18,10 @@ AUTHOR = 'author:"Cifuentes, C." AND collection:astronomy'
 QUERIES = {
     'articles': (AUTHOR + ' AND property:refereed AND '
                  '(bibstem:"A&A" OR bibstem:"MNRAS" OR bibstem:"AJ" OR bibstem:"ApJ" OR bibstem:"Sci")'),
-    'catalogues': AUTHOR + ' AND (doctype:catalog OR bibstem:"VizieR")',
+    'catalogues': AUTHOR + ' AND (doctype:catalog OR doctype:dataset OR bibstem:yCat)',
     'proceedings': AUTHOR + ' AND doctype:inproceedings',
     'other': AUTHOR + ' AND doctype:circular',
-    'extraordinary': 'bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)',
+    'refereed': 'bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)',
 }
 JOURNALS = {'A&A', 'MNRAS', 'AJ', 'ApJ', 'Sci'}
 JOURNAL_LABELS = {'Sci': 'Science'}
