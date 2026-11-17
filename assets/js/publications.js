@@ -1,35 +1,104 @@
 (async () => {
-  const links = [...document.querySelectorAll('[data-ads-bibcode]')];
-  if (!links.length) return;
-  try {
-    const response = await fetch('assets/data/ads-citations.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Citation cache unavailable');
-    const data = await response.json();
-    const updated = new Date(data.updated_at);
-    if (Number.isNaN(updated.getTime())) throw new Error('Invalid update date');
-    const counts = links.map(link => data.records?.[link.dataset.adsBibcode]?.citation_count);
-    if (counts.some(count => !Number.isInteger(count) || count < 0)) {
-      throw new Error('Incomplete citation cache');
-    }
-    links.forEach((link, index) => {
-      const count = counts[index];
-      const countLabel = document.createElement('span');
-      countLabel.className = 'publication-citation-count';
-      countLabel.textContent = count.toLocaleString('en-GB');
-      link.replaceChildren(countLabel, ` ${count === 1 ? 'citation' : 'citations'}`);
-      link.hidden = false;
+  const list = document.getElementById('publication-list');
+  if (!list) return;
+
+  const el = (tag, className, value) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (value !== undefined) node.textContent = value;
+    return node;
+  };
+
+  const link = (label, href, className) => {
+    const anchor = el('a', className, label);
+    anchor.href = href;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    return anchor;
+  };
+
+  function renderAuthors(parts) {
+    const byline = el('p', 'publication-authors');
+    parts.forEach((part, index) => {
+      if (index) byline.append(', ');
+      if (part === 'Cifuentes') {
+        byline.append(el('strong', 'publication-author--cifuentes', part));
+      } else if (part === 'et al. (incl. Cifuentes)') {
+        byline.append('et al. (incl. ', el('strong', 'publication-author--cifuentes', 'Cifuentes'), ')');
+      } else {
+        byline.append(part);
+      }
     });
+    return byline;
+  }
+
+  function render(record) {
+    const article = el('article', 'publication-card');
+    article.dataset.year = record.year;
+    article.dataset.authorship = record.author_position === 1 ? 'authored' : 'coauthored';
+    const year = el('span', 'publication-year');
+    year.setAttribute('aria-label', `Published in ${record.year}`);
+    const body = el('div', 'publication-card-body');
+    body.append(el('h3', null, record.title), renderAuthors(record.byline));
+
+    const details = el('div', 'publication-details');
+    const venue = [record.journal, record.volume, record.page].filter(Boolean).join(', ');
+    details.append(el('span', 'publication-venue', venue));
+    details.append(link('ADS', `https://ui.adsabs.harvard.edu/abs/${encodeURIComponent(record.bibcode)}/abstract`, 'publication-link-badge'));
+    if (record.arxiv) {
+      details.append(link('arXiv', `https://arxiv.org/abs/${encodeURIComponent(record.arxiv)}`, 'publication-link-badge'));
+    }
+    const count = record.citation_count;
+    if (Number.isInteger(count) && count >= 0) {
+      const citations = link('', `https://ui.adsabs.harvard.edu/abs/${encodeURIComponent(record.bibcode)}/citations`, 'publication-citations');
+      citations.append(el('span', 'publication-citation-count', count.toLocaleString('en-GB')),
+        ` ${count === 1 ? 'citation' : 'citations'}`);
+      details.append(citations);
+    }
+    body.append(details);
+    article.append(year, body);
+    return article;
+  }
+
+  try {
+    const response = await fetch('assets/data/ads-publications.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('ADS cache unavailable');
+    const data = await response.json();
+    if (!Array.isArray(data.records) || !data.records.length) throw new Error('ADS cache empty');
+    list.replaceChildren(...data.records.map(render));
+
     const note = document.getElementById('citation-source');
-    if (note) {
-      const date = document.createElement('time');
-      date.dateTime = data.updated_at;
-      date.textContent = new Intl.DateTimeFormat('en-GB', {
+    const updated = new Date(data.updated_at);
+    if (note && !Number.isNaN(updated.getTime())) {
+      const time = el('time', null, new Intl.DateTimeFormat('en-GB', {
         day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
-      }).format(updated);
-      note.replaceChildren('Citation counts from NASA ADS · Updated ', date);
+      }).format(updated));
+      time.dateTime = data.updated_at;
+      note.replaceChildren('Articles and citation counts from NASA ADS · Updated ', time);
       note.hidden = false;
     }
+
+    const buttons = [...document.querySelectorAll('[data-publication-filter]')];
+    function applyFilter(filter) {
+      buttons.forEach(button => {
+        const active = button.dataset.publicationFilter === filter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      let lastYear = null;
+      for (const card of list.children) {
+        card.hidden = filter !== 'all' && card.dataset.authorship !== filter;
+        const year = card.querySelector('.publication-year');
+        if (card.hidden) continue;
+        const showYear = card.dataset.year !== lastYear;
+        year.textContent = showYear ? card.dataset.year : '';
+        year.classList.toggle('publication-year--empty', !showYear);
+        lastYear = card.dataset.year;
+      }
+    }
+    buttons.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.publicationFilter)));
+    applyFilter('all');
   } catch {
-    // Articles and their links remain usable; unavailable counts are never shown as zero.
+    list.replaceChildren(el('p', 'publication-unavailable', 'The article list is temporarily unavailable. Please use the ADS link above.'));
   }
 })();

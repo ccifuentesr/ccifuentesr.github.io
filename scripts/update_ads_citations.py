@@ -11,20 +11,8 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / 'assets/data/ads-citations.json'
-BIBCODES = (
-    '2025A&A...693A.228C',
-    '2020A&A...642A.115C',
-    '2021RNAAS...5..129C',
-    '2023PhDT.........1C',
-    '2026A&A...713A.272L',
-    '2025A&A...694A..15B',
-    '2024A&A...692A.206C',
-    '2024A&A...689A.302G',
-    '2022A&A...665A.120C',
-    '2021A&A...656A.162M',
-    '2019ApJ...887..261M',
-    '2019A&A...625A..68S',
-)
+PUBLICATIONS = ROOT / 'assets/data/ads-publications.json'
+BIBCODES = tuple(record['bibcode'] for record in json.loads(PUBLICATIONS.read_text())['records'])
 AUTHOR_QUERY = 'author:"Cifuentes, C." AND collection:astronomy'
 PAGE_SIZE = 200
 
@@ -143,7 +131,7 @@ def refresh(token, destination=CACHE):
 
 if __name__ == '__main__':
     try:
-        result = refresh(os.environ.get('ADS_API_TOKEN', ''))
+        result = refresh(os.environ.get('ADS_API_TOKEN') or os.environ.get('ADS_DEV_KEY', ''))
     except HTTPError as error:
         print(f'ADS returned HTTP {error.code}; previous cache kept.', file=sys.stderr)
         sys.exit(1)

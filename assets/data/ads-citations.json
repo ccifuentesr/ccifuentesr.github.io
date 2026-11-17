@@ -1,42 +1,189 @@
 {
   "source": "NASA ADS",
-  "updated_at": "2026-11-12T17:06:17.545Z",
+  "updated_at": "2026-11-17T10:56:18+00:00",
   "records": {
-    "2025A&A...693A.228C": {
-      "citation_count": 37
+    "2026A&A...713A.272L": {
+      "citation_count": 0
     },
-    "2019A&A...625A..68S": {
-      "citation_count": 204
+    "2026MNRAS.549ag838G": {
+      "citation_count": 5
     },
-    "2022A&A...665A.120C": {
-      "citation_count": 56
+    "2026A&A...709A.244V": {
+      "citation_count": 2
     },
-    "2020A&A...642A.115C": {
-      "citation_count": 186
+    "2026A&A...707A.106P": {
+      "citation_count": 3
     },
-    "2024A&A...689A.302G": {
-      "citation_count": 20
+    "2025A&A...704A.150A": {
+      "citation_count": 1
     },
-    "2024A&A...692A.206C": {
-      "citation_count": 24
+    "2025A&A...703A..93S": {
+      "citation_count": 2
+    },
+    "2025A&A...700A.216G": {
+      "citation_count": 3
     },
     "2025A&A...694A..15B": {
       "citation_count": 9
     },
+    "2025A&A...693A.228C": {
+      "citation_count": 37
+    },
+    "2024A&A...692A.206C": {
+      "citation_count": 24
+    },
+    "2024A&A...692A.138R": {
+      "citation_count": 11
+    },
+    "2024A&A...689A.302G": {
+      "citation_count": 20
+    },
+    "2024A&A...688A.112V": {
+      "citation_count": 13
+    },
+    "2024A&A...687A.205M": {
+      "citation_count": 16
+    },
+    "2024A&A...685A.147G": {
+      "citation_count": 14
+    },
+    "2024A&A...684A.117D": {
+      "citation_count": 35
+    },
+    "2024A&A...684A..28L": {
+      "citation_count": 5
+    },
+    "2024A&A...684A...9S": {
+      "citation_count": 40
+    },
+    "2023A&A...680A..76M": {
+      "citation_count": 15
+    },
+    "2023A&A...680A..28G": {
+      "citation_count": 10
+    },
+    "2023A&A...678A..80P": {
+      "citation_count": 21
+    },
+    "2023A&A...677A..56O": {
+      "citation_count": 26
+    },
+    "2023A&A...675A.177G": {
+      "citation_count": 11
+    },
+    "2023A&A...675A.141G": {
+      "citation_count": 8
+    },
+    "2023A&A...673A.105B": {
+      "citation_count": 15
+    },
+    "2023A&A...671A.136D": {
+      "citation_count": 4
+    },
+    "2023A&A...671A..50B": {
+      "citation_count": 31
+    },
+    "2023A&A...670A.139R": {
+      "citation_count": 112
+    },
+    "2023A&A...670A..84K": {
+      "citation_count": 35
+    },
+    "2022A&A...666A.187D": {
+      "citation_count": 26
+    },
+    "2022A&A...666A.155C": {
+      "citation_count": 33
+    },
+    "2022A&A...666A.154L": {
+      "citation_count": 19
+    },
+    "2022A&A...666A.143K": {
+      "citation_count": 37
+    },
+    "2022A&A...665A.120C": {
+      "citation_count": 56
+    },
+    "2022A&A...663A..27J": {
+      "citation_count": 41
+    },
+    "2022AJ....163..133E": {
+      "citation_count": 28
+    },
+    "2022A&A...659A..17K": {
+      "citation_count": 27
+    },
     "2021A&A...656A.162M": {
       "citation_count": 130
+    },
+    "2021A&A...656A.124K": {
+      "citation_count": 43
+    },
+    "2021A&A...656A..64R": {
+      "citation_count": 7
+    },
+    "2021A&A...654A.137L": {
+      "citation_count": 21
+    },
+    "2021A&A...652A.116P": {
+      "citation_count": 36
+    },
+    "2021A&A...650A.188A": {
+      "citation_count": 28
+    },
+    "2021Sci...371.1038T": {
+      "citation_count": 85
+    },
+    "2020A&A...644A.127D": {
+      "citation_count": 44
+    },
+    "2020A&A...642A.236K": {
+      "citation_count": 48
+    },
+    "2020A&A...642A.173N": {
+      "citation_count": 80
+    },
+    "2020A&A...642A.115C": {
+      "citation_count": 186
+    },
+    "2020A&A...641A..69B": {
+      "citation_count": 47
+    },
+    "2020A&A...639A.132B": {
+      "citation_count": 52
+    },
+    "2020A&A...638A..61P": {
+      "citation_count": 93
     },
     "2019ApJ...887..261M": {
       "citation_count": 40
     },
-    "2023PhDT.........1C": {
-      "citation_count": 4
+    "2019Sci...365.1441M": {
+      "citation_count": 137
     },
-    "2026A&A...713A.272L": {
-      "citation_count": 0
+    "2019A&A...627A..49Z": {
+      "citation_count": 158
     },
-    "2021RNAAS...5..129C": {
-      "citation_count": 9
+    "2019A&A...625A..68S": {
+      "citation_count": 204
+    },
+    "2018A&A...618A.115K": {
+      "citation_count": 51
+    },
+    "2018A&A...612A..49R": {
+      "citation_count": 278
+    },
+    "2018A&A...609A.117T": {
+      "citation_count": 165
+    },
+    "2018A&A...609L...5R": {
+      "citation_count": 69
     }
+  },
+  "author_metrics": {
+    "publication_count": 130,
+    "top_three_author_count": 25,
+    "citation_count": 2995,
+    "h_index": 31
   }
 }
