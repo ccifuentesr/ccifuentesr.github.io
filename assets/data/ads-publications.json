@@ -1,29 +1,58 @@
 {
   "source": "NASA ADS",
-  "updated_at": "2026-11-17T10:58:58+00:00",
-  "query": "author:\"Cifuentes, C.\" AND property:refereed AND (bibstem:\"A&A\" OR bibstem:\"MNRAS\" OR bibstem:\"AJ\" OR bibstem:\"ApJ\" OR bibstem:\"Sci\")",
+  "updated_at": "2026-11-17T11:09:49+00:00",
+  "queries": {
+    "articles": "author:\"Cifuentes, C.\" AND collection:astronomy AND property:refereed AND (bibstem:\"A&A\" OR bibstem:\"MNRAS\" OR bibstem:\"AJ\" OR bibstem:\"ApJ\" OR bibstem:\"Sci\")",
+    "catalogues": "author:\"Cifuentes, C.\" AND collection:astronomy AND (doctype:catalog OR bibstem:\"VizieR\")",
+    "proceedings": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:inproceedings",
+    "other": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:circular"
+  },
   "records": [
     {
-      "bibcode": "2026A&A...713A.272L",
+      "bibcode": "2026csss.confE.175G",
       "year": 2026,
-      "title": "CAFE follow-up of TESS hot Jupiter candidates left behind: I. Five newly confirmed planets and a false positive",
-      "journal": "A&A",
-      "volume": "713",
-      "page": "A272",
+      "title": "Analysis of the multiple stellar population within 10 pc",
+      "category": "proceedings",
+      "journal": "23rd Cambridge Workshop on Cool Stars, Stellar Systems, and the Sun",
+      "volume": "",
+      "page": "175",
       "byline": [
-        "Lillo-Box",
+        "González-Payo",
+        "Caballero",
         "Cifuentes",
         "et al."
       ],
-      "author_position": 2,
-      "arxiv": "2607.19756",
+      "author_position": 3,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2026SPIE14149E..2TQ",
+      "year": 2026,
+      "title": "Ten years of exoplanet discoveries and stellar astrophysics with CARMENES",
+      "category": "proceedings",
+      "journal": "Ground-based and Airborne Instrumentation for Astronomy XI",
+      "volume": "14149",
+      "page": "141492T",
+      "byline": [
+        "Quirrenbach",
+        "Amado",
+        "Caballero",
+        "Reiners",
+        "Ribas",
+        "Aceituno",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 21,
+      "arxiv": "",
       "citation_count": 0
     },
     {
       "bibcode": "2026MNRAS.549ag838G",
       "year": 2026,
       "title": "Characterization of all known multiple stellar systems within 10 pc",
-      "journal": "MNRAS",
+      "category": "articles",
+      "journal": "Monthly Notices of the Royal Astronomical Society",
       "volume": "549",
       "page": "stag838",
       "byline": [
@@ -37,10 +66,28 @@
       "citation_count": 5
     },
     {
+      "bibcode": "2026A&A...713A.272L",
+      "year": 2026,
+      "title": "CAFE follow-up of TESS hot Jupiter candidates left behind: I. Five newly confirmed planets and a false positive",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
+      "volume": "713",
+      "page": "A272",
+      "byline": [
+        "Lillo-Box",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 2,
+      "arxiv": "2607.19756",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2026A&A...709A.244V",
       "year": 2026,
       "title": "The CARMENES search for exoplanets around M dwarfs: A homogeneous catalogue of projected rotational velocities accounting for limb darkening",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "709",
       "page": "A244",
       "byline": [
@@ -62,7 +109,8 @@
       "bibcode": "2026A&A...707A.106P",
       "year": 2026,
       "title": "Characterization of two new transiting sub-Neptunes and a terrestrial planet around M-dwarf hosts",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "707",
       "page": "A106",
       "byline": [
@@ -79,10 +127,90 @@
       "citation_count": 3
     },
     {
+      "bibcode": "2025hsa..conf..204C",
+      "year": 2025,
+      "title": "Kinematics, activity and youth in the CARMENES input catalogue of M dwarfs",
+      "category": "proceedings",
+      "journal": "Highlights of Spanish Astrophysics XII",
+      "volume": "",
+      "page": "204",
+      "byline": [
+        "Cortés-Contreras",
+        "Caballero",
+        "Montes",
+        "Cardona-Guillén",
+        "Béjar",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2025hsa..conf..182G",
+      "year": 2025,
+      "title": "Multiplicity of stars with planets",
+      "category": "proceedings",
+      "journal": "Highlights of Spanish Astrophysics XII",
+      "volume": "",
+      "page": "182",
+      "byline": [
+        "González-Payo",
+        "Caballero",
+        "Gorgas",
+        "Cortés-Contreras",
+        "Gálvez-Ortiz",
+        "Cifuentes"
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2025hsa..conf...63C",
+      "year": 2025,
+      "title": "ARTofCOSMOS: aprendiendo a comunicar la astronomía al público",
+      "category": "proceedings",
+      "journal": "Highlights of Spanish Astrophysics XII",
+      "volume": "",
+      "page": "63",
+      "byline": [
+        "Caballero",
+        "Capilla Morgado",
+        "Corbinos Artal",
+        "Encinas Mayoral",
+        "Miranzo Pastor",
+        "Turrado Prieto",
+        "Cifuentes"
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2025hsa..conf...22C",
+      "year": 2025,
+      "title": "Carmencita: Know Thy Star, Know Thy Planet",
+      "category": "proceedings",
+      "journal": "Highlights of Spanish Astrophysics XII",
+      "volume": "",
+      "page": "22",
+      "byline": [
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 2,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2025A&A...704A.150A",
       "year": 2025,
       "title": "ExoDNN: Boosting exoplanet detection with artificial intelligence: Application to Gaia Data Release 3",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "704",
       "page": "A150",
       "byline": [
@@ -101,7 +229,8 @@
       "bibcode": "2025A&A...703A..93S",
       "year": 2025,
       "title": "A planetary system with a sub-Neptune planet in the habitable zone of TOI-2093",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "703",
       "page": "A93",
       "byline": [
@@ -121,7 +250,8 @@
       "bibcode": "2025A&A...700A.216G",
       "year": 2025,
       "title": "Discovery of a transiting hot water-world candidate orbiting Ross 176 with TESS and CARMENES",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "700",
       "page": "A216",
       "byline": [
@@ -141,7 +271,8 @@
       "bibcode": "2025A&A...694A..15B",
       "year": 2025,
       "title": "KOBE-1: The first planetary system from the KOBE survey: Two planets likely residing in the sub-Neptune mass regime around a late K-dwarf",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "694",
       "page": "A15",
       "byline": [
@@ -162,7 +293,8 @@
       "bibcode": "2025A&A...693A.228C",
       "year": 2025,
       "title": "CARMENES input catalogue of M dwarfs: IX. Multiplicity from close spectroscopic binaries to ultra-wide systems",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "693",
       "page": "A228",
       "byline": [
@@ -177,7 +309,8 @@
       "bibcode": "2024A&A...692A.206C",
       "year": 2024,
       "title": "CARMENES input catalogue of M dwarfs: VIII. Kinematics in the solar neighbourhood",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "692",
       "page": "A206",
       "byline": [
@@ -197,7 +330,8 @@
       "bibcode": "2024A&A...692A.138R",
       "year": 2024,
       "title": "The CARMENES search for exoplanets around M dwarfs: The impact of rotation and magnetic fields on the radial velocity jitter in cool stars",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "692",
       "page": "A138",
       "byline": [
@@ -217,7 +351,8 @@
       "bibcode": "2024A&A...689A.302G",
       "year": 2024,
       "title": "Multiplicity of stars with planets in the solar neighbourhood",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "689",
       "page": "A302",
       "byline": [
@@ -236,7 +371,8 @@
       "bibcode": "2024A&A...688A.112V",
       "year": 2024,
       "title": "The CARMENES search for exoplanets around M dwarfs. Revisiting the GJ 581 multi-planetary system with new Doppler measurements from CARMENES, HARPS, and HIRES",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "688",
       "page": "A112",
       "byline": [
@@ -256,7 +392,8 @@
       "bibcode": "2024A&A...687A.205M",
       "year": 2024,
       "title": "Using autoencoders and deep transfer learning to determine the stellar parameters of 286 CARMENES M dwarfs",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "687",
       "page": "A205",
       "byline": [
@@ -276,7 +413,8 @@
       "bibcode": "2024A&A...685A.147G",
       "year": 2024,
       "title": "TOI-4438 b: a transiting mini-Neptune amenable to atmospheric characterization",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "685",
       "page": "A147",
       "byline": [
@@ -296,7 +434,8 @@
       "bibcode": "2024A&A...684A.117D",
       "year": 2024,
       "title": "Teegarden's Star revisited. A nearby planetary system with at least three planets",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "684",
       "page": "A117",
       "byline": [
@@ -316,7 +455,8 @@
       "bibcode": "2024A&A...684A..28L",
       "year": 2024,
       "title": "The evolution of lithium in FGK dwarf stars. Influence of planets and Galactic migration",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "684",
       "page": "A28",
       "byline": [
@@ -336,7 +476,8 @@
       "bibcode": "2024A&A...684A...9S",
       "year": 2024,
       "title": "CARMENES input catalog of M dwarfs. VII. New rotation periods for the survey stars and their correlations with stellar activity",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "684",
       "page": "A9",
       "byline": [
@@ -355,10 +496,86 @@
       "citation_count": 40
     },
     {
+      "bibcode": "2023hsa..conf..511C",
+      "year": 2023,
+      "title": "Music and astronomy. IV. The Astrophysical Brothers",
+      "category": "proceedings",
+      "journal": "Highlights on Spanish Astrophysics XI",
+      "volume": "",
+      "page": "511",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023hsa..conf..166C",
+      "year": 2023,
+      "title": "About the multiplicity of M dwarfs",
+      "category": "proceedings",
+      "journal": "Highlights on Spanish Astrophysics XI",
+      "volume": "",
+      "page": "166",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023eas..conf.1872S",
+      "year": 2023,
+      "title": "New rotation periods for a very well-characterised sample of nearby M dwarfs",
+      "category": "proceedings",
+      "journal": "EAS2023, European Astronomical Society Annual Meeting",
+      "volume": "",
+      "page": "1872",
+      "byline": [
+        "Shan",
+        "Revilla",
+        "Skrzypinski",
+        "Bejar",
+        "Caballero",
+        "Cardona-Guillen",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2023eas..conf.1414C",
+      "year": 2023,
+      "title": "Kinematics, activity and age of M dwarfs in the CARMENES sample",
+      "category": "proceedings",
+      "journal": "EAS2023, European Astronomical Society Annual Meeting",
+      "volume": "",
+      "page": "1414",
+      "byline": [
+        "Cortés Contreras",
+        "Caballero",
+        "Montes",
+        "Cardona Guillén",
+        "Béjar",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
       "bibcode": "2023A&A...680A..76M",
       "year": 2023,
       "title": "TOI-1801 b: A temperate mini-Neptune around a young M0.5 dwarf",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "680",
       "page": "A76",
       "byline": [
@@ -378,7 +595,8 @@
       "bibcode": "2023A&A...680A..28G",
       "year": 2023,
       "title": "Planetary companions orbiting the M dwarfs GJ 724 and GJ 3988. A CARMENES and IRD collaboration",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "680",
       "page": "A28",
       "byline": [
@@ -398,7 +616,8 @@
       "bibcode": "2023A&A...678A..80P",
       "year": 2023,
       "title": "GJ 806 (TOI-4481): A bright nearby multi-planetary system with a transiting hot low-density super-Earth",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "678",
       "page": "A80",
       "byline": [
@@ -418,7 +637,8 @@
       "bibcode": "2023A&A...677A..56O",
       "year": 2023,
       "title": "Confirmation of an He I evaporating atmosphere around the 650-Myr-old sub-Neptune HD 235088 b (TOI-1430 b) with CARMENES",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "677",
       "page": "A56",
       "byline": [
@@ -438,7 +658,8 @@
       "bibcode": "2023A&A...675A.177G",
       "year": 2023,
       "title": "Two sub-Neptunes around the M dwarf TOI-1470",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "675",
       "page": "A177",
       "byline": [
@@ -457,7 +678,8 @@
       "bibcode": "2023A&A...675A.141G",
       "year": 2023,
       "title": "The CARMENES search for exoplanets around M dwarfs. A sub-Neptunian mass planet in the habitable zone of HN Lib",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "675",
       "page": "A141",
       "byline": [
@@ -479,7 +701,8 @@
       "bibcode": "2023A&A...673A.105B",
       "year": 2023,
       "title": "The CARMENES search for exoplanets around M dwarfs. A deep transfer learning method to determine Teff and [M/H] of target stars",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "673",
       "page": "A105",
       "byline": [
@@ -499,7 +722,8 @@
       "bibcode": "2023A&A...671A.136D",
       "year": 2023,
       "title": "Searching for the nature of stars with debris disks and planets",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "671",
       "page": "A136",
       "byline": [
@@ -518,7 +742,8 @@
       "bibcode": "2023A&A...671A..50B",
       "year": 2023,
       "title": "The CARMENES search for exoplanets around M dwarfs. A long-period planet around GJ 1151 measured with CARMENES and HARPS-N data",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "671",
       "page": "A50",
       "byline": [
@@ -540,7 +765,8 @@
       "bibcode": "2023A&A...670A.139R",
       "year": 2023,
       "title": "The CARMENES search for exoplanets around M dwarfs. Guaranteed time observations Data Release 1 (2016-2020)",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "670",
       "page": "A139",
       "byline": [
@@ -560,7 +786,8 @@
       "bibcode": "2023A&A...670A..84K",
       "year": 2023,
       "title": "The CARMENES search for exoplanets around M dwarfs. Wolf 1069 b: Earth-mass planet in the habitable zone of a nearby, very low-mass star",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "670",
       "page": "A84",
       "byline": [
@@ -577,10 +804,87 @@
       "citation_count": 35
     },
     {
+      "bibcode": "2022eas..conf.1099C",
+      "year": 2022,
+      "title": "How does Gaia help to the CARMENES exoplanet survey?",
+      "category": "proceedings",
+      "journal": "EAS2022, European Astronomical Society Annual Meeting",
+      "volume": "",
+      "page": "1099",
+      "byline": [
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 2,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2022eas..conf.1088C",
+      "year": 2022,
+      "title": "News from Gl 486 b",
+      "category": "proceedings",
+      "journal": "EAS2022, European Astronomical Society Annual Meeting",
+      "volume": "",
+      "page": "1088",
+      "byline": [
+        "Caballero",
+        "González-Álvarez",
+        "Brady",
+        "Trifonov",
+        "Ellis",
+        "Dorn",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2022csss.confE.139C",
+      "year": 2022,
+      "title": "Multiplicity of M dwarfs in the CARMENES catalogue",
+      "category": "proceedings",
+      "journal": "The 21st Cambridge Workshop on Cool Stars, Stellar Systems, and the Sun",
+      "volume": "",
+      "page": "139",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2022AJ....163..133E",
+      "year": 2022,
+      "title": "A Transiting, Temperate Mini-Neptune Orbiting the M Dwarf TOI-1759 Unveiled by TESS",
+      "category": "articles",
+      "journal": "The Astronomical Journal",
+      "volume": "163",
+      "page": "133",
+      "byline": [
+        "Espinoza",
+        "Pallé",
+        "Kemmer",
+        "Luque",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "2202.01240",
+      "citation_count": 28
+    },
+    {
       "bibcode": "2022A&A...666A.187D",
       "year": 2022,
       "title": "A quarter century of spectroscopic monitoring of the nearby M dwarf Gl 514. A super-Earth on an eccentric orbit moving in and out of the habitable zone",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "666",
       "page": "A187",
       "byline": [
@@ -600,7 +904,8 @@
       "bibcode": "2022A&A...666A.155C",
       "year": 2022,
       "title": "TOI-1468: A system of two transiting planets, a super-Earth and a mini-Neptune, on opposite sides of the radius valley",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "666",
       "page": "A155",
       "byline": [
@@ -620,7 +925,8 @@
       "bibcode": "2022A&A...666A.154L",
       "year": 2022,
       "title": "Precise mass determination for the keystone sub-Neptune planet transiting the mid-type M dwarf G 9-40",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "666",
       "page": "A154",
       "byline": [
@@ -640,7 +946,8 @@
       "bibcode": "2022A&A...666A.143K",
       "year": 2022,
       "title": "The CARMENES search for exoplanets around M dwarfs. Stable radial-velocity variations at the rotation period of AD Leonis: A test case study of current limitations to treating stellar activity",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "666",
       "page": "A143",
       "byline": [
@@ -660,7 +967,8 @@
       "bibcode": "2022A&A...665A.120C",
       "year": 2022,
       "title": "A detailed analysis of the Gl 486 planetary system",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "665",
       "page": "A120",
       "byline": [
@@ -681,7 +989,8 @@
       "bibcode": "2022A&A...663A..27J",
       "year": 2022,
       "title": "The CARMENES search for exoplanets around M dwarfs. Benchmarking the impact of activity in high-precision radial velocity measurements",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "663",
       "page": "A27",
       "byline": [
@@ -698,30 +1007,11 @@
       "citation_count": 41
     },
     {
-      "bibcode": "2022AJ....163..133E",
-      "year": 2022,
-      "title": "A Transiting, Temperate Mini-Neptune Orbiting the M Dwarf TOI-1759 Unveiled by TESS",
-      "journal": "AJ",
-      "volume": "163",
-      "page": "133",
-      "byline": [
-        "Espinoza",
-        "Pallé",
-        "Kemmer",
-        "Luque",
-        "Caballero",
-        "Cifuentes",
-        "et al."
-      ],
-      "author_position": 6,
-      "arxiv": "2202.01240",
-      "citation_count": 28
-    },
-    {
       "bibcode": "2022A&A...659A..17K",
       "year": 2022,
       "title": "Discovery and mass measurement of the hot, transiting, Earth-sized planet, GJ 3929 b",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "659",
       "page": "A17",
       "byline": [
@@ -738,10 +1028,90 @@
       "citation_count": 27
     },
     {
+      "bibcode": "2021spc..confE..11C",
+      "year": 2021,
+      "title": "Luminosities of cool stars",
+      "category": "proceedings",
+      "journal": "The Star-Planet Connection",
+      "volume": "",
+      "page": "11",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2021plat.confE..93S",
+      "year": 2021,
+      "title": "CARMENES and the Frontiers of High-Resolution Spectroscopy for M dwarfs",
+      "category": "proceedings",
+      "journal": "2021 International Conference on Platform Technology and Service (PlatCon)",
+      "volume": "",
+      "page": "93",
+      "byline": [
+        "Shan",
+        "Reiners",
+        "Amado",
+        "Béjar",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 6,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2021csss.confE..19M",
+      "year": 2021,
+      "title": "Stellar atmospheric parameters of CARMENES GTO M dwarfs with spectral synthesis and SteParSyn",
+      "category": "proceedings",
+      "journal": "The 20.5th Cambridge Workshop on Cool Stars, Stellar Systems, and the Sun (CS20.5)",
+      "volume": "",
+      "page": "19",
+      "byline": [
+        "Marfil",
+        "Tabernero",
+        "Montes",
+        "Caballero",
+        "Lazaro-Barrasa",
+        "González Hernández",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 14,
+      "arxiv": "",
+      "citation_count": 1
+    },
+    {
+      "bibcode": "2021Sci...371.1038T",
+      "year": 2021,
+      "title": "A nearby transiting rocky exoplanet that is suitable for atmospheric investigation",
+      "category": "articles",
+      "journal": "Science",
+      "volume": "371",
+      "page": "1038",
+      "byline": [
+        "Trifonov",
+        "Caballero",
+        "Morales",
+        "Seifahrt",
+        "Ribas",
+        "Reiners",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 20,
+      "arxiv": "2103.04950",
+      "citation_count": 85
+    },
+    {
       "bibcode": "2021A&A...656A.162M",
       "year": 2021,
       "title": "The CARMENES search for exoplanets around M dwarfs. Stellar atmospheric parameters of target stars with SteParSyn",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "656",
       "page": "A162",
       "byline": [
@@ -761,7 +1131,8 @@
       "bibcode": "2021A&A...656A.124K",
       "year": 2021,
       "title": "TOI-1201 b: A mini-Neptune transiting a bright and moderately young M dwarf",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "656",
       "page": "A124",
       "byline": [
@@ -781,7 +1152,8 @@
       "bibcode": "2021A&A...656A..64R",
       "year": 2021,
       "title": "The bi-modal 7Li distribution of the Milky Way's thin-disk dwarf stars. The role of Galactic-scale events and stellar evolution",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "656",
       "page": "A64",
       "byline": [
@@ -799,7 +1171,8 @@
       "bibcode": "2021A&A...654A.137L",
       "year": 2021,
       "title": "The evolution of lithium in FGK dwarf stars. The lithium-rotation connection and the Li desert",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "654",
       "page": "A137",
       "byline": [
@@ -817,7 +1190,8 @@
       "bibcode": "2021A&A...652A.116P",
       "year": 2021,
       "title": "CARMENES input catalog of M dwarfs. VI. A time-resolved Ca II H&K catalog from archival data",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "652",
       "page": "A116",
       "byline": [
@@ -837,7 +1211,8 @@
       "bibcode": "2021A&A...650A.188A",
       "year": 2021,
       "title": "The CARMENES search for exoplanets around M dwarfs. Two terrestrial planets orbiting G 264-012 and one terrestrial planet orbiting Gl 393",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "650",
       "page": "A188",
       "byline": [
@@ -854,30 +1229,109 @@
       "citation_count": 28
     },
     {
-      "bibcode": "2021Sci...371.1038T",
-      "year": 2021,
-      "title": "A nearby transiting rocky exoplanet that is suitable for atmospheric investigation",
-      "journal": "Science",
-      "volume": "371",
-      "page": "1038",
+      "bibcode": "2020sea..confE.180R",
+      "year": 2020,
+      "title": "The bimodal A(Li) distribution of Milky Way's thin disk stars and the Galactic scale events",
+      "category": "proceedings",
+      "journal": "XIV.0 Scientific Meeting (virtual) of the Spanish Astronomical Society",
+      "volume": "",
+      "page": "180",
       "byline": [
-        "Trifonov",
+        "Roca-Fàbrega",
+        "Llorente de Andrés",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 3,
+      "arxiv": "",
+      "citation_count": 0
+    },
+    {
+      "bibcode": "2020sea..confE.131C",
+      "year": 2020,
+      "title": "Kinematics of M dwarfs in the CARMENES input catalogue",
+      "category": "proceedings",
+      "journal": "XIV.0 Scientific Meeting (virtual) of the Spanish Astronomical Society",
+      "volume": "",
+      "page": "131",
+      "byline": [
+        "Cortés-Contreras",
+        "Domínguez-Fernández",
         "Caballero",
-        "Morales",
-        "Seifahrt",
+        "Montes",
+        "Cardona",
+        "Béjar",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 7,
+      "arxiv": "",
+      "citation_count": 1
+    },
+    {
+      "bibcode": "2020sea..confE.129C",
+      "year": 2020,
+      "title": "Colours and luminosities of M dwarfs in the CARMENES input catalogue",
+      "category": "proceedings",
+      "journal": "XIV.0 Scientific Meeting (virtual) of the Spanish Astronomical Society",
+      "volume": "",
+      "page": "129",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 2
+    },
+    {
+      "bibcode": "2020SPIE11447E..3CQ",
+      "year": 2020,
+      "title": "The CARMENES M-dwarf planet survey",
+      "category": "proceedings",
+      "journal": "Ground-based and Airborne Instrumentation for Astronomy VIII",
+      "volume": "11447",
+      "page": "114473C",
+      "byline": [
+        "Quirrenbach",
+        "CARMENES Consortium",
+        "Amado",
         "Ribas",
         "Reiners",
+        "Caballero",
         "et al. (incl. Cifuentes)"
       ],
-      "author_position": 20,
-      "arxiv": "2103.04950",
-      "citation_count": 85
+      "author_position": 21,
+      "arxiv": "",
+      "citation_count": 40
+    },
+    {
+      "bibcode": "2020MPEC....A...99B",
+      "year": 2020,
+      "title": "2020 AV2",
+      "category": "other",
+      "journal": "Minor Planet Electronic Circulars",
+      "volume": "2020-A99",
+      "page": "",
+      "byline": [
+        "Bolin",
+        "Masci",
+        "Ye",
+        "Pettarin",
+        "Sarneczky",
+        "Bacci",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 16,
+      "arxiv": "",
+      "citation_count": 17
     },
     {
       "bibcode": "2020A&A...644A.127D",
       "year": 2020,
       "title": "The CARMENES search for exoplanets around M dwarfs. LP 714-47 b (TOI 442.01): populating the Neptune desert",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "644",
       "page": "A127",
       "byline": [
@@ -897,7 +1351,8 @@
       "bibcode": "2020A&A...642A.236K",
       "year": 2020,
       "title": "Discovery of a hot, transiting, Earth-sized planet and a second temperate, non-transiting planet around the M4 dwarf GJ 3473 (TOI-488)",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "642",
       "page": "A236",
       "byline": [
@@ -917,7 +1372,8 @@
       "bibcode": "2020A&A...642A.173N",
       "year": 2020,
       "title": "The CARMENES search for exoplanets around M dwarfs. Two planets on opposite sides of the radius gap transiting the nearby M dwarf LTT 3780",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "642",
       "page": "A173",
       "byline": [
@@ -937,7 +1393,8 @@
       "bibcode": "2020A&A...642A.115C",
       "year": 2020,
       "title": "CARMENES input catalogue of M dwarfs. V. Luminosities, colours, and spectral energy distributions",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "642",
       "page": "A115",
       "byline": [
@@ -952,7 +1409,8 @@
       "bibcode": "2020A&A...641A..69B",
       "year": 2020,
       "title": "The CARMENES search for exoplanets around M dwarfs. Convective shift and starspot constraints from chromatic radial velocities",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "641",
       "page": "A69",
       "byline": [
@@ -972,7 +1430,8 @@
       "bibcode": "2020A&A...639A.132B",
       "year": 2020,
       "title": "Precise mass and radius of a transiting super-Earth planet orbiting the M dwarf TOI-1235: a planet in the radius gap?",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "639",
       "page": "A132",
       "byline": [
@@ -992,7 +1451,8 @@
       "bibcode": "2020A&A...638A..61P",
       "year": 2020,
       "title": "A He I upper atmosphere around the warm Neptune GJ 3470 b",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "638",
       "page": "A61",
       "byline": [
@@ -1009,26 +1469,26 @@
       "citation_count": 93
     },
     {
-      "bibcode": "2019ApJ...887..261M",
+      "bibcode": "2019hsax.conf..507C",
       "year": 2019,
-      "title": "Exomoons in the Habitable Zones of M Dwarfs",
-      "journal": "ApJ",
-      "volume": "887",
-      "page": "261",
+      "title": "Spectral energy distributions and luminosities of M dwarfs in the CARMENES search for exoplanets",
+      "category": "proceedings",
+      "journal": "Highlights on Spanish Astrophysics X",
+      "volume": "",
+      "page": "507",
       "byline": [
-        "Martínez-Rodríguez",
-        "Caballero",
         "Cifuentes",
         "et al."
       ],
-      "author_position": 3,
-      "arxiv": "1910.12054",
-      "citation_count": 40
+      "author_position": 1,
+      "arxiv": "",
+      "citation_count": 0
     },
     {
       "bibcode": "2019Sci...365.1441M",
       "year": 2019,
       "title": "A giant exoplanet orbiting a very-low-mass star challenges planet formation models",
+      "category": "articles",
       "journal": "Science",
       "volume": "365",
       "page": "1441",
@@ -1046,10 +1506,29 @@
       "citation_count": 137
     },
     {
+      "bibcode": "2019ApJ...887..261M",
+      "year": 2019,
+      "title": "Exomoons in the Habitable Zones of M Dwarfs",
+      "category": "articles",
+      "journal": "The Astrophysical Journal",
+      "volume": "887",
+      "page": "261",
+      "byline": [
+        "Martínez-Rodríguez",
+        "Caballero",
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 3,
+      "arxiv": "1910.12054",
+      "citation_count": 40
+    },
+    {
       "bibcode": "2019A&A...627A..49Z",
       "year": 2019,
       "title": "The CARMENES search for exoplanets around M dwarfs. Two temperate Earth-mass planet candidates around Teegarden's Star",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "627",
       "page": "A49",
       "byline": [
@@ -1069,7 +1548,8 @@
       "bibcode": "2019A&A...625A..68S",
       "year": 2019,
       "title": "The CARMENES search for exoplanets around M dwarfs. Different roads to radii and masses of the target stars",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "625",
       "page": "A68",
       "byline": [
@@ -1083,10 +1563,32 @@
       "citation_count": 204
     },
     {
+      "bibcode": "2018SPIE10702E..0WQ",
+      "year": 2018,
+      "title": "CARMENES: high-resolution spectra and precise radial velocities in the red and infrared",
+      "category": "proceedings",
+      "journal": "Ground-based and Airborne Instrumentation for Astronomy VII",
+      "volume": "10702",
+      "page": "107020W",
+      "byline": [
+        "Quirrenbach",
+        "Amado",
+        "Ribas",
+        "Reiners",
+        "Caballero",
+        "Seifert",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 17,
+      "arxiv": "",
+      "citation_count": 123
+    },
+    {
       "bibcode": "2018A&A...618A.115K",
       "year": 2018,
       "title": "The CARMENES search for exoplanets around M dwarfs. A Neptune-mass planet traversing the habitable zone around HD 180617",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "618",
       "page": "A115",
       "byline": [
@@ -1106,7 +1608,8 @@
       "bibcode": "2018A&A...612A..49R",
       "year": 2018,
       "title": "The CARMENES search for exoplanets around M dwarfs. High-resolution optical and near-infrared spectroscopy of 324 survey stars",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "612",
       "page": "A49",
       "byline": [
@@ -1123,30 +1626,11 @@
       "citation_count": 278
     },
     {
-      "bibcode": "2018A&A...609A.117T",
-      "year": 2018,
-      "title": "The CARMENES search for exoplanets around M dwarfs. First visual-channel radial-velocity measurements and orbital parameter updates of seven M-dwarf planetary systems",
-      "journal": "A&A",
-      "volume": "609",
-      "page": "A117",
-      "byline": [
-        "Trifonov",
-        "Kürster",
-        "Zechmeister",
-        "Tal-Or",
-        "Caballero",
-        "Quirrenbach",
-        "et al. (incl. Cifuentes)"
-      ],
-      "author_position": 54,
-      "arxiv": "1710.01595",
-      "citation_count": 165
-    },
-    {
       "bibcode": "2018A&A...609L...5R",
       "year": 2018,
       "title": "The CARMENES search for exoplanets around M dwarfs. HD147379 b: A nearby Neptune in the temperate zone of an early-M dwarf",
-      "journal": "A&A",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
       "volume": "609",
       "page": "L5",
       "byline": [
@@ -1161,6 +1645,27 @@
       "author_position": 45,
       "arxiv": "1712.05797",
       "citation_count": 69
+    },
+    {
+      "bibcode": "2018A&A...609A.117T",
+      "year": 2018,
+      "title": "The CARMENES search for exoplanets around M dwarfs. First visual-channel radial-velocity measurements and orbital parameter updates of seven M-dwarf planetary systems",
+      "category": "articles",
+      "journal": "Astronomy and Astrophysics",
+      "volume": "609",
+      "page": "A117",
+      "byline": [
+        "Trifonov",
+        "Kürster",
+        "Zechmeister",
+        "Tal-Or",
+        "Caballero",
+        "Quirrenbach",
+        "et al. (incl. Cifuentes)"
+      ],
+      "author_position": 54,
+      "arxiv": "1710.01595",
+      "citation_count": 165
     }
   ]
 }

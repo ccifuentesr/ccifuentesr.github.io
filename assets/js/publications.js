@@ -36,6 +36,7 @@
     const article = el('article', 'publication-card');
     article.dataset.year = record.year;
     article.dataset.authorship = record.author_position === 1 ? 'authored' : 'coauthored';
+    article.dataset.publicationType = record.category || 'articles';
     const year = el('span', 'publication-year');
     year.setAttribute('aria-label', `Published in ${record.year}`);
     const body = el('div', 'publication-card-body');
@@ -78,26 +79,50 @@
       note.hidden = false;
     }
 
-    const buttons = [...document.querySelectorAll('[data-publication-filter]')];
-    function applyFilter(filter) {
-      buttons.forEach(button => {
-        const active = button.dataset.publicationFilter === filter;
+    const typeButtons = [...document.querySelectorAll('[data-publication-type]')];
+    const authorshipButtons = [...document.querySelectorAll('[data-publication-authorship]')];
+    const empty = document.getElementById('publication-empty');
+    let publicationType = 'articles';
+    let authorship = 'all';
+
+    function applyFilters() {
+      typeButtons.forEach(button => {
+        const active = button.dataset.publicationType === publicationType;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      authorshipButtons.forEach(button => {
+        const active = button.dataset.publicationAuthorship === authorship;
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-pressed', String(active));
       });
       let lastYear = null;
+      let visible = 0;
       for (const card of list.children) {
-        card.hidden = filter !== 'all' && card.dataset.authorship !== filter;
+        card.hidden = card.dataset.publicationType !== publicationType ||
+          (authorship !== 'all' && card.dataset.authorship !== authorship);
         const year = card.querySelector('.publication-year');
         if (card.hidden) continue;
+        visible += 1;
         const showYear = card.dataset.year !== lastYear;
         year.textContent = showYear ? card.dataset.year : '';
         year.classList.toggle('publication-year--empty', !showYear);
         lastYear = card.dataset.year;
       }
+      if (empty) {
+        empty.hidden = visible > 0;
+        empty.textContent = `No ${publicationType} match this selection in the current ADS record.`;
+      }
     }
-    buttons.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.publicationFilter)));
-    applyFilter('all');
+    typeButtons.forEach(button => button.addEventListener('click', () => {
+      publicationType = button.dataset.publicationType;
+      applyFilters();
+    }));
+    authorshipButtons.forEach(button => button.addEventListener('click', () => {
+      authorship = button.dataset.publicationAuthorship;
+      applyFilters();
+    }));
+    applyFilters();
   } catch {
     list.replaceChildren(el('p', 'publication-unavailable', 'The article list is temporarily unavailable. Please use the ADS link above.'));
   }

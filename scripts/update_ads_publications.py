@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh refereed journal articles directly from the NASA ADS API."""
+"""Refresh the public publication record directly from the NASA ADS API."""
 
 import json
 import os
@@ -14,10 +14,17 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / 'assets/data/ads-publications.json'
-QUERY = 'author:"Cifuentes, C." AND property:refereed AND (bibstem:"A&A" OR bibstem:"MNRAS" OR bibstem:"AJ" OR bibstem:"ApJ" OR bibstem:"Sci")'
+AUTHOR = 'author:"Cifuentes, C." AND collection:astronomy'
+QUERIES = {
+    'articles': (AUTHOR + ' AND property:refereed AND '
+                 '(bibstem:"A&A" OR bibstem:"MNRAS" OR bibstem:"AJ" OR bibstem:"ApJ" OR bibstem:"Sci")'),
+    'catalogues': AUTHOR + ' AND (doctype:catalog OR bibstem:"VizieR")',
+    'proceedings': AUTHOR + ' AND doctype:inproceedings',
+    'other': AUTHOR + ' AND doctype:circular',
+}
 JOURNALS = {'A&A', 'MNRAS', 'AJ', 'ApJ', 'Sci'}
 JOURNAL_LABELS = {'Sci': 'Science'}
-FIELDS = 'bibcode,title,author,year,pubdate,bibstem,volume,page,doi,identifier,citation_count,property,doctype'
+FIELDS = 'bibcode,title,author,year,pub,pubdate,bibstem,volume,page,doi,identifier,citation_count,property,doctype'
 
 
 def byline(authors):
@@ -34,19 +41,19 @@ def byline(authors):
     return position, names
 
 
-def clean_record(doc):
+def clean_record(doc, category='articles'):
     bibcode = doc['bibcode']
-    stems = set(doc['bibstem'])
+    stems = set(doc.get('bibstem', []))
     journal = next((stem for stem in JOURNALS if stem in stems), None)
     authors = doc['author']
     title = doc['title'][0]
     count = doc['citation_count']
-    if (journal is None or doc.get('doctype') != 'article' or
-            'REFEREED' not in doc.get('property', []) or
+    if (category == 'articles' and (journal is None or doc.get('doctype') != 'article' or
+                                    'REFEREED' not in doc.get('property', []))) or (
             not isinstance(authors, list) or not authors or
             not isinstance(title, str) or not title or
             type(count) is not int or count < 0):
-        raise ValueError(f'Invalid ADS journal record: {bibcode}')
+        raise ValueError(f'Invalid ADS {category} record: {bibcode}')
     position, display_authors = byline(authors)
     title = unescape(re.sub(r'</?(?:SUP|SUB)>', '', title, flags=re.I))
     title = re.sub(r'\s+([.,:;])', r'\1', title)
@@ -57,7 +64,8 @@ def clean_record(doc):
         'bibcode': bibcode,
         'year': int(doc['year']),
         'title': title,
-        'journal': JOURNAL_LABELS.get(journal, journal),
+        'category': category,
+        'journal': JOURNAL_LABELS.get(journal, doc.get('pub', '')),
         'volume': doc.get('volume', ''),
         'page': (doc.get('page') or [''])[0],
         'byline': display_authors,
@@ -67,13 +75,13 @@ def clean_record(doc):
     }
 
 
-def fetch(token):
+def fetch_query(token, category, query):
     if not token or not token.strip():
         raise ValueError('Set ADS_API_TOKEN or ADS_DEV_KEY')
     docs = []
     total = None
     while total is None or len(docs) < total:
-        params = urlencode({'q': QUERY, 'fl': FIELDS, 'rows': 200,
+        params = urlencode({'q': query, 'fl': FIELDS, 'rows': 200,
                             'start': len(docs), 'sort': 'date desc, bibcode desc'})
         request = Request('https://api.adsabs.harvard.edu/v1/search/query?' + params,
                           headers={'Authorization': 'Bearer ' + token.strip(),
@@ -82,25 +90,35 @@ def fetch(token):
             payload = json.load(response)['response']
         page = payload['docs']
         found = payload['numFound']
-        if (type(found) is not int or found < 1 or
+        if (type(found) is not int or found < 0 or
                 (total is not None and found != total) or
-                not isinstance(page, list) or not page):
+                not isinstance(page, list) or (not page and found)):
             raise ValueError('ADS returned an incomplete publication list')
         total = found
+        if not found:
+            break
         docs.extend(page)
         if len(docs) > total:
             raise ValueError('ADS returned too many publication records')
-    records = [clean_record(doc) for doc in docs]
+    return [clean_record(doc, category) for doc in docs]
+
+
+def fetch(token):
+    if not token or not token.strip():
+        raise ValueError('Set ADS_API_TOKEN or ADS_DEV_KEY')
+    records = []
+    for category, query in QUERIES.items():
+        records.extend(fetch_query(token, category, query))
     if len({record['bibcode'] for record in records}) != len(records):
-        raise ValueError('ADS returned duplicate journal records')
-    return records
+        raise ValueError('ADS returned duplicate publication records')
+    return sorted(records, key=lambda record: (record['year'], record['bibcode']), reverse=True)
 
 
 def refresh(token, destination=CACHE):
     records = fetch(token)
     data = {'source': 'NASA ADS',
             'updated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
-            'query': QUERY, 'records': records}
+            'queries': QUERIES, 'records': records}
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix('.json.tmp')
     try:
@@ -120,4 +138,4 @@ if __name__ == '__main__':
     except (URLError, TimeoutError, ValueError, KeyError, TypeError, OSError):
         print('ADS publication update failed; previous cache kept.', file=sys.stderr)
         sys.exit(1)
-    print(f"Updated {len(result['records'])} ADS journal articles.")
+    print(f"Updated {len(result['records'])} ADS publications.")
