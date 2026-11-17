@@ -21,6 +21,7 @@ QUERIES = {
     'catalogues': AUTHOR + ' AND (doctype:catalog OR bibstem:"VizieR")',
     'proceedings': AUTHOR + ' AND doctype:inproceedings',
     'other': AUTHOR + ' AND doctype:circular',
+    'extraordinary': 'bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)',
 }
 JOURNALS = {'A&A', 'MNRAS', 'AJ', 'ApJ', 'Sci'}
 JOURNAL_LABELS = {'Sci': 'Science'}

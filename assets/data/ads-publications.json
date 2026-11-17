@@ -1,11 +1,12 @@
 {
   "source": "NASA ADS",
-  "updated_at": "2026-11-17T12:25:46+00:00",
+  "updated_at": "2026-11-17T12:29:16+00:00",
   "queries": {
     "articles": "author:\"Cifuentes, C.\" AND collection:astronomy AND property:refereed AND (bibstem:\"A&A\" OR bibstem:\"MNRAS\" OR bibstem:\"AJ\" OR bibstem:\"ApJ\" OR bibstem:\"Sci\")",
     "catalogues": "author:\"Cifuentes, C.\" AND collection:astronomy AND (doctype:catalog OR bibstem:\"VizieR\")",
     "proceedings": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:inproceedings",
-    "other": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:circular"
+    "other": "author:\"Cifuentes, C.\" AND collection:astronomy AND doctype:circular",
+    "extraordinary": "bibcode:(2021RNAAS...5..129C OR 2023PhDT.........1C)"
   },
   "records": [
     {
@@ -732,6 +733,22 @@
       "citation_count": 0
     },
     {
+      "bibcode": "2023PhDT.........1C",
+      "year": 2023,
+      "pubdate": "2023-05-00",
+      "title": "Astrophysical parameters of M dwarfs with exoplanets",
+      "category": "extraordinary",
+      "journal": "Ph.D. Thesis",
+      "volume": "",
+      "page": "2023",
+      "byline": [
+        "Cifuentes"
+      ],
+      "author_position": 1,
+      "arxiv": "2305.08893",
+      "citation_count": 4
+    },
+    {
       "bibcode": "2023A&A...673A.105B",
       "year": 2023,
       "pubdate": "2023-05-00",
@@ -1221,6 +1238,23 @@
       "author_position": 14,
       "arxiv": "2107.06376",
       "citation_count": 36
+    },
+    {
+      "bibcode": "2021RNAAS...5..129C",
+      "year": 2021,
+      "pubdate": "2021-06-00",
+      "title": "One Is the Loneliest Number: Multiplicity in Cool Dwarfs",
+      "category": "extraordinary",
+      "journal": "Research Notes of the American Astronomical Society",
+      "volume": "5",
+      "page": "129",
+      "byline": [
+        "Cifuentes",
+        "et al."
+      ],
+      "author_position": 1,
+      "arxiv": "2106.05049",
+      "citation_count": 9
     },
     {
       "bibcode": "2021A&A...650A.188A",
