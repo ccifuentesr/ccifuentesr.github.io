@@ -83,6 +83,16 @@
     const typeButtons = [...document.querySelectorAll('[data-publication-type]')];
     const authorshipButtons = [...document.querySelectorAll('[data-publication-authorship]')];
     const empty = document.getElementById('publication-empty');
+    const countLabel = document.getElementById('publication-count');
+    const typeLabels = { articles: 'articles', catalogues: 'catalogues', proceedings: 'proceedings', other: 'other' };
+    const typeCounts = data.records.reduce((counts, record) => {
+      counts[record.category || 'articles'] = (counts[record.category || 'articles'] || 0) + 1;
+      return counts;
+    }, {});
+    typeButtons.forEach(button => {
+      const type = button.dataset.publicationType;
+      button.textContent = `${button.textContent} (${typeCounts[type] || 0})`;
+    });
     let publicationType = 'articles';
     let authorship = 'all';
 
@@ -114,6 +124,7 @@
         empty.hidden = visible > 0;
         empty.textContent = `No ${publicationType} match this selection in the current ADS record.`;
       }
+      if (countLabel) countLabel.textContent = `${visible} ${typeLabels[publicationType] || publicationType} listed`;
     }
     typeButtons.forEach(button => button.addEventListener('click', () => {
       publicationType = button.dataset.publicationType;
