@@ -63,6 +63,7 @@ def clean_record(doc, category='articles'):
     return {
         'bibcode': bibcode,
         'year': int(doc['year']),
+        'pubdate': doc.get('pubdate') or str(doc['year']),
         'title': title,
         'category': category,
         'journal': JOURNAL_LABELS.get(journal, doc.get('pub', '')),
@@ -111,7 +112,7 @@ def fetch(token):
         records.extend(fetch_query(token, category, query))
     if len({record['bibcode'] for record in records}) != len(records):
         raise ValueError('ADS returned duplicate publication records')
-    return sorted(records, key=lambda record: (record['year'], record['bibcode']), reverse=True)
+    return sorted(records, key=lambda record: (record['pubdate'], record['bibcode']), reverse=True)
 
 
 def refresh(token, destination=CACHE):
