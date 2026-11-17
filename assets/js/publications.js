@@ -76,7 +76,7 @@
         day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
       }).format(updated));
       time.dateTime = data.updated_at;
-      note.replaceChildren('Articles and citation counts from NASA ADS · Updated ', time);
+      note.replaceChildren('Articles and citation counts from SciX · Updated ', time);
       note.hidden = false;
     }
 
@@ -112,6 +112,7 @@
           (authorship !== 'all' && card.dataset.authorship !== authorship);
         const year = card.querySelector('.publication-year');
         if (card.hidden) continue;
+        if (!year) continue;
         visible += 1;
         const showYear = card.dataset.year !== lastYear;
         year.textContent = showYear ? card.dataset.year : '';
@@ -132,7 +133,10 @@
       applyFilters();
     }));
     applyFilters();
-  } catch {
-    list.replaceChildren(el('p', 'publication-unavailable', 'The article list is temporarily unavailable. Please use the ADS link above.'));
+  } catch (error) {
+    console.error('Publication list failed to finish filtering', error);
+    if (!list.children.length) {
+      list.replaceChildren(el('p', 'publication-unavailable', 'The article list is temporarily unavailable. Please use the SciX link above.'));
+    }
   }
 })();
