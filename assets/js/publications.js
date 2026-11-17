@@ -80,8 +80,8 @@
       note.hidden = false;
     }
 
-    const typeButtons = [...document.querySelectorAll('[data-publication-type]')];
-    const authorshipButtons = [...document.querySelectorAll('[data-publication-authorship]')];
+    const typeButtons = [...document.querySelectorAll('button[data-publication-type]')];
+    const authorshipButtons = [...document.querySelectorAll('button[data-publication-authorship]')];
     const empty = document.getElementById('publication-empty');
     const typeCounts = data.records.reduce((counts, record) => {
       counts[record.category || 'articles'] = (counts[record.category || 'articles'] || 0) + 1;
