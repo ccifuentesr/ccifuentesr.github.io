@@ -8,12 +8,12 @@
    Carlos Cifuentes · Seen
   </title>
   <meta content="Carlos Cifuentes — Seen. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261116-seen-grid2" rel="stylesheet"/>
+  <link href="assets/css/site.css?v=seen-roman-20261118" rel="stylesheet"/>
   <style>.page-seen .seen-section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.page-seen .seen-section-note{grid-column:1/-1}.page-seen .seen-photo{margin:0}.page-seen .seen-caption{display:none}.page-seen #haus,.page-seen #places{display:none!important}@media(max-width:640px){.page-seen .seen-section{grid-template-columns:1fr;gap:16px}}</style>
   <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
   <script defer="" src="assets/js/site.js?v=20261113-theme1">
   </script>
-  <script defer="" src="assets/js/gallery.js">
+  <script defer="" src="assets/js/gallery.js?v=d034a0209480">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
  </head>
@@ -993,7 +993,7 @@
     </nav>
    </footer>
   </div>
-  <dialog aria-label="Photo viewer" id="photo-viewer">
+  <dialog aria-label="Photo viewer" id="photo-viewer" tabindex="-1">
    <div class="photo-toolbar">
     <button aria-label="Previous photo" id="photo-prev" type="button">
      ←
@@ -1007,11 +1007,15 @@
      ×
     </button>
    </div>
-   <p id="photo-status" role="status">
-   </p>
-   <img alt="" id="photo-full"/>
-   <p id="photo-caption">
-   </p>
+   <div class="photo-stage">
+    <p id="photo-status" role="status">
+    </p>
+    <img alt="" id="photo-full"/>
+   </div>
+   <div id="photo-caption">
+    <div id="photo-title"></div>
+    <div id="photo-location"></div>
+   </div>
   </dialog>
  </body>
 </html>

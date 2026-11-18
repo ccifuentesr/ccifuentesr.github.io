@@ -47,7 +47,7 @@ function loadTrack(src, el) {
   }
   document.querySelectorAll('.music-track').forEach(row => row.classList.remove('playing'));
   el.classList.add('playing');
-  document.getElementById('now-playing').textContent = (el.querySelector('.track-name') || el.querySelector('span') || el).textContent.trim();
+  document.getElementById('now-playing').textContent = (el.querySelector('.track-title') || el.querySelector('.track-name') || el.querySelector('span') || el).textContent.trim();
   audio.play().catch(() => {});
 }
 function syncPlayback() {

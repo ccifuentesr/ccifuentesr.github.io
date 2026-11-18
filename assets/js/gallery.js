@@ -25,7 +25,8 @@ function displayPhoto() {
   full.src = link.href;
   document.getElementById('photo-counter').textContent = `${index + 1} / ${album.length}`;
   const caption = link.closest('.seen-photo, .haus-photo')?.querySelector('.seen-caption');
-  document.getElementById('photo-caption').textContent = caption ? caption.textContent.replace(/\s+/g, ' ').trim() : full.alt;
+  document.getElementById('photo-title').textContent = caption?.querySelector('.seen-title')?.textContent.trim() || full.alt;
+  document.getElementById('photo-location').textContent = caption?.querySelector('.seen-location')?.textContent.trim() || '';
   document.getElementById('photo-prev').disabled = index === 0;
   document.getElementById('photo-next').disabled = index === album.length - 1;
 }
@@ -36,14 +37,17 @@ document.querySelectorAll('.photo-open').forEach(link => link.addEventListener('
   event.preventDefault();
   album = [...link.closest('[data-photo-panel]').querySelectorAll('.photo-open')];
   index = album.indexOf(link);
-  viewer.showModal(); displayPhoto();
+  viewer.showModal();
+  viewer.focus({preventScroll: true});
+  displayPhoto();
 }));
 function movePhoto(step) { if (index + step >= 0 && index + step < album.length) { index += step; displayPhoto(); } }
 document.getElementById('photo-prev').addEventListener('click', () => movePhoto(-1));
 document.getElementById('photo-next').addEventListener('click', () => movePhoto(1));
 document.getElementById('photo-close').addEventListener('click', () => viewer.close());
 viewer.addEventListener('click', event => { if (event.target === viewer) viewer.close(); });
-viewer.addEventListener('keydown', event => {
+document.addEventListener('keydown', event => {
+  if (!viewer.open) return;
   if (event.key === 'ArrowRight') { event.preventDefault(); movePhoto(1); }
   if (event.key === 'ArrowLeft') { event.preventDefault(); movePhoto(-1); }
 });

@@ -144,7 +144,23 @@ html[data-echoes-theme="light"] body.page-echoes{--bg-color:#f4f1eb;--text-color
 .page-echoes .echoes-timeline a{font-family:Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif}
 .echoes-timeline li{padding-bottom:32px}.echoes-entry-header--inline-subtitle h1 em{font-style:italic}.echoes-entry-header--inline-subtitle h1 span{font-size:.48em;font-style:normal;letter-spacing:-.015em}
 .photo-open{display:block;cursor:zoom-in}.photo-open img{display:block;width:100%;height:auto;background:#141418}.photo-open:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
-#photo-viewer{position:fixed;inset:0;width:min(1200px,96vw);max-height:94dvh;margin:auto;padding:18px;background:#09090b;color:#d4d4d8;border:1px solid #3f3f46;border-radius:6px;overflow:auto}#photo-viewer::backdrop{background:#000e}.photo-toolbar{display:flex;align-items:center;gap:16px;margin-bottom:12px}.photo-toolbar button{border:0;font-size:22px;padding:4px 10px}#photo-close{margin-left:auto}#photo-counter{font:13px ui-monospace,monospace;color:var(--text-secondary)}#photo-full{display:block;max-width:100%;max-height:74dvh;width:auto;height:auto;margin:auto}#photo-caption{text-align:center;font-size:14px;color:var(--text-secondary)}#photo-status:empty{display:none}
+#photo-viewer{position:fixed;inset:0;width:min(1200px,96vw);height:94dvh;max-width:none;max-height:none;margin:auto;padding:18px;background:#09090b;color:#d4d4d8;border:1px solid #3f3f46;border-radius:6px;overflow:hidden}
+#photo-viewer[open]{display:flex;flex-direction:column}
+#photo-viewer::backdrop{background:#000e}
+.photo-toolbar{display:flex;flex:none;align-items:center;gap:16px;margin-bottom:12px}
+.photo-toolbar button{border:0;font-size:22px;padding:4px 10px}
+#photo-viewer .photo-toolbar button:focus-visible{outline:none;box-shadow:none}
+#photo-close{margin-left:auto}
+#photo-counter{font:13px ui-monospace,monospace;color:#a1a1aa}
+.photo-stage{position:relative;display:grid;place-items:center;flex:1 1 auto;min-height:0;min-width:0}
+#photo-full{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+#photo-status{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:#a1a1aa}
+#photo-status:empty{display:none}
+#photo-caption{display:grid;flex:none;align-content:center;height:100px;text-align:center}
+#photo-title{color:#fff;font:500 22px/1.3 Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif}
+#photo-location{color:#a1a1aa;font-size:14px;line-height:1.6}
+html[data-theme="light"] body.page-seen #photo-viewer{background:#09090b;color:#d4d4d8;border-color:#3f3f46}
+@media(max-width:640px){#photo-viewer{height:min(650px,92dvh);padding:12px}#photo-caption{height:106px}#photo-title{font-size:19px}}
 
 .topline .brand{display:inline-flex;align-items:baseline;gap:0;font-family:"Space Grotesk",sans-serif;font-size:19px;font-weight:500;letter-spacing:-.045em;white-space:nowrap}.brand-initial{margin-right:.1em}.brand-accent{color:var(--accent)}
 
