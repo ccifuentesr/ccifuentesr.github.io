@@ -313,12 +313,12 @@ html[data-theme="light"] .project-breadcrumb a:first-child,html[data-theme="ligh
 /* Journal articles: year gutter, plain titles and compact source badges. */
 .page-publications .publication-journals{margin-top:54px}
 .page-publications .publication-section-heading{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px 24px;margin-bottom:18px;min-width:0}
-.page-publications .publication-filters{display:flex;flex-wrap:wrap;gap:20px}
+.page-publications .publication-filters{display:flex;flex-wrap:nowrap;gap:20px;border-bottom:1px solid var(--border-color)}
 .page-publications .publication-filters--authorship{margin-left:auto}
-.page-publications .publication-filter{flex:0 0 auto;white-space:nowrap;width:auto;padding:7px 0 9px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:var(--text-secondary);font-size:16px;cursor:pointer}
+.page-publications .publication-filter{flex:0 0 auto;white-space:nowrap;width:auto;margin-bottom:-1px;padding:7px 0 9px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:var(--text-secondary);font-size:16px;cursor:pointer}
 .page-publications .publication-filter:hover{color:var(--text-color);border-bottom-color:transparent}
 .page-publications .publication-filter.is-active{color:var(--text-color);border-bottom-color:var(--text-color)}
-.page-publications .publication-filters--authorship .publication-filter.is-active,.page-publications .publication-filters--authorship .publication-filter.is-active:hover{border-bottom-color:#75b58b!important}
+.page-publications .publication-filters--authorship .publication-filter.is-active{border-bottom-color:#75b58b}
 .page-publications .publication-filter:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .page-publications .publication-list{display:block;width:100%;min-width:0}
 .page-publications .publication-card{display:flex;align-items:flex-start;gap:18px;width:100%;padding:27px 0 29px;border-bottom:1px solid var(--border-color)}

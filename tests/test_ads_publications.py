@@ -26,7 +26,7 @@ class PublicationCacheTests(unittest.TestCase):
         seventh = ads.clean_record(record(7))
         eighth = ads.clean_record(record(8))
         self.assertEqual(seventh['byline'][-2:], ['Cifuentes', 'et al.'])
-        self.assertEqual(eighth['byline'][-2:], ['Author 7', 'et al. (incl. Cifuentes)'])
+        self.assertEqual(eighth['byline'], ['Author 1', 'et al. (incl. Cifuentes)'])
         self.assertEqual(seventh['citation_count'], 0)
         self.assertEqual(seventh['arxiv'], '2607.19756')
 

@@ -35,7 +35,7 @@ def byline(authors):
         raise ValueError('ADS record lacks Carlos Cifuentes in its author list')
     surnames = [author.split(',', 1)[0].strip() for author in authors]
     if position > 7:
-        return position, surnames[:7] + ['et al. (incl. Cifuentes)']
+        return position, surnames[:1] + ['et al. (incl. Cifuentes)']
     names = surnames[:position]
     if len(authors) > position:
         names.append('et al.')

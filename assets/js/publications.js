@@ -2,6 +2,16 @@
   const list = document.getElementById('publication-list');
   if (!list) return;
 
+  const journalAbbreviations = new Map([
+    ['A&A..', 'A&A'],
+    ['MNRAS', 'MNRAS'],
+    ['AJ...', 'AJ'],
+    ['ApJ..', 'ApJ'],
+    ['ApJL.', 'ApJL'],
+    ['ApJS.', 'ApJS'],
+    ['RNAAS', 'RNAAS'],
+  ]);
+
   const el = (tag, className, value) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -40,10 +50,14 @@
     const year = el('span', 'publication-year');
     year.setAttribute('aria-label', `Published in ${record.year}`);
     const body = el('div', 'publication-card-body');
-    body.append(el('h3', null, record.title), renderAuthors(record.byline));
+    const byline = record.author_position > 7
+      ? [record.byline[0], 'et al. (incl. Cifuentes)']
+      : record.byline;
+    body.append(el('h3', null, record.title), renderAuthors(byline));
 
     const details = el('div', 'publication-details');
-    const venue = [record.journal, record.volume, record.page].filter(Boolean).join(', ');
+    const journal = journalAbbreviations.get(record.bibcode.slice(4, 9)) || record.journal;
+    const venue = [journal, record.volume, record.page].filter(Boolean).join(', ');
     details.append(el('span', 'publication-venue', venue));
     details.append(link('ADS', `https://ui.adsabs.harvard.edu/abs/${encodeURIComponent(record.bibcode)}/abstract`, 'publication-link-badge'));
     if (record.arxiv) {
