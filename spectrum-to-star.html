@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>Carlos Cifuentes · From spectrum to star</title>
+  <meta content="Stellar spectroscopy, from observed light to physical measurements, with the sodium doublet in a CARMENES VIS spectrum of KOBE-1." name="description"/>
+  <link href="assets/css/site.css?v=20261121-fit-compact1" rel="stylesheet"/>
+  <script>try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}</script>
+  <script defer src="assets/js/site.js?v=20261113-theme1"></script>
+  <script defer src="assets/js/spectrum-to-star.js?v=20261121-tabs1"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="page-projects">
+  <div class="site-shell site-shell--wide">
+   <a class="skip" href="#main">Skip to content</a>
+   <div class="topline">
+    <a aria-label="C. Cifuentes — Home" class="brand" href="index.html"><span class="brand-initial">C.</span><span>Cifuentes</span><span aria-hidden="true" class="brand-accent">_</span></a>
+    <div class="topline-actions">
+     <nav aria-label="Main navigation">
+      <a href="projects.html">Projects</a><a href="cv.html">CV</a><a href="publications.html">Papers</a><a href="teaching.html">Teaching</a>
+     </nav>
+     <button aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle" data-theme-toggle title="Switch to light mode" type="button"><svg aria-hidden="true" class="theme-icon theme-icon--moon" fill="none" viewBox="0 0 24 24"><path d="M20.8 14.3A8.5 8.5 0 0 1 9.7 3.2 9 9 0 1 0 20.8 14.3Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><svg aria-hidden="true" class="theme-icon theme-icon--sun" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M21.5 12h-2M4.5 12h-2M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4M18.7 18.7l-1.4-1.4M6.7 6.7 5.3 5.3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></button>
+    </div>
+   </div>
+   <main id="main" class="spectrum-detail">
+    <nav aria-label="Breadcrumb" class="project-breadcrumb">
+     <a href="index.html">C. Cifuentes<span aria-hidden="true" class="breadcrumb-accent">_</span></a><span aria-hidden="true">/</span><a href="projects.html">Projects</a><span aria-hidden="true">/</span><strong>From spectrum to star</strong>
+    </nav>
+    <header>
+     <div class="eyebrow">Stellar spectroscopy</div>
+     <h1>From spectrum to star</h1>
+     <p class="subtitle">Reading physical properties from observed light.</p>
+     <p>Stellar spectra carry information about temperature, composition, and motion. I prepare the observations, compare diagnostic features with physical models, and check the measurements against independent evidence.</p>
+    </header>
+    <section class="kobe-case" aria-labelledby="kobe-case-title">
+     <div class="kobe-case-header">
+      <div>
+       <span class="kobe-case-eyebrow">A worked example</span>
+       <h2 id="kobe-case-title">KOBE</h2>
+       <p class="kobe-case-intro">A spectral synthesis workflow for late-K dwarfs observed with CARMENES VIS. It fits temperature and metallicity while anchoring surface gravity to independent stellar measurements.</p>
+      </div>
+      <a class="kobe-case-link" href="https://github.com/ccifuentesr/kobe-spectral-synthesis" rel="noopener noreferrer" target="_blank">Explore the code ↗</a>
+     </div>
+
+     <div class="kobe-tabs" role="tablist" aria-label="KOBE analysis steps">
+      <button class="kobe-step-tab" id="kobe-tab-build" role="tab" aria-selected="true" aria-controls="kobe-panel-build" type="button"><span>01</span>Build the spectrum</button>
+      <button class="kobe-step-tab" id="kobe-tab-prepare" role="tab" aria-selected="false" aria-controls="kobe-panel-prepare" tabindex="-1" type="button"><span>02</span>Prepare the signal</button>
+      <button class="kobe-step-tab" id="kobe-tab-motion" role="tab" aria-selected="false" aria-controls="kobe-panel-motion" tabindex="-1" type="button"><span>03</span>Measure motion</button>
+      <button class="kobe-step-tab" id="kobe-tab-fit" role="tab" aria-selected="false" aria-controls="kobe-panel-fit" tabindex="-1" type="button"><span>04</span>Fit the lines</button>
+     </div>
+     <div class="kobe-step-panels">
+      <div class="kobe-step-panel" id="kobe-panel-build" role="tabpanel" aria-labelledby="kobe-tab-build" tabindex="0">
+       <div class="kobe-panel-heading"><h3>KOBE-1 · from orders to spectrum</h3><p>Merge the échelle orders into a one-dimensional CARMENES VIS spectrum, with the stellar radial-velocity correction applied.</p></div>
+     <figure>
+      <picture>
+       <source media="(max-width: 600px)" srcset="media/kobe/kobe-056-sodium-doublet-mobile.svg?v=dashed1"/>
+       <img src="media/kobe/kobe-056-sodium-doublet.svg?v=dashed1" alt="CARMENES VIS spectrum of KOBE-1 from 584 to 594 nanometres, with two dashed vertical lines marking the sodium doublet near 589 nanometres" width="1100" height="440"/>
+      </picture>
+      <figcaption>CARMENES VIS · 15 October 2021 · merged spectrum, catalogued as KOBE-056. Flux scaled to its local continuum for display. The Na I D lines illustrate the observation; KOBE excludes them from its Fe-line fit.</figcaption>
+     </figure>
+     <p class="kobe-star-context">KOBE-1 hosts two planets, KOBE-1 b and c, reported by <a href="https://doi.org/10.1051/0004-6361/202452631" rel="noopener noreferrer" target="_blank">Balsalobre-Ruza et al. (2025) ↗</a>.</p>
+      </div>
+      <div class="kobe-step-panel" id="kobe-panel-prepare" role="tabpanel" aria-labelledby="kobe-tab-prepare" tabindex="0" hidden>
+       <div class="kobe-panel-heading"><h3>Keep the stellar signal</h3><p>Mask telluric contamination, select clean spectral windows, and correct the residual continuum with a spline.</p></div>
+       <figure>
+        <picture>
+         <source media="(max-width: 600px)" srcset="media/kobe/kobe-1-vis-windows-mobile.svg"/>
+         <img src="media/kobe/kobe-1-vis-windows.svg" alt="Full CARMENES VIS spectrum of KOBE-1 from approximately 562 to 919 nanometres, with five green bands showing the synthesis windows" width="1100" height="440"/>
+        </picture>
+        <figcaption>Full CARMENES VIS spectrum of KOBE-1 · flux scaled to a local continuum for display. Green bands show the selected synthesis windows; gaps avoid the strongest telluric bands. Individual contaminated pixels and strong lines are masked within them.</figcaption>
+       </figure>
+       <div class="kobe-window-values"><span>562–686</span><span>695–713</span><span>737–756</span><span>773–807</span><span>837–860 nm</span></div>
+       <div class="kobe-method-flow"><div><span>Mask</span><strong>Earth’s atmosphere</strong></div><b aria-hidden="true">→</b><div><span>Select</span><strong>Stellar windows</strong></div><b aria-hidden="true">→</b><div><span>Normalise</span><strong>Spline continuum</strong></div></div>
+      </div>
+      <div class="kobe-step-panel" id="kobe-panel-motion" role="tabpanel" aria-labelledby="kobe-tab-motion" tabindex="0" hidden>
+       <div class="kobe-panel-heading"><h3>Bring the lines into alignment</h3><p>Cross-correlate the prepared spectrum with a K5 mask to measure and correct the residual radial velocity.</p></div>
+       <figure>
+        <picture>
+         <source media="(max-width: 600px)" srcset="media/kobe/kobe-1-k5-mask-mobile.svg"/>
+         <img src="media/kobe/kobe-1-k5-mask.svg" alt="Real spectrum of KOBE-1 from 616 to 624 nanometres in white, with the K5 cross-correlation mask lines shown in green below zero" width="1100" height="440"/>
+        </picture>
+        <figcaption>Observed KOBE-1 spectrum in white; the green ticks below zero mark the K5 mask lines, with lengths proportional to their weights. This interval illustrates the alignment; the radial-velocity calculation uses the broader 562–680 nm range.</figcaption>
+       </figure>
+       <div class="kobe-method-flow"><div><span>Input</span><strong>Prepared spectrum</strong></div><b aria-hidden="true">×</b><div><span>Reference</span><strong>K5 line mask</strong></div><b aria-hidden="true">→</b><div><span>Output</span><strong>Residual RV</strong></div></div>
+      </div>
+      <div class="kobe-step-panel" id="kobe-panel-fit" role="tabpanel" aria-labelledby="kobe-tab-fit" tabindex="0" hidden>
+       <div class="kobe-panel-heading"><h3>Two passes, one physical anchor</h3><p>One free parameter per pass; gravity and broadening stay anchored.</p></div>
+       <div class="kobe-fit-inputs">
+        <div class="kobe-fit-anchor">
+         <span class="kobe-diagram-label">Independent anchor</span>
+         <h3>Luminosity → radius → log g</h3>
+         <p>SED luminosity + catalog T<sub>eff</sub> give R<sub>initial</sub>; catalog mass gives log g<sub>initial</sub>.</p>
+         <small>KOBE masses: an upstream mass–luminosity relation.</small>
+        </div>
+        <div class="kobe-fit-fixed">
+         <span class="kobe-diagram-label">Fixed in both passes</span>
+         <dl><div><dt>Microturbulence</dt><dd>v<sub>mic</sub> = 0.7 km/s</dd></div><div><dt>Macroturbulence</dt><dd>v<sub>mac</sub> = 0 km/s</dd></div><div><dt>Rotation</dt><dd>v sin i = 2 km/s*</dd></div></dl>
+         <small>*Use the pre-fit CCF value if it exceeds 4 km/s.</small>
+        </div>
+       </div>
+       <div class="kobe-input-arrow" aria-hidden="true"><svg viewBox="0 0 800 42" preserveAspectRatio="none"><defs><marker id="kobe-input-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L8 5L1 9"/></marker></defs><path d="M190 2V9 Q190 18 205 18H585 Q600 18 600 9V2 M395 18H220 Q190 18 190 36" marker-end="url(#kobe-input-tip)"/></svg></div>
+       <div class="kobe-compact-passes">
+        <div class="kobe-compact-pass">
+         <span class="kobe-diagram-label">Pass 1 · metallicity</span>
+         <h3>Fit <span>[M/H]</span></h3>
+         <dl><div class="kobe-free-row"><dt>Free</dt><dd>[M/H]</dd></div><div><dt>Fixed</dt><dd>Catalog T<sub>eff</sub>, initial log g<br/>v<sub>mic</sub>, v<sub>mac</sub>, v sin i</dd></div></dl>
+        </div>
+        <svg class="kobe-curved-arrow" viewBox="0 0 72 44" role="img" aria-label="Pass fitted metallicity to the temperature fit"><defs><marker id="kobe-pass-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L8 5L1 9"/></marker></defs><path d="M5 30C20 7 48 7 64 28" marker-end="url(#kobe-pass-tip)"/></svg>
+        <div class="kobe-compact-pass">
+         <span class="kobe-diagram-label">Pass 2 · temperature</span>
+         <h3>Fit <span>T<sub>eff</sub></span></h3>
+         <dl><div class="kobe-free-row"><dt>Free</dt><dd>T<sub>eff</sub></dd></div><div><dt>Fixed</dt><dd>[M/H] from pass 1, initial log g<br/>v<sub>mic</sub>, v<sub>mac</sub>, v sin i</dd></div></dl>
+        </div>
+       </div>
+       <div class="kobe-final-arrow" aria-hidden="true"><svg viewBox="0 0 800 42" preserveAspectRatio="none"><path d="M610 2V9 Q610 20 590 20H420 Q400 20 400 36" marker-end="url(#kobe-input-tip)"/></svg></div>
+       <div class="kobe-fit-refresh">
+        <span class="kobe-diagram-label">Final physical update</span>
+        <h3>Fitted T<sub>eff</sub> → R<sub>final</sub> → log g<sub>final</sub></h3>
+        <p>Luminosity and mass stay fixed. Update once; no new synthesis pass.</p>
+       </div>
+      </div>
+     </div>
+
+     <div class="kobe-checks">
+      <h3>Calibration &amp; checks</h3>
+      <div class="kobe-check-grid">
+       <div><span>01 / Line selection</span><strong>Gaia–ESO, edited</strong><p>Seven lines that biased the benchmark temperature test are removed from the default line list.</p></div>
+       <div><span>02 / Broadening</span><strong>CCF-calibrated rotation</strong><p>Before the fit, synthetic CCF widths calibrate an independent v sin i estimate that sets the rotation anchor. Microturbulence and macroturbulence remain fixed throughout the synthesis.</p></div>
+       <div><span>03 / Validation</span><strong>Benchmark stars</strong><p>Gaia Benchmark Stars test the pipeline against reference values. Fit quality, velocity, rotation, S/N, and activity feed the result flags.</p></div>
+      </div>
+     </div>
+     <p class="kobe-paper-note">A paper presenting the stellar parameters of the KOBE project sample is in preparation.</p>
+    </section>
+   </main>
+   <footer><span>© 2026 C. Cifuentes</span><nav aria-label="Beyond work"><span>Beyond work</span><a href="musik.html">Musik</a><a href="seen.html">Seen</a><a href="echoes.html">Echoes</a></nav></footer>
+  </div>
+ </body>
+</html>
