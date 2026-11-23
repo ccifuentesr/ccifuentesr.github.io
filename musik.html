@@ -8,9 +8,10 @@
    Carlos Cifuentes · Musik
   </title>
   <meta content="Carlos Cifuentes — Musik. Scientific data analysis, software and astrophysics." name="description"/>
-  <link href="assets/css/site.css?v=20261116-music-cards57" rel="stylesheet"/>
-  <script defer="" src="assets/js/site.js?v=20261117-musik-menu2">
+  <link href="assets/css/site.css?v=20261123-breathe1" rel="stylesheet"/>
+  <script defer="" src="assets/js/site.js?v=20261123-music-fade1">
   </script>
+  <script defer src="assets/js/klangraum.js?v=aurora-text1"></script>
   <script>
    try { if (localStorage.getItem('site-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (error) {}
   </script>
@@ -46,10 +47,10 @@
     </button>
    </div>
    <main id="main">
+    <a aria-label="Back to Musik menu" class="musik-menu-back" data-music-back href="#about" hidden="" title="Back to Musik menu">←</a>
     <h1>
      Musik
     </h1>
-    <a aria-label="Back to Musik menu" class="musik-menu-back" data-music-back href="#about" hidden="" title="Back to Musik menu">←</a>
     <div data-music-panel="about" id="about-page">
      <div class="music-overview">
       <a class="music-overview-card music-overview-card--kosmona" href="#kosmona">
@@ -58,9 +59,7 @@
        </span>
       </a>
       <a class="music-overview-card music-overview-card--agricola" href="#agricola">
-       <span>
-        Agricola
-       </span>
+       <span>Agricola</span>
       </a>
       <a class="music-overview-card music-overview-card--klavier" href="#klavier">
        <span>
@@ -68,12 +67,17 @@
        </span>
       </a>
      </div>
-     <p class="music-equipment-link">
-      Check my <a href="#equipment">equipment</a>
-     </p>
-     <p class="music-note">
-      Use headphones for a better experience.
-     </p>
+     <div class="music-listening-room">
+      <a class="klangraum-button" href="#klangraum">breathe<span aria-hidden="true" class="klangraum-spotlight">breathe</span></a>
+     </div>
+    </div>
+    <div data-music-panel="klangraum" id="klangraum-page" hidden>
+     <div class="klangraum-space" aria-label="Klangraum listening room">
+      <canvas id="klangraum-journey" aria-hidden="true"></canvas>
+      <span class="klangraum-breathe">breathe</span>
+      <span class="klangraum-caption">Miss you — Carlic</span>
+      <audio id="klangraum-audio" src="media/music/carlic_miss-you.mp3" preload="metadata" loop></audio>
+     </div>
     </div>
     <div data-music-panel="kosmona" id="kosmona-page">
      <!-- Kosmona Section -->
@@ -907,6 +911,7 @@
     <span>
      © 2026 C. Cifuentes
     </span>
+    <a class="music-footer-equipment" href="#equipment">Check my <span>equipment</span></a>
     <nav aria-label="Beyond work">
      <span>
       Beyond work

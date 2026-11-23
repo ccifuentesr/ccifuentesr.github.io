@@ -25,17 +25,34 @@ document.querySelectorAll('footer nav a').forEach(link => {
 });
 const musicPanels = document.querySelectorAll('[data-music-panel]');
 const musicBack = document.querySelector('[data-music-back]');
+const roomAudio = document.getElementById('klangraum-audio');
 function showMusicPanel() {
   const requested = location.hash.slice(1) || 'about';
   const name = [...musicPanels].some(p => p.dataset.musicPanel === requested) ? requested : 'about';
   musicPanels.forEach(p => { p.hidden = p.dataset.musicPanel !== name; });
   if (musicBack) musicBack.hidden = name === 'about';
+  document.body.classList.toggle('klangraum-active', name === 'klangraum');
+  if (roomAudio && name !== 'klangraum') { roomAudio.pause(); roomAudio.currentTime = 0; }
   document.querySelectorAll('.collection-nav a').forEach(a => {
     if (a.hash === '#' + name) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
   });
 }
 if (musicPanels.length) { showMusicPanel(); window.addEventListener('hashchange', showMusicPanel); }
+document.querySelector('.klangraum-button')?.addEventListener('click', () => {
+  document.getElementById('global-audio')?.pause();
+  roomAudio?.play().catch(() => {});
+});
+document.querySelector('.klangraum-space')?.addEventListener('pointerdown', () => {
+  if (roomAudio?.paused) roomAudio.play().catch(() => {});
+});
+const listeningRoom = document.querySelector('.music-listening-room');
+const klangraumButton = listeningRoom?.querySelector('.klangraum-button');
+klangraumButton?.addEventListener('pointermove', event => {
+  const rect = klangraumButton.getBoundingClientRect();
+  klangraumButton.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+  klangraumButton.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+});
 document.querySelectorAll('.tab').forEach(tab => {
   tab.setAttribute('role', 'button'); tab.tabIndex = 0;
   const activate = () => {
